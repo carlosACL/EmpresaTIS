@@ -4,6 +4,7 @@ const Prueba = () => {
     return (
         <div>
             <h1>Prueba de Componente </h1>
+            <h1>Prueba de Componente </h1>
         </div>
     )
 }
