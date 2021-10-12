@@ -4,8 +4,8 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
-//require('./bootstrap');
-
+require('./bootstrap');
+import 'bootstrap/dist/css/bootstrap.css';
 /**
  * Next, we will create a fresh React component instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -15,20 +15,30 @@
 //require('./components/Example');
 
 import ReactDOM from 'react-dom';
-import Prueba from './components/Prueba';
-import React from 'react'
+import RegistroGE from './components/RegistroGE';
+import React from 'react';
+import '../css/app.css';
+import {Fondo} from './elementos/card';
+//import Login from "./components/Login/Login"
 
-const App = () => {
-    return (
-        <div>
-            <Prueba></Prueba>   
-        </div>
-    )
+/*
+
+    if(document.getElementById('login')){
+        ReactDOM.render(<Login/>,document.getElementById('regGE'));
+    }
+
+*/
+if(document.getElementById('fondo')){
+    ReactDOM.render(
+    <div>
+        <Fondo src='./resources/asesoria-cont-financ_001.png'/>
+    </div>, document.getElementById('fondo'));
+
+};
+
+if(document.getElementById('regGE')){
+  ReactDOM.render(<div >
+                        <RegistroGE />
+                </div>
+        ,document.getElementById('regGE'));
 }
-
-ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );

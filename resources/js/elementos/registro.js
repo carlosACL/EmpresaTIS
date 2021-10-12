@@ -1,0 +1,76 @@
+import styled from "styled-components";
+
+
+const Formulario = styled.form`
+    margin-top: 50px;
+    margin: 30px;
+    display : grid;
+    gap: 20px;
+    @media (max-width: 800px){
+        grid-template-columns: 1fr;
+    }
+`;
+
+const ContenedorDatos = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap : 20px;
+    align-items: center;
+
+    @media (max-width: 800px){
+        grid-template-columns: 1fr;
+    }
+`;
+
+const ContenedorBloque = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: span 2;
+    @media (max-width: 800px){
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+`;
+
+const InputImagen = styled.input`
+    color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 151.5px;
+`;
+
+const Titulo = styled.h1`
+    margin-top: 50px;
+`;
+
+const Boton = styled.button`
+    background-color: rgb(0 , 221, 170);
+    border-color: rgb(0 , 221, 170);
+    :hover{
+        background-color: rgb(240, 255, 240);
+    }
+`;
+
+const InputStyle = styled.input`
+    transition: .3s ease all;
+    color: black;
+    border-color: rgb(240, 255, 240, 0.4);
+    border-bottom-color: black;
+    width: 80%;
+    &:focus{
+        border-bottom: 4px solid rgb(0 , 221, 170);
+        outline: none;
+        box-shadow: 5px 5px 5px;
+    }
+`;
+
+export {Formulario, 
+    ContenedorDatos, 
+    ContenedorBloque, 
+    InputImagen, 
+    Titulo, 
+    Boton,
+    InputStyle};
