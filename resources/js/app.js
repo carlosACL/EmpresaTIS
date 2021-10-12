@@ -15,13 +15,13 @@
 //require('./components/Example');
 
 import ReactDOM from 'react-dom';
-import Prueba from './components/Prueba';
-import React from 'react'
+import React from 'react';
+import PerfilUsuario from './components/perfilUsuario';
 
 const App = () => {
     return (
         <div>
-            <Prueba></Prueba>   
+            <PerfilUsuario></PerfilUsuario>   
         </div>
     )
 }

@@ -1,0 +1,101 @@
+body{
+    background-color: #66ddaa;
+}
+
+#lbDetalles{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 20%;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+
+.labels{
+    display: inline-block;
+    position: relative;
+    padding: 15px;
+    width: 180px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.texto{
+    border-color: black;
+    border-width: 0px;
+    border-bottom-width: 3px;
+    text-align: center;
+    width: 30%;
+}
+
+#tarjeta-datos{
+    display: block;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: #22ddaa;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    left: 25%;
+    right: 20%;
+    top: 10%;
+    padding: 30px;
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 70px;
+    padding-bottom: 125px;
+}
+
+#img-usuario{
+    position: absolute;
+    background-color: white;
+    border-width: 2px;
+    border-color: #22ddaa;
+    width: 25%;
+    height: 30%;
+    top: 5%;
+    left: 5%;
+}
+
+@media only screen and (max-width: 1200px) {
+    #lbDetalles{
+        display: block;
+        text-align: center;
+        padding-top: 300px;
+        padding-right: 0px;
+        margin: 0 auto;
+    }
+
+    #tarjeta-datos{
+        left: 15%;
+        right: 15%;
+        padding: 0%;
+        padding-bottom: 50px;
+    }
+
+    .labels{
+        display: block;
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .texto{
+        display: block;
+        position: relative;
+        width: 80%;
+        height: 20px;
+        padding: 0%;
+        margin: 0 auto;
+    }
+
+    #img-usuario{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        top: 5%;
+        left: 0%;
+        right: 0%;
+        margin: 0 auto;
+    }
+}
