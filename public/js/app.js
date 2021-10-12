@@ -133,6 +133,7 @@ function stylis_min (W) {
                         l = u;
                       }
 
+<<<<<<< HEAD
                   }
 
                   break;
@@ -682,6 +683,18 @@ function stylis_min (W) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (stylis_min);
+=======
+
+var Prueba = function Prueba() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: "Prueba de Componente "
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: "Prueba de Componente "
+    })]
+  });
+};
+>>>>>>> dc49b207a0820db76076f64288320fb8e225d53d
 
 
 /***/ }),
