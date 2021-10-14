@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroGEController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/RegistroGE', function(){
     return view('registroGE');
 });
+
+Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE']);

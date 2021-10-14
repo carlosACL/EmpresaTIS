@@ -1,6 +1,5 @@
 import React from 'react'
-import { Formulario, 
-        ContenedorDatos, 
+import {ContenedorDatos, 
         ContenedorBloque,
         Titulo,
         Boton } from './../elementos/registro';
@@ -22,41 +21,42 @@ const RegistroGE = () => {
         return `${anio}-${mes}-${dia}`;
     }
 
+    const orgJur = ['Sociedad de Responsabilidad limitada','Sociedad Coletiva','Sociedad Anonima','Sociedad Anonima Mixta'];
+
     return (
         <main>
             <Card>
-                <Formulario>
+                <form className='formStyle' method='POST' enctype="multipart/form-data" action='api/registrarGrupoEmpresa'>
                     <ContenedorBloque>
                         <Titulo>Registro Grupo-Empresa</Titulo>
                     </ContenedorBloque>
                     <ContenedorDatos>
                         <div>
                             <h5 className='text-left'><b>1. Fecha de Registro</b></h5><br/>
-                            <Input nombre='calendario' tipo='date' max={validarCalendario()} value={validarCalendario()} min='1999-01-01'/><br/><br/>
+                            <Input nombre='fecha_registro' tipo='date' max={validarCalendario()} min='1999-01-01'/><br/><br/>
                             <h5 className='text-left'><b>2. Tipo de Organizacion Juridica</b></h5><br/>
-                            <select>
+                            <select name='orgJur'>
                                 <option>--Seleccione una opcion--</option>
-                                <option>Sociedad de Responsabilidad</option>
-                                <option>Sociedad Coletiva</option>
-                                <option>Sociedad Anonima</option>
-                                <option>Sociedad Anonima Mixta</option>
+                                {orgJur.map((dat) => {
+                                    return(<option value={dat}>{dat}</option>)
+                                })}
                             </select>
                         </div>
                         <div className='imagenGERC'>
-                            <InputImg></InputImg>
+                            <InputImg name='imagen'></InputImg>
                         </div>
                     </ContenedorDatos>    
                     <ContenedorBloque>
                         <h5 className='text-left'><b>3. Datos de la Empresa</b></h5><br/>
                         <ContenedorDatos>
                             <div>
-                                <Input nombre='nomGE' placeholder='Nombre Grupo-Empresa' tipo='text'/>
+                                <Input nombre='nombre' placeholder='Nombre Grupo-Empresa' tipo='text'/>
                             </div>
                             <div>
                                 <Input nombre='direccion' tipo='text' placeholder='Direccion'/>
                             </div>
                             <div>
-                                <Input nombre='Nombre Abreviado' tipo='text' placeholder='Nombre Abreviado'/>
+                                <Input nombre='nombreAb' tipo='text' placeholder='Nombre Abreviado'/>
                             </div>
                             <div>
                                 <Input nombre='email' tipo='email' placeholder='Correo electronico'/>
@@ -67,10 +67,10 @@ const RegistroGE = () => {
                         </ContenedorDatos>
                     </ContenedorBloque>
                     <ContenedorBloque className='miTextArea mb-3'>
-                        <textarea placeholder='Objetivo'></textarea>
+                        <textarea name='descripcion' placeholder='Objetivo'></textarea>
                         <Boton type='submit'>Registrar</Boton>
                     </ContenedorBloque>
-                </Formulario>            
+                </form>            
             </Card>
         </main>
     )

@@ -1,16 +1,5 @@
 import styled from "styled-components";
 
-
-const Formulario = styled.form`
-    margin-top: 50px;
-    margin: 30px;
-    display : grid;
-    gap: 20px;
-    @media (max-width: 800px){
-        grid-template-columns: 1fr;
-    }
-`;
-
 const ContenedorDatos = styled.div`
     width: 100%;
     display: grid;
@@ -67,8 +56,7 @@ const InputStyle = styled.input`
     }
 `;
 
-export {Formulario, 
-    ContenedorDatos, 
+export { ContenedorDatos, 
     ContenedorBloque, 
     InputImagen, 
     Titulo, 
