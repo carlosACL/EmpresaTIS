@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { InputImagen } from '../../elementos/registro'
 
-const InputImg = () => {
+const InputImg = ({name}) => {
     const imagenCarg = useRef(null);
     const [logo, setLogo] = useState("./resources/logoDefecto.png");
 
@@ -21,7 +21,7 @@ const InputImg = () => {
     return (
         <>
             <img id='imagenGER' className='mb-2' src={logo} alt="" />
-            <InputImagen ref = {imagenCarg} onChange={onButtonClick} type='file'/>
+            <InputImagen name={name} ref = {imagenCarg} onChange={onButtonClick} type='file'/>
         </>);
 };
 
