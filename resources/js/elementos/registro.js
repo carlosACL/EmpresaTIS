@@ -56,9 +56,19 @@ const InputStyle = styled.input`
     }
 `;
 
+const MensajeRGE = styled.div`
+    width: 100%;
+    border-style: solid;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+`;
+
 export { ContenedorDatos, 
     ContenedorBloque, 
     InputImagen, 
     Titulo, 
     Boton,
-    InputStyle};
+    InputStyle,
+    MensajeRGE};

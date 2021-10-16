@@ -9,13 +9,14 @@ const Input = ({tipo, nombre, placeholder, max, min, regex, value, maxlength, mi
             <InputStyle type={tipo} 
                         placeholder={placeholder} 
                         name={nombre} 
+                        id = {nombre}
                         ref={ref}
                         value={(value) && value} 
                         min={(min) && min}
                         max={(max) && max}
                         maxLength={maxlength && parseInt(maxlength)}
                         minLength={minlenght && parseInt(minlenght)}
-                        />
+                        required/>
         </>
     )
 }

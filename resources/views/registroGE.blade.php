@@ -9,6 +9,6 @@
 <body>
     <div id='fondo'></div>
     <div id='regGE'></div>
-    <script src="./js/app.js"></script>
+    <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>
 </html>

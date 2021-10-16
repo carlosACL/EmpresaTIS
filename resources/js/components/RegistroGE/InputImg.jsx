@@ -21,7 +21,7 @@ const InputImg = ({name}) => {
     return (
         <>
             <img id='imagenGER' className='mb-2' src={logo} alt="" />
-            <InputImagen name={name} ref = {imagenCarg} onChange={onButtonClick} type='file'/>
+            <InputImagen id={name} name={name} ref = {imagenCarg} onChange={onButtonClick} type='file'/>
         </>);
 };
 
