@@ -4,6 +4,7 @@ const Card = styled.div`
     max-width: 700px;
     margin-top: 5%;
     text-align: center;
+    transition: .5s ease all;
     background-color: rgb(240, 255, 240, 0.7);
     border-color: rgb(240, 255, 240, 0.4);
     border-radius: 30px;

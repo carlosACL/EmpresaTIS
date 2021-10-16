@@ -3010,7 +3010,7 @@ var RegistroGE = function RegistroGE() {
                 }
 
                 document.getElementById('cardItem').style = "border-style:solid;box-shadow: 10px 10px 10px ".concat(color, "; border-color: ").concat(color);
-                mensaje.style = "border-color:  ".concat(color, "; color:white; background-color:").concat(color, ";");
+                mensaje.style = "transition: .5s ease all;border-color:  ".concat(color, "; color:white; background-color:").concat(color, ";");
                 window.scroll(0, 0);
               });
 
@@ -3304,7 +3304,7 @@ var _templateObject, _templateObject2;
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
-var Card = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    margin-top: 5%;\n    text-align: center;\n    background-color: rgb(240, 255, 240, 0.7);\n    border-color: rgb(240, 255, 240, 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:800px){\n        width: 100%;\n        max-width: 800px;\n    }\n"])));
+var Card = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(240, 255, 240, 0.7);\n    border-color: rgb(240, 255, 240, 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:800px){\n        width: 100%;\n        max-width: 800px;\n    }\n"])));
 var Fondo = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: block;\n    opacity: 0.3;\n    position: fixed;\n    z-index: -100;\n    width: 100%;\n    justify-content: center;\n    object-fit: cover;\n"])));
 
 

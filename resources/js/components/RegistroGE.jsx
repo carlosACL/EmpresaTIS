@@ -28,7 +28,6 @@ const RegistroGE = () => {
                 color = "#6aff00";
                 mensaje.innerHTML = "Exito al Registrar Grupo empresa";
 
-
                 const files = Array.from(document.getElementsByTagName('input'));
                 files.map((inp) => {
                     inp.disabled = true;
@@ -42,7 +41,7 @@ const RegistroGE = () => {
                 mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
             }
             document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
-            mensaje.style = `border-color:  ${color}; color:white; background-color:${color};`;
+            mensaje.style = `transition: .5s ease all;border-color:  ${color}; color:white; background-color:${color};`;
             window.scroll(0,0);
         });
     };
