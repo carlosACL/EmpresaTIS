@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ContenedorDatos = styled.div`
     width: 100%;
@@ -54,15 +55,63 @@ const InputStyle = styled.input`
         outline: none;
         box-shadow: 5px 5px 5px;
     }
+
+    ${props => props.valido ==='false' && css`
+        border-bottom-color: red !important;
+    `}
+
+    ${props => props.valido ==='true' && css`
+        border-bottom-color: #6aff00 !important;
+    `}
+`;
+
+const TextA = styled.textarea`
+    transition: .3s ease all;
+    color: black;
+    border-color: rgb(240, 255, 240, 0.4);
+    border-bottom-color: black;
+    width: 80%;
+    &:focus{
+        border-bottom: 4px solid rgb(0 , 221, 170);
+        outline: none;
+        box-shadow: 5px 5px 5px;
+    }
+
+    ${props => props.valido ==='false' && css`
+        border-bottom-color: red !important;
+    `}
+
+    ${props => props.valido ==='true' && css`
+        border-bottom-color: #6aff00 !important;
+    `}
 `;
 
 const MensajeRGE = styled.div`
     width: 100%;
+    color : white;
     border-style: solid;
     border-radius: 10px;
     justify-content: center;
     text-align: center;
     margin-bottom: 50px;
+`;
+
+const MensajeGlobo = styled.div`
+    position:absolute;
+    display: none;
+    width: 300px;
+    color : white;
+    background-color: red;
+    border-style: solid;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+`;
+
+const Icon = styled(FontAwesomeIcon)`
+    margin-left: 10px;
+    color:red;
 `;
 
 export { ContenedorDatos, 
@@ -71,4 +120,7 @@ export { ContenedorDatos,
     Titulo, 
     Boton,
     InputStyle,
-    MensajeRGE};
+    MensajeRGE,
+    Icon,
+    MensajeGlobo,
+    TextA};
