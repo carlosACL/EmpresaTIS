@@ -12726,7 +12726,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../css/app.css */ "./resources/css/app.css");
 /* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elementos/card */ "./resources/js/elementos/card.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Navegador__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Navegador */ "./resources/js/components/Navegador.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -12746,6 +12747,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
  //import Login from "./components/Login/Login"
 
 /*
@@ -12759,8 +12761,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 if (document.getElementById('fondo')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_5__.Fondo, {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_5__.Fondo, {
       src: "./resources/asesoria-cont-financ_001.png"
     })
   }), document.getElementById('fondo'));
@@ -12769,9 +12771,13 @@ if (document.getElementById('fondo')) {
 ;
 
 if (document.getElementById('regGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
   }), document.getElementById('regGE'));
+}
+
+if (document.getElementById('navegador')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Navegador__WEBPACK_IMPORTED_MODULE_6__["default"], {}), document.getElementById('navegador'));
 }
 
 /***/ }),
@@ -12817,6 +12823,191 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/Navegador.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/components/Navegador.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_navegador__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../elementos/navegador */ "./resources/js/elementos/navegador.js");
+/* harmony import */ var _Navegador_ItemNavegador__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navegador/ItemNavegador */ "./resources/js/components/Navegador/ItemNavegador.jsx");
+/* harmony import */ var _Navegador_Logo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Navegador/Logo */ "./resources/js/components/Navegador/Logo.jsx");
+/* harmony import */ var _Navegador_Session__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Navegador/Session */ "./resources/js/components/Navegador/Session.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+var Navegador = function Navegador() {
+  var datos = [{
+    nombre: 'nombre',
+    link: "link 2"
+  }, {
+    nombre: 'nombre2',
+    link: 'www.animeflv.net'
+  }, {
+    nombre: 'nombre3',
+    link: 'www.animeflv.net'
+  }, {
+    nombre: 'nombre4',
+    link: 'www.animeflv.net'
+  }];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.Nav, {
+      className: "navbar navbar-collapse",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "navbar navbar-expand-lg",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Navegador_Logo__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          link: "#"
+        }), datos.map(function (dato) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Navegador_ItemNavegador__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            className: " nav-item",
+            link: dato.link,
+            nombre: dato.nombre
+          });
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Navegador_Session__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navegador);
+
+/***/ }),
+
+/***/ "./resources/js/components/Navegador/ItemNavegador.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/Navegador/ItemNavegador.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_navegador__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/navegador */ "./resources/js/elementos/navegador.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var ItemNavegador = function ItemNavegador(_ref) {
+  var link = _ref.link,
+      nombre = _ref.nombre;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.ItemNav, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      className: "text-decoration-none m-3",
+      href: link,
+      children: nombre
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemNavegador);
+
+/***/ }),
+
+/***/ "./resources/js/components/Navegador/Logo.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Navegador/Logo.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_navegador__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/navegador */ "./resources/js/elementos/navegador.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Logo = function Logo(link) {
+  var logo = './resources/LOGO.png';
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: " mr-3",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      href: link,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.Img, {
+        src: logo
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
+
+/***/ }),
+
+/***/ "./resources/js/components/Navegador/Session.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/Navegador/Session.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _ItemNavegador__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ItemNavegador */ "./resources/js/components/Navegador/ItemNavegador.jsx");
+/* harmony import */ var _elementos_navegador__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/navegador */ "./resources/js/elementos/navegador.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var Session = function Session() {
+  var registrarse = {
+    nombre: 'Registrarse',
+    link: '#'
+  };
+  var iniciarSession = {
+    nombre: 'Iniciar Session',
+    link: '#'
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "navbar navbar-expand-lg",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ItemNavegador__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      className: " nav-item",
+      link: registrarse.link,
+      nombre: registrarse.nombre
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.ItemNavI, {
+      className: "nav-item ml-4",
+      link: iniciarSession.link,
+      nombre: iniciarSession.nombre,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        className: "text-decoration-none m-3",
+        href: iniciarSession.link,
+        children: iniciarSession.nombre
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Session);
 
 /***/ }),
 
@@ -13835,14 +14026,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Card": () => (/* binding */ Card),
 /* harmony export */   "Fondo": () => (/* binding */ Fondo)
 /* harmony export */ });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./colores */ "./resources/js/elementos/colores.js");
 var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
-var Card = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(240, 255, 240, 0.7);\n    border-color: rgb(240, 255, 240, 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:800px){\n        width: 100%;\n        max-width: 800px;\n    }\n"])));
-var Fondo = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: block;\n    opacity: 0.3;\n    position: fixed;\n    z-index: -100;\n    width: 100%;\n    justify-content: center;\n    object-fit: cover;\n"])));
+
+var Card = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(", ", ", ", ", ", 0.7);\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:800px){\n        width: 100%;\n        max-width: 800px;\n    }\n"])), _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var Fondo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: block;\n    opacity: 0.3;\n    position: fixed;\n    z-index: -100;\n    width: 100%;\n    justify-content: center;\n    object-fit: cover;\n"])));
+
+
+/***/ }),
+
+/***/ "./resources/js/elementos/colores.js":
+/*!*******************************************!*\
+  !*** ./resources/js/elementos/colores.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "colorPrimary": () => (/* binding */ colorPrimary),
+/* harmony export */   "colorSecundary": () => (/* binding */ colorSecundary)
+/* harmony export */ });
+var colorPrimary = {
+  //Color claro
+  r: 240,
+  g: 255,
+  b: 240
+};
+var colorSecundary = {
+  //Color fuerte
+  r: 0,
+  g: 221,
+  b: 170
+};
+
+
+/***/ }),
+
+/***/ "./resources/js/elementos/navegador.js":
+/*!*********************************************!*\
+  !*** ./resources/js/elementos/navegador.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Nav": () => (/* binding */ Nav),
+/* harmony export */   "ItemNav": () => (/* binding */ ItemNav),
+/* harmony export */   "Img": () => (/* binding */ Img),
+/* harmony export */   "ItemNavI": () => (/* binding */ ItemNavI)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./colores */ "./resources/js/elementos/colores.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var Nav = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 0;\n    position: fixed;\n    display:flex;\n    background-color: rgb(", ", ", ", ", ");\n"])), _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 150px;\n    height: 25px;\n    object-fit: cover;\n"])));
+var ItemNav = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    border-radius: 5px;\n    text-decoration: none;\n    transition: .3s ease all;\n\n    a{\n        color : rgb(", " , ", ", ", ");\n    }\n\n    &:hover{\n        background-color: rgb(", " , ", ", ", ");\n        a {\n            color: rgb(", ", ", ", ", ");\n        }\n    }\n"])), _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var ItemNavI = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    border-radius: 5px;\n    text-decoration: none;\n    transition: .3s ease all;\n    background-color: rgb(", " , ", ", ", ");\n    a {\n        color: rgb(", ", ", ", ", ");\n    }\n"])), _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 
 
 /***/ }),
@@ -13867,32 +14118,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "MensajeGlobo": () => (/* binding */ MensajeGlobo),
 /* harmony export */   "TextA": () => (/* binding */ TextA)
 /* harmony export */ });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _colores__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./colores */ "./resources/js/elementos/colores.js");
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
-var ContenedorDatos = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap : 20px;\n    align-items: center;\n\n    @media (max-width: 800px){\n        grid-template-columns: 1fr;\n    }\n"])));
-var ContenedorBloque = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    grid-column: span 2;\n    @media (max-width: 800px){\n        text-align: center;\n        display: grid;\n        grid-template-columns: 1fr;\n    }\n"])));
-var InputImagen = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    color: transparent;\n    margin: 0;\n    padding: 0;\n    width: 151.5px;\n"])));
-var Titulo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h1(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin-top: 50px;\n"])));
-var Boton = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: rgb(0 , 221, 170);\n    border-color: rgb(0 , 221, 170);\n    :hover{\n        background-color: rgb(240, 255, 240);\n    }\n"])));
-var InputStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].input(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    transition: .3s ease all;\n    color: black;\n    border-color: rgb(240, 255, 240, 0.4);\n    border-bottom-color: black;\n    width: 80%;\n    &:focus{\n        border-bottom: 4px solid rgb(0 , 221, 170);\n        outline: none;\n        box-shadow: 5px 5px 5px;\n    }\n\n    ", "\n\n    ", "\n"])), function (props) {
-  return props.valido === 'false' && (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n        border-bottom-color: red !important;\n    "])));
+
+var ContenedorDatos = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap : 20px;\n    align-items: center;\n\n    @media (max-width: 800px){\n        grid-template-columns: 1fr;\n    }\n"])));
+var ContenedorBloque = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    grid-column: span 2;\n    @media (max-width: 800px){\n        text-align: center;\n        display: grid;\n        grid-template-columns: 1fr;\n    }\n"])));
+var InputImagen = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    color: transparent;\n    margin: 0;\n    padding: 0;\n    width: 151.5px;\n"])));
+var Titulo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].h1(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin-top: 50px;\n"])));
+var Boton = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: rgb(", " , ", ", ", ");\n    border-color: rgb(", " , ", ", ", ");\n    :hover{\n        background-color: rgb(", ", ", ", ", ");\n    }\n"])), _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.r, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.g, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.b, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.r, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.g, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.b, _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.r, _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.g, _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.b);
+var InputStyle = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].input(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    transition: .3s ease all;\n    color: black;\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-bottom-color: black;\n    width: 80%;\n    &:focus{\n        border-bottom: 4px solid rgb(", " , ", ", ", ");\n        outline: none;\n        box-shadow: 5px 5px 5px;\n    }\n\n    ", "\n\n    ", "\n"])), _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.r, _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.g, _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.b, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.r, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.g, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.b, function (props) {
+  return props.valido === 'false' && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n        border-bottom-color: red !important;\n    "])));
 }, function (props) {
-  return props.valido === 'true' && (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n        border-bottom-color: #6aff00 !important;\n    "])));
+  return props.valido === 'true' && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n        border-bottom-color: #6aff00 !important;\n    "])));
 });
-var TextA = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].textarea(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    transition: .3s ease all;\n    color: black;\n    border-color: rgb(240, 255, 240, 0.4);\n    border-bottom-color: black;\n    width: 80%;\n    &:focus{\n        border-bottom: 4px solid rgb(0 , 221, 170);\n        outline: none;\n        box-shadow: 5px 5px 5px;\n    }\n\n    ", "\n\n    ", "\n"])), function (props) {
-  return props.valido === 'false' && (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n        border-bottom-color: red !important;\n    "])));
+var TextA = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].textarea(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    transition: .3s ease all;\n    color: black;\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-bottom-color: black;\n    width: 80%;\n    &:focus{\n        border-bottom: 4px solid rgb(", " , ", ", ", ");\n        outline: none;\n        box-shadow: 5px 5px 5px;\n    }\n\n    ", "\n\n    ", "\n"])), _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.r, _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.g, _colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.b, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.r, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.g, _colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.b, function (props) {
+  return props.valido === 'false' && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n        border-bottom-color: red !important;\n    "])));
 }, function (props) {
-  return props.valido === 'true' && (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n        border-bottom-color: #6aff00 !important;\n    "])));
+  return props.valido === 'true' && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n        border-bottom-color: #6aff00 !important;\n    "])));
 });
-var MensajeRGE = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    width: 100%;\n    color : white;\n    border-style: solid;\n    border-radius: 10px;\n    justify-content: center;\n    text-align: center;\n    margin-bottom: 50px;\n"])));
-var MensajeGlobo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n    position:absolute;\n    display: none;\n    width: 300px;\n    color : white;\n    background-color: red;\n    border-style: solid;\n    border-radius: 10px;\n    justify-content: center;\n    text-align: center;\n    margin-bottom: 50px;\n"])));
-var Icon = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n    margin-left: 10px;\n    color:red;\n"])));
+var MensajeRGE = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    width: 100%;\n    color : white;\n    border-style: solid;\n    border-radius: 10px;\n    justify-content: center;\n    text-align: center;\n    margin-bottom: 50px;\n"])));
+var MensajeGlobo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n    position:absolute;\n    display: none;\n    width: 300px;\n    color : white;\n    background-color: red;\n    border-style: solid;\n    border-radius: 10px;\n    justify-content: center;\n    text-align: center;\n    margin-bottom: 50px;\n"])));
+var Icon = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n    margin-left: 10px;\n    color:red;\n"])));
 
 
 /***/ }),
@@ -18379,7 +18632,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body{\r\n    background-color: rgb(0 , 221, 170, 0.4)\r\n}\r\n\r\nmain{\r\n    max-width: 800px;\r\n    margin: auto;\r\n    padding: 40px;\r\n}\r\n\r\n\r\n\r\n.miTextArea textarea{\r\n    resize: none;\r\n    margin: 5%;\r\n    width: 90%;\r\n    height: 100px;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.formStyle{\r\n    margin-top: 50px;\r\n    margin: 30px;\r\n    display : grid;\r\n    gap: 20px;\r\n}\r\n\r\n@media screen and (max-width: 800px){\r\n    .formStyle{\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n/*\r\n.tarjetaDisplayBlock{\r\n    display: flex;\r\n}\r\n\r\n.elementCenter{\r\n    align-items: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    object-fit: cover;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n.imagenSinTexto{\r\n    color: transparent;\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 151.5px;\r\n}\r\n\r\n.tituloRGE{\r\n    margin-top: -20px;\r\n    margin-bottom: 50px;\r\n}\r\n\r\n.botonRGE{\r\n    background-color: rgb(0 , 221, 170);\r\n}\r\n\r\n.inputRGE{\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom-color: black;\r\n}\r\n\r\n.botonRGE:hover {\r\n    background-color: rgb(240, 255, 240);\r\n}*/", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body{\r\n    background-color: rgb(0 , 221, 170, 0.4)\r\n}\r\n\r\nmain{\r\n    max-width: 800px;\r\n    margin: auto;\r\n    padding: 40px;\r\n}\r\n\r\n\r\n\r\n.miTextArea textarea{\r\n    resize: none;\r\n    margin: 5%;\r\n    width: 90%;\r\n    height: 100px;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.formStyle{\r\n    margin-top: 50px;\r\n    margin: 30px;\r\n    display : grid;\r\n    gap: 20px;\r\n}\r\n\r\n@media screen and (max-width: 800px){\r\n    .formStyle{\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n\r\n/*\r\n.tarjetaDisplayBlock{\r\n    display: flex;\r\n}\r\n\r\n.elementCenter{\r\n    align-items: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    object-fit: cover;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n.imagenSinTexto{\r\n    color: transparent;\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 151.5px;\r\n}\r\n\r\n.tituloRGE{\r\n    margin-top: -20px;\r\n    margin-bottom: 50px;\r\n}\r\n\r\n.botonRGE{\r\n    background-color: rgb(0 , 221, 170);\r\n}\r\n\r\n.inputRGE{\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom-color: black;\r\n}\r\n\r\n.botonRGE:hover {\r\n    background-color: rgb(240, 255, 240);\r\n}*/", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
