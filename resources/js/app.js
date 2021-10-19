@@ -30,7 +30,7 @@ import Navegador from './components/Navegador';
     }
 
 */
-/*if(document.getElementById('fondo')){
+if(document.getElementById('fondo')){
     ReactDOM.render(
     <div>
         <Fondo src='./resources/asesoria-cont-financ_001.png'/>
@@ -48,3 +48,4 @@ if(document.getElementById('regGE')){
 if(document.getElementById('navegador')){
     ReactDOM.render(<Navegador />, document.getElementById('navegador'));
 }
+
