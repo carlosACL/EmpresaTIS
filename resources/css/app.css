@@ -8,7 +8,10 @@ main{
     padding: 40px;
 }
 
-
+.principal{
+   max-width: 50%;
+   background-color: black;
+}
 
 .miTextArea textarea{
     resize: none;
