@@ -18,8 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::get('/RegistroGE', function(){
     return view('registroGE');
 });
 
 Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE']);
+=======
+Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE'])->name('registroGE');
+>>>>>>> 9f7752b509b1dd57ab18c2713c2668664035664e
