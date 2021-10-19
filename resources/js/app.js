@@ -20,6 +20,7 @@ import EditarGE from './components/EditarGE';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
+import Navegador from './components/Navegador';
 //import Login from "./components/Login/Login"
 
 /*
@@ -43,10 +44,7 @@ if(document.getElementById('regGE')){
                 </div>
         ,document.getElementById('regGE'));
 }
-*/
-if(document.getElementById('editGE')){
-    ReactDOM.render(<div >
-                          <EditarGE />
-                  </div>
-          ,document.getElementById('editGE'));
-  }
+
+if(document.getElementById('navegador')){
+    ReactDOM.render(<Navegador />, document.getElementById('navegador'));
+}

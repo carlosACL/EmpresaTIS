@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class GrupoEmpresa extends Model
 {
     protected $table = 'Grupo_Empresa';
-    protected $atributes = ['idGE', 'fecha_creacion', 'fecha_registro',
-                             'orgJur', 'nombre', 'nombreAv', 'telefono',
-                             'direccion','email', 'objetivo','urlImg'];
-
+    protected $primaryKey= 'idGE';
+    protected $fillable = ['fecha_creacion', 'fecha_registro',
+                             'orgJur', 'nombre', 'nombreAb', 'telefono',
+                             'direccion','email', 'descripcion','logo','orgJur'];
+    public $timestamps = false;
 }
         

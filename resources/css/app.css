@@ -31,6 +31,20 @@ main{
     height: 200px;
     object-fit: cover;
 }
+
+.formStyle{
+    margin-top: 50px;
+    margin: 30px;
+    display : grid;
+    gap: 20px;
+}
+
+@media screen and (max-width: 800px){
+    .formStyle{
+        grid-template-columns: 1fr;
+    }
+}
+
 /*
 .tarjetaDisplayBlock{
     display: flex;
