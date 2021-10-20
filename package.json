@@ -21,15 +21,10 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "resolve-url-loader": "^4.0.0",
-<<<<<<< HEAD
-        "sass": "^1.42.1",
-        "sass-loader": "^12.1.0"
-=======
         "sass": "^1.32.11",
-        "sass-loader": "^11.0.1"
+        "sass-loader": "^12.1.0"
     },
     "dependencies": {
         "styled-components": "^5.3.1"
->>>>>>> 8bd2a022277fb0baeea6a00a536dafb3f2ac82f5
     }
 }

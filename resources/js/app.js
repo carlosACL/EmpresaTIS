@@ -19,6 +19,7 @@ import RegistroGE from './components/RegistroGE';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
+import PerfilUsuario from './components/perfilUsuario';
 //import Login from "./components/Login/Login"
 
 /*
@@ -41,4 +42,11 @@ if(document.getElementById('regGE')){
                         <RegistroGE />
                 </div>
         ,document.getElementById('regGE'));
+}
+
+if(document.getElementById('perfil')){
+    ReactDOM.render(<div >
+                        <PerfilUsuario />
+                  </div>
+        ,document.getElementById('perfil'));
 }
