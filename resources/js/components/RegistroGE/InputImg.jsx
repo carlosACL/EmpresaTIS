@@ -1,18 +1,22 @@
 import { useRef, useState } from 'react'
 import { InputImagen } from '../../elementos/registro'
+import PropTypes from 'prop-types'
+import MensajeAlerta from './MensajeAlerta';
 
-const InputImg = () => {
+const InputImg = ({name, estado, cambiarEstado, funcValidar}) => {
     const imagenCarg = useRef(null);
     const [logo, setLogo] = useState("./resources/logoDefecto.png");
 
-    const onButtonClick = () => {    
+    const onButtonClick = (e) => {    
         const img = document.getElementById('imagenGER')
         const files = imagenCarg.current.files;
-        console.log(imagenCarg.current.files[0])
+
         if(!files || !files.length){
             img.src = logo;
+            cambiarEstado({valido:'false'});
             return;
         }
+        cambiarEstado({valido:'true'})
         const image = files[0];
         const url = URL.createObjectURL(image);
         img.src = url;
@@ -21,8 +25,22 @@ const InputImg = () => {
     return (
         <>
             <img id='imagenGER' className='mb-2' src={logo} alt="" />
-            <InputImagen ref = {imagenCarg} onChange={onButtonClick} type='file'/>
+            <InputImagen id={name} 
+                         name={name} 
+                         ref = {imagenCarg} 
+                         onSubmit = {onButtonClick}
+                         onChange={onButtonClick} 
+                         accept="image/jpeg,image/jpg,image/png" 
+                         type='file'/>
+            {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado)}/>)}
         </>);
+};
+
+InputImg.prototype = {
+    name: PropTypes.string, 
+    estado: PropTypes.object, 
+    cambiarEstado: PropTypes.func, 
+    funcValidar: PropTypes.func
 };
 
 export default InputImg;

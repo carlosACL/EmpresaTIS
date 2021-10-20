@@ -13,7 +13,19 @@ class GrupoEmpresa extends Migration
      */
     public function up()
     {
-        
+        Schema::create('Grupo_Empresa', function(Blueprint $table){
+            $table->id('idGE')->autoIncrement();
+            $table->string('nombre');
+            $table->string('nombreAb');
+            $table->string('logo');
+            $table->date('fecha_creacion');
+            $table->date('fecha_registro');
+            $table->string('direccion');
+            $table->string("descripcion");
+            $table->string("email");
+            $table->integer('telefono');
+            $table->string('orgJur');
+        });
     }
 
     /**
@@ -23,6 +35,6 @@ class GrupoEmpresa extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Grupo_Empresa');
     }
 }

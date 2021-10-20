@@ -20,6 +20,7 @@ import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
 import PerfilUsuario from './components/perfilUsuario';
+import Navegador from './components/Navegador';
 //import Login from "./components/Login/Login"
 
 /*
@@ -49,4 +50,8 @@ if(document.getElementById('perfil')){
                         <PerfilUsuario />
                   </div>
         ,document.getElementById('perfil'));
+}
+
+if(document.getElementById('navegador')){
+    ReactDOM.render(<Navegador />, document.getElementById('navegador'));
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroGEController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
 
@@ -18,10 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/RegistroGE', function() {
-    return view('registroGE');
-});
-
 Route::get('/Socio/{id}', [PerfilUsuarioController::class, 'show']);
 
 
+Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE'])->name('registroGE');

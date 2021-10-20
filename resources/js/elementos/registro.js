@@ -1,15 +1,6 @@
-import styled from "styled-components";
-
-
-const Formulario = styled.form`
-    margin-top: 50px;
-    margin: 30px;
-    display : grid;
-    gap: 20px;
-    @media (max-width: 800px){
-        grid-template-columns: 1fr;
-    }
-`;
+import styled, { css } from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { colorPrimary, colorSecundary } from "./colores";
 
 const ContenedorDatos = styled.div`
     width: 100%;
@@ -47,30 +38,90 @@ const Titulo = styled.h1`
 `;
 
 const Boton = styled.button`
-    background-color: rgb(0 , 221, 170);
-    border-color: rgb(0 , 221, 170);
+    background-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
+    border-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
     :hover{
-        background-color: rgb(240, 255, 240);
+        background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
     }
 `;
 
 const InputStyle = styled.input`
     transition: .3s ease all;
     color: black;
-    border-color: rgb(240, 255, 240, 0.4);
+    border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.4);
     border-bottom-color: black;
     width: 80%;
     &:focus{
-        border-bottom: 4px solid rgb(0 , 221, 170);
+        border-bottom: 4px solid rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
         outline: none;
         box-shadow: 5px 5px 5px;
     }
+
+    ${props => props.valido ==='false' && css`
+        border-bottom-color: red !important;
+    `}
+
+    ${props => props.valido ==='true' && css`
+        border-bottom-color: #6aff00 !important;
+    `}
 `;
 
-export {Formulario, 
-    ContenedorDatos, 
+const TextA = styled.textarea`
+    transition: .3s ease all;
+    color: black;
+    border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.4);
+    border-bottom-color: black;
+    width: 80%;
+    &:focus{
+        border-bottom: 4px solid rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
+        outline: none;
+        box-shadow: 5px 5px 5px;
+    }
+
+    ${props => props.valido ==='false' && css`
+        border-bottom-color: red !important;
+    `}
+
+    ${props => props.valido ==='true' && css`
+        border-bottom-color: #6aff00 !important;
+    `}
+`;
+
+const MensajeRGE = styled.div`
+    width: 100%;
+    color : white;
+    border-style: solid;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+`;
+
+const MensajeGlobo = styled.div`
+    position:absolute;
+    display: none;
+    width: 300px;
+    color : white;
+    background-color: red;
+    border-style: solid;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+`;
+
+const Icon = styled(FontAwesomeIcon)`
+    margin-left: 10px;
+    color:red;
+`;
+
+export { ContenedorDatos, 
     ContenedorBloque, 
     InputImagen, 
     Titulo, 
     Boton,
-    InputStyle};
+    InputStyle,
+    MensajeRGE,
+    Icon,
+    MensajeGlobo,
+    TextA};
