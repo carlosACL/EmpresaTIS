@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RegistroGEController;
+use App\Http\Controllers\EditarGEController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,9 @@ Route::get('/RegistroGE', function(){
 });
 
 Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE']);
+
+Route::get('/EditarGE', function(){
+    return view('editarGE');
+});
+
+//Route::get('/EditarGE',[EditarGEController::class, 'vistaEditarGE']);
