@@ -32,10 +32,11 @@ body{
 
 #tarjeta-datos{
     display: block;
-    border-width: 2px;
-    border-radius: 15px;
-    border-color: #22ddaa;
-    background-color: rgba(255, 255, 255, 0.6);
+    transition: .5s ease all;
+    background-color: rgb( 240, 255, 240, 0.7);
+    border-color: rgb( 240, 255, 240, 0.4);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px;
     position: absolute;
     left: 20%;
     right: 20%;

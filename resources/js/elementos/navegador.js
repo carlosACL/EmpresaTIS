@@ -7,6 +7,7 @@ const Nav =  styled.nav`
     position: fixed;
     display:flex;
     background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
+    z-index: 100;
 `;
 
 const Img = styled.img`

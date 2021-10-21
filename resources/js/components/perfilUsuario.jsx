@@ -1,6 +1,4 @@
-import React, { useRef, useState } from "react";
-import '../../css/perfil.css';
-import logo from '../../extras/logoDefecto.png'
+import { useRef } from "react";
 
 const PerfilUsuario = () => {
 
@@ -69,12 +67,12 @@ const PerfilUsuario = () => {
         }
     });
 
-    const [foto, setfoto] = useState("/resources/extras/logoDefecto.png");
+    const logo = "../resources/socios/juanperez.jpg";
 
     return(
         <div id="tarjeta-datos">
             <div id="img-usuario">
-                <img id="imagen" src={ foto }/>
+                <img id="imagen" src={ logo } alt="foto-perfil" title="Foto de Perfil"/>
             </div>
             <div id="datos">
                     <div>

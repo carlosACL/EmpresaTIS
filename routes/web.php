@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Socio/{id}', [PerfilUsuarioController::class, 'show']);
+Route::get('/Socio{id}', [PerfilUsuarioController::class, 'show']);
 
 
 Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE'])->name('registroGE');

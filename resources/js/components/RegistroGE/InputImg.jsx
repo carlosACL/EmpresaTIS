@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { InputImagen } from '../../elementos/registro'
 import PropTypes from 'prop-types'
-import MensajeAlerta from './MensajeAlerta';
+import MensajeAlerta from './MensajeAlerta'
 
 const InputImg = ({name, estado, cambiarEstado, funcValidar}) => {
     const imagenCarg = useRef(null);
