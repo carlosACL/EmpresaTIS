@@ -9,6 +9,7 @@ import {
 import { Card } from '../elementos/card';
 import Input from './EditarGE/Input';
 import InputImg from './EditarGE/InputImg';
+import Fecha from './EditarGE/Fecha';
 import OrganizacionJ from './EditarGE/OrganizacionJ';
 import TextArea from './EditarGE/TextArea';
 
@@ -198,10 +199,10 @@ const EditarGE = (props) => {
 
 
         const data = new FormData(document.getElementById('formulario'));
-        fetch('api/guardarCambiosGrupoEmpresa', {
+        /*fetch('api/registrarGrupoEmpresa', {
             method: 'POST',
             body: data
-        }).then((response) => {
+        });.then((response) => {
             setMsg(true);
             const mensaje = document.getElementById('mensajeRGE');
             let color = null;
@@ -215,34 +216,34 @@ const EditarGE = (props) => {
             document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
             mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
             window.scroll(0, 0);
-        });
-        /*
-                verificarInputs();
-                e.preventDefault();
-                if (orgJur.valido === 'true' && telefono.valido === 'true' &&
-                    direccion.valido === 'true' && email.valido === 'true' &&
-                    imagen.valido === 'true' && nombre.valido === 'true' &&
-                    nombreAb.valido === 'true' && descripcion.valido === 'true') {
-                    const data = new FormData(document.getElementById('formulario'));
-                    fetch('api/guardarCambiosGrupoEmpresa', {
-                        method: 'POST',
-                        body: data
-                    }).then((response) => {
-                        setMsg(true);
-                        const mensaje = document.getElementById('mensajeRGE');
-                        let color = null;
-                        if(response.ok){
-                            color = exito();
-                            mensaje.innerHTML = "Exito al Registrar Grupo empresa";
-                        } else {
-                            color = 'red';
-                            mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
-                        }
-                        document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
-                        mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
-                        window.scroll(0,0);
-                    });
-                } */
+        });*/
+
+        verificarInputs();
+        e.preventDefault();
+        if (orgJur.valido === 'true' && telefono.valido === 'true' &&
+            direccion.valido === 'true' && email.valido === 'true' &&
+            imagen.valido === 'true' && nombre.valido === 'true' &&
+            nombreAb.valido === 'true' && descripcion.valido === 'true') {
+            const data = new FormData(document.getElementById('formulario'));
+            fetch('api/guardarCambiosGrupoEmpresa', {
+                method: 'POST',
+                body: data
+            }).then((response) => {
+                setMsg(true);
+                const mensaje = document.getElementById('mensajeRGE');
+                let color = null;
+                if (response.ok) {
+                    color = exito();
+                    mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+                } else {
+                    color = 'red';
+                    mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
+                }
+                document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
+                mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
+                window.scroll(0, 0);
+            });
+        }
     };
 
 
@@ -273,6 +274,9 @@ const EditarGE = (props) => {
                         }
                         <div className="row">
                             <div className="col-8 border">
+                                <div class="form-group">
+                                    <Fecha />
+                                </div>
                                 <div className="form-group">
                                     <Input estado={nombre}
                                         cambiarEstado={setNombre}
@@ -351,15 +355,17 @@ const EditarGE = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="container border p-3">
+                    <div className="container border">
                         <div className="row p-3">
                             <div className="col-6">
-                                <button type="submit" className="btn btn-primary">
-                                    Cancelar
-                                </button>
+                                <Boton id='botonCan'>
+                                    <img src="./resources/extras/back.png" alt="" />
+                                </Boton>
                             </div>
                             <div className="col-6">
-                                <Boton id='botonSub' type='submit'>Guardar</Boton>
+                                <Boton id='botonSub' type='submit'>
+                                    <img src="./resources/extras/save.png" alt="" />
+                                </Boton>
                             </div>
                         </div>
                     </div>

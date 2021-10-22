@@ -10717,23 +10717,21 @@ if (document.getElementById('fondo')) {
 }
 
 ;
-/*
+
 if (document.getElementById('regGE')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  }), document.getElementById('regGE'));
+}
+/*
+function editGE(datos){
     ReactDOM.render(
-        <div >
-            <RegistroGE />
-        </div>, document.getElementById('regGE'));
+        <div>
+            <EditarGE/>
+        </div>, document.getElementById('editGE'));
 }
 */
 
-/*
-function editGE(datos){
-  ReactDOM.render(
-      <div>
-          <EditarGE/>
-      </div>, document.getElementById('editGE'));
-}
-*/
 
 if (document.getElementById('editGE')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -10763,9 +10761,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../elementos/card */ "./resources/js/elementos/card.js");
 /* harmony import */ var _EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditarGE/Input */ "./resources/js/components/EditarGE/Input.jsx");
 /* harmony import */ var _EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditarGE/InputImg */ "./resources/js/components/EditarGE/InputImg.jsx");
-/* harmony import */ var _EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EditarGE/OrganizacionJ */ "./resources/js/components/EditarGE/OrganizacionJ.jsx");
-/* harmony import */ var _EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditarGE/TextArea */ "./resources/js/components/EditarGE/TextArea.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _EditarGE_Fecha__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EditarGE/Fecha */ "./resources/js/components/EditarGE/Fecha.jsx");
+/* harmony import */ var _EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditarGE/OrganizacionJ */ "./resources/js/components/EditarGE/OrganizacionJ.jsx");
+/* harmony import */ var _EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./EditarGE/TextArea */ "./resources/js/components/EditarGE/TextArea.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -10783,6 +10782,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -11074,84 +11074,86 @@ var EditarGE = function EditarGE(props) {
 
   var onSubmit = function onSubmit(e) {
     var data = new FormData(document.getElementById('formulario'));
-    fetch('api/guardarCambiosGrupoEmpresa', {
-      method: 'POST',
-      body: data
-    }).then(function (response) {
-      setMsg(true);
-      var mensaje = document.getElementById('mensajeRGE');
-      var color = null;
+    /*fetch('api/registrarGrupoEmpresa', {
+        method: 'POST',
+        body: data
+    });.then((response) => {
+        setMsg(true);
+        const mensaje = document.getElementById('mensajeRGE');
+        let color = null;
+        if (response.ok) {
+            color = exito();
+            mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+        } else {
+            color = 'red';
+            mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
+        }
+        document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
+        mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
+        window.scroll(0, 0);
+    });*/
 
-      if (response.ok) {
-        color = exito();
-        mensaje.innerHTML = "Exito al Registrar Grupo empresa";
-      } else {
-        color = 'red';
-        mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
-      }
+    verificarInputs();
+    e.preventDefault();
 
-      document.getElementById('cardItem').style = "border-style:solid;box-shadow: 10px 10px 10px ".concat(color, "; border-color: ").concat(color);
-      mensaje.style = "transition: .5s ease all;border-color:  ".concat(color, "; background-color:").concat(color, ";");
-      window.scroll(0, 0);
-    });
-    /*
-            verificarInputs();
-            e.preventDefault();
-            if (orgJur.valido === 'true' && telefono.valido === 'true' &&
-                direccion.valido === 'true' && email.valido === 'true' &&
-                imagen.valido === 'true' && nombre.valido === 'true' &&
-                nombreAb.valido === 'true' && descripcion.valido === 'true') {
-                const data = new FormData(document.getElementById('formulario'));
-                fetch('api/guardarCambiosGrupoEmpresa', {
-                    method: 'POST',
-                    body: data
-                }).then((response) => {
-                    setMsg(true);
-                    const mensaje = document.getElementById('mensajeRGE');
-                    let color = null;
-                    if(response.ok){
-                        color = exito();
-                        mensaje.innerHTML = "Exito al Registrar Grupo empresa";
-                    } else {
-                        color = 'red';
-                        mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
-                    }
-                    document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
-                    mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
-                    window.scroll(0,0);
-                });
-            } */
+    if (orgJur.valido === 'true' && telefono.valido === 'true' && direccion.valido === 'true' && email.valido === 'true' && imagen.valido === 'true' && nombre.valido === 'true' && nombreAb.valido === 'true' && descripcion.valido === 'true') {
+      var _data = new FormData(document.getElementById('formulario'));
+
+      fetch('api/guardarCambiosGrupoEmpresa', {
+        method: 'POST',
+        body: _data
+      }).then(function (response) {
+        setMsg(true);
+        var mensaje = document.getElementById('mensajeRGE');
+        var color = null;
+
+        if (response.ok) {
+          color = exito();
+          mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+        } else {
+          color = 'red';
+          mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
+        }
+
+        document.getElementById('cardItem').style = "border-style:solid;box-shadow: 10px 10px 10px ".concat(color, "; border-color: ").concat(color);
+        mensaje.style = "transition: .5s ease all;border-color:  ".concat(color, "; background-color:").concat(color, ";");
+        window.scroll(0, 0);
+      });
+    }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("main", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_2__.Card, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_2__.Card, {
       id: "cardItem",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
         ref: formulario,
         id: "formulario",
         onSubmit: onSubmit,
         className: "formStyle",
         method: "POST",
         encType: "multipart/form-data",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "container border",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "row p-3",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "col-12 p-3",
               children: "MythicalSoft"
             })
-          }), msg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.ContenedorBloque, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.MensajeRGE, {
+          }), msg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.ContenedorBloque, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.MensajeRGE, {
               id: "mensajeRGE"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "col-8 border",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                "class": "form-group",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Fecha__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: nombre,
                   cambiarEstado: setNombre,
                   regex: expresiones.nombre,
@@ -11160,9 +11162,9 @@ var EditarGE = function EditarGE(props) {
                   tipo: "text",
                   funcValidar: validarNombre
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: nombreAb,
                   cambiarEstado: setNombreAb,
                   regex: expresiones.nombreAb,
@@ -11171,9 +11173,9 @@ var EditarGE = function EditarGE(props) {
                   placeholder: "Nombre Abreviado",
                   funcValidar: validarNombreAb
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: telefono,
                   cambiarEstado: setTelefono,
                   regex: expresiones.telefono,
@@ -11184,9 +11186,9 @@ var EditarGE = function EditarGE(props) {
                   minlenght: 7,
                   funcValidar: validarTelefono
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: direccion,
                   cambiarEstado: setDireccion,
                   regex: expresiones.direccion,
@@ -11195,9 +11197,9 @@ var EditarGE = function EditarGE(props) {
                   placeholder: "Direccion",
                   funcValidar: validarDireccion
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: email,
                   cambiarEstado: setEmail,
                   regex: expresiones.correo,
@@ -11206,16 +11208,16 @@ var EditarGE = function EditarGE(props) {
                   placeholder: "Correo electronico",
                   funcValidar: validarCorreo
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_6__["default"], {
                   estado: orgJur,
                   cambiarEstado: setOrgJur,
                   funcValidar: validarOrgJur
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   estado: descripcion,
                   cambiarEstado: setDescripcion,
                   regex: expresiones.objetivo,
@@ -11224,11 +11226,11 @@ var EditarGE = function EditarGE(props) {
                   funcValidar: validarDescripcion
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "col-4 border",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   estado: imagen,
                   cambiarEstado: setImagen,
                   name: "imagen",
@@ -11237,23 +11239,28 @@ var EditarGE = function EditarGE(props) {
               })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "container border p-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: "container border",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "row p-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                type: "submit",
-                className: "btn btn-primary",
-                children: "Cancelar"
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Boton, {
+                id: "botonCan",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: "./resources/extras/back.png",
+                  alt: ""
+                })
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Boton, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Boton, {
                 id: "botonSub",
                 type: "submit",
-                children: "Guardar"
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: "./resources/extras/save.png",
+                  alt: ""
+                })
               })
             })]
           })
@@ -11264,6 +11271,90 @@ var EditarGE = function EditarGE(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditarGE);
+
+/***/ }),
+
+/***/ "./resources/js/components/EditarGE/Fecha.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/EditarGE/Fecha.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var Fecha = function Fecha(_ref) {
+  var estado = _ref.estado,
+      cambiarEstado = _ref.cambiarEstado;
+  var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    campo: ''
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      date = _useState2[0],
+      setDate = _useState2[1];
+
+  var onChange = function onChange() {
+    setDate({
+      campo: ref.current.value
+    });
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setDate({
+      campo: validarCalendario()
+    });
+  }, []);
+
+  var validarCalendario = function validarCalendario() {
+    var convertirDig = function convertirDig(n) {
+      return n < 10 ? '0' + n : n;
+    };
+
+    var date = new Date();
+    var _ref2 = [convertirDig(date.getDate()), convertirDig(date.getMonth() + 1), convertirDig(date.getFullYear())],
+        dia = _ref2[0],
+        mes = _ref2[1],
+        anio = _ref2[2];
+    return "".concat(anio, "-").concat(mes, "-").concat(dia);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      name: "fecha_registro",
+      type: "date",
+      value: date.campo,
+      max: validarCalendario(),
+      min: "1999-01-01",
+      ref: ref,
+      onChange: onChange
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Fecha);
 
 /***/ }),
 

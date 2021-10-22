@@ -39,14 +39,14 @@ if (document.getElementById('fondo')) {
         </div>, document.getElementById('fondo'));
 
 };
-/*
+
 if (document.getElementById('regGE')) {
     ReactDOM.render(
         <div >
             <RegistroGE />
         </div>, document.getElementById('regGE'));
 }
-*//*
+/*
 function editGE(datos){
     ReactDOM.render(
         <div>
