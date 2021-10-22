@@ -1,11 +1,16 @@
 import React, { useRef, useState } from 'react'
 import {
+    ContenedorDatos,
     ContenedorBloque,
     Titulo,
     Boton,
+    MensajeRGE
 } from './../elementos/registro';
 import { Card } from '../elementos/card';
-
+import Input from './EditarGE/Input';
+import InputImg from './EditarGE/InputImg';
+import OrganizacionJ from './EditarGE/OrganizacionJ';
+import TextArea from './EditarGE/TextArea';
 
 const EditarGE = (props) => {
 
@@ -28,15 +33,41 @@ const EditarGE = (props) => {
     };
 
 
+
+    const validarImagen = (estate) => {
+
+        const validar = [];
+
+        if (estate.valido === 'false') {
+            validar.push("Tienes que insertar una imagen");
+        }
+
+        return validar;
+    };
+
+    const validarTelefono = (estate, regex) => {
+        const validar = [];
+        if (estate.campo.length < 1) {
+            validar.push('Debe llenar este campo');
+        }
+        if (estate.campo.length < 7 || estate.campo.length > 8) {
+            validar.push('el numero de telefono debe contener un minimo de 7 digitos y un maximo de 8 digitos');
+        }
+        if (!regex.test(estate.campo) && estate.campo.length > 7 && estate.campo.length < 9) {
+            validar.push('Hay caracteres invalidos en el campo');
+        }
+        return validar;
+    };
+
     const validarDireccion = (estate, regex) => {
         const validar = [];
-        if(estate.campo.length <1){
+        if (estate.campo.length < 1) {
             validar.push("Debe llenar este campo");
         }
-        if(estate.campo.length < 5 || estate.campo.length>100){
+        if (estate.campo.length < 5 || estate.campo.length > 100) {
             validar.push("la direccion debe contener un minimo de 5 caracteres y un maximo de 100 caracteres");
         }
-        if(!regex.test(estate.campo) && estate.campo.length>4){
+        if (!regex.test(estate.campo) && estate.campo.length > 4) {
             validar.push("hay caracteres invalidos en el campo");
         }
         return validar;
@@ -44,13 +75,13 @@ const EditarGE = (props) => {
 
     const validarDescripcion = (estate, regex) => {
         const validar = [];
-        if(estate.campo.length <1){
+        if (estate.campo.length < 1) {
             validar.push("Debe llenar este campo");
         }
-        if(estate.campo.length < 10 || estate.campo.length>100){
+        if (estate.campo.length < 10 || estate.campo.length > 100) {
             validar.push("el objetivo debe contener un minimo de 10 caracteres y un maximo de 100 caracteres");
         }
-        if(!regex.test(estate.campo) && estate.campo.length>4){
+        if (!regex.test(estate.campo) && estate.campo.length > 4) {
             validar.push("hay caracteres invalidos en el campo");
         }
         return validar;
@@ -58,14 +89,14 @@ const EditarGE = (props) => {
 
     const validarCorreo = (estate, regex) => {
         const validar = [];
-        if(estate.campo.length<1){
+        if (estate.campo.length < 1) {
             validar.push('Debes llenar este campo');
         }
-        if(!regex.test(estate.campo) &&  estate.campo.length>1 ){
+        if (!regex.test(estate.campo) && estate.campo.length > 1) {
             validar.push('Debe ingresar un formato de correo institucional de la universidad  ej : ejemplo@est.umss.bo');
         }
 
-        if(estate.existe === 'false' && (estate.campo.length>12 && estate.campo.length < 25)){
+        if (estate.existe === 'false' && (estate.campo.length > 12 && estate.campo.length < 25)) {
             validar.push('el email ya esta en uso');
         }
 
@@ -74,16 +105,16 @@ const EditarGE = (props) => {
 
     const validarNombre = (estate, regex) => {
         const validar = [];
-        if(estate.campo.length<1){
+        if (estate.campo.length < 1) {
             validar.push('Debes llenar este campo');
         }
-        if(estate.campo.length>30 || estate.campo.length<3){
+        if (estate.campo.length > 30 || estate.campo.length < 3) {
             validar.push('Solo se permite un minimo de 3 caracteres y un maximo de 30 caracteres');
         }
-        if((!regex.test(estate.campo)) && (estate.campo.length>2 && estate.campo.length < 31) ){
+        if ((!regex.test(estate.campo)) && (estate.campo.length > 2 && estate.campo.length < 31)) {
             validar.push('El nombre solo puede contener caracteres alfabeticos y espacios');
         }
-        if(estate.existe === 'false' && (estate.campo.length>2 && estate.campo.length < 31)){
+        if (estate.existe === 'false' && (estate.campo.length > 2 && estate.campo.length < 31)) {
             validar.push('el nombre ya esta en uso');
         }
 
@@ -92,16 +123,16 @@ const EditarGE = (props) => {
 
     const validarNombreAb = (estate, regex) => {
         const validar = [];
-        if(estate.campo.length<1){
+        if (estate.campo.length < 1) {
             validar.push('Debes llenar este campo');
         }
-        if(estate.campo.length>30 || estate.campo.length<3){
+        if (estate.campo.length > 30 || estate.campo.length < 3) {
             validar.push('Solo se permite un minimo de 2 caracteres y un maximo de 20 caracteres');
         }
-        if(!regex.test(estate.campo) && (estate.campo.length>1 && estate.campo.length < 21) ){
+        if (!regex.test(estate.campo) && (estate.campo.length > 1 && estate.campo.length < 21)) {
             validar.push('El nombre abreviado solo puede contener caracteres alfabeticos y espacios');
         }
-        if(estate.existe === 'false' && (estate.campo.length>1 && estate.campo.length < 21)){
+        if (estate.existe === 'false' && (estate.campo.length > 1 && estate.campo.length < 21)) {
             validar.push('ese nombre abreviado ya esta en uso');
         }
 
@@ -110,43 +141,43 @@ const EditarGE = (props) => {
 
     const validarOrgJur = (estate) => {
         const validar = [];
-        if(estate.valido === 'false'){
+        if (estate.valido === 'false') {
             validar.push("Seleccione una opcion valida en este campo");
         }
         return validar;
     }
 
     const verificarInputs = () => {
-        if(!orgJur.valido){
-            setOrgJur({valido:'false'});
+        if (!orgJur.valido) {
+            setOrgJur({ valido: 'false' });
         }
 
-        if(!telefono.valido){
-            setTelefono({...telefono, valido:'false'});
+        if (!telefono.valido) {
+            setTelefono({ ...telefono, valido: 'false' });
         }
 
-        if(!direccion.valido){
-            setDireccion({...direccion, valido:'false'});
+        if (!direccion.valido) {
+            setDireccion({ ...direccion, valido: 'false' });
         }
 
-        if(!email.valido){
-            setEmail({...email, valido:'false'});
+        if (!email.valido) {
+            setEmail({ ...email, valido: 'false' });
         }
 
-        if(!imagen.valido){
-            setImagen({valido:'false'});
+        if (!imagen.valido) {
+            setImagen({ valido: 'false' });
         }
 
-        if(!nombre.valido){
-            setNombre({...nombre, valido:'false'});
+        if (!nombre.valido) {
+            setNombre({ ...nombre, valido: 'false' });
         }
 
-        if(!nombreAb.valido){
-            setNombreAb({...nombreAb, valido:'false'});
+        if (!nombreAb.valido) {
+            setNombreAb({ ...nombreAb, valido: 'false' });
         }
 
-        if(!descripcion.valido){
-            setDescripcion({...descripcion, valido:'false'});
+        if (!descripcion.valido) {
+            setDescripcion({ ...descripcion, valido: 'false' });
         }
     };
 
@@ -164,18 +195,54 @@ const EditarGE = (props) => {
     };
 
     const onSubmit = (e) => {
-        verificarInputs();
-        e.preventDefault();
-        if (orgJur.valido === 'true' && telefono.valido === 'true' &&
-            direccion.valido === 'true' && email.valido === 'true' &&
-            imagen.valido === 'true' && nombre.valido === 'true' &&
-            nombreAb.valido === 'true' && descripcion.valido === 'true') {
-            const data = new FormData(document.getElementById('formulario'));
-            fetch('api/registrarGrupoEmpresa', {
-                method: 'POST',
-                body: data
-            });
-        }
+
+
+        const data = new FormData(document.getElementById('formulario'));
+        fetch('api/guardarCambiosGrupoEmpresa', {
+            method: 'POST',
+            body: data
+        }).then((response) => {
+            setMsg(true);
+            const mensaje = document.getElementById('mensajeRGE');
+            let color = null;
+            if (response.ok) {
+                color = exito();
+                mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+            } else {
+                color = 'red';
+                mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
+            }
+            document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
+            mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
+            window.scroll(0, 0);
+        });
+        /*
+                verificarInputs();
+                e.preventDefault();
+                if (orgJur.valido === 'true' && telefono.valido === 'true' &&
+                    direccion.valido === 'true' && email.valido === 'true' &&
+                    imagen.valido === 'true' && nombre.valido === 'true' &&
+                    nombreAb.valido === 'true' && descripcion.valido === 'true') {
+                    const data = new FormData(document.getElementById('formulario'));
+                    fetch('api/guardarCambiosGrupoEmpresa', {
+                        method: 'POST',
+                        body: data
+                    }).then((response) => {
+                        setMsg(true);
+                        const mensaje = document.getElementById('mensajeRGE');
+                        let color = null;
+                        if(response.ok){
+                            color = exito();
+                            mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+                        } else {
+                            color = 'red';
+                            mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
+                        }
+                        document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
+                        mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
+                        window.scroll(0,0);
+                    });
+                } */
     };
 
 
@@ -183,8 +250,13 @@ const EditarGE = (props) => {
     return (
 
         <main>
-            <Card>
-                <form action="">
+            <Card id='cardItem'>
+                <form ref={formulario}
+                    id='formulario'
+                    onSubmit={onSubmit}
+                    className='formStyle'
+                    method='POST'
+                    encType="multipart/form-data">
 
                     <div className="container border">
                         <div className="row p-3">
@@ -193,109 +265,87 @@ const EditarGE = (props) => {
                                 {/*datos*/}
                             </div>
                         </div>
+                        {
+                            (msg) &&
+                            (<ContenedorBloque >
+                                <MensajeRGE id='mensajeRGE'></MensajeRGE>
+                            </ContenedorBloque>)
+                        }
                         <div className="row">
                             <div className="col-8 border">
                                 <div className="form-group">
-                                    <label htmlFor="name_input">Nombre Grupo-Empresa</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id='name_input'
-                                        placeholder='Nombre Grupo-Empresa'
+                                    <Input estado={nombre}
+                                        cambiarEstado={setNombre}
                                         regex={expresiones.nombre}
-                                        onSubmit={validarNombre}
-                                        required
-                                    />
+                                        nombre='nombre'
+                                        placeholder='Nombre Grupo-Empresa'
+                                        tipo='text'
+                                        funcValidar={validarNombre} />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="name_ab_input">Nombre Abreviado</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id='name_ab_input'
-                                        placeholder='Nombre Abreviado'
+                                    <Input estado={nombreAb}
+                                        cambiarEstado={setNombreAb}
                                         regex={expresiones.nombreAb}
-                                        onSubmit={validarNombreAb}
-                                        required
-                                    />
+                                        nombre='nombreAb'
+                                        tipo='text'
+                                        placeholder='Nombre Abreviado'
+                                        funcValidar={validarNombreAb} />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="tel_input">Telefono</label>
-                                    <input
-                                        type="number"
-                                        className="form-control"
-                                        id='tel_input'
+                                    <Input estado={telefono}
+                                        cambiarEstado={setTelefono}
+                                        regex={expresiones.telefono}
+                                        nombre='telefono' tipo='number'
                                         placeholder='Telefono'
-                                        maxLength={8}
-                                        minLength={7}
-                                        required
-                                    />
+                                        maxlength={9}
+                                        minlenght={7}
+                                        funcValidar={validarTelefono} />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="dir_input">Direccion</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id='dir_input'
-                                        placeholder='Direccion'
+                                    <Input estado={direccion}
+                                        cambiarEstado={setDireccion}
                                         regex={expresiones.direccion}
-                                        onSubmit={validarDireccion}
-                                        required
-                                    />
+                                        nombre='direccion'
+                                        tipo='text'
+                                        placeholder='Direccion'
+                                        funcValidar={validarDireccion} />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="email">Correo Electronico: </label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        id="email"
-                                        placeholder='Correo electronico'
+                                    <Input estado={email}
+                                        cambiarEstado={setEmail}
                                         regex={expresiones.correo}
-                                        onChange={setEmail}
-                                        onSubmit={validarCorreo}
-                                        required
-                                    />
+                                        nombre='email'
+                                        tipo='email'
+                                        placeholder='Correo electronico'
+                                        funcValidar={validarCorreo} />
                                 </div>
                                 <div>
 
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="org_jur_input">Select list:</label>
-                                    <select className="form-control" id="org_jur_input">
-                                        <option value="" disabled>Seleccione una Opcion...</option>
-                                        <option value="Sociedad de Responsabilidad limitada">S.R.L.</option>
-                                        <option value="Sociedad Colectiva">Sociedad Colectiva</option>
-                                        <option value="Sociedad Anonima">Sociedad Anonima</option>
-                                        <option value="Sociedad Anonima Mixta">Sociedad Anonima Mixta</option>
-                                    </select>
+                                    <OrganizacionJ estado={orgJur}
+                                        cambiarEstado={setOrgJur}
+                                        funcValidar={validarOrgJur}
+                                    ></OrganizacionJ>
 
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="description_input">Descripcion</label>
-                                    <textarea
-                                        className="form-control"
-                                        id='description_input'
+                                    <TextArea estado={descripcion}
+                                        cambiarEstado={setDescripcion}
                                         regex={expresiones.objetivo}
-                                        onChange={setDescripcion}
-                                        placeholder="objetivo"
-                                        cols="30"
-                                        rows="10"
-                                        onSubmit={validarDescripcion}
-                                        required
-                                    />
+                                        nombre='descripcion'
+                                        placeholder='objetivo'
+                                        funcValidar={validarDescripcion} ></TextArea>
 
                                 </div>
                             </div>
 
                             <div className='col-4 border'>
                                 <div className="form-group">
-                                    <img
-                                        className="w-10 mx-auto d-block img-fluid"
-                                        src="./resources/logoDefecto.png"
-                                        alt="..."
-                                        onChange={setImagen}
-                                    />
-                                    <input type="file" className="form-control-file border" id="logo_input" />
+                                    <InputImg estado={imagen}
+                                        cambiarEstado={setImagen}
+                                        name='imagen'
+                                        funcValidar={validarImagen} />
                                 </div>
 
                             </div>
@@ -309,9 +359,7 @@ const EditarGE = (props) => {
                                 </button>
                             </div>
                             <div className="col-6">
-                                <button type="submit" className="btn btn-primary">
-                                    Guardar
-                                </button>
+                                <Boton id='botonSub' type='submit'>Guardar</Boton>
                             </div>
                         </div>
                     </div>

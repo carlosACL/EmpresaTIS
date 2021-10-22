@@ -23,4 +23,4 @@ Route::post('nombreGE', [RegistroGEController::class, 'verificarNombre']);
 
 Route::post('registrarGrupoEmpresa', [RegistroGEController::class, 'RegistrarGrupoEmpresa'])->name('rgep');
 
-//Route::post('registrarGrupoEmpresa', [RegistroGEController::class, 'RegistrarGrupoEmpresa'])->name('rgep');
+Route::post('guardarCambiosGrupoEmpresa', [EditarGEController::class, 'GuardarCambiosGrupoEmpresa'])->name('gcgep');

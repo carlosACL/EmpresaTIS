@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class EditarGEController extends Controller
 {
-    function RegistrarGrupoEmpresa(Request $req){
+    function GuardarCambiosGrupoEmpresa(Request $req){
         $grupoEmpresa = new GrupoEmpresa;
 
         $grupoEmpresa->nombre = $req->nombre;
         $grupoEmpresa->nombreAb = $req->nombreAb;
+        $grupoEmpresa->direccion = $req->direccion;
         $grupoEmpresa->fecha_registro = $req->fecha_registro;
         $grupoEmpresa->fecha_creacion = date("Y-m-d");
-        $grupoEmpresa->direccion = $req->direccion;
         $grupoEmpresa->email = $req->email;
         $grupoEmpresa->telefono = $req->telefono;
         $grupoEmpresa->orgJur = $req->orgJur;
@@ -25,6 +25,9 @@ class EditarGEController extends Controller
         $nombre =  time()."_".$file->getClientOriginalName();
         $file->move('resources', $nombre);
         $grupoEmpresa->logo = $nombre;
+
+        printf("llegaste aqui");
+        echo("estas aqui");
 
         $grupoEmpresa->save();
 
