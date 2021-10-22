@@ -24,9 +24,9 @@ Route::get('/RegistroGE', function(){
 });
 
 Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE']);
-
+/*
 Route::get('/EditarGE', function(){
     return view('editarGE');
 });
-
-//Route::get('/EditarGE',[EditarGEController::class, 'vistaEditarGE']);
+*/
+Route::get('/EditarGE',[EditarGEController::class, 'index']);

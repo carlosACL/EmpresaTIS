@@ -1,23 +1,23 @@
 import React, { useRef } from 'react'
-import { InputStyle } from '../../elementos/editarGE';
+import { InputStyle } from '../../elementos/registro';
 import MensajeAlerta from './MensajeAlerta';
 import PropTypes from 'prop-types'
 
 const Input = ({estado, cambiarEstado, tipo, nombre, placeholder, regex, funcValidar}) => {
-
+    
     const ref = useRef(null);
     const onChange = () => {
-        cambiarEstado({...estado, campo:(ref.current.value !== ' ') ?
+        cambiarEstado({...estado, campo:(ref.current.value !== ' ') ? 
                                                 ref.current.value : ''});
     };
 
     const validacion =() => {
         if(regex){
-            if(regex.test(estado.campo)){
-                if((nombre == 'nombre' || nombre == 'nombreAb' || nombre == 'email')
+            if(regex.test(estado.campo)){ 
+                if((nombre == 'nombre' || nombre == 'nombreAb' || nombre == 'email') 
                     && estado.campo.length > 0){
                     const nombreCampo = (nombre == 'nombre') ? 'nombre':
-                                        (nombre == 'nombreAb') ? 'nombreAb' : 'email';
+                                        (nombre == 'nombreAb') ? 'nombreAb' : 'email'; 
                     const datos = new FormData();
                     datos.append('nombre', estado.campo);
                     datos.append('campo', nombreCampo);
@@ -38,13 +38,13 @@ const Input = ({estado, cambiarEstado, tipo, nombre, placeholder, regex, funcVal
 
     return (
         <>
-            <InputStyle type={tipo}
+            <InputStyle type={tipo} 
                         onChange = {onChange}
-                        placeholder={placeholder}
-                        name={nombre}
+                        placeholder={placeholder} 
+                        name={nombre} 
                         id = {nombre}
                         ref={ref}
-                        value={estado.campo}
+                        value={estado.campo} 
                         onBlur= {validacion}
                         valido={estado.valido}
                         onSubmit = {validacion}
@@ -55,11 +55,11 @@ const Input = ({estado, cambiarEstado, tipo, nombre, placeholder, regex, funcVal
 }
 
 Input.propTypes = {
-    estado: PropTypes.object,
-    cambiarEstado: PropTypes.func,
-    tipo: PropTypes.string,
-    nombre: PropTypes.string,
-    placeholder: PropTypes.string,
+    estado: PropTypes.object, 
+    cambiarEstado: PropTypes.func, 
+    tipo: PropTypes.string, 
+    nombre: PropTypes.string, 
+    placeholder: PropTypes.string, 
     funcValidar: PropTypes.func
 }
 
