@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import {colorPrimary} from "./colores";
+import { colorPrimary } from "../parametros/colores";
 
 const Card = styled.div`
     max-width: 700px;
+    min-width: 400px;
     margin-top: 5%;
     text-align: center;
     transition: .5s ease all;
@@ -10,9 +11,9 @@ const Card = styled.div`
     border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.4);
     border-radius: 30px;
     box-shadow: 10px 10px 10px;
-    @media (max-width:800px){
+    @media (max-width:700px){
         width: 100%;
-        max-width: 800px;
+        margin: auto;
     }
 `;
 

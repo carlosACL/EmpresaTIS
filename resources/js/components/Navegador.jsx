@@ -1,38 +1,31 @@
 import React from 'react'
-import { Nav } from '../elementos/navegador'
+import { Nav, IconNav } from '../elementos/navegador'
 import ItemNavegador from './Navegador/ItemNavegador'
 import Logo from './Navegador/Logo'
+import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import Session from './Navegador/Session'
+import { datosNavegador } from '../parametros/menus';
 
 const Navegador = () => {
 
-    const datos = [
-        {
-            nombre:'nombre',
-            link : "link 2"
-        },
-        {
-            nombre:'nombre2',
-            link : 'www.animeflv.net'
-        },
-        {
-            nombre:'nombre3',
-            link : 'www.animeflv.net'
-        },
-        {
-            nombre:'nombre4',
-            link : 'www.animeflv.net'
-        },
-    ];
-
+    sessionStorage.setItem('userSession', 'existe');
+    
     return (
         <>
-            <Nav className = 'navbar navbar-collapse'>
-                <div className= 'navbar navbar-expand-lg'>
-                    <Logo link='#'/>
-                    {datos.map((dato) => (<ItemNavegador className=' nav-item' link={dato.link} nombre = {dato.nombre}/>))}
+            <Nav className = 'navbar navbar-expand-lg'>
+                <Logo link='#'/>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#sessionNav" aria-controls="sessionNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <IconNav icon={faUserCircle} ></IconNav>
+                </button>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegadorResp" aria-controls="navegadorResp" aria-expanded="false" aria-label="Toggle navigation">
+                    <IconNav icon={faBars} ></IconNav>
+                </button>
+                <div id='navegadorResp' className = "collapse navbar-collapse">  
+                    <ul className="navbar-nav">      
+                        {datosNavegador.map((dato) => (<li className="nav-item"><ItemNavegador className='nav-item active' link={dato.link} nombre = {dato.nombre}/></li>))}
+                    </ul>
                 </div>
-                <Session></Session>
+                <Session className=' text-lg-right'></Session>   
             </Nav>
         </>
     )
