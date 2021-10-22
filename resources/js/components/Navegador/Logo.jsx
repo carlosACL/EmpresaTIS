@@ -1,16 +1,17 @@
 import React from 'react'
-import { ItemNav, Img } from '../../elementos/navegador';
+import { Log, Img } from '../../elementos/navegador';
 
 const Logo = (link) => {
 
     const logo = './resources/LOGO.png';
 
+
     return (
-        <div className=' mr-3'>
+        <Log>
             <a href={ link }>
                 <Img src={ logo } />
             </a>
-        </div>
+        </Log>
     )
 }
 
