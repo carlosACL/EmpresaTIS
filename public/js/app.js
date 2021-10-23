@@ -11080,6 +11080,7 @@ var EditarGE = function EditarGE(props) {
         setMsg(true);
         var mensaje = document.getElementById('mensajeRGE');
         var color = null;
+        console.log(response);
 
         if (response.ok) {
           color = exito();
@@ -11107,8 +11108,6 @@ var EditarGE = function EditarGE(props) {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      console.log(data);
-
       for (var i = 0; i < data.length; i++) {
         var elemento = data[i];
 
@@ -11142,7 +11141,6 @@ var EditarGE = function EditarGE(props) {
 
   if (nombre.campo === "") {
     start();
-    console.log(nombre.campo);
   }
 
   var item_back = "./resources/extras/back.png";
@@ -13162,6 +13160,7 @@ var TextArea = function TextArea(_ref) {
       name: nombre,
       placeholder: placeholder,
       valido: estado.valido,
+      value: estado.campo,
       onSubmit: validacion
     })]
   });

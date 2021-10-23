@@ -33,4 +33,5 @@ Route::post('eliminarSession', [UserController::class, 'dropSession']);
 Route::post('verificarSession', [UserController::class, 'verifySession']);
 
 Route::post('registrarCambiosGE', [EditarGEController::class, 'registrarCambiosGE']);
+//Route::post('registrarCambiosGE', [RegistroGEController::class, 'RegistrarGrupoEmpresa']);
 Route::post('solicitarGE', [EditarGEController::class, 'solicitarGE']);

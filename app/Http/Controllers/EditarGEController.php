@@ -5,20 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\GrupoEmpresa;
 use Illuminate\Support\Facades\DB;
+use Nette\Utils\Json;
 
 class EditarGEController extends Controller
 {
     function registrarCambiosGE(Request $req)
     {
+
         $grupoEmpresa = GrupoEmpresa::find($req->id);
         //$grupoEmpresa = GrupoEmpresa::where($req->campo, '=', $req->nombre);
-
         //$grupoEmpresa = new GrupoEmpresa;
-
         $grupoEmpresa->nombre = $req->nombre;
         $grupoEmpresa->nombreAb = $req->nombreAb;
-        $grupoEmpresa->fecha_registro = $req->fecha_registro;
-        $grupoEmpresa->fecha_creacion = date("Y-m-d");
         $grupoEmpresa->direccion = $req->direccion;
         $grupoEmpresa->email = $req->email;
         $grupoEmpresa->telefono = $req->telefono;
@@ -31,6 +29,8 @@ class EditarGEController extends Controller
         $grupoEmpresa->logo = $nombre;
 
         $grupoEmpresa->save();
+
+        //return response()->json($grupoEmpresa);
 
         return response(200);
     }
