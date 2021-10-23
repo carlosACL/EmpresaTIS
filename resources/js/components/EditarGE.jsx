@@ -15,6 +15,11 @@ import TextArea from './EditarGE/TextArea';
 
 const EditarGE = (props) => {
 
+
+
+
+
+
     const [orgJur, setOrgJur] = useState({ valido: null });
     const [telefono, setTelefono] = useState({ campo: '', valido: null });
     const [direccion, setDireccion] = useState({ campo: '', valido: null });
@@ -23,6 +28,10 @@ const EditarGE = (props) => {
     const [nombre, setNombre] = useState({ campo: '', valido: null, existe: 'false' });
     const [nombreAb, setNombreAb] = useState({ campo: '', valido: null });
     const [descripcion, setDescripcion] = useState({ campo: '', valido: null });
+
+
+
+
 
     const expresiones = {
         nombre: /^[a-zA-Z\s]{3,30}$/,
@@ -196,28 +205,6 @@ const EditarGE = (props) => {
     };
 
     const onSubmit = (e) => {
-
-
-        const data = new FormData(document.getElementById('formulario'));
-        /*fetch('api/registrarGrupoEmpresa', {
-            method: 'POST',
-            body: data
-        });.then((response) => {
-            setMsg(true);
-            const mensaje = document.getElementById('mensajeRGE');
-            let color = null;
-            if (response.ok) {
-                color = exito();
-                mensaje.innerHTML = "Exito al Registrar Grupo empresa";
-            } else {
-                color = 'red';
-                mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
-            }
-            document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
-            mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
-            window.scroll(0, 0);
-        });*/
-
         verificarInputs();
         e.preventDefault();
         if (orgJur.valido === 'true' && telefono.valido === 'true' &&
@@ -225,7 +212,7 @@ const EditarGE = (props) => {
             imagen.valido === 'true' && nombre.valido === 'true' &&
             nombreAb.valido === 'true' && descripcion.valido === 'true') {
             const data = new FormData(document.getElementById('formulario'));
-            fetch('api/guardarCambiosGrupoEmpresa', {
+            fetch('api/registrarCambiosGE', {
                 method: 'POST',
                 body: data
             }).then((response) => {
@@ -246,8 +233,39 @@ const EditarGE = (props) => {
         }
     };
 
+    const idGE = {
+        id: 5
+    };
 
-
+    fetch('/api/solicitarGE', {
+        method: 'POST',
+        body: JSON.stringify(idGE),
+    }).then((response) => response.json())
+        .then((data) => {
+            //console.log(data.nombre);
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
+                let elemento = data[i];
+                if (elemento.idGE == idGE.id) {
+                    nombre.campo = elemento.nombre;
+                    nombreAb.campo = elemento.nombreAb;
+                    telefono.campo = elemento.telefono;
+                    direccion.campo = elemento.direccion;
+                    email.campo = elemento.email;
+                    descripcion.campo = elemento.descripcion;
+                    console.log(nombre.campo);
+                    break;
+                    /*[idGE','fecha_creacion', 'fecha_registro',
+                    'orgJur', 'nombre', 'nombreAb', 'telefono',
+                    'direccion', 'email', 'descripcion', 'logo', 'orgJur'];*/
+                }
+            }
+        });
+    const item_back = "./resources/extras/back.png";
+    const item_save = "./resources/extras/save.png";
+    //const logo = "../resources/socios/juanperez.jpg";
+    console.log(nombre.campo);
+    console.log(email.campo);
     return (
 
         <main>
@@ -263,7 +281,6 @@ const EditarGE = (props) => {
                         <div className="row p-3">
                             <div className="col-12 p-3">
                                 MythicalSoft
-                                {/*datos*/}
                             </div>
                         </div>
                         {
@@ -273,7 +290,7 @@ const EditarGE = (props) => {
                             </ContenedorBloque>)
                         }
                         <div className="row">
-                            <div className="col-8 border">
+                            <div className="col-12 col-sm-8 border">
                                 <div className="form-group">
                                     <Input estado={nombre}
                                         cambiarEstado={setNombre}
@@ -341,7 +358,7 @@ const EditarGE = (props) => {
                                 </div>
                             </div>
 
-                            <div className='col-4 border'>
+                            <div className='col-12 col-sm-4 border'>
                                 <div className="form-group">
                                     <InputImg estado={imagen}
                                         cambiarEstado={setImagen}
@@ -356,12 +373,12 @@ const EditarGE = (props) => {
                         <div className="row p-3">
                             <div className="col-6">
                                 <Boton id='botonCan'>
-                                    <img src="./resources/extras/back.png" alt="" />
+                                    <img src={item_back} alt="" />
                                 </Boton>
                             </div>
                             <div className="col-6">
                                 <Boton id='botonSub' type='submit'>
-                                    <img src="./resources/extras/save.png" alt="" />
+                                    <img src={item_save} alt="" />
                                 </Boton>
                             </div>
                         </div>

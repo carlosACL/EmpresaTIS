@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\RegistroGEController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,6 @@ Route::post('registrarGrupoEmpresa', [RegistroGEController::class, 'RegistrarGru
 Route::post('crearSession', [UserController::class, 'createSession']);
 Route::post('eliminarSession', [UserController::class, 'dropSession']);
 Route::post('verificarSession', [UserController::class, 'verifySession']);
+
+Route::post('registrarCambiosGE', [EditarGEController::class, 'registrarCambiosGE']);
+Route::post('solicitarGE', [EditarGEController::class, 'solicitarGE']);

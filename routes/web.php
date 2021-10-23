@@ -25,6 +25,7 @@ Route::get('/Socio{id}', [PerfilUsuarioController::class, 'show']);
 
 
 Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE'])->name('registroGE');
+Route::get('/EditarGE',[EditarGEController::class, 'index'])->name('editarGE');
 
 
 Route::get('/Login', [LoginController::class, 'vistaLogin']);

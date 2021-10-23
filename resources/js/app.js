@@ -47,14 +47,14 @@ if (document.getElementById('regGE')) {
             <RegistroGE />
         </div>, document.getElementById('regGE'));
 }
-/*
-function editGE(datos){
+
+if (document.getElementById('editGE')) {
     ReactDOM.render(
-        <div>
-            <EditarGE/>
+        <div >
+            <EditarGE />
         </div>, document.getElementById('editGE'));
 }
-*/
+
 
 if(document.getElementById('perfil')){
     ReactDOM.render(<div >

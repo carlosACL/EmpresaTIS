@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class EditarGEController extends Controller
 {
-    function GuardarCambiosGrupoEmpresa(Request $req)
+    function registrarCambiosGE(Request $req)
     {
         //$grupoEmpresa = GrupoEmpresa::find(1);
         echo ("como quieres ser mi amiga");
@@ -36,20 +36,45 @@ class EditarGEController extends Controller
         return response(200);
     }
 
-    function verificarNombre(request $req)
+    function solicitarGE(request $req)
     {
-        $response = DB::table('Grupo_Empresa')->select($req->campo)->where($req->campo, '=', $req->nombre)->first();
+        //$socios = DB::table('socio')->get();
+        //return response()->json($socios);
 
-        return response()->json(($response) ? ['nombre' => 'false'] : ['nombre' => 'true']);
+        //$response = DB::table('Grupo_Empresa')->select('nombre', 'nombreAb', 'logo', 'fecha_creacion', 'fecha_registro', 'direccion', 'descripcion', 'email', 'telefono', 'orgJur')->get();
+        $response = DB::table('Grupo_Empresa')->get();
+        return response()->json($response);
+    }
+    public function obtenerDatos(request $dato)
+    {
+        $datos = ['nombre' => 'juan'];
+        return response()->json($datos);
+    }
+
+    public function obtenerSocio()
+    {
+        $socios = DB::table('socio')->get();
+        return response()->json($socios);
+    }
+
+    public function obtenerCarrera()
+    {
+        $carreras = DB::table('carrera')->get();
+        return response()->json($carreras);
+    }
+
+    public function obtenerGrupo()
+    {
+        $grupos = DB::table('grupo')->get();
+        return response()->json($grupos);
     }
 
     function index()
     {
-        $datos = DB::table('Grupo_Empresa')->select('nombre', 'nombreAb', 'logo', 'fecha_creacion', 'fecha_registro', 'direccion', 'descripcion', 'email', 'telefono', 'orgJur')->get();
 
         //return View::make('gameworlds.mygame', compact('fixtures'), compact('teams'), compact('selections'));
         //return $datos;
-        return view('editarGE', $datos);
+        return view('editarGE');
         //return Route::get('/EditarGE',[EditarGEController::class, 'index']);
     }
 }
