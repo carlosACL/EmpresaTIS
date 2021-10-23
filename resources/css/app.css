@@ -28,6 +28,33 @@ main{
     height: 200px;
     object-fit: cover;
 }
+
+.formStyle{
+    margin-top: 50px;
+    margin: 30px;
+    display : grid;
+    gap: 20px;
+}
+
+@media screen and (max-width: 800px){
+    .formStyle{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 700px){
+    main {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .mostrar{
+        display: flex;
+        margin-left: 10px;
+    }
+}
+
 /*
 .tarjetaDisplayBlock{
     display: flex;
@@ -74,3 +101,177 @@ main{
 .botonRGE:hover {
     background-color: rgb(240, 255, 240);
 }*/
+
+#lbDetalles{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 50px;
+    margin-right: 185px;
+    margin-bottom: 20px;
+}
+
+.labels{
+    display: inline-block;
+    position: relative;
+    padding: 15px;
+    width: 180px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.texto{
+    width: 250px;
+    color: black;
+    border-color: rgb(240, 255, 240, 0.4);
+    border-bottom: 2px solid;
+    border-bottom-color: black;
+    text-align: center;
+}
+
+#tarjeta-datos{
+    display: block;
+    transition: .5s ease all;
+    background-color: rgb( 240, 255, 240, 0.7);
+    border-color: rgb( 240, 255, 240, 0.4);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 10%;
+    padding: 30px;
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 40px;
+    transition: 0.3s;
+}
+
+#img-usuario{
+    position: absolute;
+    background-color: white;
+    border-width: 2px;
+    border-color: #22ddaa;
+    width: 26%;
+    top: 5%;
+    left: 5%;
+}
+
+#imagen{
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 1150px) {
+    #tarjeta-datos{
+        top: 20%;
+        left: 9%;
+        right: 9%;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    #lbDetalles{
+        display: block;
+        text-align: center;
+        padding-top: 300px;
+        padding-right: 0px;
+        margin: 0 auto;
+    }
+
+    #tarjeta-datos{
+        left: 10%;
+        right: 10%;
+        padding: 0%;
+        padding-bottom: 50px;
+    }
+
+    .labels{
+        display: block;
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .texto{
+        display: block;
+        position: relative;
+        width: 80%;
+        height: 30px;
+        padding: 0%;
+        margin: 0 auto;
+    }
+
+    #img-usuario{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        top: 5%;
+        left: 0%;
+        right: 0%;
+        margin: 0 auto;
+    }
+}
+
+/*LOGIN*/
+
+#label-login-logo {
+    color: #22ddaa;
+    text-align: center;
+    transition: 0.6s;
+}
+
+#cont-label-logo {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+#cont-logo {
+    width: 50%;
+    min-width: 200px;
+    margin: 0 auto;   
+}
+
+#cont-datos-login {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.input-login {
+    margin-top: 20px;
+    margin-right: 10%;
+    width: 100%;
+}
+
+#boton-login {
+    margin-top: 20px;
+    margin-right: 10%;
+    width: 80%;
+}
+
+#cont-label-login {
+    text-align: center;
+    padding: 0 10%;
+    margin-top: 20px;
+}
+
+#label-login {
+    font-size: 20px;
+    text-align: center;
+}
+
+#link-login {
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 17px;
+    padding: 0 10%;
+}
+
+@media only screen and (max-width: 840px) {
+    #cont-label-logo {
+        font-size: 30px;
+    }
+}

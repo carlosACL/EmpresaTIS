@@ -1,9 +1,9 @@
 @extends('templates.plantillaprincipal')
 
 @section('titulo') 
-    Inicio de Session
+    Login
 @endsection
 
 @section('contenido')
-    <div id=''></div>
+    <div id="login"></div>
 @endsection

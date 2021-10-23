@@ -1,9 +1,13 @@
 @extends('templates.plantillaprincipal')
 
 @section('titulo') 
-    Inicio de Session
+    Perfil Usuario
 @endsection
 
 @section('contenido')
-    <div id=''></div>
+<div id="perfil"></div>
+        
+<script>
+    const idSocio = '<?= $id?>';
+</script>
 @endsection

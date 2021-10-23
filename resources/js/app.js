@@ -4,7 +4,7 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
-require('./bootstrap');
+//require('./bootstrap');
 import 'bootstrap/dist/css/bootstrap.css';
 /**
  * Next, we will create a fresh React component instance and attach it to
@@ -19,6 +19,9 @@ import RegistroGE from './components/RegistroGE';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
+import PerfilUsuario from './components/perfilUsuario';
+import Navegador from './components/Navegador';
+import Login from './components/Login';
 //import Login from "./components/Login/Login"
 
 /*
@@ -41,4 +44,22 @@ if(document.getElementById('regGE')){
                         <RegistroGE />
                 </div>
         ,document.getElementById('regGE'));
+}
+
+if(document.getElementById('perfil')){
+    ReactDOM.render(<div >
+                        <PerfilUsuario />
+                  </div>
+        ,document.getElementById('perfil'));
+}
+
+if(document.getElementById('navegador')){
+    ReactDOM.render(<Navegador />, document.getElementById('navegador'));
+}
+
+if(document.getElementById('login')){
+    ReactDOM.render(<div >
+                        <Login />
+                  </div>
+        ,document.getElementById('login'));
 }
