@@ -237,23 +237,24 @@ const EditarGE = (props) => {
         id: 5
     };
 
+
+
+
     fetch('/api/solicitarGE', {
         method: 'POST',
         body: JSON.stringify(idGE),
     }).then((response) => response.json())
         .then((data) => {
             //console.log(data.nombre);
-            console.log(data);
             for (let i = 0; i < data.length; i++) {
                 let elemento = data[i];
                 if (elemento.idGE == idGE.id) {
-                    nombre.campo = elemento.nombre;
-                    nombreAb.campo = elemento.nombreAb;
-                    telefono.campo = elemento.telefono;
-                    direccion.campo = elemento.direccion;
-                    email.campo = elemento.email;
-                    descripcion.campo = elemento.descripcion;
-                    console.log(nombre.campo);
+                    setNombre({...nombre, campo: elemento.nombre});
+                    setNombreAb({...nombreAb, campo: elemento.nombreAb});
+                    setTelefono({...telefono, campo: elemento.telefono});
+                    setDireccion({...direccion,campo: elemento.direccion});
+                    setEmail({...email, campo: elemento.email});
+                    setDescripcion({...descripcion, campo: elemento.descripcion});
                     break;
                     /*[idGE','fecha_creacion', 'fecha_registro',
                     'orgJur', 'nombre', 'nombreAb', 'telefono',
@@ -264,8 +265,7 @@ const EditarGE = (props) => {
     const item_back = "./resources/extras/back.png";
     const item_save = "./resources/extras/save.png";
     //const logo = "../resources/socios/juanperez.jpg";
-    console.log(nombre.campo);
-    console.log(email.campo);
+
     return (
 
         <main>
