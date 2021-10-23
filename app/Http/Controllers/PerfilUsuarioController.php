@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\socio;
+use Illuminate\Support\Facades\DB;
 
 class PerfilUsuarioController extends Controller
 {
@@ -24,19 +25,19 @@ class PerfilUsuarioController extends Controller
 
     public function obtenerSocio()
     {
-       $socios = \DB::table('socio')->get();
+       $socios = DB::table('socio')->get();
        return response()->json($socios);
     }
 
     public function obtenerCarrera()
     {
-       $carreras = \DB::table('carrera')->get();
+       $carreras = DB::table('carrera')->get();
        return response()->json($carreras);
     }
 
     public function obtenerGrupo()
     {
-       $grupos = \DB::table('grupo')->get();
+       $grupos = DB::table('grupo')->get();
        return response()->json($grupos);
     }
 }

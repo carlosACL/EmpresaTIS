@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RegistroGEController;
+use App\Http\Controllers\EditarGEController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
 use App\Http\Controllers\LoginController;
@@ -24,6 +25,7 @@ Route::get('/Socio{id}', [PerfilUsuarioController::class, 'show']);
 
 
 Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE'])->name('registroGE');
+Route::get('/EditarGE',[EditarGEController::class, 'index'])->name('editarGE');
 
 
 Route::get('/Login', [LoginController::class, 'vistaLogin']);

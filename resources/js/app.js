@@ -16,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import ReactDOM from 'react-dom';
 import RegistroGE from './components/RegistroGE';
+import EditarGE from './components/EditarGE';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
@@ -31,20 +32,29 @@ import Login from './components/Login';
     }
 
 */
-if(document.getElementById('fondo')){
+
+if (document.getElementById('fondo')) {
     ReactDOM.render(
-    <div>
-        <Fondo src='./resources/asesoria-cont-financ_001.png'/>
-    </div>, document.getElementById('fondo'));
+        <div>
+            <Fondo src='./resources/asesoria-cont-financ_001.png' />
+        </div>, document.getElementById('fondo'));
 
 };
 
-if(document.getElementById('regGE')){
-  ReactDOM.render(<div >
-                        <RegistroGE />
-                </div>
-        ,document.getElementById('regGE'));
+if (document.getElementById('regGE')) {
+    ReactDOM.render(
+        <div >
+            <RegistroGE />
+        </div>, document.getElementById('regGE'));
 }
+
+if (document.getElementById('editGE')) {
+    ReactDOM.render(
+        <div >
+            <EditarGE />
+        </div>, document.getElementById('editGE'));
+}
+
 
 if(document.getElementById('perfil')){
     ReactDOM.render(<div >

@@ -1,9 +1,9 @@
 @extends('templates.plantillaprincipal')
 
 @section('titulo')
-    Inicio de Session
+    Editar Datos Grupo Empresa
 @endsection
 
 @section('contenido')
-    <div id=''></div>
+    <div id='editGE'></div>
 @endsection

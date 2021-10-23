@@ -7,13 +7,13 @@ const TextArea = ({ estado, cambiarEstado, regex, funcValidar, nombre, placehold
     const textArea = useRef(null);
 
     const onChangeup = () => {
-        cambiarEstado({...estado, campo:(textArea.current.value !== ' ') ?
+        cambiarEstado({...estado, campo:(textArea.current.value !== ' ') ? 
                                                 textArea.current.value : ''});
     }
 
     const validacion =() => {
         if(regex){
-            if(regex.test(estado.campo)){
+            if(regex.test(estado.campo)){ 
                 cambiarEstado({...estado, valido:'true'});
             } else {
                 cambiarEstado({...estado, valido:'false'});
@@ -24,14 +24,13 @@ const TextArea = ({ estado, cambiarEstado, regex, funcValidar, nombre, placehold
     return (
         <>
             {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado, regex)}/>)}
-            <TextA onBlur={ validacion }
-                   ref= { textArea }
-                   onChange={ onChangeup }
-                   id={ nombre }
-                   name={ nombre }
+            <TextA onBlur={ validacion } 
+                   ref= { textArea } 
+                   onChange={ onChangeup } 
+                   id={ nombre } 
+                   name={ nombre } 
                    placeholder={ placeholder }
                    valido={estado.valido}
-                   value={estado.campo}
                    onSubmit={validacion}></TextA>
         </>
     )
@@ -41,7 +40,7 @@ TextArea.propTypes = {
     estado: PropTypes.object,
     cambiarEstado: PropTypes.func,
     funcValidar: PropTypes.func,
-    nombre: PropTypes.string,
+    nombre: PropTypes.string, 
     placeholder: PropTypes.string,
     cambiarEstado: PropTypes.func
 }
