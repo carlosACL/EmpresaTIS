@@ -165,6 +165,7 @@ main{
 
 @media only screen and (max-width: 1150px) {
     #tarjeta-datos{
+        top: 20%;
         left: 9%;
         right: 9%;
     }
@@ -210,5 +211,67 @@ main{
         left: 0%;
         right: 0%;
         margin: 0 auto;
+    }
+}
+
+/*LOGIN*/
+
+#label-login-logo {
+    color: #22ddaa;
+    text-align: center;
+    transition: 0.6s;
+}
+
+#cont-label-logo {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+#cont-logo {
+    width: 50%;
+    min-width: 200px;
+    margin: 0 auto;   
+}
+
+#cont-datos-login {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.input-login {
+    margin-top: 20px;
+    margin-right: 10%;
+    width: 100%;
+}
+
+#boton-login {
+    margin-top: 20px;
+    margin-right: 10%;
+    width: 80%;
+}
+
+#cont-label-login {
+    text-align: center;
+    padding: 0 10%;
+    margin-top: 20px;
+}
+
+#label-login {
+    font-size: 20px;
+    text-align: center;
+}
+
+#link-login {
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 17px;
+    padding: 0 10%;
+}
+
+@media only screen and (max-width: 840px) {
+    #cont-label-logo {
+        font-size: 30px;
     }
 }
