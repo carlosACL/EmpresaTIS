@@ -10,11 +10,10 @@ class EditarGEController extends Controller
 {
     function registrarCambiosGE(Request $req)
     {
-        //$grupoEmpresa = GrupoEmpresa::find(1);
-        echo ("como quieres ser mi amiga");
+        $grupoEmpresa = GrupoEmpresa::find($req->id);
         //$grupoEmpresa = GrupoEmpresa::where($req->campo, '=', $req->nombre);
 
-        $grupoEmpresa = new GrupoEmpresa;
+        //$grupoEmpresa = new GrupoEmpresa;
 
         $grupoEmpresa->nombre = $req->nombre;
         $grupoEmpresa->nombreAb = $req->nombreAb;
@@ -45,29 +44,7 @@ class EditarGEController extends Controller
         $response = DB::table('Grupo_Empresa')->get();
         return response()->json($response);
     }
-    public function obtenerDatos(request $dato)
-    {
-        $datos = ['nombre' => 'juan'];
-        return response()->json($datos);
-    }
 
-    public function obtenerSocio()
-    {
-        $socios = DB::table('socio')->get();
-        return response()->json($socios);
-    }
-
-    public function obtenerCarrera()
-    {
-        $carreras = DB::table('carrera')->get();
-        return response()->json($carreras);
-    }
-
-    public function obtenerGrupo()
-    {
-        $grupos = DB::table('grupo')->get();
-        return response()->json($grupos);
-    }
 
     function index()
     {
