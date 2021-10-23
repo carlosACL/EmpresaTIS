@@ -21,6 +21,7 @@ import '../css/app.css';
 import {Fondo} from './elementos/card';
 import PerfilUsuario from './components/perfilUsuario';
 import Navegador from './components/Navegador';
+import Login from './components/Login';
 //import Login from "./components/Login/Login"
 
 /*
@@ -54,4 +55,11 @@ if(document.getElementById('perfil')){
 
 if(document.getElementById('navegador')){
     ReactDOM.render(<Navegador />, document.getElementById('navegador'));
+}
+
+if(document.getElementById('login')){
+    ReactDOM.render(<div >
+                        <Login />
+                  </div>
+        ,document.getElementById('login'));
 }
