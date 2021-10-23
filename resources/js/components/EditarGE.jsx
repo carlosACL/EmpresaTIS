@@ -274,9 +274,6 @@ const EditarGE = (props) => {
                         }
                         <div className="row">
                             <div className="col-8 border">
-                                <div class="form-group">
-                                    <Fecha />
-                                </div>
                                 <div className="form-group">
                                     <Input estado={nombre}
                                         cambiarEstado={setNombre}
