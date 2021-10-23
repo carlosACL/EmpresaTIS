@@ -9,13 +9,6 @@
 @endsection
 
 @section('contenido')
-    <script>
-        if(!sessionStorage.getItem('userSession')){
-            window.location.replace({{ route('inicio')}});
-            console.log("pasa por aqui");
-        }    
-    </script>  
-
     <div id='regGE'></div>
 @endsection
     

@@ -11,7 +11,7 @@ const Session = () => {
     return (
         <div id='sessionNav' className='collapse navbar-collapse'>
             <ul className="navbar-nav">
-            {(!sessionStorage.getItem('userSession')) ? (<>
+            {(!sessionStorage.getItem('token')) ? (<>
                 <li className="nav-item">
                     <ItemNavegador className=' nav-item' link={registrarse.link} nombre={registrarse.nombre} />
                 </li>
@@ -31,7 +31,7 @@ const Session = () => {
                         <IconNav  icon={faUserCircle}/>
                     </a>
                     <div className=" dropdown-menu" aria-labelledby="navbarDropdown" style = {{width:'165%'}}>
-                        {opcionesUsuario.map((dato) => (<BotonSession className="dropdown-item" img = {dato.img} name= {dato.name} link={dato.link} contenido={dato.contenido}/>))}
+                        {opcionesUsuario.map((dato) => (<BotonSession className="dropdown-item" action={ dato.onClick } img = {dato.img} name= {dato.name} link={dato.link} contenido={dato.contenido}/>))}
                     </div>
                 </li>)}
             </ul>

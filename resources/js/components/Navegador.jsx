@@ -1,4 +1,4 @@
-import React from 'react'
+import {useEffect} from 'react'
 import { Nav, IconNav } from '../elementos/navegador'
 import ItemNavegador from './Navegador/ItemNavegador'
 import Logo from './Navegador/Logo'
@@ -7,7 +7,6 @@ import Session from './Navegador/Session'
 import { datosNavegador } from '../parametros/menus';
 
 const Navegador = () => {
-    
     return (
         <>
             <Nav className = 'navbar navbar-expand-lg'>
