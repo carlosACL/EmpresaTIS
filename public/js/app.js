@@ -10950,10 +10950,6 @@ var EditarGE = function EditarGE(props) {
       validar.push('Debe ingresar un formato de correo institucional de la universidad  ej : ejemplo@est.umss.bo');
     }
 
-    if (estate.existe === 'false' && estate.campo.length > 12 && estate.campo.length < 25) {
-      validar.push('el email ya esta en uso');
-    }
-
     return validar;
   };
 
@@ -10972,10 +10968,6 @@ var EditarGE = function EditarGE(props) {
       validar.push('El nombre solo puede contener caracteres alfabeticos y espacios');
     }
 
-    if (estate.existe === 'false' && estate.campo.length > 2 && estate.campo.length < 31) {
-      validar.push('el nombre ya esta en uso');
-    }
-
     return validar;
   };
 
@@ -10992,10 +10984,6 @@ var EditarGE = function EditarGE(props) {
 
     if (!regex.test(estate.campo) && estate.campo.length > 1 && estate.campo.length < 21) {
       validar.push('El nombre abreviado solo puede contener caracteres alfabeticos y espacios');
-    }
-
-    if (estate.existe === 'false' && estate.campo.length > 1 && estate.campo.length < 21) {
-      validar.push('ese nombre abreviado ya esta en uso');
     }
 
     return validar;
@@ -11111,42 +11099,52 @@ var EditarGE = function EditarGE(props) {
   var idGE = {
     id: 5
   };
-  fetch('/api/solicitarGE', {
-    method: 'POST',
-    body: JSON.stringify(idGE)
-  }).then(function (response) {
-    return response.json();
-  }).then(function (data) {
-    //console.log(data.nombre);
-    for (var i = 0; i < data.length; i++) {
-      var elemento = data[i];
 
-      if (elemento.idGE == idGE.id) {
-        setNombre(_objectSpread(_objectSpread({}, nombre), {}, {
-          campo: elemento.nombre
-        }));
-        setNombreAb(_objectSpread(_objectSpread({}, nombreAb), {}, {
-          campo: elemento.nombreAb
-        }));
-        setTelefono(_objectSpread(_objectSpread({}, telefono), {}, {
-          campo: elemento.telefono
-        }));
-        setDireccion(_objectSpread(_objectSpread({}, direccion), {}, {
-          campo: elemento.direccion
-        }));
-        setEmail(_objectSpread(_objectSpread({}, email), {}, {
-          campo: elemento.email
-        }));
-        setDescripcion(_objectSpread(_objectSpread({}, descripcion), {}, {
-          campo: elemento.descripcion
-        }));
-        break;
-        /*[idGE','fecha_creacion', 'fecha_registro',
-        'orgJur', 'nombre', 'nombreAb', 'telefono',
-        'direccion', 'email', 'descripcion', 'logo', 'orgJur'];*/
+  function start() {
+    fetch('/api/solicitarGE', {
+      method: 'POST',
+      body: JSON.stringify(idGE)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log(data);
+
+      for (var i = 0; i < data.length; i++) {
+        var elemento = data[i];
+
+        if (elemento.idGE == idGE.id) {
+          setNombre(_objectSpread(_objectSpread({}, nombre), {}, {
+            campo: elemento.nombre
+          }));
+          setNombreAb(_objectSpread(_objectSpread({}, nombreAb), {}, {
+            campo: elemento.nombreAb
+          }));
+          setTelefono(_objectSpread(_objectSpread({}, telefono), {}, {
+            campo: elemento.telefono
+          }));
+          setDireccion(_objectSpread(_objectSpread({}, direccion), {}, {
+            campo: elemento.direccion
+          }));
+          setEmail(_objectSpread(_objectSpread({}, email), {}, {
+            campo: elemento.email
+          }));
+          setDescripcion(_objectSpread(_objectSpread({}, descripcion), {}, {
+            campo: elemento.descripcion
+          }));
+          break;
+          /*[idGE','fecha_creacion', 'fecha_registro',
+          'orgJur', 'nombre', 'nombreAb', 'telefono',
+          'direccion', 'email', 'descripcion', 'logo', 'orgJur'];*/
+        }
       }
-    }
-  });
+    });
+  }
+
+  if (nombre.campo === "") {
+    start();
+    console.log(nombre.campo);
+  }
+
   var item_back = "./resources/extras/back.png";
   var item_save = "./resources/extras/save.png"; //const logo = "../resources/socios/juanperez.jpg";
 
@@ -11433,27 +11431,9 @@ var Input = function Input(_ref) {
   var validacion = function validacion() {
     if (regex) {
       if (regex.test(estado.campo)) {
-        if ((nombre == 'nombre' || nombre == 'nombreAb' || nombre == 'email') && estado.campo.length > 0) {
-          var nombreCampo = nombre == 'nombre' ? 'nombre' : nombre == 'nombreAb' ? 'nombreAb' : 'email';
-          var datos = new FormData();
-          datos.append('nombre', estado.campo);
-          datos.append('campo', nombreCampo);
-          fetch('api/nombreGE', {
-            method: 'POST',
-            body: datos
-          }).then(function (response) {
-            return response.json();
-          }).then(function (dat) {
-            cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
-              valido: dat.nombre,
-              existe: dat.nombre
-            }));
-          });
-        } else {
-          cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
-            valido: 'true'
-          }));
-        }
+        cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
+          valido: 'true'
+        }));
       } else {
         cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
           valido: 'false'

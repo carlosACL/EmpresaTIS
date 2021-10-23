@@ -45,9 +45,7 @@ const EditarGE = (props) => {
 
 
     const validarImagen = (estate) => {
-
         const validar = [];
-
         if (estate.valido === 'false') {
             validar.push("Tienes que insertar una imagen");
         }
@@ -106,10 +104,6 @@ const EditarGE = (props) => {
             validar.push('Debe ingresar un formato de correo institucional de la universidad  ej : ejemplo@est.umss.bo');
         }
 
-        if (estate.existe === 'false' && (estate.campo.length > 12 && estate.campo.length < 25)) {
-            validar.push('el email ya esta en uso');
-        }
-
         return validar;
     }
 
@@ -123,9 +117,6 @@ const EditarGE = (props) => {
         }
         if ((!regex.test(estate.campo)) && (estate.campo.length > 2 && estate.campo.length < 31)) {
             validar.push('El nombre solo puede contener caracteres alfabeticos y espacios');
-        }
-        if (estate.existe === 'false' && (estate.campo.length > 2 && estate.campo.length < 31)) {
-            validar.push('el nombre ya esta en uso');
         }
 
         return validar;
@@ -141,9 +132,6 @@ const EditarGE = (props) => {
         }
         if (!regex.test(estate.campo) && (estate.campo.length > 1 && estate.campo.length < 21)) {
             validar.push('El nombre abreviado solo puede contener caracteres alfabeticos y espacios');
-        }
-        if (estate.existe === 'false' && (estate.campo.length > 1 && estate.campo.length < 21)) {
-            validar.push('ese nombre abreviado ya esta en uso');
         }
 
         return validar;
@@ -238,30 +226,34 @@ const EditarGE = (props) => {
     };
 
 
-
-
-    fetch('/api/solicitarGE', {
-        method: 'POST',
-        body: JSON.stringify(idGE),
-    }).then((response) => response.json())
-        .then((data) => {
-            //console.log(data.nombre);
-            for (let i = 0; i < data.length; i++) {
-                let elemento = data[i];
-                if (elemento.idGE == idGE.id) {
-                    setNombre({...nombre, campo: elemento.nombre});
-                    setNombreAb({...nombreAb, campo: elemento.nombreAb});
-                    setTelefono({...telefono, campo: elemento.telefono});
-                    setDireccion({...direccion,campo: elemento.direccion});
-                    setEmail({...email, campo: elemento.email});
-                    setDescripcion({...descripcion, campo: elemento.descripcion});
-                    break;
-                    /*[idGE','fecha_creacion', 'fecha_registro',
-                    'orgJur', 'nombre', 'nombreAb', 'telefono',
-                    'direccion', 'email', 'descripcion', 'logo', 'orgJur'];*/
+    function start() {
+        fetch('/api/solicitarGE', {
+            method: 'POST',
+            body: JSON.stringify(idGE),
+        }).then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    let elemento = data[i];
+                    if (elemento.idGE == idGE.id) {
+                        setNombre({ ...nombre, campo: elemento.nombre });
+                        setNombreAb({ ...nombreAb, campo: elemento.nombreAb });
+                        setTelefono({ ...telefono, campo: elemento.telefono });
+                        setDireccion({ ...direccion, campo: elemento.direccion });
+                        setEmail({ ...email, campo: elemento.email });
+                        setDescripcion({ ...descripcion, campo: elemento.descripcion });
+                        break;
+                        /*[idGE','fecha_creacion', 'fecha_registro',
+                        'orgJur', 'nombre', 'nombreAb', 'telefono',
+                        'direccion', 'email', 'descripcion', 'logo', 'orgJur'];*/
+                    }
                 }
-            }
-        });
+            });
+    }
+    if (nombre.campo === "") {
+        start();
+        console.log(nombre.campo);
+    }
     const item_back = "./resources/extras/back.png";
     const item_save = "./resources/extras/save.png";
     //const logo = "../resources/socios/juanperez.jpg";
