@@ -19,9 +19,10 @@ import RegistroGE from './components/RegistroGE';
 import EditarGE from './components/EditarGE';
 import React from 'react';
 import '../css/app.css';
-import { Fondo } from './elementos/card';
+import {Fondo} from './elementos/card';
+import PerfilUsuario from './components/perfilUsuario';
 import Navegador from './components/Navegador';
-
+import Login from './components/Login';
 //import Login from "./components/Login/Login"
 
 /*
@@ -55,18 +56,20 @@ function editGE(datos){
 }
 */
 
-if (document.getElementById('editGE')) {
-    ReactDOM.render(
-        <div>
-            <EditarGE />
-
-        </div>, document.getElementById('editGE'));
+if(document.getElementById('perfil')){
+    ReactDOM.render(<div >
+                        <PerfilUsuario />
+                  </div>
+        ,document.getElementById('perfil'));
 }
 
-if (document.getElementById('navegador')) {
+if(document.getElementById('navegador')){
     ReactDOM.render(<Navegador />, document.getElementById('navegador'));
 }
 
-
-
-
+if(document.getElementById('login')){
+    ReactDOM.render(<div >
+                        <Login />
+                  </div>
+        ,document.getElementById('login'));
+}

@@ -3,6 +3,8 @@
 use App\Http\Controllers\RegistroGEController;
 use App\Http\Controllers\EditarGEController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PerfilUsuarioController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,16 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
-Route::get('/RegistroGE', function(){
-    return view('registroGE');
-});
+Route::get('/Socio{id}', [PerfilUsuarioController::class, 'show']);
 
-Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE']);
-/*
-Route::get('/EditarGE', function(){
-    return view('editarGE');
-});
-*/
-Route::get('/EditarGE',[EditarGEController::class, 'index']);
+
+Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE'])->name('registroGE');
+
+
+Route::get('/Login', [LoginController::class, 'vistaLogin']);
