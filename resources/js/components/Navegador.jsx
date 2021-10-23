@@ -7,8 +7,6 @@ import Session from './Navegador/Session'
 import { datosNavegador } from '../parametros/menus';
 
 const Navegador = () => {
-
-    sessionStorage.setItem('userSession', 'existe');
     
     return (
         <>

@@ -17,7 +17,7 @@ use App\Http\Controllers\PerfilUsuarioController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
 Route::get('/Socio{id}', [PerfilUsuarioController::class, 'show']);
 

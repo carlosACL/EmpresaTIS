@@ -4,6 +4,8 @@ use App\Http\Controllers\RegistroGEController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,3 +27,6 @@ Route::post('grupo',[PerfilUsuarioController::class ,'obtenerGrupo']);
 Route::post('nombreGE', [RegistroGEController::class, 'verificarNombre']);
 
 Route::post('registrarGrupoEmpresa', [RegistroGEController::class, 'RegistrarGrupoEmpresa'])->name('rgep');
+Route::post('crearSession', [UserController::class, 'createSession']);
+Route::post('eliminarSession', [UserController::class, 'dropSession']);
+Route::post('verificarSession', [UserController::class, 'verifySession']);
