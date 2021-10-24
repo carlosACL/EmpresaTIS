@@ -1,5 +1,6 @@
-import { create } from 'lodash';
-import React, { useRef, useEffect } from 'react';
+import { data } from 'jquery';
+import { create, toInteger } from 'lodash';
+import React, { useRef, useEffect, useState } from 'react';
 import { Card as div } from '../elementos/card';
 import { Boton, InputStyle } from '../elementos/registro';
 import { iniciarSession } from '../parametros/menus';
@@ -16,16 +17,45 @@ const Login = () => {
         });;
     }, []);
         
-
     const refUser = useRef(null);
     const refPass = useRef(null);
+    const [datos, setDatos] = useState(null);
+
+    useEffect(() => {
+        fetch('/api/socio',{
+            method: 'POST',
+            body: datos,
+        })
+        .then((response) => response.json())
+        .then(data => setDatos(data));
+    }, []);
+    
+    const obtenerID = () => {
+        let idUsuario = "-1";
+        for (let i = 0; i < datos.length; i++) {
+            let usuario = datos[i];
+            if (usuario.nombreUsuario == refUser.current.value) {
+                console.log("existe usuario");
+                if (usuario.contrasenia == refPass.current.value) {
+                    console.log("autenticado");
+                    idUsuario = usuario.idUsuario;
+                }
+            }
+        }
+        return idUsuario;
+    };
+
     const logo = './resources/LOGO.png';
     const iniciarSession = (e) => {
         e.preventDefault();
-            //voy a hacer de cuenta que ese usuario existe y me esta devolviendo el id
-        const id = 123;
-        createSession(id);
-        location.replace('/');
+            //voy a hacer de cuenta que ese usuario existe y me esta devolviendo el id 
+        const id = obtenerID();
+        if (id !== "-1") {
+            createSession(id);
+            location.replace('/');
+        } else {
+            alert("Usuario o contrasenia erronea");
+        }
     };
     return(
         <main>
@@ -44,7 +74,7 @@ const Login = () => {
 
                         <InputStyle ref = {refPass} className="input-login" name='password' type="password" placeholder="Contraseña" />
                         
-                        <Boton id="boton-login" onClick={() => {console.log(datos)}} >Iniciar Sesión</Boton>
+                        <Boton id="boton-login" type="submit">Iniciar Sesión</Boton>
 
                         <div id="cont-label-login">
                            <label id="label-login">¿AÚN NO TIENES CUENTA?</label> 
