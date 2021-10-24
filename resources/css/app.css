@@ -152,6 +152,7 @@ main{
     border-width: 2px;
     border-color: #22ddaa;
     width: 26%;
+    height: 200px;
     top: 5%;
     left: 5%;
 }
@@ -260,7 +261,7 @@ main{
     text-align: center;
 }
 
-#link-login {
+.link-login {
     margin-top: 20px;
     text-align: center;
     text-decoration: underline;

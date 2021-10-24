@@ -1,15 +1,27 @@
-import React from 'react';
-import { Card as div } from '../elementos/card';
+import React, { useState } from 'react';
 import { Boton, InputStyle } from '../elementos/registro';
 
 const Login = () => {
+
+    const [datos, setDatos] = useState({
+        nombreUsuario: '',
+        contraseña: ''
+    });
+
+    const modificarDatos = (e) => {
+        console.log(ev.tar);
+        setDatos({
+            ...datos,
+            [e.tarjet.name]: e.tarjet.value
+        })
+    };
 
     const logo = './resources/LOGO.png';
 
     return(
         <main>
             <div id='tarjeta-datos'>
-                <form>
+                <form method='POST'>
                     <div id="cont-label-logo">
                         <label id="label-login-logo">BIENVENIDO</label>
                     </div>
@@ -19,20 +31,32 @@ const Login = () => {
                     </div>
 
                     <div id="cont-datos-login">
-                        <InputStyle className="input-login" type="text" placeholder="Nombre de Usuario" />
+                        <InputStyle
+                            className="input-login" 
+                            name="nombreUsuario" 
+                            onChange={e => modificarDatos(e)} 
+                            type="text" 
+                            placeholder="Nombre de Usuario" />
 
-                        <InputStyle className="input-login" type="password" placeholder="Contraseña" />
+                        <InputStyle 
+                            className="input-login" 
+                            name="contraseña" 
+                            onChange={e => modificarDatos(e)} 
+                            type="password" 
+                            placeholder="Contraseña" />
                         
-                        <Boton type="submit" id="boton-login" >Iniciar Sesión</Boton>
+                        <Boton id="boton-login" onClick={() => {console.log(datos)}} >Iniciar Sesión</Boton>
 
                         <div id="cont-label-login">
                            <label id="label-login">¿AÚN NO TIENES CUENTA?</label> 
                         </div>
 
-                        <Boton type="button" id="boton-login" >Registrarse</Boton>
+                        <div className="link-login">
+                            <a href="#">Registrarse</a>  
+                        </div>
 
-                        <div id="link-login">
-                            <a href="www.google.com">¿No puedes iniciar sesión?</a>
+                        <div className="link-login">
+                            <a href="#">¿No puedes iniciar sesión?</a>
                         </div>
                     </div>     
                 </form>  

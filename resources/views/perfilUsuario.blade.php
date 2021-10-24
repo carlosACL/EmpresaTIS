@@ -8,6 +8,6 @@
 <div id="perfil"></div>
         
 <script>
-    const idSocio = '<?= $id?>';
+    const idUsuario = '<?= $id?>';
 </script>
 @endsection

@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const PerfilUsuario = () => {
 
     const datos = {
-        id: idSocio
+        id: idUsuario
     }
 
     const nombre = useRef(null); 
@@ -14,7 +14,9 @@ const PerfilUsuario = () => {
     const grupo = useRef(null);
     const correo = useRef(null); 
     const telefono = useRef(null);
-    const ci = useRef(null); 
+    const ci = useRef(null);
+
+    const [foto_perfil, setFoto_perfil] = useState("");
 
     fetch('/api/socio',{
         method: 'POST',
@@ -24,14 +26,15 @@ const PerfilUsuario = () => {
     .then((data) => {
         for(let i = 0; i < data.length; i++) {
             let elemento = data[i];
-            if (elemento.IDSOCIO == datos.id) {
-                nombre.current.value = elemento.NOMBRE;
-                nombUsuario.current.value = elemento.NOMBREUSUARIO;
-                idCarrera = elemento.IDCARRERA;
-                idGrupo = elemento.IDGRUPO;
-                correo.current.value = elemento.EMAIL;
-                telefono.current.value = elemento.TELEFONO;
-                ci.current.value = elemento.CI;
+            if (elemento.idUsuario == datos.id) {
+                nombre.current.value = elemento.nombre;
+                nombUsuario.current.value = elemento.nombreUsuario;
+                idCarrera = elemento.idCarrera;
+                idGrupo = elemento.idGrupo;
+                correo.current.value = elemento.email;
+                telefono.current.value = elemento.telefono;
+                ci.current.value = elemento.ci;
+                setFoto_perfil(elemento.foto_perfil);
                 break;
             }
         }
@@ -45,8 +48,8 @@ const PerfilUsuario = () => {
     .then((data2) => {
         for(let i = 0; i < data2.length; i++) {
             let elemento = data2[i];
-            if (elemento.IDCARRERA == idCarrera) {
-                carrera.current.value = elemento.NOMCARRERA;
+            if (elemento.idCarrera == idCarrera) {
+                carrera.current.value = elemento.nomCarrera;
                 break;
             }
         }
@@ -60,14 +63,14 @@ const PerfilUsuario = () => {
     .then((data3) => {
         for(let i = 0; i < data3.length; i++) {
             let elemento = data3[i];
-            if (elemento.IDGRUPO == idGrupo) {
-                grupo.current.value = elemento.NOMGRUPO;
+            if (elemento.idGrupo == idGrupo) {
+                grupo.current.value = elemento.nomGrupo;
                 break;
             }
         }
     });
 
-    const logo = "../resources/socios/juanperez.jpg";
+    let logo = "../resources/socios/" + foto_perfil;
 
     return(
         <div id="tarjeta-datos">

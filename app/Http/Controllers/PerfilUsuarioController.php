@@ -18,26 +18,21 @@ class PerfilUsuarioController extends Controller
         return view('perfilUsuario',['id' => $id]);
     }
 
-    public function obtenerDatos(request $dato){
-        $datos = ['nombre' => 'juan'];
-        return response()->json($datos);
-    }
-
     public function obtenerSocio()
     {
-       $socios = DB::table('socio')->get();
+       $socios = DB::table('Usuario')->get();
        return response()->json($socios);
     }
 
     public function obtenerCarrera()
     {
-       $carreras = DB::table('carrera')->get();
+       $carreras = DB::table('Carrera')->get();
        return response()->json($carreras);
     }
 
     public function obtenerGrupo()
     {
-       $grupos = DB::table('grupo')->get();
+       $grupos = DB::table('Grupo')->get();
        return response()->json($grupos);
     }
 }
