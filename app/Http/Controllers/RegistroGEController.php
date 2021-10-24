@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\GrupoEmpresa;
+use App\Models\socio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use NunoMaduro\Collision\Adapters\Phpunit\State;
+use App\Models\Usuario;
 
 class RegistroGEController extends Controller
 {
@@ -30,7 +32,12 @@ class RegistroGEController extends Controller
 
         $grupoEmpresa->save();
 
-        return response(200);
+        $id = DB::table('Session')->select('idUser')->where('token', '=', $req->token)->first();
+        $idge = DB::table('Grupo_Empresa')->select('idGE')->where('nombre', '=', $grupoEmpresa->nombre)->first();
+        $us = Usuario::find($id->idUser);
+        $us->idGE = $idge->idGE;
+        $us->save();
+        return response(20);
     }
 
     function verificarNombre(request $req){
@@ -41,5 +48,24 @@ class RegistroGEController extends Controller
 
     function vistaRegistroGE(){
         return view('registroGE');
+    }
+
+    function vistaGE($nombre) {
+        $ge = DB::table('Grupo_Empresa')->where('nombre','=',$nombre)->first();
+        if(!empty((array) $ge)){
+            $datos = [
+                'nombre' => $ge->nombre,
+                'nombreAb' => $ge->nombreAb,
+                'logo' => $ge->logo,
+                'fecha_creacion' => $ge->fecha_creacion,
+                'direccion' => $ge->direccion,
+                'descripcion' => $ge->descripcion,
+                'email' => $ge->email,
+                'telefono' => $ge->telefono,
+                'orgJur' => $ge->orgJur
+            ];
+            return view('vistaGE')->with($datos);
+        }
+        return view('login')->with(['msg' => $nombre]);
     }
 }

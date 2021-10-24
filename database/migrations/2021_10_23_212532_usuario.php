@@ -15,12 +15,12 @@ class Usuario extends Migration
     {
         Schema::create('Usuario', function(Blueprint $table){
             $table->id('idUsuario')->autoIncrement();
-            $table->unsignedInteger('idGE');
+            $table->unsignedInteger('idGE')->nullable();
             $table->foreign('idGE')->references('idGE')->on('Grupo_Empresa');
             $table->string('nombre');
             $table->string('email');
             $table->integer('telefono');
-            $table->string('ci');
+            $table->string('codSis');
             $table->string('foto_perfil');
             $table->string('nombreUsuario');
             $table->string('contrasenia');

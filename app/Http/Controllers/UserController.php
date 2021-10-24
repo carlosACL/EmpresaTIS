@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\session;
 use Illuminate\Support\Facades\DB;
+use App\Models\Usuario;
+use App\Models\GrupoEmpresa;
 
 class UserController extends Controller
 {
@@ -15,7 +17,14 @@ class UserController extends Controller
 
         $session->save();
 
-        return response()->json(['token' => $session->token]);
+        $ge = Usuario::find($request->idUser);
+        $nombre = GrupoEmpresa::find($ge->idGE);
+        $resp = [
+            'token' => $session->token,
+            'nombre' => (!empty($nombre)) ? $nombre->nombre:'',
+        ];
+
+        return response()->json($resp);
     }
 
     function dropSession(Request $request){//require el token

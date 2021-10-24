@@ -4,15 +4,15 @@ faAddressCard,
 faBriefcase,
 faPowerOff} from '@fortawesome/free-solid-svg-icons'
 import { cerrarSession } from '../session';
-
+//Socio-{id}
 const opcionesUsuario = [{
-    link : "#", 
+    link :'Socio-'+sessionStorage.getItem('id'), 
     name:'perfil', 
     contenido:'Mi Perfil', 
     img:faUser,
     onClick: null
 },{
-    link : "#", 
+    link : (sessionStorage.getItem('ge')) ? 'GE-'+sessionStorage.getItem('ge'):'#', 
     name:'grupoEmpresa', 
     contenido:'Mi Grupo Empresa', 
     img:faUsers,

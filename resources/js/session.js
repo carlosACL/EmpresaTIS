@@ -9,7 +9,6 @@ const isSessionActive = async () => {
         }).then((response) => {
             return response.json();
         });
-        console.log(data1);
         if(Object.keys(data1).length > 0){
             return true;
         } else {
@@ -28,6 +27,8 @@ const createSession = async(id) => {
         body:data
     }).then((response) => response.json()).then( (json) => {
         sessionStorage.setItem('token',json.token);
+        sessionStorage.setItem('id', id);
+        sessionStorage.setItem('ge', json.nombre);
     });
 }
 
@@ -44,5 +45,7 @@ const cerrarSession = async ()=>{
         location.replace('Login');
     }
 };
+
+
 
 export {isSessionActive, createSession, cerrarSession};

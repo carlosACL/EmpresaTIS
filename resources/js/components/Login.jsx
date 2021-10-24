@@ -48,7 +48,6 @@ const Login = () => {
     const logo = './resources/LOGO.png';
     const iniciarSession = (e) => {
         e.preventDefault();
-            //voy a hacer de cuenta que ese usuario existe y me esta devolviendo el id 
         const id = obtenerID();
         if (id !== "-1") {
             createSession(id);

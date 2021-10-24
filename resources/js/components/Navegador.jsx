@@ -10,7 +10,7 @@ const Navegador = () => {
     return (
         <>
             <Nav className = 'navbar navbar-expand-lg'>
-                <Logo link='#'/>
+                <Logo link='/'/>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#sessionNav" aria-controls="sessionNav" aria-expanded="false" aria-label="Toggle navigation">
                     <IconNav icon={faUserCircle} ></IconNav>
                 </button>

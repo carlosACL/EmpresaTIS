@@ -23,6 +23,7 @@ import {Fondo} from './elementos/card';
 import PerfilUsuario from './components/perfilUsuario';
 import Navegador from './components/Navegador';
 import Login from './components/Login';
+import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
 //import Login from "./components/Login/Login"
 
 /*
@@ -72,4 +73,10 @@ if(document.getElementById('login')){
                         <Login />
                   </div>
         ,document.getElementById('login'));
+}
+
+if(document.getElementById('vistaGE')){
+    ReactDOM.render(<>
+        <VistaGrupoEmpresa/>
+    </>, document.getElementById('vistaGE'));
 }

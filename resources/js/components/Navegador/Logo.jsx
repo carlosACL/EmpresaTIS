@@ -1,7 +1,7 @@
 import React from 'react'
 import { Log, Img } from '../../elementos/navegador';
 
-const Logo = (link) => {
+const Logo = ({link}) => {
 
     const logo = './resources/LOGO.png';
 

@@ -18,7 +18,7 @@ const RegistroGE = () => {
     useEffect(() => {
         isSessionActive().then((result) => {
             if(!result){
-                location.replace('/');
+                location.replace('Login');
             };
         });;
     }, []);
@@ -35,7 +35,7 @@ const RegistroGE = () => {
     const expresiones = {
         nombre: /^[a-zA-Z\s]{3,30}$/, 
         nombreAb: /^[a-zA-Z\s]{2,20}$/, 
-        correo: /^[a-zA-Z0-9_.+-]+@est.umss.edu$/,
+        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         telefono: /^\d{7,8}$/,
         direccion: /^[a-zA-ZÀ-ÿ0-9\,\.\#\-\_\s]{5,100}$/,
         objetivo: /^[a-zA-ZÀ-ÿ0-9\,\.\s]{10,100}$/,
@@ -103,7 +103,7 @@ const RegistroGE = () => {
             validar.push('Debe ingresar un formato de correo institucional de la universidad  ej : ejemplo@est.umss.bo');
         }
 
-        if(estate.existe === 'false' && (estate.campo.length>12 && estate.campo.length < 25)){
+        if(estate.existe === 'true' && (estate.campo.length>5 && estate.campo.length < 30)){
             validar.push('el email ya esta en uso');
         }
 
@@ -209,13 +209,15 @@ const RegistroGE = () => {
             imagen.valido === 'true' && nombre.valido === 'true' && 
             nombreAb.valido === 'true' && descripcion.valido === 'true'){
             const data = new FormData(document.getElementById('formulario'));
-             fetch('api/registrarGrupoEmpresa', {
+            data.append('token', sessionStorage.getItem('token'));
+            fetch('api/registrarGrupoEmpresa', {
                 method:'POST',
                 body:data
             }).then((response) => {
                 setMsg(true);
                 const mensaje = document.getElementById('mensajeRGE');
                 let color = null;
+                console.log(response);
                 if(response.ok){
                     color = exito();
                     mensaje.innerHTML = "Exito al Registrar Grupo empresa";

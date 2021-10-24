@@ -25,7 +25,7 @@ const InputImg = ({name, estado, cambiarEstado, funcValidar}) => {
     return (
         <>
             <img id='imagenGER' className='mb-2' src={logo} alt="" />
-            <InputImagen id={name} 
+            <InputImagen 
                          name={name} 
                          ref = {imagenCarg} 
                          onSubmit = {onButtonClick}
