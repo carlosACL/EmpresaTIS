@@ -207,6 +207,7 @@ const EditarGE = (props) => {
                 setMsg(true);
                 const mensaje = document.getElementById('mensajeRGE');
                 let color = null;
+                console.log(response);
                 if (response.ok) {
                     color = exito();
                     mensaje.innerHTML = "Exito al Registrar Grupo empresa";
@@ -232,7 +233,6 @@ const EditarGE = (props) => {
             body: JSON.stringify(idGE),
         }).then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 for (let i = 0; i < data.length; i++) {
                     let elemento = data[i];
                     if (elemento.idGE == idGE.id) {
@@ -252,7 +252,6 @@ const EditarGE = (props) => {
     }
     if (nombre.campo === "") {
         start();
-        console.log(nombre.campo);
     }
     const item_back = "./resources/extras/back.png";
     const item_save = "./resources/extras/save.png";

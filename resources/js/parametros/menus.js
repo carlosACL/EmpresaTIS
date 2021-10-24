@@ -3,32 +3,38 @@ faUsers,
 faAddressCard,
 faBriefcase,
 faPowerOff} from '@fortawesome/free-solid-svg-icons'
+import { cerrarSession } from '../session';
 
 const opcionesUsuario = [{
     link : "#", 
     name:'perfil', 
     contenido:'Mi Perfil', 
-    img:faUser
+    img:faUser,
+    onClick: null
 },{
     link : "#", 
     name:'grupoEmpresa', 
     contenido:'Mi Grupo Empresa', 
-    img:faUsers
+    img:faUsers,
+    onClick: null
 },{
-    link : "#", 
+    link : "RegistroGE", 
     name:'crearGrupoEmpresal', 
     contenido:'Crear Grupo Empresa', 
-    img:faAddressCard
+    img:faAddressCard,
+    onClick: null
 },{
     link : "#", 
     name:'espacioTrabajo', 
     contenido:'Mi Espacio de trabajo', 
-    img:faBriefcase
+    img:faBriefcase,
+    onClick: null
 },{
     link : "#", 
     name:'cerrarSession', 
     contenido:'Cerrar Session', 
-    img:faPowerOff
+    img:faPowerOff,
+    onClick: cerrarSession
 },];
 
 const registrarse = {
@@ -38,7 +44,7 @@ const registrarse = {
 
 const iniciarSession = {
     nombre:'Iniciar Session',
-    link:'#'
+    link:'Login'
 }
 
 const datosNavegador = [

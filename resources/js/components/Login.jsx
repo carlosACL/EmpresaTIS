@@ -1,27 +1,36 @@
-import React, { useState } from 'react';
+import { create } from 'lodash';
+import React, { useRef, useEffect } from 'react';
+import { Card as div } from '../elementos/card';
 import { Boton, InputStyle } from '../elementos/registro';
+import { iniciarSession } from '../parametros/menus';
+import { createSession, isSessionActive } from '../session';
 
 const Login = () => {
 
-    const [datos, setDatos] = useState({
-        nombreUsuario: '',
-        contraseña: ''
-    });
+    useEffect(() => {
+        isSessionActive().then((result) => {
+            console.log(result);
+            if(result){
+                location.replace('/');
+            };
+        });;
+    }, []);
+        
 
-    const modificarDatos = (e) => {
-        console.log(ev.tar);
-        setDatos({
-            ...datos,
-            [e.tarjet.name]: e.tarjet.value
-        })
-    };
-
+    const refUser = useRef(null);
+    const refPass = useRef(null);
     const logo = './resources/LOGO.png';
-
+    const iniciarSession = (e) => {
+        e.preventDefault();
+            //voy a hacer de cuenta que ese usuario existe y me esta devolviendo el id
+        const id = 123;
+        createSession(id);
+        location.replace('/');
+    };
     return(
         <main>
             <div id='tarjeta-datos'>
-                <form method='POST'>
+                <form onSubmit={iniciarSession}>
                     <div id="cont-label-logo">
                         <label id="label-login-logo">BIENVENIDO</label>
                     </div>
@@ -31,19 +40,9 @@ const Login = () => {
                     </div>
 
                     <div id="cont-datos-login">
-                        <InputStyle
-                            className="input-login" 
-                            name="nombreUsuario" 
-                            onChange={e => modificarDatos(e)} 
-                            type="text" 
-                            placeholder="Nombre de Usuario" />
+                        <InputStyle ref = {refUser} className="input-login" name='user' type="text" placeholder="Nombre de Usuario" />
 
-                        <InputStyle 
-                            className="input-login" 
-                            name="contraseña" 
-                            onChange={e => modificarDatos(e)} 
-                            type="password" 
-                            placeholder="Contraseña" />
+                        <InputStyle ref = {refPass} className="input-login" name='password' type="password" placeholder="Contraseña" />
                         
                         <Boton id="boton-login" onClick={() => {console.log(datos)}} >Iniciar Sesión</Boton>
 
@@ -51,9 +50,7 @@ const Login = () => {
                            <label id="label-login">¿AÚN NO TIENES CUENTA?</label> 
                         </div>
 
-                        <div className="link-login">
-                            <a href="#">Registrarse</a>  
-                        </div>
+                        <Boton type="submit" id="boton-login" >Registrarse</Boton>
 
                         <div className="link-login">
                             <a href="#">¿No puedes iniciar sesión?</a>

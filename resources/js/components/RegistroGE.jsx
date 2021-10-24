@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import {ContenedorDatos, 
         ContenedorBloque,
         Titulo,
@@ -10,9 +10,18 @@ import InputImg from './RegistroGE/InputImg';
 import Fecha from './RegistroGE/Fecha';
 import OrganizacionJ from './RegistroGE/OrganizacionJ';
 import TextArea from './RegistroGE/TextArea';
+import { isSessionActive } from '../session';
 
 
 const RegistroGE = () => {
+
+    useEffect(() => {
+        isSessionActive().then((result) => {
+            if(!result){
+                location.replace('/');
+            };
+        });;
+    }, []);
 
     const [orgJur, setOrgJur] = useState({valido : null});
     const [telefono, setTelefono] = useState({campo:'', valido:null});
