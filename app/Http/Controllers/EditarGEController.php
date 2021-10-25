@@ -11,6 +11,7 @@ class EditarGEController extends Controller
 {
     function registrarCambiosGE(Request $req)
     {
+        $ge = DB::table('Grupo_Empresa')->where('nombre','=',$req->id)->first();
 
         $grupoEmpresa = GrupoEmpresa::find($req->id);
         //$grupoEmpresa = GrupoEmpresa::where($req->campo, '=', $req->nombre);
@@ -23,10 +24,14 @@ class EditarGEController extends Controller
         $grupoEmpresa->orgJur = $req->orgJur;
         $grupoEmpresa->descripcion = $req->descripcion;
 
-        $file = $req->file('imagen');
+        $file = $req->file('logo');
         $nombre =  time() . "_" . $file->getClientOriginalName();
         $file->move('resources', $nombre);
         $grupoEmpresa->logo = $nombre;
+
+        $file = $req->file('pdf');
+        $nombre =  time() . "_" . $file->getClientOriginalName();
+        $file->move('resources', $nombre);
 
         $grupoEmpresa->save();
 
@@ -56,20 +61,12 @@ class EditarGEController extends Controller
     }
 
     function index_view($nombre) {
-        $ge = DB::table('Grupo_Empresa')->where('nombre','=',$nombre)->first();
+        $ge = DB::table('Grupo_Empresa')->select('nombre')->where('nombre','=',$nombre)->first();
         if(!empty((array) $ge)){
             $datos = [
-                'nombre' => $ge->nombre,
-                'nombreAb' => $ge->nombreAb,
-                'logo' => $ge->logo,
-                'fecha_creacion' => $ge->fecha_creacion,
-                'direccion' => $ge->direccion,
-                'descripcion' => $ge->descripcion,
-                'email' => $ge->email,
-                'telefono' => $ge->telefono,
-                'orgJur' => $ge->orgJur
+                'nombre' => $ge->nombre
             ];
-            return view('vistaGE')->with($datos);
+            return view('editarGE')->with($datos);
         }
         return view('login')->with(['msg' => $nombre]);
     }

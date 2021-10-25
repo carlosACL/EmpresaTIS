@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { InputStyle } from '../../elementos/registro';
+import { InputStyle } from '../../elementos/editarGE';
 import MensajeAlerta from './MensajeAlerta';
 import PropTypes from 'prop-types'
 

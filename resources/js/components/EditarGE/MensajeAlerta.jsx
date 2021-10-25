@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import { Icon, MensajeGlobo } from '../../elementos/registro';
+import { Icon, MensajeGlobo } from '../../elementos/editarGE';
 
 const MensajeAlerta = ({mensajeRep}) => {
     const mensaje = useRef(null);

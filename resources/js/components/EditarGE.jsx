@@ -12,6 +12,7 @@ import InputImg from './EditarGE/InputImg';
 import Fecha from './EditarGE/Fecha';
 import OrganizacionJ from './EditarGE/OrganizacionJ';
 import TextArea from './EditarGE/TextArea';
+import PDF from './EditarGE/Subir_PDF';
 
 const EditarGE = (props) => {
 
@@ -20,14 +21,16 @@ const EditarGE = (props) => {
 
 
 
+    const [id, setID] = useState({ campo: '' });
     const [orgJur, setOrgJur] = useState({ valido: null });
     const [telefono, setTelefono] = useState({ campo: '', valido: null });
     const [direccion, setDireccion] = useState({ campo: '', valido: null });
     const [email, setEmail] = useState({ campo: '', valido: null, existe: 'false' });
-    const [imagen, setImagen] = useState({ valido: null });
+    const [logo, setLogo] = useState({ campo: '', valido: null });
     const [nombre, setNombre] = useState({ campo: '', valido: null, existe: 'false' });
     const [nombreAb, setNombreAb] = useState({ campo: '', valido: null });
     const [descripcion, setDescripcion] = useState({ campo: '', valido: null });
+    const [pdf, setPDF] = useState({ campo: '', valido: null });
 
 
 
@@ -44,10 +47,10 @@ const EditarGE = (props) => {
 
 
 
-    const validarImagen = (estate) => {
+    const validarLogo = (estate) => {
         const validar = [];
         if (estate.valido === 'false') {
-            validar.push("Tienes que insertar una imagen");
+            validar.push("Tienes que insertar un logo");
         }
 
         return validar;
@@ -162,8 +165,8 @@ const EditarGE = (props) => {
             setEmail({ ...email, valido: 'false' });
         }
 
-        if (!imagen.valido) {
-            setImagen({ valido: 'false' });
+        if (!logo.valido) {
+            setLogo({ ...logo, valido: 'false' });
         }
 
         if (!nombre.valido) {
@@ -197,7 +200,7 @@ const EditarGE = (props) => {
         e.preventDefault();
         if (orgJur.valido === 'true' && telefono.valido === 'true' &&
             direccion.valido === 'true' && email.valido === 'true' &&
-            imagen.valido === 'true' && nombre.valido === 'true' &&
+            logo.valido === 'true' && nombre.valido === 'true' &&
             nombreAb.valido === 'true' && descripcion.valido === 'true') {
             const data = new FormData(document.getElementById('formulario'));
             fetch('api/registrarCambiosGE', {
@@ -222,26 +225,32 @@ const EditarGE = (props) => {
         }
     };
 
-    const idGE = {
-        id: 5
+    const nombreGE = {
+        campo: document.title
     };
 
+
+    if (nombre.campo === "") {
+        start();
+    }
 
     function start() {
         fetch('/api/solicitarGE', {
             method: 'POST',
-            body: JSON.stringify(idGE),
+            body: JSON.stringify(nombreGE),
         }).then((response) => response.json())
             .then((data) => {
                 for (let i = 0; i < data.length; i++) {
                     let elemento = data[i];
-                    if (elemento.idGE == idGE.id) {
+                    if (elemento.nombre == nombreGE.campo) {
+                        setID({ ...id, campo: elemento.idGE });
                         setNombre({ ...nombre, campo: elemento.nombre });
                         setNombreAb({ ...nombreAb, campo: elemento.nombreAb });
                         setTelefono({ ...telefono, campo: elemento.telefono });
                         setDireccion({ ...direccion, campo: elemento.direccion });
                         setEmail({ ...email, campo: elemento.email });
                         setDescripcion({ ...descripcion, campo: elemento.descripcion });
+                        setLogo({ ...logo, campo: "./resources/" + elemento.logo });
                         break;
                         /*[idGE','fecha_creacion', 'fecha_registro',
                         'orgJur', 'nombre', 'nombreAb', 'telefono',
@@ -250,12 +259,9 @@ const EditarGE = (props) => {
                 }
             });
     }
-    if (nombre.campo === "") {
-        start();
-    }
-    const item_back = "./resources/extras/back.png";
-    const item_save = "./resources/extras/save.png";
-    //const logo = "../resources/socios/juanperez.jpg";
+
+    const [item_back] = useState("./resources/back.png");
+    const [item_save] = useState("./resources/save.png");
 
     return (
 
@@ -270,8 +276,8 @@ const EditarGE = (props) => {
 
                     <div className="container border">
                         <div className="row p-3">
-                            <div className="col-12 p-3">
-                                MythicalSoft
+                            <div className="col-12 p-3 h1">
+                                {nombre.campo}
                             </div>
                         </div>
                         {
@@ -351,12 +357,19 @@ const EditarGE = (props) => {
 
                             <div className='col-12 col-sm-4 border'>
                                 <div className="form-group">
-                                    <InputImg estado={imagen}
-                                        cambiarEstado={setImagen}
-                                        name='imagen'
-                                        funcValidar={validarImagen} />
+                                    <InputImg estado={logo}
+                                        cambiarEstado={setLogo}
+                                        name='logo'
+                                        funcValidar={validarLogo} />
                                 </div>
-
+                            </div>
+                            <div className="col-12 border">
+                                <div className="form-group">
+                                    <PDF name='pdf'
+                                        estado={pdf}
+                                        cambiarEstado={setPDF}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -377,7 +390,7 @@ const EditarGE = (props) => {
                 </form>
 
             </Card>
-        </main>
+        </main >
 
     )
 }
