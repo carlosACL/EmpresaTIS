@@ -6,15 +6,15 @@ const PerfilUsuario = () => {
         id: idUsuario
     }
 
-    const nombre = useRef(null); 
-    const nombUsuario = useRef(null);
+    const nombre = useRef(null);
+    const apellido = useRef(null); 
     let idCarrera = null;
     let idGrupo = null;
     const carrera = useRef(null);
     const grupo = useRef(null);
     const correo = useRef(null); 
     const telefono = useRef(null);
-    const ci = useRef(null);
+    const codSis = useRef(null);
 
     const [foto_perfil, setFoto_perfil] = useState("");
 
@@ -28,12 +28,12 @@ const PerfilUsuario = () => {
             let elemento = data[i];
             if (elemento.idUsuario == datos.id) {
                 nombre.current.value = elemento.nombre;
-                nombUsuario.current.value = elemento.nombreUsuario;
+                apellido.current.value = elemento.apellido;
                 idCarrera = elemento.idCarrera;
                 idGrupo = elemento.idGrupo;
                 correo.current.value = elemento.email;
                 telefono.current.value = elemento.telefono;
-                ci.current.value = elemento.ci;
+                codSis.current.value = elemento.codSis;
                 setFoto_perfil(elemento.foto_perfil);
                 break;
             }
@@ -87,7 +87,7 @@ const PerfilUsuario = () => {
                 </div>
                 <div>
                     <label className="labels">Apellido:</label>
-                    <input id="cmpApellido" className="texto" type="text" ref={ nombUsuario } disabled />
+                    <input id="cmpApellido" className="texto" type="text" ref={ apellido } disabled />
                 </div>
                 <div>
                     <label className="labels">Carrera:</label>
@@ -106,8 +106,8 @@ const PerfilUsuario = () => {
                     <input id="cmpTelefono" className="texto" type="text" ref={ telefono } disabled />
                 </div>
                 <div>
-                    <label className="labels">CI:</label>
-                    <input id="cmpCI" className="texto" type="text" ref={ ci } disabled />
+                    <label className="labels">Codigo SIS:</label>
+                    <input id="cmpCI" className="texto" type="text" ref={ codSis } disabled />
                 </div> 
             </div> 
         </div>

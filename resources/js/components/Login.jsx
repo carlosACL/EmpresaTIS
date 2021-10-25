@@ -1,7 +1,6 @@
 import { data } from 'jquery';
 import { create, toInteger } from 'lodash';
 import React, { useRef, useEffect, useState } from 'react';
-import { Card as div } from '../elementos/card';
 import { Boton, InputStyle } from '../elementos/registro';
 import { iniciarSession } from '../parametros/menus';
 import { createSession, isSessionActive } from '../session';
@@ -35,9 +34,7 @@ const Login = () => {
         for (let i = 0; i < datos.length; i++) {
             let usuario = datos[i];
             if (usuario.nombreUsuario == refUser.current.value) {
-                console.log("existe usuario");
                 if (usuario.contrasenia == refPass.current.value) {
-                    console.log("autenticado");
                     idUsuario = usuario.idUsuario;
                 }
             }
@@ -79,7 +76,9 @@ const Login = () => {
                            <label id="label-login">¿AÚN NO TIENES CUENTA?</label> 
                         </div>
 
-                        <Boton type="submit" id="boton-login" >Registrarse</Boton>
+                        <div className="link-login">
+                            <a href="#">Registrarse</a>
+                        </div>
 
                         <div className="link-login">
                             <a href="#">¿No puedes iniciar sesión?</a>

@@ -16,15 +16,15 @@ class GrupoTableSeeder extends Seeder
         return \DB::table('Grupo')->insert([
             [
                 "idGrupo" => "1",
-                "nomGrupo" => "Flores Villaroel Corina Justina"
+                "nomGrupo" => "Flores Villarroel Corina Justina"
             ],
             [
                 "idGrupo" => "2",
-                "nomGrupo" => "Blano Coca Leticia"
+                "nomGrupo" => "Blanco Coca Maria Leticia"
             ],
             [
                 "idGrupo" => "3",
-                "nomGrupo" => "Rodriguez Bilbao Patricia Erika"
+                "nomGrupo" => "Rodriguez Bilbao Erika Patricia"
             ]
         ]);
     }
