@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { colorPrimary, colorSecundary } from "./colores";
+import { colorPrimary, colorSecundary } from "../parametros/colores";
 
 const ContenedorDatos = styled.div`
     width: 100%;
@@ -50,7 +50,7 @@ const InputStyle = styled.input`
     color: black;
     border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.4);
     border-bottom-color: black;
-    width: 90%;
+    width: 80%;
     &:focus{
         border-bottom: 4px solid rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
         outline: none;
@@ -71,8 +71,7 @@ const TextA = styled.textarea`
     color: black;
     border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.4);
     border-bottom-color: black;
-    width: 50%;
-    max-width: 70%;
+    width: 80%;
     &:focus{
         border-bottom: 4px solid rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
         outline: none;
@@ -115,6 +114,8 @@ const Icon = styled(FontAwesomeIcon)`
     margin-left: 10px;
     color:red;
 `;
+
+
 
 export { ContenedorDatos,
     ContenedorBloque,

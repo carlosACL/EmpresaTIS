@@ -25,15 +25,15 @@ const OrganizacionJ = ({estado, cambiarEstado, funcValidar}) => {
                 {options.map((dat) => {
                     return(<option value={dat}>{dat}</option>)
                 })}
-            </select>   
+            </select>
             {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado)}/>)}
         </>
     )
 }
 
 OrganizacionJ.prototype = {
-    estado: PropTypes.object, 
-    cambiarEstado: PropTypes.func, 
+    estado: PropTypes.object,
+    cambiarEstado: PropTypes.func,
     funcValidar: PropTypes.func
 };
 

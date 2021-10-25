@@ -1,7 +1,7 @@
 @extends('templates.plantillaprincipal')
 
 @section('titulo')
-    Editar Datos Grupo Empresa
+    {{$nombre}}
 @endsection
 
 @section('contenido')
