@@ -4,7 +4,7 @@ faAddressCard,
 faBriefcase,
 faPowerOff} from '@fortawesome/free-solid-svg-icons'
 import { cerrarSession } from '../session';
-//Socio-{id}
+
 const opcionesUsuario = [{
     link :'Socio-'+sessionStorage.getItem('id'), 
     name:'perfil', 
@@ -49,21 +49,12 @@ const iniciarSession = {
 
 const datosNavegador = [
     {
-        nombre:'nombre',
-        link : "link 2"
-    },
-    {
-        nombre:'nombre2',
-        link : 'www.animeflv.net'
-    },
-    {
-        nombre:'nombre3',
-        link : 'www.animeflv.net'
-    },
-    {
-        nombre:'nombre4',
-        link : 'www.animeflv.net'
-    },
+        nombre:'FundaEmpresa',
+        link : "#"
+    },{
+        nombre:'Informacion',
+        link : "#"
+    }
 ];
 
 export {opcionesUsuario, 

@@ -1,12 +1,20 @@
-import React from 'react'
+import {useEffect, useState} from 'react'
 import ItemNavegador from './ItemNavegador'
 import { ItemNavI, IconNav, LabelNav, IconNavI } from '../../elementos/navegador'
 import { faUserCircle,faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import BotonSession from './botonSession';
 import { iniciarSession, registrarse, opcionesUsuario } from '../../parametros/menus';
+import { getNombre } from '../../session';
 const Session = () => {
     
-    const sessionNombre = 'nombre';
+    const [sessionNombre, setSessionNombre] = useState(null);
+    useEffect(() => {
+        if(sessionStorage.getItem('id')){
+            getNombre().then((resp) => {
+                setSessionNombre(resp);
+            });
+        }
+    }, [])
 
     return (
         <div id='sessionNav' className='collapse navbar-collapse'>

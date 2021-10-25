@@ -22,8 +22,7 @@ const Fondo = styled.img`
     opacity: 0.3;
     position: fixed;
     z-index: -100;
-    width: 100%;
-    justify-content: center;
+    height: 100%;
     object-fit: cover;
 `;
 

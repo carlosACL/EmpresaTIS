@@ -37,4 +37,9 @@ class UserController extends Controller
         $id = DB::table('Session')->select('idUser')->where('token', $request->token)->first();
         return response()->json($id);
     }
+
+    function getNombre(Request $req){
+        $dat = Usuario::find($req->id);
+        return response()->json(['nombre' => $dat->nombre]);
+    }
 }

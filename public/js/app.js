@@ -10727,7 +10727,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 if (document.getElementById('fondo')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_6__.Fondo, {
       src: "./resources/asesoria-cont-financ_001.png"
     })
@@ -12150,10 +12150,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _ItemNavegador__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ItemNavegador */ "./resources/js/components/Navegador/ItemNavegador.jsx");
 /* harmony import */ var _elementos_navegador__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/navegador */ "./resources/js/elementos/navegador.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _botonSession__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./botonSession */ "./resources/js/components/Navegador/botonSession.jsx");
 /* harmony import */ var _parametros_menus__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../parametros/menus */ "./resources/js/parametros/menus.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _session__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../session */ "./resources/js/session.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -12165,36 +12179,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Session = function Session() {
-  var sessionNombre = 'nombre';
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      sessionNombre = _useState2[0],
+      setSessionNombre = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (sessionStorage.getItem('id')) {
+      (0,_session__WEBPACK_IMPORTED_MODULE_5__.getNombre)().then(function (resp) {
+        setSessionNombre(resp);
+      });
+    }
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     id: "sessionNav",
     className: "collapse navbar-collapse",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
       className: "navbar-nav",
-      children: !sessionStorage.getItem('token') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+      children: !sessionStorage.getItem('token') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
           className: "nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ItemNavegador__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ItemNavegador__WEBPACK_IMPORTED_MODULE_1__["default"], {
             className: " nav-item",
             link: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.registrarse.link,
             nombre: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.registrarse.nombre
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
           className: "nav-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.ItemNavI, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.ItemNavI, {
             className: "nav-item ml-4",
             link: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.iniciarSession.link,
             nombre: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.iniciarSession.nombre,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
               className: "text-decoration-none m-3 nav-link",
               href: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.iniciarSession.link,
               children: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.iniciarSession.nombre
             })
           })
         })]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
         className: "nav-item dropdown",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("a", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("a", {
           className: " d-flex nav-link dropdown-toggle-split text-dark",
           href: "#",
           id: "navbarDropdown",
@@ -12202,25 +12227,25 @@ var Session = function Session() {
           "data-toggle": "dropdown",
           "aria-haspopup": "true",
           "aria-expanded": "false",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.IconNavI, {
-            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faChevronDown
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.IconNavI, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faChevronDown
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: " m-auto",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.LabelNav, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.LabelNav, {
               className: "mr-2",
               children: [" ", sessionNombre, " "]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.IconNav, {
-            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faUserCircle
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.IconNav, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUserCircle
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: " dropdown-menu",
           "aria-labelledby": "navbarDropdown",
           style: {
             width: '165%'
           },
           children: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuario.map(function (dato) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_botonSession__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_botonSession__WEBPACK_IMPORTED_MODULE_3__["default"], {
               className: "dropdown-item",
               action: dato.onClick,
               img: dato.img,
@@ -13592,7 +13617,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var Card = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    min-width: 400px;\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(", ", ", ", ", ", 0.7);\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:700px){\n        width: 100%;\n        margin: auto;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
-var Fondo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: block;\n    opacity: 0.3;\n    position: fixed;\n    z-index: -100;\n    width: 100%;\n    justify-content: center;\n    object-fit: cover;\n"])));
+var Fondo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: block;\n    opacity: 0.3;\n    position: fixed;\n    z-index: -100;\n    height: 100%;\n    object-fit: cover;\n"])));
 
 
 /***/ }),
@@ -13756,7 +13781,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _session__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../session */ "./resources/js/session.js");
 
- //Socio-{id}
 
 var opcionesUsuario = [{
   link: 'Socio-' + sessionStorage.getItem('id'),
@@ -13798,17 +13822,11 @@ var iniciarSession = {
   link: 'Login'
 };
 var datosNavegador = [{
-  nombre: 'nombre',
-  link: "link 2"
+  nombre: 'FundaEmpresa',
+  link: "#"
 }, {
-  nombre: 'nombre2',
-  link: 'www.animeflv.net'
-}, {
-  nombre: 'nombre3',
-  link: 'www.animeflv.net'
-}, {
-  nombre: 'nombre4',
-  link: 'www.animeflv.net'
+  nombre: 'Informacion',
+  link: "#"
 }];
 
 
@@ -13825,7 +13843,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "isSessionActive": () => (/* binding */ isSessionActive),
 /* harmony export */   "createSession": () => (/* binding */ createSession),
-/* harmony export */   "cerrarSession": () => (/* binding */ cerrarSession)
+/* harmony export */   "cerrarSession": () => (/* binding */ cerrarSession),
+/* harmony export */   "getNombre": () => (/* binding */ getNombre)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -13962,6 +13981,41 @@ var cerrarSession = /*#__PURE__*/function () {
   };
 }();
 
+var getNombre = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+    var dat, data;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            dat = new FormData();
+            dat.append('id', sessionStorage.getItem('id'));
+            _context4.next = 4;
+            return fetch('api/getNombre', {
+              method: 'POST',
+              body: dat
+            }).then(function (response) {
+              return response.json();
+            });
+
+          case 4:
+            data = _context4.sent;
+            console.log(data);
+            return _context4.abrupt("return", data.nombre);
+
+          case 7:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+
+  return function getNombre() {
+    return _ref4.apply(this, arguments);
+  };
+}();
+
 
 
 /***/ }),
@@ -14007,7 +14061,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body{\r\n    background-color: rgb(0 , 221, 170, 0.4)\r\n}\r\n\r\nmain{\r\n    max-width: 800px;\r\n    margin: auto;\r\n    padding: 40px;\r\n}\r\n\r\n.miTextArea textarea{\r\n    resize: none;\r\n    margin: 5%;\r\n    width: 90%;\r\n    height: 100px;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.formStyle{\r\n    margin-top: 50px;\r\n    margin: 30px;\r\n    display : grid;\r\n    gap: 20px;\r\n}\r\n\r\n@media screen and (max-width: 800px){\r\n    .formStyle{\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 700px){\r\n    main {\r\n        padding: 0;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 992px){\r\n    .mostrar{\r\n        display: flex;\r\n        margin-left: 10px;\r\n    }\r\n}\r\n\r\n/*\r\n.tarjetaDisplayBlock{\r\n    display: flex;\r\n}\r\n\r\n.elementCenter{\r\n    align-items: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    object-fit: cover;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n.imagenSinTexto{\r\n    color: transparent;\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 151.5px;\r\n}\r\n\r\n.tituloRGE{\r\n    margin-top: -20px;\r\n    margin-bottom: 50px;\r\n}\r\n\r\n.botonRGE{\r\n    background-color: rgb(0 , 221, 170);\r\n}\r\n\r\n.inputRGE{\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom-color: black;\r\n}\r\n\r\n.botonRGE:hover {\r\n    background-color: rgb(240, 255, 240);\r\n}*/\r\n\r\n#lbDetalles{\r\n    display: inline-block;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n    padding-top: 50px;\r\n    margin-right: 185px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.labels{\r\n    display: inline-block;\r\n    position: relative;\r\n    padding: 15px;\r\n    width: 180px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.texto{\r\n    width: 250px;\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom: 2px solid;\r\n    border-bottom-color: black;\r\n    text-align: center;\r\n}\r\n\r\n#tarjeta-datos{\r\n    display: block;\r\n    transition: .5s ease all;\r\n    background-color: rgb( 240, 255, 240, 0.7);\r\n    border-color: rgb( 240, 255, 240, 0.4);\r\n    border-radius: 30px;\r\n    box-shadow: 10px 10px 10px;\r\n    position: absolute;\r\n    left: 20%;\r\n    right: 20%;\r\n    top: 10%;\r\n    padding: 30px;\r\n    text-align: right;\r\n    padding-top: 10px;\r\n    padding-right: 40px;\r\n    transition: 0.3s;\r\n}\r\n\r\n#img-usuario{\r\n    position: absolute;\r\n    background-color: white;\r\n    border-width: 2px;\r\n    border-color: #22ddaa;\r\n    width: 26%;\r\n    height: 200px;\r\n    top: 5%;\r\n    left: 5%;\r\n}\r\n\r\n#imagen{\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n@media only screen and (max-width: 1150px) {\r\n    #tarjeta-datos{\r\n        top: 20%;\r\n        left: 9%;\r\n        right: 9%;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #lbDetalles{\r\n        display: block;\r\n        text-align: center;\r\n        padding-top: 300px;\r\n        padding-right: 0px;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #tarjeta-datos{\r\n        left: 10%;\r\n        right: 10%;\r\n        padding: 0%;\r\n        padding-bottom: 50px;\r\n    }\r\n\r\n    .labels{\r\n        display: block;\r\n        position: relative;\r\n        text-align: center;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .texto{\r\n        display: block;\r\n        position: relative;\r\n        width: 80%;\r\n        height: 30px;\r\n        padding: 0%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #img-usuario{\r\n        position: absolute;\r\n        width: 200px;\r\n        height: 200px;\r\n        top: 5%;\r\n        left: 0%;\r\n        right: 0%;\r\n        margin: 0 auto;\r\n    }\r\n}\r\n\r\n/*LOGIN*/\r\n\r\n#label-login-logo {\r\n    color: #22ddaa;\r\n    text-align: center;\r\n    transition: 0.6s;\r\n}\r\n\r\n#cont-label-logo {\r\n    text-align: center;\r\n    font-size: 40px;\r\n    margin-top: 20px;\r\n}\r\n\r\n#cont-logo {\r\n    width: 50%;\r\n    min-width: 200px;\r\n    margin: 0 auto;\r\n}\r\n\r\n#cont-datos-login {\r\n    width: 80%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.input-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 100%;\r\n}\r\n\r\n#boton-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 80%;\r\n}\r\n\r\n#cont-label-login {\r\n    text-align: center;\r\n    padding: 0 10%;\r\n    margin-top: 20px;\r\n}\r\n\r\n#label-login {\r\n    font-size: 20px;\r\n    text-align: center;\r\n}\r\n\r\n.link-login {\r\n    margin-top: 20px;\r\n    text-align: center;\r\n    text-decoration: underline;\r\n    font-size: 17px;\r\n    padding: 0 10%;\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #cont-label-logo {\r\n        font-size: 30px;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body{\r\n    background-color: rgb(0 , 221, 170, 0.4)\r\n}\r\n\r\nmain{\r\n    max-width: 800px;\r\n    margin: auto;\r\n    padding: 40px;\r\n}\r\n\r\n.miTextArea textarea{\r\n    resize: none;\r\n    margin: 5%;\r\n    width: 90%;\r\n    height: 100px;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.formStyle{\r\n    margin-top: 50px;\r\n    margin: 30px;\r\n    display : grid;\r\n    gap: 20px;\r\n}\r\n\r\n@media screen and (max-width: 800px){\r\n    .formStyle{\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 700px){\r\n    main {\r\n        padding: 0;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 992px){\r\n    .mostrar{\r\n        display: flex;\r\n        margin-left: 10px;\r\n    }\r\n}\r\n\r\n/*\r\n.tarjetaDisplayBlock{\r\n    display: flex;\r\n}\r\n\r\n.elementCenter{\r\n    align-items: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    object-fit: cover;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n.imagenSinTexto{\r\n    color: transparent;\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 151.5px;\r\n}\r\n\r\n.tituloRGE{\r\n    margin-top: -20px;\r\n    margin-bottom: 50px;\r\n}\r\n\r\n.botonRGE{\r\n    background-color: rgb(0 , 221, 170);\r\n}\r\n\r\n.inputRGE{\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom-color: black;\r\n}\r\n\r\n.botonRGE:hover {\r\n    background-color: rgb(240, 255, 240);\r\n}*/\r\n\r\n#lbDetalles{\r\n    display: inline-block;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n    padding-top: 50px;\r\n    margin-right: 185px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.labels{\r\n    display: inline-block;\r\n    position: relative;\r\n    padding: 15px;\r\n    width: 180px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.texto{\r\n    width: 250px;\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom: 2px solid;\r\n    border-bottom-color: black;\r\n    text-align: center;\r\n}\r\n\r\n#tarjeta-datos{\r\n    display: block;\r\n    transition: .5s ease all;\r\n    background-color: rgb( 240, 255, 240, 0.7);\r\n    border-color: rgb( 240, 255, 240, 0.4);\r\n    border-radius: 30px;\r\n    box-shadow: 10px 10px 10px;\r\n    position: absolute;\r\n    left: 20%;\r\n    right: 20%;\r\n    top: 10%;\r\n    padding: 30px;\r\n    text-align: right;\r\n    padding-top: 10px;\r\n    padding-right: 40px;\r\n    transition: 0.3s;\r\n}\r\n\r\n#img-usuario{\r\n    position: absolute;\r\n    background-color: white;\r\n    border-width: 2px;\r\n    border-color: #22ddaa;\r\n    width: 26%;\r\n    height: 200px;\r\n    top: 5%;\r\n    left: 5%;\r\n}\r\n\r\n#imagen{\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n@media only screen and (max-width: 1150px) {\r\n    #tarjeta-datos{\r\n        top: 20%;\r\n        left: 9%;\r\n        right: 9%;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #lbDetalles{\r\n        display: block;\r\n        text-align: center;\r\n        padding-top: 300px;\r\n        padding-right: 0px;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #tarjeta-datos{\r\n        left: 10%;\r\n        right: 10%;\r\n        padding: 0%;\r\n        padding-bottom: 50px;\r\n    }\r\n\r\n    .labels{\r\n        display: block;\r\n        position: relative;\r\n        text-align: center;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .texto{\r\n        display: block;\r\n        position: relative;\r\n        width: 80%;\r\n        height: 30px;\r\n        padding: 0%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #img-usuario{\r\n        position: absolute;\r\n        width: 200px;\r\n        height: 200px;\r\n        top: 5%;\r\n        left: 0%;\r\n        right: 0%;\r\n        margin: 0 auto;\r\n    }\r\n}\r\n\r\n/*LOGIN*/\r\n\r\n#label-login-logo {\r\n    color: #22ddaa;\r\n    text-align: center;\r\n    transition: 0.6s;\r\n}\r\n\r\n#cont-label-logo {\r\n    text-align: center;\r\n    font-size: 40px;\r\n    margin-top: 20px;\r\n}\r\n\r\n#cont-logo {\r\n    width: 50%;\r\n    min-width: 200px;\r\n    margin: 0 auto;\r\n}\r\n\r\n#cont-datos-login {\r\n    width: 80%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.input-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 100%;\r\n}\r\n\r\n#boton-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 80%;\r\n}\r\n\r\n#cont-label-login {\r\n    text-align: center;\r\n    padding: 0 10%;\r\n    margin-top: 20px;\r\n}\r\n\r\n#label-login {\r\n    font-size: 20px;\r\n    text-align: center;\r\n}\r\n\r\n.link-login {\r\n    margin-top: 20px;\r\n    text-align: center;\r\n    text-decoration: underline;\r\n    font-size: 17px;\r\n    padding: 0 10%;\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #cont-label-logo {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n#fondo{\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -274,3 +274,8 @@ main{
         font-size: 30px;
     }
 }
+
+#fondo{
+    display: flex;
+    justify-content: center;
+}

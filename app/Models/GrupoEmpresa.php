@@ -11,7 +11,7 @@ class GrupoEmpresa extends Model
     protected $primaryKey= 'idGE';
     protected $fillable = ['fecha_creacion', 'fecha_registro',
                              'orgJur', 'nombre', 'nombreAb', 'telefono',
-                             'direccion','email', 'descripcion','logo','orgJur'];
+                             'direccion','email', 'descripcion','logo','orgJur','duenio'];
     public $timestamps = false;
 }
         

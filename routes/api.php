@@ -32,6 +32,7 @@ Route::post('registrarGrupoEmpresa', [RegistroGEController::class, 'RegistrarGru
 Route::post('crearSession', [UserController::class, 'createSession']);
 Route::post('eliminarSession', [UserController::class, 'dropSession']);
 Route::post('verificarSession', [UserController::class, 'verifySession']);
+Route::post('getNombre', [UserController::class, 'getNombre']);
 
 Route::post('registrarCambiosGE', [EditarGEController::class, 'registrarCambiosGE']);
 //Route::post('registrarCambiosGE', [RegistroGEController::class, 'RegistrarGrupoEmpresa']);

@@ -46,6 +46,14 @@ const cerrarSession = async ()=>{
     }
 };
 
+const getNombre = async () => {
+    const dat = new FormData();
+    dat.append('id',sessionStorage.getItem('id'));
+    const data = await fetch('api/getNombre',{
+        method: 'POST',
+        body:dat
+    }).then((response) => response.json());
+    return data.nombre;
+}
 
-
-export {isSessionActive, createSession, cerrarSession};
+export {isSessionActive, createSession, cerrarSession, getNombre};

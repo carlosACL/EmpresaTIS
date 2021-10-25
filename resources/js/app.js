@@ -36,9 +36,9 @@ import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
 
 if (document.getElementById('fondo')) {
     ReactDOM.render(
-        <div>
+        <>
             <Fondo src='./resources/asesoria-cont-financ_001.png' />
-        </div>, document.getElementById('fondo'));
+        </>, document.getElementById('fondo'));
 
 };
 

@@ -25,6 +25,7 @@ class GrupoEmpresa extends Migration
             $table->string("email");
             $table->integer('telefono');
             $table->string('orgJur');
+            $table->integer('duenio');
         });
     }
 

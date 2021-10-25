@@ -30,9 +30,12 @@ class RegistroGEController extends Controller
         $file->move('resources', $nombre);
         $grupoEmpresa->logo = $nombre;
 
+        $id = DB::table('Session')->select('idUser')->where('token', '=', $req->token)->first();
+        $grupoEmpresa->duenio = $id->idUser;
+
         $grupoEmpresa->save();
 
-        $id = DB::table('Session')->select('idUser')->where('token', '=', $req->token)->first();
+        
         $idge = DB::table('Grupo_Empresa')->select('idGE')->where('nombre', '=', $grupoEmpresa->nombre)->first();
         $us = Usuario::find($id->idUser);
         $us->idGE = $idge->idGE;
