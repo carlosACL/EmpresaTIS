@@ -54,4 +54,23 @@ class EditarGEController extends Controller
         return view('editarGE');
         //return Route::get('/EditarGE',[EditarGEController::class, 'index']);
     }
+
+    function index_view($nombre) {
+        $ge = DB::table('Grupo_Empresa')->where('nombre','=',$nombre)->first();
+        if(!empty((array) $ge)){
+            $datos = [
+                'nombre' => $ge->nombre,
+                'nombreAb' => $ge->nombreAb,
+                'logo' => $ge->logo,
+                'fecha_creacion' => $ge->fecha_creacion,
+                'direccion' => $ge->direccion,
+                'descripcion' => $ge->descripcion,
+                'email' => $ge->email,
+                'telefono' => $ge->telefono,
+                'orgJur' => $ge->orgJur
+            ];
+            return view('vistaGE')->with($datos);
+        }
+        return view('login')->with(['msg' => $nombre]);
+    }
 }
