@@ -14,8 +14,12 @@ class PerfilUsuarioController extends Controller
 
     public function show($id)
     {
-        //funcionalidad que devuelve los datos del id
-        return view('perfilUsuario',['id' => $id]);
+        $existeUsuario = \DB::table('Usuario')->where('idUsuario',$id)->exists();
+        if ($existeUsuario) {
+            return view('perfilUsuario',['id' => $id]);
+        } else {
+            return view('404',['msg' => 'Usuario No Existe']);
+        }
     }
 
     public function obtenerSocio()

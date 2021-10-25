@@ -18,15 +18,16 @@ class Usuario extends Migration
             $table->unsignedInteger('idGE')->nullable();
             $table->foreign('idGE')->references('idGE')->on('Grupo_Empresa');
             $table->string('nombre');
+            $table->string('apellido');
             $table->string('email');
             $table->integer('telefono');
             $table->string('codSis');
             $table->string('foto_perfil');
             $table->string('nombreUsuario');
             $table->string('contrasenia');
+            $table->string('tipoUsuario');
             $table->unsignedInteger('idCarrera');
             $table->foreign('idCarrera')->references('idCarrera')->on('Carrera');
-            $table->string('tipoUsuario');
             $table->unsignedInteger('idGrupo');
             $table->foreign('idGrupo')->references('idGrupo')->on('Grupo');
         });
