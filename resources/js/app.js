@@ -24,6 +24,7 @@ import PerfilUsuario from './components/perfilUsuario';
 import Navegador from './components/Navegador';
 import Login from './components/Login';
 import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
+import TabGE from './components/TabGE';
 //import Login from "./components/Login/Login"
 
 /*
@@ -77,6 +78,6 @@ if(document.getElementById('login')){
 
 if(document.getElementById('vistaGE')){
     ReactDOM.render(<>
-        <VistaGrupoEmpresa/>
+        <TabGE/>
     </>, document.getElementById('vistaGE'));
 }
