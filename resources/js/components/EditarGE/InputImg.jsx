@@ -9,13 +9,6 @@ const InputImg = ({ name, estado, cambiarEstado, funcValidar }) => {
     if (estado.campo == '') {
         cambiarEstado({ ...estado, campo: "./resources/logoDefecto.png" });
     }
-    console.log(estado.campo);
-    console.log(estado.campo == '');
-    console.log(estado.campo == isNull);
-    if (estado.campo == "./resources/logoDefecto.png") {
-        const img = document.getElementById('imagenGER')
-        img.src = estado.campo;
-    }
     const onButtonClick = (e) => {
         const img = document.getElementById('imagenGER')
         const files = imagenCarg.current.files;
@@ -38,7 +31,6 @@ const InputImg = ({ name, estado, cambiarEstado, funcValidar }) => {
             <InputImagen id={name}
                 name={name}
                 ref={imagenCarg}
-
                 onSubmit={onButtonClick}
                 onChange={onButtonClick}
                 accept="image/jpeg,image/jpg,image/png"

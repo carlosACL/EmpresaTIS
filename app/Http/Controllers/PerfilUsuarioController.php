@@ -14,7 +14,7 @@ class PerfilUsuarioController extends Controller
 
     public function show($id)
     {
-        $existeUsuario = \DB::table('Usuario')->where('idUsuario',$id)->exists();
+        $existeUsuario = DB::table('Usuario')->where('idUsuario',$id)->exists();
         if ($existeUsuario) {
             return view('perfilUsuario',['id' => $id]);
         } else {

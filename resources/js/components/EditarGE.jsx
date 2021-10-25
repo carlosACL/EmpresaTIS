@@ -21,12 +21,12 @@ const EditarGE = (props) => {
 
 
 
-    const [id, setID] = useState({ campo: '' });
+    const [idGE, setID] = useState({ campo: '' });
     const [orgJur, setOrgJur] = useState({ valido: null });
     const [telefono, setTelefono] = useState({ campo: '', valido: null });
     const [direccion, setDireccion] = useState({ campo: '', valido: null });
     const [email, setEmail] = useState({ campo: '', valido: null, existe: 'false' });
-    const [logo, setLogo] = useState({ campo: '', valido: null });
+    const [logo, setLogo] = useState({ campo: '', eliminar: '' , valido: null });
     const [nombre, setNombre] = useState({ campo: '', valido: null, existe: 'false' });
     const [nombreAb, setNombreAb] = useState({ campo: '', valido: null });
     const [descripcion, setDescripcion] = useState({ campo: '', valido: null });
@@ -203,6 +203,8 @@ const EditarGE = (props) => {
             logo.valido === 'true' && nombre.valido === 'true' &&
             nombreAb.valido === 'true' && descripcion.valido === 'true') {
             const data = new FormData(document.getElementById('formulario'));
+            data.append('eliminar', logo.eliminar);
+            data.append('idGE', idGE.campo);
             fetch('api/registrarCambiosGE', {
                 method: 'POST',
                 body: data
@@ -230,7 +232,7 @@ const EditarGE = (props) => {
     };
 
 
-    if (nombre.campo === "") {
+    if (idGE.campo === "") {
         start();
     }
 
@@ -243,14 +245,14 @@ const EditarGE = (props) => {
                 for (let i = 0; i < data.length; i++) {
                     let elemento = data[i];
                     if (elemento.nombre == nombreGE.campo) {
-                        setID({ ...id, campo: elemento.idGE });
+                        setID({ ...idGE, campo: elemento.idGE });
                         setNombre({ ...nombre, campo: elemento.nombre });
                         setNombreAb({ ...nombreAb, campo: elemento.nombreAb });
                         setTelefono({ ...telefono, campo: elemento.telefono });
                         setDireccion({ ...direccion, campo: elemento.direccion });
                         setEmail({ ...email, campo: elemento.email });
                         setDescripcion({ ...descripcion, campo: elemento.descripcion });
-                        setLogo({ ...logo, campo: "./resources/" + elemento.logo });
+                        setLogo({ ...logo, campo: "./resources/" + elemento.logo, eliminar: "./resources/" + elemento.logo });
                         break;
                         /*[idGE','fecha_creacion', 'fecha_registro',
                         'orgJur', 'nombre', 'nombreAb', 'telefono',

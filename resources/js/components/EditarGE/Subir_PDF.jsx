@@ -1,6 +1,4 @@
 import { useRef, useState } from 'react'
-import { InputImagen } from '../../elementos/editarGE'
-import PropTypes from 'prop-types'
 import MensajeAlerta from './MensajeAlerta';
 
 const PDF = ({ name, estado, cambiarEstado }) => {
@@ -22,9 +20,6 @@ const PDF = ({ name, estado, cambiarEstado }) => {
 
     return (
         <>
-            <label FormData={name}>
-                Subir Archivo PDF
-            </label>
             <input
                 id={name}
                 name={name}

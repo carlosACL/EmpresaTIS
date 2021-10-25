@@ -11,11 +11,7 @@ class EditarGEController extends Controller
 {
     function registrarCambiosGE(Request $req)
     {
-        $ge = DB::table('Grupo_Empresa')->where('nombre','=',$req->id)->first();
-
-        $grupoEmpresa = GrupoEmpresa::find($req->id);
-        //$grupoEmpresa = GrupoEmpresa::where($req->campo, '=', $req->nombre);
-        //$grupoEmpresa = new GrupoEmpresa;
+        $grupoEmpresa = GrupoEmpresa::find($req->idGE);
         $grupoEmpresa->nombre = $req->nombre;
         $grupoEmpresa->nombreAb = $req->nombreAb;
         $grupoEmpresa->direccion = $req->direccion;
@@ -32,20 +28,16 @@ class EditarGEController extends Controller
         $file = $req->file('pdf');
         $nombre =  time() . "_" . $file->getClientOriginalName();
         $file->move('resources', $nombre);
+        $file->delete('resources', $req->eliminar);
+        /* File::delete(public_path("test.txt")); */
 
         $grupoEmpresa->save();
-
-        //return response()->json($grupoEmpresa);
 
         return response(200);
     }
 
     function solicitarGE(request $req)
     {
-        //$socios = DB::table('socio')->get();
-        //return response()->json($socios);
-
-        //$response = DB::table('Grupo_Empresa')->select('nombre', 'nombreAb', 'logo', 'fecha_creacion', 'fecha_registro', 'direccion', 'descripcion', 'email', 'telefono', 'orgJur')->get();
         $response = DB::table('Grupo_Empresa')->get();
         return response()->json($response);
     }
@@ -53,16 +45,13 @@ class EditarGEController extends Controller
 
     function index()
     {
-
-        //return View::make('gameworlds.mygame', compact('fixtures'), compact('teams'), compact('selections'));
-        //return $datos;
         return view('editarGE');
-        //return Route::get('/EditarGE',[EditarGEController::class, 'index']);
     }
 
-    function index_view($nombre) {
-        $ge = DB::table('Grupo_Empresa')->select('nombre')->where('nombre','=',$nombre)->first();
-        if(!empty((array) $ge)){
+    function index_view($nombre)
+    {
+        $ge = DB::table('Grupo_Empresa')->select('nombre')->where('nombre', '=', $nombre)->first();
+        if (!empty((array) $ge)) {
             $datos = [
                 'nombre' => $ge->nombre
             ];

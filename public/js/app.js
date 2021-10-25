@@ -10830,7 +10830,7 @@ var EditarGE = function EditarGE(props) {
     campo: ''
   }),
       _useState2 = _slicedToArray(_useState, 2),
-      id = _useState2[0],
+      idGE = _useState2[0],
       setID = _useState2[1];
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
@@ -10867,6 +10867,7 @@ var EditarGE = function EditarGE(props) {
 
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     campo: '',
+    eliminar: '',
     valido: null
   }),
       _useState12 = _slicedToArray(_useState11, 2),
@@ -11113,6 +11114,8 @@ var EditarGE = function EditarGE(props) {
 
     if (orgJur.valido === 'true' && telefono.valido === 'true' && direccion.valido === 'true' && email.valido === 'true' && logo.valido === 'true' && nombre.valido === 'true' && nombreAb.valido === 'true' && descripcion.valido === 'true') {
       var data = new FormData(document.getElementById('formulario'));
+      data.append('eliminar', logo.eliminar);
+      data.append('idGE', idGE.campo);
       fetch('api/registrarCambiosGE', {
         method: 'POST',
         body: data
@@ -11141,7 +11144,7 @@ var EditarGE = function EditarGE(props) {
     campo: document.title
   };
 
-  if (nombre.campo === "") {
+  if (idGE.campo === "") {
     start();
   }
 
@@ -11156,7 +11159,7 @@ var EditarGE = function EditarGE(props) {
         var elemento = data[i];
 
         if (elemento.nombre == nombreGE.campo) {
-          setID(_objectSpread(_objectSpread({}, id), {}, {
+          setID(_objectSpread(_objectSpread({}, idGE), {}, {
             campo: elemento.idGE
           }));
           setNombre(_objectSpread(_objectSpread({}, nombre), {}, {
@@ -11178,7 +11181,8 @@ var EditarGE = function EditarGE(props) {
             campo: elemento.descripcion
           }));
           setLogo(_objectSpread(_objectSpread({}, logo), {}, {
-            campo: "./resources/" + elemento.logo
+            campo: "./resources/" + elemento.logo,
+            eliminar: "./resources/" + elemento.logo
           }));
           break;
           /*[idGE','fecha_creacion', 'fecha_registro',
@@ -11578,15 +11582,6 @@ var InputImg = function InputImg(_ref) {
     }));
   }
 
-  console.log(estado.campo);
-  console.log(estado.campo == '');
-  console.log(estado.campo == lodash__WEBPACK_IMPORTED_MODULE_4__.isNull);
-
-  if (estado.campo == "./resources/logoDefecto.png") {
-    var img = document.getElementById('imagenGER');
-    img.src = estado.campo;
-  }
-
   var onButtonClick = function onButtonClick(e) {
     var img = document.getElementById('imagenGER');
     var files = imagenCarg.current.files;
@@ -11786,11 +11781,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _elementos_editarGE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/editarGE */ "./resources/js/elementos/editarGE.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _MensajeAlerta__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MensajeAlerta */ "./resources/js/components/EditarGE/MensajeAlerta.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _MensajeAlerta__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MensajeAlerta */ "./resources/js/components/EditarGE/MensajeAlerta.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -11802,8 +11794,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
 
 
 
@@ -11840,11 +11830,8 @@ var PDF = function PDF(_ref) {
     console.log(url);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-      FormData: name,
-      children: "Subir Archivo PDF"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       id: name,
       name: name,
       ref: imagenCarg,
@@ -11852,7 +11839,7 @@ var PDF = function PDF(_ref) {
       onChange: onButtonClick,
       accept: "application/pdf",
       type: "file"
-    }), estado.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_MensajeAlerta__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), estado.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_MensajeAlerta__WEBPACK_IMPORTED_MODULE_1__["default"], {
       mensajeRep: funcValidar(estado)
     })]
   });
@@ -13609,7 +13596,7 @@ var VistaGrupoEmpresa = function VistaGrupoEmpresa() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
                 children: "Descripcion: "
-              }), "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aperiam possimus repellendus ab! Mollitia soluta quos quam exercitationem neque molestias, vitae dignissimos maiores, eum possimus a magni nemo reiciendis illum.", datos.descripcion]
+              }), datos.descripcion]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {})]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
