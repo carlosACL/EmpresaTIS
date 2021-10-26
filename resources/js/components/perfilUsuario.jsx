@@ -73,44 +73,47 @@ const PerfilUsuario = () => {
     let logo = "../resources/socios/" + foto_perfil;
 
     return(
-        <div id="tarjeta-datos">
-            <div id="img-usuario">
-                <img id="imagen" src={ logo } alt="foto-perfil" title="Foto de Perfil"/>
-            </div>
-            <div id="datos">
+        <div id="contenedor">
+            <div id="tarjeta-datos">
+                <div id="img-usuario">
+                    <img id="imagen" src={ logo } alt="foto-perfil" title="Foto de Perfil"/>
+                </div>
+                <div id="datos">
+                        <div>
+                        <label id="lbDetalles">DETALLES DEL USUARIO:</label>
+                    </div>
                     <div>
-                    <label id="lbDetalles">DETALLES DEL USUARIO:</label>
-                </div>
-                <div>
-                    <label className="labels">Nombre:</label>
-                    <input id="cmpNombre" className="texto" type="text" ref={ nombre } disabled /> 
-                </div>
-                <div>
-                    <label className="labels">Apellido:</label>
-                    <input id="cmpApellido" className="texto" type="text" ref={ apellido } disabled />
-                </div>
-                <div>
-                    <label className="labels">Carrera:</label>
-                    <input id="cmpCarrera" className="texto" type="text" ref={ carrera } disabled />
-                </div>
-                <div>
-                    <label className="labels">Grupo:</label>
-                    <input id="cmpGrupo" className="texto" type="text" ref={ grupo }  disabled /> 
-                </div>
-                <div>
-                    <label className="labels">Correo Electrónico:</label>
-                    <input id="cmpCorreo" className="texto" type="text" ref={ correo } disabled />
+                        <label className="labels">Nombre:</label>
+                        <input id="cmpNombre" className="texto" type="text" ref={ nombre } disabled /> 
+                    </div>
+                    <div>
+                        <label className="labels">Apellido:</label>
+                        <input id="cmpApellido" className="texto" type="text" ref={ apellido } disabled />
+                    </div>
+                    <div>
+                        <label className="labels">Carrera:</label>
+                        <input id="cmpCarrera" className="texto" type="text" ref={ carrera } disabled />
+                    </div>
+                    <div>
+                        <label className="labels">Grupo:</label>
+                        <input id="cmpGrupo" className="texto" type="text" ref={ grupo }  disabled /> 
+                    </div>
+                    <div>
+                        <label className="labels">Correo Electrónico:</label>
+                        <input id="cmpCorreo" className="texto" type="text" ref={ correo } disabled />
+                    </div> 
+                    <div>
+                        <label className="labels">Teléfono/Celular:</label>
+                        <input id="cmpTelefono" className="texto" type="text" ref={ telefono } disabled />
+                    </div>
+                    <div>
+                        <label className="labels">Codigo SIS:</label>
+                        <input id="cmpCI" className="texto" type="text" ref={ codSis } disabled />
+                    </div> 
                 </div> 
-                <div>
-                    <label className="labels">Teléfono/Celular:</label>
-                    <input id="cmpTelefono" className="texto" type="text" ref={ telefono } disabled />
-                </div>
-                <div>
-                    <label className="labels">Codigo SIS:</label>
-                    <input id="cmpCI" className="texto" type="text" ref={ codSis } disabled />
-                </div> 
-            </div> 
+            </div>
         </div>
+        
     );
 };
 
