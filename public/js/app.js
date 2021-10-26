@@ -12486,17 +12486,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var RegistroGE = function RegistroGE() {
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    (0,_session__WEBPACK_IMPORTED_MODULE_8__.isSessionActive)().then(function (result) {
-      if (!result) {
-        location.replace('Login');
-      }
-
-      ;
-    });
-    ;
-  }, []);
-
+  /* useEffect(() => {
+      isSessionActive().then((result) => {
+          if(!result){
+              location.replace('Login');
+          };
+      });;
+  }, []); */
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     valido: null
   }),
