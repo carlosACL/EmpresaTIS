@@ -5,17 +5,7 @@ import { Boton, InputStyle } from '../elementos/registro';
 import { iniciarSession } from '../parametros/menus';
 import { createSession, isSessionActive } from '../session';
 
-const Login = () => {
-
-    useEffect(() => {
-        isSessionActive().then((result) => {
-            console.log(result);
-            if(result){
-                location.replace('/');
-            };
-        });;
-    }, []);
-        
+const Login = () => {       
     const refUser = useRef(null);
     const refPass = useRef(null);
     const [datos, setDatos] = useState(null);

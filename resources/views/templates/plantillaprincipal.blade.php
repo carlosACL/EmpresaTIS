@@ -9,6 +9,7 @@
         <title>@yield('titulo', 'Default')</title>
     </head>
     <body>
+        @yield('script')
         <div id='fondo'></div>
         <div id="navegador"></div>
         <section>

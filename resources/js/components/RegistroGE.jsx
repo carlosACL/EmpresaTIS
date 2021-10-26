@@ -14,15 +14,6 @@ import { isSessionActive } from '../session';
 
 
 const RegistroGE = () => {
-
-    useEffect(() => {
-        isSessionActive().then((result) => {
-            if(!result){
-                location.replace('Login');
-            };
-        });;
-    }, []);
-
     const [orgJur, setOrgJur] = useState({valido : null});
     const [telefono, setTelefono] = useState({campo:'', valido:null});
     const [direccion, setDireccion] = useState({campo:'', valido:null});

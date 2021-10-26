@@ -25,6 +25,7 @@ import Navegador from './components/Navegador';
 import Login from './components/Login';
 import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
 import TabGE from './components/TabGE';
+import { isSessionActive } from './session';
 //import Login from "./components/Login/Login"
 
 /*
