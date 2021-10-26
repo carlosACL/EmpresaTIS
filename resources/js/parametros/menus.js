@@ -11,7 +11,7 @@ const opcionesUsuario = [{
     contenido:'Mi Perfil', 
     img:faUser,
     onClick: null
-},{
+},{ 
     link : (sessionStorage.getItem('ge')) ? 'GE-'+sessionStorage.getItem('ge'):'#', 
     name:'grupoEmpresa', 
     contenido:'Mi Grupo Empresa', 

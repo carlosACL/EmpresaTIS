@@ -16,6 +16,7 @@ const Session = () => {
         }
     }, [])
 
+
     return (
         <div id='sessionNav' className='collapse navbar-collapse'>
             <ul className="navbar-nav">
