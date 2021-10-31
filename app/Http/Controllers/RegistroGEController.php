@@ -65,7 +65,8 @@ class RegistroGEController extends Controller
                 'descripcion' => $ge->descripcion,
                 'email' => $ge->email,
                 'telefono' => $ge->telefono,
-                'orgJur' => $ge->orgJur
+                'orgJur' => $ge->orgJur,
+                'duenio' => $ge->duenio
             ];
             return view('vistaGE')->with($datos);
         }

@@ -10914,7 +10914,6 @@ var SociosAdmin = function SociosAdmin() {
           var nuevo = socios.filter(function (dat) {
             return dat.idUsuario != id;
           });
-          console.log(nuevo);
           setSocios(nuevo);
         } else {
           alert("error, vuelva a intentarlo luego");
@@ -13791,7 +13790,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elementos_TabGE__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../elementos/TabGE */ "./resources/js/elementos/TabGE.js");
 /* harmony import */ var _DatosGrupoEmpresa_Socios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DatosGrupoEmpresa/Socios */ "./resources/js/components/DatosGrupoEmpresa/Socios.jsx");
 /* harmony import */ var _DatosGrupoEmpresa_SociosAdmin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DatosGrupoEmpresa/SociosAdmin */ "./resources/js/components/DatosGrupoEmpresa/SociosAdmin.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../elementos/registro */ "./resources/js/elementos/registro.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -13801,14 +13802,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TabGE = function TabGE() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_2__.ContenedorTab, {
+  var usuario = sessionStorage.getItem('id');
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_2__.ContenedorTab, {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("nav", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("nav", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "nav nav-tabs",
         id: "nav-tab",
         role: "tablist",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
           className: "nav-item nav-link active",
           id: "nav-home-tab",
           "data-toggle": "tab",
@@ -13817,7 +13819,7 @@ var TabGE = function TabGE() {
           "aria-controls": "nav-home",
           "aria-selected": "true",
           children: "Grupo Empresa"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
           className: "nav-item nav-link",
           id: "nav-profile-tab",
           "data-toggle": "tab",
@@ -13826,7 +13828,7 @@ var TabGE = function TabGE() {
           "aria-controls": "nav-profile",
           "aria-selected": "false",
           children: "Socios"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
           className: "nav-item nav-link",
           id: "nav-contact-tab",
           "data-toggle": "tab",
@@ -13837,22 +13839,22 @@ var TabGE = function TabGE() {
           children: "Documentos"
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "tab-content",
       id: "nav-tabContent",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "tab-pane fade show active",
         id: "nav-home",
         role: "tabpanel",
         "aria-labelledby": "nav-home-tab",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_VistaGrupoEmpresa__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_VistaGrupoEmpresa__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "tab-pane fade",
         id: "nav-profile",
         role: "tabpanel",
         "aria-labelledby": "nav-profile-tab",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DatosGrupoEmpresa_Socios__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DatosGrupoEmpresa_SociosAdmin__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: usuario == datos.duenio ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_DatosGrupoEmpresa_SociosAdmin__WEBPACK_IMPORTED_MODULE_4__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_DatosGrupoEmpresa_Socios__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "tab-pane fade",
         id: "nav-contact",
         role: "tabpanel",
