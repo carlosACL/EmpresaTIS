@@ -8,8 +8,6 @@ import { datosNavegador } from '../parametros/menus';
 
 const Navegador = () => {
 
-    
-
     return (
         <>
             <Nav className = 'navbar navbar-expand-lg'>

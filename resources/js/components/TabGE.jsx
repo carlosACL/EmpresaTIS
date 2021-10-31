@@ -1,6 +1,8 @@
 import React from 'react';
 import VistaGrupoEmpresa from './VistaGrupoEmpresa';
 import { ContenedorTab } from '../elementos/TabGE';
+import Socios from './DatosGrupoEmpresa/Socios';
+import SociosAdmin from './DatosGrupoEmpresa/SociosAdmin';
 
 const TabGE = () => {
     return (
@@ -17,7 +19,8 @@ const TabGE = () => {
                 <VistaGrupoEmpresa></VistaGrupoEmpresa>
             </div>
             <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit eveniet velit, perspiciatis, labore expedita odit dolore reiciendis nostrum, libero adipisci mollitia quisquam tempora id. Vitae placeat voluptas vero dolores perferendis.
+                <Socios></Socios>
+                <SociosAdmin></SociosAdmin>
             </div>
             <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, quia veniam autem exercitationem nostrum, blanditiis aliquam inventore dolorem tenetur ratione, saepe ad eveniet dolor et? Voluptates unde ratione dolor eligendi?
