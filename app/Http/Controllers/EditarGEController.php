@@ -47,10 +47,10 @@ class EditarGEController extends Controller
     }
 
 
-    function index()
+    /* function index()
     {
         return view('editarGE');
-    }
+    } */
 
     function index_view($nombre)
     {
@@ -62,5 +62,13 @@ class EditarGEController extends Controller
             return view('editarGE')->with($datos);
         }
         return view('login')->with(['msg' => $nombre]);
+    }
+    function registrar_pdf(Request $req)
+    {
+        $file = $req->file('pdf');
+        $nombre =  time() . "_" . $file->getClientOriginalName();
+        $file->move('resources', $nombre);
+
+        return response(200);
     }
 }

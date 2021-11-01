@@ -17,6 +17,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ReactDOM from 'react-dom';
 import RegistroGE from './components/RegistroGE';
 import EditarGE from './components/EditarGE';
+import PDF from './components/PDF';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
@@ -54,7 +55,7 @@ if (document.getElementById('regGE')) {
 if (document.getElementById('editGE')) {
     ReactDOM.render(
         <div >
-            <EditarGE />
+            <PDF/>
         </div>, document.getElementById('editGE'));
 }
 
