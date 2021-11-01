@@ -1,4 +1,7 @@
 import { useRef, useState, useEffect } from "react";
+import IconoAtras from "./Svg/IconoAtras";
+import Editar from "./Svg/IconoEditar";
+import IconoGuardar from "./Svg/IconoGuardar";
 
 const PerfilUsuario = () => {
 
@@ -72,12 +75,42 @@ const PerfilUsuario = () => {
 
     let logo = "../resources/socios/" + foto_perfil;
 
+    const [idDelLogueado, setIdDelLogueado] = useState('');
+    const [edita, setEdita] = useState(false);
+    const [editando, setEditando] = useState(false);
+
+    useEffect(() => {
+        setIdDelLogueado(sessionStorage.getItem('id'))
+    }, []);
+
+    useEffect(() => {
+        setEdita(idDelLogueado == datos.id)
+    }, [idDelLogueado]);
+    
+
+    const editarCampos = () => {
+        setEditando(!editando);
+        setEdita(false);
+        document.getElementById('cmpNombre').disabled = false;
+        document.getElementById('cmpApellido').disabled = false;
+        document.getElementById('cmpCorreo').disabled = false;
+        document.getElementById('cmpTelefono').disabled = false;
+        document.getElementById('cmpCI').disabled = false;
+    };
+
     return(
         <div id="contenedor">
             <div id="tarjeta-datos">
                 <div id="img-usuario">
                     <img id="imagen" src={ logo } alt="foto-perfil" title="Foto de Perfil"/>
                 </div>
+                {
+                    edita && (
+                        <div id="cont-icono-editar" onClick={ editarCampos }>
+                            <Editar />
+                        </div>
+                    ) 
+                }
                 <div id="datos">
                         <div>
                         <label id="lbDetalles">DETALLES DEL USUARIO:</label>
@@ -110,7 +143,20 @@ const PerfilUsuario = () => {
                         <label className="labels">Codigo SIS:</label>
                         <input id="cmpCI" className="texto" type="text" ref={ codSis } disabled />
                     </div> 
-                </div> 
+                </div>
+                {
+                    editando && (
+                        <div id="cont-iconos-edicion">
+                            <div id="cont-icono-atras">
+                                <IconoAtras/>
+                            </div>
+                            <div id="cont-icono-guardar">
+                                <IconoGuardar/>
+                            </div>
+                        </div>
+                        
+                    )
+                } 
             </div>
         </div>
         
