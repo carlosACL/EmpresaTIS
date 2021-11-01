@@ -7,6 +7,7 @@ import Session from './Navegador/Session'
 import { datosNavegador } from '../parametros/menus';
 
 const Navegador = () => {
+
     return (
         <>
             <Nav className = 'navbar navbar-expand-lg'>

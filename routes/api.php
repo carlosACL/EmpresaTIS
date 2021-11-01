@@ -37,3 +37,6 @@ Route::post('getNombre', [UserController::class, 'getNombre']);
 Route::post('registrarCambiosGE', [EditarGEController::class, 'registrarCambiosGE']);
 //Route::post('registrarCambiosGE', [RegistroGEController::class, 'RegistrarGrupoEmpresa']);
 Route::post('solicitarGE', [EditarGEController::class, 'solicitarGE']);
+
+Route::post('solicitarSocios', [RegistroGEController::class, 'obtenerSocios']);
+Route::post('expulsarUsuario', [RegistroGEController::class, 'expulsarSocio']);

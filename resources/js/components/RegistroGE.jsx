@@ -26,7 +26,7 @@ const RegistroGE = () => {
     const expresiones = {
         nombre: /^[a-zA-Z\s]{3,30}$/, 
         nombreAb: /^[a-zA-Z\s]{2,20}$/, 
-        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        correo: /^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         telefono: /^\d{7,8}$/,
         direccion: /^[a-zA-ZÀ-ÿ0-9\,\.\#\-\_\s]{5,100}$/,
         objetivo: /^[a-zA-ZÀ-ÿ0-9\,\.\s]{10,100}$/,
@@ -91,7 +91,7 @@ const RegistroGE = () => {
             validar.push('Debes llenar este campo');
         }
         if(!regex.test(estate.campo) &&  estate.campo.length>1 ){
-            validar.push('Debe ingresar un formato de correo institucional de la universidad  ej : ejemplo@est.umss.bo');
+            validar.push('Debe ingresar un formato de correo electronico valido');
         }
 
         if(estate.existe === 'true' && (estate.campo.length>5 && estate.campo.length < 30)){
@@ -211,7 +211,9 @@ const RegistroGE = () => {
                 console.log(response);
                 if(response.ok){
                     color = exito();
-                    mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+                    mensaje.innerHTML = `Exito al Registrar Grupo empresa <a href='GE-${nombre.campo}'>ver mi grupo empresa</a>`
+                    console.log('pasa por aca');
+                    sessionStorage.setItem('ge', nombre.campo);
                 } else {
                     color = 'red';
                     mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";

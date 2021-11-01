@@ -100,6 +100,11 @@ main{
     background-color: rgb(240, 255, 240);
 }*/
 
+#contenedor {
+    position: relative;
+    height: 700px;
+}
+
 #lbDetalles{
     display: inline-block;
     font-size: 20px;
@@ -138,7 +143,7 @@ main{
     position: absolute;
     left: 20%;
     right: 20%;
-    top: 10%;
+    top: 15%;
     padding: 30px;
     text-align: right;
     padding-top: 10px;
@@ -164,13 +169,23 @@ main{
 
 @media only screen and (max-width: 1150px) {
     #tarjeta-datos{
-        top: 20%;
+        top: 100px;
         left: 9%;
         right: 9%;
     }
 }
 
+@media only screen and (max-width: 991px) {
+    #tarjeta-datos{
+        top: 50px;
+    }
+}
+
 @media only screen and (max-width: 840px) {
+    #contenedor { 
+        height: 1080px;
+    }
+
     #lbDetalles{
         display: block;
         text-align: center;
@@ -180,7 +195,7 @@ main{
     }
 
     #tarjeta-datos{
-        left: 10%;
+        left: 50px;
         right: 10%;
         padding: 0%;
         padding-bottom: 50px;
@@ -214,6 +229,16 @@ main{
 }
 
 /*LOGIN*/
+
+#main-login {
+    max-width: 100%;
+    padding: 0px;
+}
+
+#contenedor-login {
+    position: relative;
+    height: 700px;
+}
 
 #label-login-logo {
     color: #22ddaa;
@@ -272,6 +297,10 @@ main{
 @media only screen and (max-width: 840px) {
     #cont-label-logo {
         font-size: 30px;
+    }
+
+    #contenedor-login {
+        height: 625px;
     }
 }
 

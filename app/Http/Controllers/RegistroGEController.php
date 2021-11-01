@@ -65,10 +65,30 @@ class RegistroGEController extends Controller
                 'descripcion' => $ge->descripcion,
                 'email' => $ge->email,
                 'telefono' => $ge->telefono,
-                'orgJur' => $ge->orgJur
+                'orgJur' => $ge->orgJur,
+                'duenio' => $ge->duenio
             ];
             return view('vistaGE')->with($datos);
         }
         return view('login')->with(['msg' => $nombre]);
+    }
+
+    function obtenerSocios(Request $req){
+        $datoGE = DB::table('Grupo_Empresa')->select('idGE', 'duenio')->where('nombre', '=',$req->nombre)->first();
+        $usuarios = DB::table('Usuario')->select('idUsuario','nombre', 'apellido', 'foto_perfil')->where('idGE','=',$datoGE->idGE)->get();
+
+        $data = [
+            'socios' => $usuarios,
+            'lider' => $datoGE->duenio,
+        ];
+
+        return response()->json($data);
+    }
+
+    function expulsarSocio(Request $req){
+        $user = Usuario::find($req->id);
+        $user->idGE = null;
+        $user->save();
+        return response(200);
     }
 }
