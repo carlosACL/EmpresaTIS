@@ -10682,6 +10682,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RegistroGE */ "./resources/js/components/RegistroGE.jsx");
 /* harmony import */ var _components_EditarGE__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/EditarGE */ "./resources/js/components/EditarGE.jsx");
+<<<<<<< HEAD
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../css/app.css */ "./resources/css/app.css");
 /* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./elementos/card */ "./resources/js/elementos/card.js");
@@ -10692,6 +10693,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TabGE__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/TabGE */ "./resources/js/components/TabGE.jsx");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+=======
+/* harmony import */ var _components_PDF__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/PDF */ "./resources/js/components/PDF.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../css/app.css */ "./resources/css/app.css");
+/* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./elementos/card */ "./resources/js/elementos/card.js");
+/* harmony import */ var _components_perfilUsuario__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/perfilUsuario */ "./resources/js/components/perfilUsuario.jsx");
+/* harmony import */ var _components_Navegador__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Navegador */ "./resources/js/components/Navegador.jsx");
+/* harmony import */ var _components_Login__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Login */ "./resources/js/components/Login.jsx");
+/* harmony import */ var _components_VistaGrupoEmpresa__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/VistaGrupoEmpresa */ "./resources/js/components/VistaGrupoEmpresa.jsx");
+/* harmony import */ var _components_TabGE__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/TabGE */ "./resources/js/components/TabGE.jsx");
+/* harmony import */ var _session__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./session */ "./resources/js/session.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+>>>>>>> local13
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -10705,6 +10719,7 @@ __webpack_require__.r(__webpack_exports__);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 //require('./components/Example');
+
 
 
 
@@ -10731,8 +10746,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 if (document.getElementById('fondo')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_6__.Fondo, {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_7__.Fondo, {
       src: "./resources/asesoria-cont-financ_001.png"
     })
   }), document.getElementById('fondo'));
@@ -10741,36 +10756,36 @@ if (document.getElementById('fondo')) {
 ;
 
 if (document.getElementById('regGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
   }), document.getElementById('regGE'));
 }
 
 if (document.getElementById('editGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_EditarGE__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_PDF__WEBPACK_IMPORTED_MODULE_4__["default"], {})
   }), document.getElementById('editGE'));
 }
 
 if (document.getElementById('perfil')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_perfilUsuario__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_perfilUsuario__WEBPACK_IMPORTED_MODULE_8__["default"], {})
   }), document.getElementById('perfil'));
 }
 
 if (document.getElementById('navegador')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Navegador__WEBPACK_IMPORTED_MODULE_8__["default"], {}), document.getElementById('navegador'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_Navegador__WEBPACK_IMPORTED_MODULE_9__["default"], {}), document.getElementById('navegador'));
 }
 
 if (document.getElementById('login')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Login__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_Login__WEBPACK_IMPORTED_MODULE_10__["default"], {})
   }), document.getElementById('login'));
 }
 
 if (document.getElementById('vistaGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_TabGE__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_TabGE__WEBPACK_IMPORTED_MODULE_12__["default"], {})
   }), document.getElementById('vistaGE'));
 }
 
@@ -11083,7 +11098,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EditarGE_Fecha__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EditarGE/Fecha */ "./resources/js/components/EditarGE/Fecha.jsx");
 /* harmony import */ var _EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditarGE/OrganizacionJ */ "./resources/js/components/EditarGE/OrganizacionJ.jsx");
 /* harmony import */ var _EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./EditarGE/TextArea */ "./resources/js/components/EditarGE/TextArea.jsx");
-/* harmony import */ var _EditarGE_Subir_PDF__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./EditarGE/Subir_PDF */ "./resources/js/components/EditarGE/Subir_PDF.jsx");
+/* harmony import */ var _editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editarGE/MensajeAlerta */ "./resources/js/components/editarGE/MensajeAlerta.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
@@ -11124,7 +11139,7 @@ var EditarGE = function EditarGE(props) {
       setID = _useState2[1];
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    valido: null
+    valido: false
   }),
       _useState4 = _slicedToArray(_useState3, 2),
       orgJur = _useState4[0],
@@ -11132,7 +11147,7 @@ var EditarGE = function EditarGE(props) {
 
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     campo: '',
-    valido: null
+    valido: false
   }),
       _useState6 = _slicedToArray(_useState5, 2),
       telefono = _useState6[0],
@@ -11140,7 +11155,7 @@ var EditarGE = function EditarGE(props) {
 
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     campo: '',
-    valido: null
+    valido: false
   }),
       _useState8 = _slicedToArray(_useState7, 2),
       direccion = _useState8[0],
@@ -11148,7 +11163,7 @@ var EditarGE = function EditarGE(props) {
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     campo: '',
-    valido: null,
+    valido: false,
     existe: 'false'
   }),
       _useState10 = _slicedToArray(_useState9, 2),
@@ -11158,7 +11173,7 @@ var EditarGE = function EditarGE(props) {
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     campo: '',
     eliminar: '',
-    valido: null
+    valido: false
   }),
       _useState12 = _slicedToArray(_useState11, 2),
       logo = _useState12[0],
@@ -11166,7 +11181,7 @@ var EditarGE = function EditarGE(props) {
 
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     campo: '',
-    valido: null,
+    valido: false,
     existe: 'false'
   }),
       _useState14 = _slicedToArray(_useState13, 2),
@@ -11175,7 +11190,7 @@ var EditarGE = function EditarGE(props) {
 
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     campo: '',
-    valido: null
+    valido: false
   }),
       _useState16 = _slicedToArray(_useState15, 2),
       nombreAb = _useState16[0],
@@ -11183,19 +11198,11 @@ var EditarGE = function EditarGE(props) {
 
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     campo: '',
-    valido: null
+    valido: false
   }),
       _useState18 = _slicedToArray(_useState17, 2),
       descripcion = _useState18[0],
       setDescripcion = _useState18[1];
-
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    campo: '',
-    valido: null
-  }),
-      _useState20 = _slicedToArray(_useState19, 2),
-      pdf = _useState20[0],
-      setPDF = _useState20[1];
 
   var expresiones = {
     nombre: /^[a-zA-Z\s]{3,30}$/,
@@ -11380,10 +11387,10 @@ var EditarGE = function EditarGE(props) {
     }
   };
 
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState22 = _slicedToArray(_useState21, 2),
-      msg = _useState22[0],
-      setMsg = _useState22[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState20 = _slicedToArray(_useState19, 2),
+      msg = _useState20[0],
+      setMsg = _useState20[1];
 
   var formulario = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
@@ -11436,6 +11443,14 @@ var EditarGE = function EditarGE(props) {
 
   if (idGE.campo === "") {
     start();
+    /* const expresiones = {
+        nombre: /^[a-zA-Z\s]{3,30}$/,
+        nombreAb: /^[a-zA-Z\s]{2,20}$/,
+        correo: /^[a-zA-Z0-9_.+-]+@est.umss.edu$/,
+        telefono: /^\d{7,8}$/,
+        direccion: /^[a-zA-ZÀ-ÿ0-9\,\.\#\-\_\s]{5,100}$/,
+        objetivo: /^[a-zA-ZÀ-ÿ0-9\,\.\s]{10,100}$/,
+    }; */
   }
 
   function start() {
@@ -11474,6 +11489,14 @@ var EditarGE = function EditarGE(props) {
             campo: "./resources/" + elemento.logo,
             eliminar: "./resources/" + elemento.logo
           }));
+          validarNombre(nombre, expresiones.nombre);
+          validarNombreAb(nombreAb, expresiones.nombreAb);
+          validarCorreo(email, expresiones.correo);
+          validarTelefono(telefono, expresiones.telefono);
+          validarDireccion(direccion, expresiones.direccion);
+          validarDescripcion(descripcion, expresiones.objetivo);
+          validarLogo(logo); //verificarInputs();
+
           break;
           /*[idGE','fecha_creacion', 'fecha_registro',
           'orgJur', 'nombre', 'nombreAb', 'telefono',
@@ -11483,13 +11506,13 @@ var EditarGE = function EditarGE(props) {
     });
   }
 
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("./resources/back.png"),
-      _useState24 = _slicedToArray(_useState23, 1),
-      item_back = _useState24[0];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("./resources/back.png"),
+      _useState22 = _slicedToArray(_useState21, 1),
+      item_back = _useState22[0];
 
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("./resources/save.png"),
-      _useState26 = _slicedToArray(_useState25, 1),
-      item_save = _useState26[0];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("./resources/save.png"),
+      _useState24 = _slicedToArray(_useState23, 1),
+      item_save = _useState24[0];
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("main", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_2__.Card, {
@@ -11528,9 +11551,9 @@ var EditarGE = function EditarGE(props) {
                   tipo: "text",
                   funcValidar: validarNombre
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: nombreAb,
                   cambiarEstado: setNombreAb,
                   regex: expresiones.nombreAb,
@@ -11538,10 +11561,12 @@ var EditarGE = function EditarGE(props) {
                   tipo: "text",
                   placeholder: "Nombre Abreviado",
                   funcValidar: validarNombreAb
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                }), nombreAb.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  mensajeRep: validarNombreAb(nombreAb, expresiones.nombreAb)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: telefono,
                   cambiarEstado: setTelefono,
                   regex: expresiones.telefono,
@@ -11551,10 +11576,12 @@ var EditarGE = function EditarGE(props) {
                   maxlength: 9,
                   minlenght: 7,
                   funcValidar: validarTelefono
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                }), telefono.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  mensajeRep: validarTelefono(telefono, expresiones.telefono)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: direccion,
                   cambiarEstado: setDireccion,
                   regex: expresiones.direccion,
@@ -11562,10 +11589,12 @@ var EditarGE = function EditarGE(props) {
                   tipo: "text",
                   placeholder: "Direccion",
                   funcValidar: validarDireccion
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                }), direccion.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  mensajeRep: validarDireccion(direccion, expresiones.direccion)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: email,
                   cambiarEstado: setEmail,
                   regex: expresiones.correo,
@@ -11573,45 +11602,43 @@ var EditarGE = function EditarGE(props) {
                   tipo: "email",
                   placeholder: "Correo electronico",
                   funcValidar: validarCorreo
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                }), email.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  mensajeRep: validarCorreo(email, expresiones.correo)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_6__["default"], {
                   estado: orgJur,
                   cambiarEstado: setOrgJur,
                   funcValidar: validarOrgJur
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                }), orgJur.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  mensajeRep: validarOrgJur(orgJur)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                children: [descripcion.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  mensajeRep: validarDescripcion(descripcion, expresiones.objetivo)
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   estado: descripcion,
                   cambiarEstado: setDescripcion,
                   regex: expresiones.objetivo,
                   nombre: "descripcion",
                   placeholder: "objetivo",
                   funcValidar: validarDescripcion
-                })
+                })]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "col-12 col-sm-4 border",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   estado: logo,
                   cambiarEstado: setLogo,
                   name: "logo",
                   funcValidar: validarLogo
-                })
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              className: "col-12 border",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Subir_PDF__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                  name: "pdf",
-                  estado: pdf,
-                  cambiarEstado: setPDF
-                })
+                }), logo.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  mensajeRep: validarLogo(logo)
+                })]
               })
             })]
           })]
@@ -11750,7 +11777,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MensajeAlerta__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MensajeAlerta */ "./resources/js/components/EditarGE/MensajeAlerta.jsx");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -11779,24 +11808,31 @@ var Input = function Input(_ref) {
     cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
       campo: ref.current.value !== ' ' ? ref.current.value : ''
     }));
+    validacion();
   };
 
   var validacion = function validacion() {
     if (regex) {
+      /* const elem = document.getElementById({ nombre });
+      var style = {
+          border-botton-color: "#6aff00 !important";
+      }; */
       if (regex.test(estado.campo)) {
         cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
           valido: 'true'
         }));
+        /* elem.style.border-bottom-color = "#6aff00 !important"; */
       } else {
         cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
           valido: 'false'
         }));
+        /* elem.style.border-bottom-color = "red !important"; */
       }
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_editarGE__WEBPACK_IMPORTED_MODULE_1__.InputStyle, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_elementos_editarGE__WEBPACK_IMPORTED_MODULE_1__.InputStyle, _defineProperty({
       type: tipo,
       onChange: onChange,
       placeholder: placeholder,
@@ -11807,9 +11843,7 @@ var Input = function Input(_ref) {
       onBlur: validacion,
       valido: estado.valido,
       onSubmit: validacion
-    }), estado.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_MensajeAlerta__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      mensajeRep: funcValidar(estado, regex)
-    })]
+    }, "onChange", validacion))
   });
 };
 
@@ -11907,8 +11941,6 @@ var InputImg = function InputImg(_ref) {
       onChange: onButtonClick,
       accept: "image/jpeg,image/jpg,image/png",
       type: "file"
-    }), estado.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_MensajeAlerta__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      mensajeRep: funcValidar(estado)
     })]
   });
 };
@@ -12027,8 +12059,8 @@ var OrganizacionJ = function OrganizacionJ(_ref) {
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
       ref: orgJur,
       onChange: onChangeOption,
       id: "orgJur",
@@ -12044,9 +12076,7 @@ var OrganizacionJ = function OrganizacionJ(_ref) {
           children: dat
         });
       })]
-    }), estado.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_MensajeAlerta__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      mensajeRep: funcValidar(estado)
-    })]
+    })
   });
 };
 
@@ -12056,86 +12086,6 @@ OrganizacionJ.prototype = {
   funcValidar: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().func)
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrganizacionJ);
-
-/***/ }),
-
-/***/ "./resources/js/components/EditarGE/Subir_PDF.jsx":
-/*!********************************************************!*\
-  !*** ./resources/js/components/EditarGE/Subir_PDF.jsx ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _MensajeAlerta__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MensajeAlerta */ "./resources/js/components/EditarGE/MensajeAlerta.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-var PDF = function PDF(_ref) {
-  var name = _ref.name,
-      estado = _ref.estado,
-      cambiarEstado = _ref.cambiarEstado;
-  var imagenCarg = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("./resources/logoDefecto.png"),
-      _useState2 = _slicedToArray(_useState, 2),
-      logo = _useState2[0],
-      cambiarestado = _useState2[1];
-
-  var onButtonClick = function onButtonClick(e) {
-    var files = imagenCarg.current.files;
-
-    if (!files || !files.length) {
-      cambiarEstado({
-        valido: 'false'
-      });
-      return;
-    }
-
-    cambiarEstado({
-      valido: 'true'
-    });
-    var pdf = files[0];
-    var url = URL.createObjectURL(pdf);
-    console.log(url);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-      id: name,
-      name: name,
-      ref: imagenCarg,
-      onSubmit: onButtonClick,
-      onChange: onButtonClick,
-      accept: "application/pdf",
-      type: "file"
-    }), estado.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_MensajeAlerta__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      mensajeRep: funcValidar(estado)
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PDF);
 
 /***/ }),
 
@@ -12161,7 +12111,6 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -12199,10 +12148,8 @@ var TextArea = function TextArea(_ref) {
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [estado.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_MensajeAlerta__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      mensajeRep: funcValidar(estado, regex)
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_editarGE__WEBPACK_IMPORTED_MODULE_3__.TextA, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_editarGE__WEBPACK_IMPORTED_MODULE_3__.TextA, {
       onBlur: validacion,
       ref: textArea,
       onChange: onChangeup,
@@ -12212,7 +12159,7 @@ var TextArea = function TextArea(_ref) {
       valido: estado.valido,
       value: estado.campo,
       onSubmit: validacion
-    })]
+    })
   });
 };
 
@@ -12762,6 +12709,261 @@ var BotonSession = function BotonSession(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BotonSession);
+
+/***/ }),
+
+/***/ "./resources/js/components/PDF.jsx":
+/*!*****************************************!*\
+  !*** ./resources/js/components/PDF.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../elementos/registro */ "./resources/js/elementos/registro.js");
+/* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../elementos/card */ "./resources/js/elementos/card.js");
+/* harmony import */ var _EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditarGE/Input */ "./resources/js/components/EditarGE/Input.jsx");
+/* harmony import */ var _EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditarGE/InputImg */ "./resources/js/components/EditarGE/InputImg.jsx");
+/* harmony import */ var _subir_PDF_pdf_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./subir_PDF/pdf_component */ "./resources/js/components/subir_PDF/pdf_component.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+ //import { Datos } from '../elementos/datos_pdf';
+
+
+
+
+
+var PDF = function PDF(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    campo: ''
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      idGE = _useState2[0],
+      setID = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    campo: '',
+    valido: null,
+    existe: 'false'
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      nombre = _useState4[0],
+      setNombre = _useState4[1];
+
+  var verificarInputs = function verificarInputs() {
+    if (!orgJur.valido) {
+      setOrgJur({
+        valido: 'false'
+      });
+    }
+  };
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      msg = _useState6[0],
+      setMsg = _useState6[1];
+
+  var formulario = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var exito = function exito() {
+    var files = Array.from(document.getElementsByTagName('input'));
+    files.map(function (inp) {
+      inp.disabled = true;
+    });
+    return "#6aff00";
+  };
+
+  var onSubmit = function onSubmit(e) {
+    verificarInputs();
+    e.preventDefault();
+
+    if (orgJur.valido === 'true') {
+      var data = new FormData(document.getElementById('formulario'));
+      data.append('eliminar', logo.eliminar);
+      data.append('idGE', idGE.campo);
+      fetch('api/registrarCambiosGE', {
+        method: 'POST',
+        body: data
+      }).then(function (response) {
+        setMsg(true);
+        var mensaje = document.getElementById('mensajeRGE');
+        var color = null;
+        console.log(response);
+
+        if (response.ok) {
+          color = exito();
+          mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+        } else {
+          color = 'red';
+          mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
+        }
+
+        document.getElementById('cardItem').style = "border-style:solid;box-shadow: 10px 10px 10px ".concat(color, "; border-color: ").concat(color);
+        mensaje.style = "transition: .5s ease all;border-color:  ".concat(color, "; background-color:").concat(color, ";");
+        window.scroll(0, 0);
+      });
+    }
+  };
+
+  if (idGE.campo === "") {
+    start();
+  }
+
+  function start() {
+    fetch('/api/solicitarGE', {
+      method: 'POST',
+      body: JSON.stringify(document.title)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        var elemento = data[i];
+
+        if (elemento.nombre == document.title) {
+          setID(_objectSpread(_objectSpread({}, idGE), {}, {
+            campo: elemento.idGE
+          }));
+          setNombre(_objectSpread(_objectSpread({}, nombre), {}, {
+            campo: elemento.nombre
+          }));
+          break;
+          /*[idGE','fecha_creacion', 'fecha_registro',
+          'orgJur', 'nombre', 'nombreAb', 'telefono',
+          'direccion', 'email', 'descripcion', 'logo', 'orgJur'];*/
+        }
+      }
+    });
+  }
+
+  var Datos = [{
+    nombre: 'FundaEmpresa.pdf',
+    link: "#"
+  }, {
+    nombre: 'Informacion',
+    link: "#"
+  }];
+
+  var onButtonClick = function onButtonClick(e) {
+    cambiarEstado({
+      valido: 'true'
+    });
+    var pdf = files[0];
+    var url = URL.createObjectURL(pdf);
+    var nuevo = {
+      nombre: 'Informacion',
+      link: "#"
+    };
+    Datos.append(nuevo);
+  };
+
+  var onClick = function onClick(e) {
+    console.log();
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("main", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_2__.Card, {
+      id: "cardItem",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("form", {
+        ref: formulario,
+        id: "formulario",
+        onSubmit: onSubmit,
+        className: "formStyle",
+        method: "POST",
+        encType: "multipart/form-data",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "container border",
+          children: [Datos.map(function (dato) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "row",
+                id: dato.nombre,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "col-2",
+                  children: "icono"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "col-4",
+                  children: "pdf titulo"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "container col-6",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "row",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "col-6 border",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                        children: "Subir"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "col-6 border",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                        onClick: onClick,
+                        children: "Mostrar"
+                      })
+                    })]
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "row",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "col-12",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("iframe", {
+                    src: dato.link,
+                    style: {
+                      display: "none"
+                    }
+                  })
+                })
+              })]
+            });
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "col-6",
+              children: "icono"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "col-6",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                id: "pdf",
+                name: "pdf",
+                onSubmit: onButtonClick,
+                onChange: onButtonClick,
+                accept: "application/pdf",
+                type: "file"
+              })
+            })]
+          })]
+        })
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PDF);
 
 /***/ }),
 
@@ -13943,6 +14145,62 @@ var VistaGrupoEmpresa = function VistaGrupoEmpresa() {
 
 /***/ }),
 
+/***/ "./resources/js/components/editarGE/MensajeAlerta.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/components/editarGE/MensajeAlerta.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _elementos_editarGE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/editarGE */ "./resources/js/elementos/editarGE.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var MensajeAlerta = function MensajeAlerta(_ref) {
+  var mensajeRep = _ref.mensajeRep;
+  var mensaje = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var onMouseOver = function onMouseOver() {
+    mensaje.current.style = 'display:block';
+  };
+
+  var onMouseOut = function onMouseOut() {
+    mensaje.current.style = 'display:none';
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_editarGE__WEBPACK_IMPORTED_MODULE_1__.Icon, {
+      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faExclamationTriangle,
+      onMouseOver: onMouseOver,
+      onMouseOut: onMouseOut
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_editarGE__WEBPACK_IMPORTED_MODULE_1__.MensajeGlobo, {
+      ref: mensaje,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ol", {
+        children: mensajeRep.map(function (datos) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: datos
+          });
+        })
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MensajeAlerta);
+
+/***/ }),
+
 /***/ "./resources/js/components/perfilUsuario.jsx":
 /*!***************************************************!*\
   !*** ./resources/js/components/perfilUsuario.jsx ***!
@@ -14150,6 +14408,48 @@ var PerfilUsuario = function PerfilUsuario() {
 
 /***/ }),
 
+/***/ "./resources/js/components/subir_PDF/pdf_component.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/subir_PDF/pdf_component.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_pdf_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/pdf_style */ "./resources/js/elementos/pdf_style.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var PDFComponent = function PDFComponent() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "row",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "col-2",
+        children: "icono"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "col-4",
+        children: "pdf titulo"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "col-6",
+        children: "guardar y cancelar botones"
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PDFComponent);
+
+/***/ }),
+
 /***/ "./resources/js/elementos/TabGE.js":
 /*!*****************************************!*\
   !*** ./resources/js/elementos/TabGE.js ***!
@@ -14240,7 +14540,7 @@ var InputStyle = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].input
 }, function (props) {
   return props.valido === 'true' && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n        border-bottom-color: #6aff00 !important;\n    "])));
 });
-var TextA = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].textarea(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    transition: .3s ease all;\n    color: black;\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-bottom-color: black;\n    width: 80%;\n    &:focus{\n        border-bottom: 4px solid rgb(", " , ", ", ", ");\n        outline: none;\n        box-shadow: 5px 5px 5px;\n    }\n\n    ", "\n\n    ", "\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.b, function (props) {
+var TextA = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].textarea(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    transition: .3s ease all;\n    color: black;\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-bottom-color: black;\n    width: 80%;\n    resize: none;\n    &:focus{\n        border-bottom: 4px solid rgb(", " , ", ", ", ");\n        outline: none;\n        box-shadow: 5px 5px 5px;\n    }\n\n    ", "\n\n    ", "\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.b, function (props) {
   return props.valido === 'false' && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n        border-bottom-color: red !important;\n    "])));
 }, function (props) {
   return props.valido === 'true' && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n        border-bottom-color: #6aff00 !important;\n    "])));
@@ -14316,6 +14616,30 @@ var IconNav = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_for
 var IconNavI = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["    \n    font-size: 40px;\n    color: black;\n    display: none;\n\n    @media (max-width: 992px){\n        display: block;\n        margin-left: 10px;\n    }\n"])));
 var GrupoElement = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    color: black;\n    justify-content: center;\n\n    a label {\n        color :black;\n        margin-bottom: -20px;\n    }\n\n    @media (max-width: 991px){\n        margin-left: 20px;\n    }\n\n    :hover {\n        background-color: rgb(", ", ", ", ", ");\n        a {\n            color : rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var LabelNav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].label(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    margin-left: 20px;\n"])));
+
+
+/***/ }),
+
+/***/ "./resources/js/elementos/pdf_style.js":
+/*!*********************************************!*\
+  !*** ./resources/js/elementos/pdf_style.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Pdf_style": () => (/* binding */ Pdf_style)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var Pdf_style = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border-radius: 5px;\n    text-decoration: none;\n    transition: .3s ease all;\n\n    a{\n        color : rgb(", " , ", ", ", ");\n    }\n\n    &:hover{\n        background-color: rgb(", " , ", ", ", ");\n        a {\n            color: rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 
 
 /***/ }),

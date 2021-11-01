@@ -72,6 +72,7 @@ const TextA = styled.textarea`
     border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.4);
     border-bottom-color: black;
     width: 80%;
+    resize: none;
     &:focus{
         border-bottom: 4px solid rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
         outline: none;

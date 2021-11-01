@@ -23,7 +23,6 @@ const TextArea = ({ estado, cambiarEstado, regex, funcValidar, nombre, placehold
 
     return (
         <>
-            {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado, regex)}/>)}
             <TextA onBlur={ validacion }
                    ref= { textArea }
                    onChange={ onChangeup }
@@ -32,7 +31,7 @@ const TextArea = ({ estado, cambiarEstado, regex, funcValidar, nombre, placehold
                    placeholder={ placeholder }
                    valido={estado.valido}
                    value={estado.campo}
-                   onSubmit={validacion}></TextA>
+                   onSubmit={validacion}/>
         </>
     )
 }

@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { InputStyle } from '../../elementos/editarGE';
 import MensajeAlerta from './MensajeAlerta';
 import PropTypes from 'prop-types'
+import { constant } from 'lodash';
 
 const Input = ({ estado, cambiarEstado, tipo, nombre, placeholder, regex, funcValidar }) => {
 
@@ -11,14 +12,22 @@ const Input = ({ estado, cambiarEstado, tipo, nombre, placeholder, regex, funcVa
             ...estado, campo: (ref.current.value !== ' ') ?
                 ref.current.value : ''
         });
+        validacion();
     };
 
     const validacion = () => {
         if (regex) {
+            /* const elem = document.getElementById({ nombre });
+            var style = {
+                border-botton-color: "#6aff00 !important";
+        }; */
             if (regex.test(estado.campo)) {
                 cambiarEstado({ ...estado, valido: 'true' });
+                /* elem.style.border-bottom-color = "#6aff00 !important"; */
+
             } else {
                 cambiarEstado({ ...estado, valido: 'false' });
+                /* elem.style.border-bottom-color = "red !important"; */
             }
         }
     };
@@ -35,8 +44,13 @@ const Input = ({ estado, cambiarEstado, tipo, nombre, placeholder, regex, funcVa
                 onBlur={validacion}
                 valido={estado.valido}
                 onSubmit={validacion}
+                onChange={validacion}
             />
-            {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado, regex)} />)}
+            {/* <div id='error'>
+
+            </div> */}
+            {/* {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado, regex)} />)} */}
+
         </>
     )
 }
