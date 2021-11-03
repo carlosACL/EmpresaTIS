@@ -20,4 +20,38 @@ const ContenedorTab = styled.div`
     }
 `;
 
-export {ContenedorTab};
+const BotonStyled = styled.button`
+    height: 30px;
+`;
+
+const InputBuscador = styled.input`
+    width: 300px;
+`;
+
+const Caja = styled.div`
+    text-align: left;
+    color: black;
+    transition: .3s ease all;
+    background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
+    :hover{
+        background-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
+        color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
+        border-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});;
+        img {
+            border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
+        }
+    }
+`;
+
+const ImagenPerfil = styled.img`
+    border-radius: 50px;
+    height: 35px;
+    width: 35px;
+    margin: 5px;
+    object-fit: cover;
+    border-style: solid;
+    border-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
+`;
+
+
+export {ContenedorTab, BotonStyled, InputBuscador, Caja, ImagenPerfil};
