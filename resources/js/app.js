@@ -55,7 +55,7 @@ if (document.getElementById('regGE')) {
 if (document.getElementById('editGE')) {
     ReactDOM.render(
         <div >
-            <PDF/>
+            <EditarGE/>
         </div>, document.getElementById('editGE'));
 }
 

@@ -9,17 +9,11 @@ import {
 import { Card } from '../elementos/card';
 import Input from './EditarGE/Input';
 import InputImg from './EditarGE/InputImg';
-import Fecha from './EditarGE/Fecha';
 import OrganizacionJ from './EditarGE/OrganizacionJ';
 import TextArea from './EditarGE/TextArea';
 import MensajeAlerta from './editarGE/MensajeAlerta';
 
 const EditarGE = (props) => {
-
-
-
-
-
 
     const [idGE, setID] = useState({ campo: '' });
     const [orgJur, setOrgJur] = useState({ valido: false });
@@ -48,23 +42,19 @@ const EditarGE = (props) => {
 
     const validarLogo = (estate) => {
         const validar = [];
-        if (estate.valido === 'false') {
+        if (estate.valido == false) {
             validar.push("Tienes que insertar un logo");
         }
-
         return validar;
     };
 
-    const validarTelefono = (estate, regex) => {
+    const validarTelefono = (estate) => {
         const validar = [];
         if (estate.campo.length < 1) {
             validar.push('Debe llenar este campo');
         }
         if (estate.campo.length < 7 || estate.campo.length > 8) {
             validar.push('el numero de telefono debe contener un minimo de 7 digitos y un maximo de 8 digitos');
-        }
-        if (!regex.test(estate.campo) && estate.campo.length > 7 && estate.campo.length < 9) {
-            validar.push('Hay caracteres invalidos en el campo');
         }
         return validar;
     };
@@ -89,7 +79,7 @@ const EditarGE = (props) => {
             validar.push("Debe llenar este campo");
         }
         if (estate.campo.length < 10 || estate.campo.length > 100) {
-            validar.push("el objetivo debe contener un minimo de 10 caracteres y un maximo de 100 caracteres");
+            validar.push("La descripcion debe contener un minimo de 10 caracteres y un maximo de 100 caracteres");
         }
         if (!regex.test(estate.campo) && estate.campo.length > 4) {
             validar.push("hay caracteres invalidos en el campo");
@@ -141,7 +131,7 @@ const EditarGE = (props) => {
 
     const validarOrgJur = (estate) => {
         const validar = [];
-        if (estate.valido === 'false') {
+        if (estate.valido == false) {
             validar.push("Seleccione una opcion valida en este campo");
         }
         return validar;
@@ -149,35 +139,35 @@ const EditarGE = (props) => {
 
     const verificarInputs = () => {
         if (!orgJur.valido) {
-            setOrgJur({ valido: 'false' });
+            setOrgJur({ valido: false });
         }
 
         if (!telefono.valido) {
-            setTelefono({ ...telefono, valido: 'false' });
+            setTelefono({ ...telefono, valido: false });
         }
 
         if (!direccion.valido) {
-            setDireccion({ ...direccion, valido: 'false' });
+            setDireccion({ ...direccion, valido: false });
         }
 
         if (!email.valido) {
-            setEmail({ ...email, valido: 'false' });
+            setEmail({ ...email, valido: false });
         }
 
         if (!logo.valido) {
-            setLogo({ ...logo, valido: 'false' });
+            setLogo({ ...logo, valido: false });
         }
 
         if (!nombre.valido) {
-            setNombre({ ...nombre, valido: 'false' });
+            setNombre({ ...nombre, valido: false });
         }
 
         if (!nombreAb.valido) {
-            setNombreAb({ ...nombreAb, valido: 'false' });
+            setNombreAb({ ...nombreAb, valido: false });
         }
 
         if (!descripcion.valido) {
-            setDescripcion({ ...descripcion, valido: 'false' });
+            setDescripcion({ ...descripcion, valido: false });
         }
     };
 
@@ -231,19 +221,9 @@ const EditarGE = (props) => {
     };
 
 
-    if (idGE.campo === "") {
+    if (idGE.campo == "") {
         start();
-
-
-        /* const expresiones = {
-            nombre: /^[a-zA-Z\s]{3,30}$/,
-            nombreAb: /^[a-zA-Z\s]{2,20}$/,
-            correo: /^[a-zA-Z0-9_.+-]+@est.umss.edu$/,
-            telefono: /^\d{7,8}$/,
-            direccion: /^[a-zA-ZÀ-ÿ0-9\,\.\#\-\_\s]{5,100}$/,
-            objetivo: /^[a-zA-ZÀ-ÿ0-9\,\.\s]{10,100}$/,
-        }; */
-
+        console.log("hola mundo");
     }
 
     function start() {
@@ -264,13 +244,13 @@ const EditarGE = (props) => {
                         setDescripcion({ ...descripcion, campo: elemento.descripcion });
                         setLogo({ ...logo, campo: "./resources/" + elemento.logo, eliminar: "./resources/" + elemento.logo });
 
-                        validarNombre(nombre, expresiones.nombre);
+                        /* validarNombre(nombre, expresiones.nombre);
                         validarNombreAb(nombreAb, expresiones.nombreAb);
                         validarCorreo(email, expresiones.correo);
                         validarTelefono(telefono, expresiones.telefono);
                         validarDireccion(direccion, expresiones.direccion);
                         validarDescripcion(descripcion, expresiones.objetivo);
-                        validarLogo(logo);
+                        validarLogo(logo); */
                         //verificarInputs();
                         break;
                         /*[idGE','fecha_creacion', 'fecha_registro',
@@ -332,13 +312,12 @@ const EditarGE = (props) => {
                                 <div className="form-group">
                                     <Input estado={telefono}
                                         cambiarEstado={setTelefono}
-                                        regex={expresiones.telefono}
                                         nombre='telefono' tipo='number'
                                         placeholder='Telefono'
                                         maxlength={9}
                                         minlenght={7}
                                         funcValidar={validarTelefono} />
-                                    {(telefono.valido === 'false') && (<MensajeAlerta mensajeRep={validarTelefono(telefono, expresiones.telefono)} />)}
+                                    {(telefono.valido === 'false') && (<MensajeAlerta mensajeRep={validarTelefono(telefono)} />)}
                                 </div>
                                 <div className="form-group">
                                     <Input estado={direccion}
