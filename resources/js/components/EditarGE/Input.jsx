@@ -8,30 +8,26 @@ const Input = ({ estado, cambiarEstado, tipo, nombre, placeholder, regex, funcVa
 
     const ref = useRef(null);
     const onChange = () => {
-        cambiarEstado({
-            ...estado, campo: (ref.current.value !== ' ') ?
-                ref.current.value : ''
-        });
-        validacion();
+        cambiarEstado({...estado, campo: (ref.current.value !== '') ? ref.current.value : ''});
     };
-
+/*
     const validacion = () => {
         if (regex) {
             /* const elem = document.getElementById({ nombre });
             var style = {
                 border-botton-color: "#6aff00 !important";
-        }; */
+        };
             if (regex.test(estado.campo)) {
                 cambiarEstado({ ...estado, valido: 'true' });
-                /* elem.style.border-bottom-color = "#6aff00 !important"; */
+                /* elem.style.border-bottom-color = "#6aff00 !important";
 
             } else {
                 cambiarEstado({ ...estado, valido: 'false' });
-                /* elem.style.border-bottom-color = "red !important"; */
+                /* elem.style.border-bottom-color = "red !important";
             }
         }
     };
-
+*/
     return (
         <>
             <InputStyle type={tipo}

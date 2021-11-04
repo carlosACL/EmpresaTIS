@@ -10682,18 +10682,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RegistroGE */ "./resources/js/components/RegistroGE.jsx");
 /* harmony import */ var _components_EditarGE__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/EditarGE */ "./resources/js/components/EditarGE.jsx");
-<<<<<<< HEAD
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../css/app.css */ "./resources/css/app.css");
-/* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./elementos/card */ "./resources/js/elementos/card.js");
-/* harmony import */ var _components_perfilUsuario__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/perfilUsuario */ "./resources/js/components/perfilUsuario.jsx");
-/* harmony import */ var _components_Navegador__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Navegador */ "./resources/js/components/Navegador.jsx");
-/* harmony import */ var _components_Login__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Login */ "./resources/js/components/Login.jsx");
-/* harmony import */ var _components_VistaGrupoEmpresa__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/VistaGrupoEmpresa */ "./resources/js/components/VistaGrupoEmpresa.jsx");
-/* harmony import */ var _components_TabGE__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/TabGE */ "./resources/js/components/TabGE.jsx");
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-=======
 /* harmony import */ var _components_PDF__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/PDF */ "./resources/js/components/PDF.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../css/app.css */ "./resources/css/app.css");
@@ -10703,9 +10691,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Login__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Login */ "./resources/js/components/Login.jsx");
 /* harmony import */ var _components_VistaGrupoEmpresa__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/VistaGrupoEmpresa */ "./resources/js/components/VistaGrupoEmpresa.jsx");
 /* harmony import */ var _components_TabGE__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/TabGE */ "./resources/js/components/TabGE.jsx");
-/* harmony import */ var _session__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./session */ "./resources/js/session.js");
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
->>>>>>> local13
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -10763,7 +10750,7 @@ if (document.getElementById('regGE')) {
 
 if (document.getElementById('editGE')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_PDF__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_EditarGE__WEBPACK_IMPORTED_MODULE_3__["default"], {})
   }), document.getElementById('editGE'));
 }
 
@@ -10790,7 +10777,7 @@ if (document.getElementById('vistaGE')) {
 }
 
 if (document.getElementById('footer')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_12__["default"], {}), document.getElementById('footer'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_13__["default"], {}), document.getElementById('footer'));
 }
 
 /***/ }),
@@ -11343,11 +11330,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../elementos/card */ "./resources/js/elementos/card.js");
 /* harmony import */ var _EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditarGE/Input */ "./resources/js/components/EditarGE/Input.jsx");
 /* harmony import */ var _EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditarGE/InputImg */ "./resources/js/components/EditarGE/InputImg.jsx");
-/* harmony import */ var _EditarGE_Fecha__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EditarGE/Fecha */ "./resources/js/components/EditarGE/Fecha.jsx");
-/* harmony import */ var _EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditarGE/OrganizacionJ */ "./resources/js/components/EditarGE/OrganizacionJ.jsx");
-/* harmony import */ var _EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./EditarGE/TextArea */ "./resources/js/components/EditarGE/TextArea.jsx");
-/* harmony import */ var _editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editarGE/MensajeAlerta */ "./resources/js/components/editarGE/MensajeAlerta.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EditarGE/OrganizacionJ */ "./resources/js/components/EditarGE/OrganizacionJ.jsx");
+/* harmony import */ var _EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditarGE/TextArea */ "./resources/js/components/EditarGE/TextArea.jsx");
+/* harmony import */ var _editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editarGE/MensajeAlerta */ "./resources/js/components/editarGE/MensajeAlerta.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -11365,7 +11351,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -11464,14 +11449,14 @@ var EditarGE = function EditarGE(props) {
   var validarLogo = function validarLogo(estate) {
     var validar = [];
 
-    if (estate.valido === 'false') {
+    if (estate.valido == false) {
       validar.push("Tienes que insertar un logo");
     }
 
     return validar;
   };
 
-  var validarTelefono = function validarTelefono(estate, regex) {
+  var validarTelefono = function validarTelefono(estate) {
     var validar = [];
 
     if (estate.campo.length < 1) {
@@ -11480,10 +11465,6 @@ var EditarGE = function EditarGE(props) {
 
     if (estate.campo.length < 7 || estate.campo.length > 8) {
       validar.push('el numero de telefono debe contener un minimo de 7 digitos y un maximo de 8 digitos');
-    }
-
-    if (!regex.test(estate.campo) && estate.campo.length > 7 && estate.campo.length < 9) {
-      validar.push('Hay caracteres invalidos en el campo');
     }
 
     return validar;
@@ -11515,7 +11496,7 @@ var EditarGE = function EditarGE(props) {
     }
 
     if (estate.campo.length < 10 || estate.campo.length > 100) {
-      validar.push("el objetivo debe contener un minimo de 10 caracteres y un maximo de 100 caracteres");
+      validar.push("La descripcion debe contener un minimo de 10 caracteres y un maximo de 100 caracteres");
     }
 
     if (!regex.test(estate.campo) && estate.campo.length > 4) {
@@ -11578,7 +11559,7 @@ var EditarGE = function EditarGE(props) {
   var validarOrgJur = function validarOrgJur(estate) {
     var validar = [];
 
-    if (estate.valido === 'false') {
+    if (estate.valido == false) {
       validar.push("Seleccione una opcion valida en este campo");
     }
 
@@ -11588,49 +11569,49 @@ var EditarGE = function EditarGE(props) {
   var verificarInputs = function verificarInputs() {
     if (!orgJur.valido) {
       setOrgJur({
-        valido: 'false'
+        valido: false
       });
     }
 
     if (!telefono.valido) {
       setTelefono(_objectSpread(_objectSpread({}, telefono), {}, {
-        valido: 'false'
+        valido: false
       }));
     }
 
     if (!direccion.valido) {
       setDireccion(_objectSpread(_objectSpread({}, direccion), {}, {
-        valido: 'false'
+        valido: false
       }));
     }
 
     if (!email.valido) {
       setEmail(_objectSpread(_objectSpread({}, email), {}, {
-        valido: 'false'
+        valido: false
       }));
     }
 
     if (!logo.valido) {
       setLogo(_objectSpread(_objectSpread({}, logo), {}, {
-        valido: 'false'
+        valido: false
       }));
     }
 
     if (!nombre.valido) {
       setNombre(_objectSpread(_objectSpread({}, nombre), {}, {
-        valido: 'false'
+        valido: false
       }));
     }
 
     if (!nombreAb.valido) {
       setNombreAb(_objectSpread(_objectSpread({}, nombreAb), {}, {
-        valido: 'false'
+        valido: false
       }));
     }
 
     if (!descripcion.valido) {
       setDescripcion(_objectSpread(_objectSpread({}, descripcion), {}, {
-        valido: 'false'
+        valido: false
       }));
     }
   };
@@ -11689,16 +11670,9 @@ var EditarGE = function EditarGE(props) {
     campo: document.title
   };
 
-  if (idGE.campo === "") {
+  if (idGE.campo == "") {
     start();
-    /* const expresiones = {
-        nombre: /^[a-zA-Z\s]{3,30}$/,
-        nombreAb: /^[a-zA-Z\s]{2,20}$/,
-        correo: /^[a-zA-Z0-9_.+-]+@est.umss.edu$/,
-        telefono: /^\d{7,8}$/,
-        direccion: /^[a-zA-ZÀ-ÿ0-9\,\.\#\-\_\s]{5,100}$/,
-        objetivo: /^[a-zA-ZÀ-ÿ0-9\,\.\s]{10,100}$/,
-    }; */
+    console.log("hola mundo");
   }
 
   function start() {
@@ -11737,13 +11711,14 @@ var EditarGE = function EditarGE(props) {
             campo: "./resources/" + elemento.logo,
             eliminar: "./resources/" + elemento.logo
           }));
-          validarNombre(nombre, expresiones.nombre);
+          /* validarNombre(nombre, expresiones.nombre);
           validarNombreAb(nombreAb, expresiones.nombreAb);
           validarCorreo(email, expresiones.correo);
           validarTelefono(telefono, expresiones.telefono);
           validarDireccion(direccion, expresiones.direccion);
           validarDescripcion(descripcion, expresiones.objetivo);
-          validarLogo(logo); //verificarInputs();
+          validarLogo(logo); */
+          //verificarInputs();
 
           break;
           /*[idGE','fecha_creacion', 'fecha_registro',
@@ -11762,35 +11737,35 @@ var EditarGE = function EditarGE(props) {
       _useState24 = _slicedToArray(_useState23, 1),
       item_save = _useState24[0];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("main", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_2__.Card, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_2__.Card, {
       id: "cardItem",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
         ref: formulario,
         id: "formulario",
         onSubmit: onSubmit,
         className: "formStyle",
         method: "POST",
         encType: "multipart/form-data",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "container border",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "row p-3",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "col-12 p-3 h1",
               children: nombre.campo
             })
-          }), msg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.ContenedorBloque, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.MensajeRGE, {
+          }), msg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.ContenedorBloque, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.MensajeRGE, {
               id: "mensajeRGE"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "col-12 col-sm-8 border",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "form-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: nombre,
                   cambiarEstado: setNombre,
                   regex: expresiones.nombre,
@@ -11799,9 +11774,9 @@ var EditarGE = function EditarGE(props) {
                   tipo: "text",
                   funcValidar: validarNombre
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: nombreAb,
                   cambiarEstado: setNombreAb,
                   regex: expresiones.nombreAb,
@@ -11809,27 +11784,26 @@ var EditarGE = function EditarGE(props) {
                   tipo: "text",
                   placeholder: "Nombre Abreviado",
                   funcValidar: validarNombreAb
-                }), nombreAb.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                }), nombreAb.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   mensajeRep: validarNombreAb(nombreAb, expresiones.nombreAb)
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: telefono,
                   cambiarEstado: setTelefono,
-                  regex: expresiones.telefono,
                   nombre: "telefono",
                   tipo: "number",
                   placeholder: "Telefono",
                   maxlength: 9,
                   minlenght: 7,
                   funcValidar: validarTelefono
-                }), telefono.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                  mensajeRep: validarTelefono(telefono, expresiones.telefono)
+                }), telefono.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                  mensajeRep: validarTelefono(telefono)
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: direccion,
                   cambiarEstado: setDireccion,
                   regex: expresiones.direccion,
@@ -11837,12 +11811,12 @@ var EditarGE = function EditarGE(props) {
                   tipo: "text",
                   placeholder: "Direccion",
                   funcValidar: validarDireccion
-                }), direccion.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                }), direccion.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   mensajeRep: validarDireccion(direccion, expresiones.direccion)
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   estado: email,
                   cambiarEstado: setEmail,
                   regex: expresiones.correo,
@@ -11850,23 +11824,23 @@ var EditarGE = function EditarGE(props) {
                   tipo: "email",
                   placeholder: "Correo electronico",
                   funcValidar: validarCorreo
-                }), email.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                }), email.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   mensajeRep: validarCorreo(email, expresiones.correo)
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_OrganizacionJ__WEBPACK_IMPORTED_MODULE_5__["default"], {
                   estado: orgJur,
                   cambiarEstado: setOrgJur,
                   funcValidar: validarOrgJur
-                }), orgJur.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                }), orgJur.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   mensajeRep: validarOrgJur(orgJur)
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "form-group",
-                children: [descripcion.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                children: [descripcion.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   mensajeRep: validarDescripcion(descripcion, expresiones.objetivo)
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_TextArea__WEBPACK_IMPORTED_MODULE_6__["default"], {
                   estado: descripcion,
                   cambiarEstado: setDescripcion,
                   regex: expresiones.objetivo,
@@ -11875,40 +11849,40 @@ var EditarGE = function EditarGE(props) {
                   funcValidar: validarDescripcion
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "col-12 col-sm-4 border",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditarGE_InputImg__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   estado: logo,
                   cambiarEstado: setLogo,
                   name: "logo",
                   funcValidar: validarLogo
-                }), logo.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                }), logo.valido === 'false' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_editarGE_MensajeAlerta__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   mensajeRep: validarLogo(logo)
                 })]
               })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "container border",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "row p-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Boton, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Boton, {
                 id: "botonCan",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
                   src: item_back,
                   alt: ""
                 })
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "col-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Boton, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Boton, {
                 id: "botonSub",
                 type: "submit",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
                   src: item_save,
                   alt: ""
                 })
@@ -11922,90 +11896,6 @@ var EditarGE = function EditarGE(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditarGE);
-
-/***/ }),
-
-/***/ "./resources/js/components/EditarGE/Fecha.jsx":
-/*!****************************************************!*\
-  !*** ./resources/js/components/EditarGE/Fecha.jsx ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-var Fecha = function Fecha(_ref) {
-  var estado = _ref.estado,
-      cambiarEstado = _ref.cambiarEstado;
-  var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    campo: ''
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      date = _useState2[0],
-      setDate = _useState2[1];
-
-  var onChange = function onChange() {
-    setDate({
-      campo: ref.current.value
-    });
-  };
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setDate({
-      campo: validarCalendario()
-    });
-  }, []);
-
-  var validarCalendario = function validarCalendario() {
-    var convertirDig = function convertirDig(n) {
-      return n < 10 ? '0' + n : n;
-    };
-
-    var date = new Date();
-    var _ref2 = [convertirDig(date.getDate()), convertirDig(date.getMonth() + 1), convertirDig(date.getFullYear())],
-        dia = _ref2[0],
-        mes = _ref2[1],
-        anio = _ref2[2];
-    return "".concat(anio, "-").concat(mes, "-").concat(dia);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-      name: "fecha_registro",
-      type: "date",
-      value: date.campo,
-      max: validarCalendario(),
-      min: "1999-01-01",
-      ref: ref,
-      onChange: onChange
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Fecha);
 
 /***/ }),
 
@@ -12054,30 +11944,28 @@ var Input = function Input(_ref) {
 
   var onChange = function onChange() {
     cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
-      campo: ref.current.value !== ' ' ? ref.current.value : ''
+      campo: ref.current.value !== '' ? ref.current.value : ''
     }));
-    validacion();
   };
+  /*
+      const validacion = () => {
+          if (regex) {
+              /* const elem = document.getElementById({ nombre });
+              var style = {
+                  border-botton-color: "#6aff00 !important";
+          };
+              if (regex.test(estado.campo)) {
+                  cambiarEstado({ ...estado, valido: 'true' });
+                  /* elem.style.border-bottom-color = "#6aff00 !important";
+  
+              } else {
+                  cambiarEstado({ ...estado, valido: 'false' });
+                  /* elem.style.border-bottom-color = "red !important";
+              }
+          }
+      };
+  */
 
-  var validacion = function validacion() {
-    if (regex) {
-      /* const elem = document.getElementById({ nombre });
-      var style = {
-          border-botton-color: "#6aff00 !important";
-      }; */
-      if (regex.test(estado.campo)) {
-        cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
-          valido: 'true'
-        }));
-        /* elem.style.border-bottom-color = "#6aff00 !important"; */
-      } else {
-        cambiarEstado(_objectSpread(_objectSpread({}, estado), {}, {
-          valido: 'false'
-        }));
-        /* elem.style.border-bottom-color = "red !important"; */
-      }
-    }
-  };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_elementos_editarGE__WEBPACK_IMPORTED_MODULE_1__.InputStyle, _defineProperty({
