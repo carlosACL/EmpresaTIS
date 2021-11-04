@@ -91,4 +91,16 @@ class RegistroGEController extends Controller
         $user->save();
         return response(200);
     }
+
+    function obtenerUsuariosG(Request $req){
+        $user = Usuario::find($req->id);
+        $usuarios = DB::table('Usuario')
+                    ->select('nombre','apellido' ,'foto_perfil', 'idUsuario')
+                    ->where('idGrupo', '=',$user->idGrupo)
+                    ->where('idUsuario', '<>', $req->id)
+                    ->get();
+
+
+        return response()->json($usuarios);
+    }
 }
