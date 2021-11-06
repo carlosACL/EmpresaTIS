@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\socio;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
 
 class PerfilUsuarioController extends Controller
@@ -22,21 +22,16 @@ class PerfilUsuarioController extends Controller
         }
     }
 
-    public function obtenerSocio()
-    {
-       $socios = DB::table('Usuario')->get();
-       return response()->json($socios);
+    public function obtenerUsuario(Request $request) {
+        $usuario = Usuario::find($request->id);
+        $carrera = DB::table('Carrera')->select('nomCarrera')->where('idCarrera','=',$usuario->idCarrera)->first();
+        $grupo = DB::table('Grupo')->select('nomGrupo')->where('idGrupo','=',$usuario->idGrupo)->first();
+        $datos = [$usuario, $carrera, $grupo];
+        return response()->json($datos);
     }
 
-    public function obtenerCarrera()
-    {
-       $carreras = DB::table('Carrera')->get();
-       return response()->json($carreras);
-    }
-
-    public function obtenerGrupo()
-    {
-       $grupos = DB::table('Grupo')->get();
-       return response()->json($grupos);
+    public function obtenerUsuarios() {
+        $usuarios = DB::table('Usuario')->get();
+        return response()->json($usuarios);
     }
 }

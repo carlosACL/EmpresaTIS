@@ -11,69 +11,34 @@ const PerfilUsuario = () => {
 
     const nombre = useRef(null);
     const apellido = useRef(null); 
-    let idCarrera = null;
-    let idGrupo = null;
     const carrera = useRef(null);
     const grupo = useRef(null);
     const correo = useRef(null); 
     const telefono = useRef(null);
     const codSis = useRef(null);
+    const imagen = useRef(null);
+    const [logo, setLogo] = useState("../resources/socios/");
 
-    const [foto_perfil, setFoto_perfil] = useState("");
+    useEffect(() => {
+        const datoID = new FormData();
+        datoID.append('id',datos.id)
 
-    fetch('/api/socio',{
-        method: 'POST',
-        body: JSON.stringify(datos),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        for(let i = 0; i < data.length; i++) {
-            let elemento = data[i];
-            if (elemento.idUsuario == datos.id) {
-                nombre.current.value = elemento.nombre;
-                apellido.current.value = elemento.apellido;
-                idCarrera = elemento.idCarrera;
-                idGrupo = elemento.idGrupo;
-                correo.current.value = elemento.email;
-                telefono.current.value = elemento.telefono;
-                codSis.current.value = elemento.codSis;
-                setFoto_perfil(elemento.foto_perfil);
-                break;
-            }
-        }
-    });
-
-    fetch('/api/carrera',{
-        method: 'POST',
-        body: JSON.stringify(datos),
-    })
-    .then((response) => response.json())
-    .then((data2) => {
-        for(let i = 0; i < data2.length; i++) {
-            let elemento = data2[i];
-            if (elemento.idCarrera == idCarrera) {
-                carrera.current.value = elemento.nomCarrera;
-                break;
-            }
-        }
-    });
-
-    fetch('/api/grupo',{
-        method: 'POST',
-        body: JSON.stringify(datos),
-    })
-    .then((response) => response.json())
-    .then((data3) => {
-        for(let i = 0; i < data3.length; i++) {
-            let elemento = data3[i];
-            if (elemento.idGrupo == idGrupo) {
-                grupo.current.value = elemento.nomGrupo;
-                break;
-            }
-        }
-    });
-
-    let logo = "../resources/socios/" + foto_perfil;
+        fetch('/api/usuario',{
+            method: 'POST',
+            body: datoID
+        })
+        .then((response) => response.json())
+        .then((datoUsuario) => {
+            nombre.current.value = datoUsuario[0].nombre;
+            apellido.current.value = datoUsuario[0].apellido;
+            correo.current.value = datoUsuario[0].email;
+            telefono.current.value = datoUsuario[0].telefono;
+            codSis.current.value = datoUsuario[0].codSis;
+            carrera.current.value = datoUsuario[1].nomCarrera;
+            grupo.current.value = datoUsuario[2].nomGrupo;
+            imagen.current.src = logo+datoUsuario[0].foto_perfil;
+        })
+    }, []);
 
     const [idDelLogueado, setIdDelLogueado] = useState('');
     const [edita, setEdita] = useState(false);
@@ -98,11 +63,43 @@ const PerfilUsuario = () => {
         document.getElementById('cmpCI').disabled = false;
     };
 
+    const bloquearCampos = () => {
+        setEditando(!editando);
+        setEdita(true);
+        document.getElementById('cmpNombre').disabled = true;
+        document.getElementById('cmpApellido').disabled = true;
+        document.getElementById('cmpCorreo').disabled = true;
+        document.getElementById('cmpTelefono').disabled = true;
+        document.getElementById('cmpCI').disabled = true;
+    };
+
+    const actualizarDatos = () => {
+        const formData = new FormData();
+        formData.append('token',sessionStorage.getItem('token'));
+        formData.append('nombre',nombre.current.value);
+        formData.append('apellido',apellido.current.value);
+        formData.append('email',correo.current.value);
+        formData.append('telefono',telefono.current.value);
+        formData.append('codSis',codSis.current.value);
+        fetch('/api/actualizarPerfil', {
+            method: 'POST',
+            body: formData
+        })
+        .then((response) => {
+            if (response.ok) {
+                alert("Actualizado");
+            } else {
+                alert("Algo paso")
+            }
+        });
+        bloquearCampos();
+    };
+
     return(
         <div id="contenedor">
             <div id="tarjeta-datos">
                 <div id="img-usuario">
-                    <img id="imagen" src={ logo } alt="foto-perfil" title="Foto de Perfil"/>
+                    <img id="imagen" src={ "../resources/cargando.png" } alt="foto-perfil" ref={ imagen }/>
                 </div>
                 {
                     edita && (
@@ -147,10 +144,10 @@ const PerfilUsuario = () => {
                 {
                     editando && (
                         <div id="cont-iconos-edicion">
-                            <div id="cont-icono-atras">
+                            <div id="cont-icono-atras" onClick={ bloquearCampos } >
                                 <IconoAtras/>
                             </div>
-                            <div id="cont-icono-guardar">
+                            <div id="cont-icono-guardar" onClick={ actualizarDatos }>
                                 <IconoGuardar/>
                             </div>
                         </div>

@@ -11,7 +11,7 @@ const Login = () => {
     const [datos, setDatos] = useState(null);
 
     useEffect(() => {
-        fetch('/api/socio',{
+        fetch('/api/usuarios',{
             method: 'POST',
             body: datos,
         })
