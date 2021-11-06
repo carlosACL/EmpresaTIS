@@ -208,11 +208,9 @@ const RegistroGE = () => {
                 setMsg(true);
                 const mensaje = document.getElementById('mensajeRGE');
                 let color = null;
-                console.log(response);
                 if(response.ok){
                     color = exito();
-                    mensaje.innerHTML = `Exito al Registrar Grupo empresa <a href='GE-${nombre.campo}'>ver mi grupo empresa</a>`
-                    console.log('pasa por aca');
+                    mensaje.innerHTML = `Exito al Registrar Grupo empresa <a href='GE-${nombre.campo}'>ver mi grupo empresa</a>`;
                     sessionStorage.setItem('ge', nombre.campo);
                 } else {
                     color = 'red';

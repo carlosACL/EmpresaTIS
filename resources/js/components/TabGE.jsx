@@ -4,6 +4,7 @@ import { ContenedorTab } from '../elementos/TabGE';
 import Socios from './DatosGrupoEmpresa/Socios';
 import SociosAdmin from './DatosGrupoEmpresa/SociosAdmin';
 import { ContenedorDatos } from '../elementos/registro';
+import Invitaciones from './DatosGrupoEmpresa/Invitaciones';
 
 const TabGE = () => {
 
@@ -23,7 +24,7 @@ const TabGE = () => {
                 <VistaGrupoEmpresa></VistaGrupoEmpresa>
             </div>
             <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-              {(usuario == datos.duenio) ? (<SociosAdmin></SociosAdmin>):(<Socios></Socios>)}
+              {(usuario == datos.duenio) ? (<><Invitaciones/><SociosAdmin/></>):(<Socios></Socios>)}
             </div>
             <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, quia veniam autem exercitationem nostrum, blanditiis aliquam inventore dolorem tenetur ratione, saepe ad eveniet dolor et? Voluptates unde ratione dolor eligendi?

@@ -55,6 +55,48 @@ class UsuarioTableSeeder extends Seeder
                 "idCarrera" => "1",
                 "idGrupo" => "3",
                 "tipoUsuario" => ""
+            ],
+            [
+                "idUsuario" => "4",
+                "nombre" => "Perez",
+                "apellido" => "Villaroel",
+                "email" => "201400003@est.umss.edu",
+                "telefono" => "79868564",
+                "codSis" => "201400003",
+                "foto_perfil" => "margaritavillaroel.jpg",
+                "nombreUsuario" => "margarita456",
+                "contrasenia" => "villaroel456",
+                "idCarrera" => "1",
+                "idGrupo" => "1",
+                "tipoUsuario" => ""
+            ],
+            [
+                "idUsuario" => "5",
+                "nombre" => "Perez jorge",
+                "apellido" => "Villaroel rata",
+                "email" => "201400003@est.umss.edu",
+                "telefono" => "79868564",
+                "codSis" => "201400003",
+                "foto_perfil" => "margaritavillaroel.jpg",
+                "nombreUsuario" => "margarita456",
+                "contrasenia" => "villaroel456",
+                "idCarrera" => "1",
+                "idGrupo" => "1",
+                "tipoUsuario" => ""
+            ],
+            [
+                "idUsuario" => "6",
+                "nombre" => "Perez  roca",
+                "apellido" => "Villaroel ramirez",
+                "email" => "201400003@est.umss.edu",
+                "telefono" => "79868564",
+                "codSis" => "201400003",
+                "foto_perfil" => "margaritavillaroel.jpg",
+                "nombreUsuario" => "margarita456",
+                "contrasenia" => "villaroel456",
+                "idCarrera" => "1",
+                "idGrupo" => "3",
+                "tipoUsuario" => ""
             ]
         ]);
     }

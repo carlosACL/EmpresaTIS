@@ -10780,6 +10780,254 @@ if (document.getElementById('footer')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/DatosGrupoEmpresa/Buscador.jsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/DatosGrupoEmpresa/Buscador.jsx ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/TabGE */ "./resources/js/elementos/TabGE.js");
+/* harmony import */ var _CajaBuscador__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CajaBuscador */ "./resources/js/components/DatosGrupoEmpresa/CajaBuscador.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+var Buscador = function Buscador() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      input = _useState2[0],
+      setInput = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      usuarios = _useState4[0],
+      setUsuarios = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      filtrados = _useState6[0],
+      setFiltrados = _useState6[1];
+
+  var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  var result = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var mandarInvitacion = function mandarInvitacion() {
+    var users = usuarios.filter(function (data) {
+      return (data.nombre + " " + data.apellido).toLowerCase() == input.toLowerCase();
+    });
+    console.log(users);
+
+    if (users.length == 1) {
+      var data = new FormData();
+      data.append('destino', users[0].idUsuario);
+      data.append('sender', sessionStorage.getItem('id'));
+      fetch('api/mandarInvitacion', {
+        method: 'POST',
+        body: data
+      }).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        var respuesta = json.respuesta;
+
+        if (respuesta == 'tieneGE') {
+          alert("El usuario ya pertenece a una Grupo Empresa");
+        } else if (respuesta == "yaMandado") {
+          alert("Ya mandaste una invitacion al usuario");
+        } else {
+          //acciones para mostrar pendientes
+          alert("Enviado con exito");
+        }
+      });
+    } else {
+      alert("El usuario no existe o no pertenece a tu grupo");
+    }
+  };
+
+  var onChange = function onChange() {
+    if (ref.current.value != ' ') {
+      setInput(ref.current.value);
+
+      if (ref.current.value.length > 0) {
+        var filt = usuarios.filter(function (dato) {
+          return (dato.nombre.toLowerCase() + " " + dato.apellido.toLowerCase()).includes(ref.current.value.toLowerCase());
+        });
+        setFiltrados(filt);
+      } else {
+        setFiltrados(null);
+      }
+    }
+  };
+
+  var buscadorOnFocus = function buscadorOnFocus() {
+    result.current.style = "display:block;";
+  };
+
+  var buscadorOnBlur = function buscadorOnBlur() {
+    setTimeout(function () {
+      return result.current.style = "display:none";
+    }, 100);
+  };
+
+  var autoCompletar = function autoCompletar(setValor, nombre) {
+    setValor(nombre);
+    result.current.style = "display:none";
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var data = new FormData();
+    data.append('id', sessionStorage.getItem('id'));
+    fetch('api/obtenerUsuariosG', {
+      method: 'POST',
+      body: data
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      setUsuarios(json);
+    });
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "d-flex justify-content-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: " d-block",
+        onBlur: buscadorOnBlur,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.InputBuscador, {
+          value: input,
+          ref: ref,
+          type: "search",
+          onChange: onChange,
+          onFocus: buscadorOnFocus
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          ref: result,
+          onMouseOver: buscadorOnFocus,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: " position-absolute",
+            style: {
+              width: '300px'
+            },
+            ref: result,
+            children: filtrados && filtrados.map(function (data) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CajaBuscador__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                nombre: data.nombre + " " + data.apellido,
+                imagen: data.foto_perfil,
+                evento: autoCompletar,
+                setValor: setInput
+              });
+            })
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.BotonStyled, {
+        type: "button",
+        onClick: mandarInvitacion,
+        children: "Invitar"
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Buscador);
+
+/***/ }),
+
+/***/ "./resources/js/components/DatosGrupoEmpresa/CajaBuscador.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/DatosGrupoEmpresa/CajaBuscador.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/TabGE */ "./resources/js/elementos/TabGE.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var CajaBuscador = function CajaBuscador(_ref) {
+  var nombre = _ref.nombre,
+      imagen = _ref.imagen,
+      evento = _ref.evento,
+      setValor = _ref.setValor;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.Caja, {
+      onClick: function onClick() {
+        return evento(setValor, nombre);
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ImagenPerfil, {
+        src: imagen ? imagen : "./resources/perfilDefecto.png"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+        className: " ml-3",
+        children: nombre
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CajaBuscador);
+
+/***/ }),
+
+/***/ "./resources/js/components/DatosGrupoEmpresa/Invitaciones.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/DatosGrupoEmpresa/Invitaciones.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Buscador__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Buscador */ "./resources/js/components/DatosGrupoEmpresa/Buscador.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var Invitaciones = function Invitaciones() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: " text-center justify-content-center mt-5 mb-5",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      className: " mb-5",
+      children: "Invitar Socios"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Buscador__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Invitaciones);
+
+/***/ }),
+
 /***/ "./resources/js/components/DatosGrupoEmpresa/Socios.jsx":
 /*!**************************************************************!*\
   !*** ./resources/js/components/DatosGrupoEmpresa/Socios.jsx ***!
@@ -13108,12 +13356,10 @@ var RegistroGE = function RegistroGE() {
         setMsg(true);
         var mensaje = document.getElementById('mensajeRGE');
         var color = null;
-        console.log(response);
 
         if (response.ok) {
           color = exito();
           mensaje.innerHTML = "Exito al Registrar Grupo empresa <a href='GE-".concat(nombre.campo, "'>ver mi grupo empresa</a>");
-          console.log('pasa por aca');
           sessionStorage.setItem('ge', nombre.campo);
         } else {
           color = 'red';
@@ -13917,7 +14163,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DatosGrupoEmpresa_Socios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DatosGrupoEmpresa/Socios */ "./resources/js/components/DatosGrupoEmpresa/Socios.jsx");
 /* harmony import */ var _DatosGrupoEmpresa_SociosAdmin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DatosGrupoEmpresa/SociosAdmin */ "./resources/js/components/DatosGrupoEmpresa/SociosAdmin.jsx");
 /* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../elementos/registro */ "./resources/js/elementos/registro.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _DatosGrupoEmpresa_Invitaciones__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DatosGrupoEmpresa/Invitaciones */ "./resources/js/components/DatosGrupoEmpresa/Invitaciones.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -13929,14 +14178,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var TabGE = function TabGE() {
   var usuario = sessionStorage.getItem('id');
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_2__.ContenedorTab, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_2__.ContenedorTab, {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("nav", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("nav", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "nav nav-tabs",
         id: "nav-tab",
         role: "tablist",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
           className: "nav-item nav-link active",
           id: "nav-home-tab",
           "data-toggle": "tab",
@@ -13945,7 +14194,7 @@ var TabGE = function TabGE() {
           "aria-controls": "nav-home",
           "aria-selected": "true",
           children: "Grupo Empresa"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
           className: "nav-item nav-link",
           id: "nav-profile-tab",
           "data-toggle": "tab",
@@ -13954,7 +14203,7 @@ var TabGE = function TabGE() {
           "aria-controls": "nav-profile",
           "aria-selected": "false",
           children: "Socios"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
           className: "nav-item nav-link",
           id: "nav-contact-tab",
           "data-toggle": "tab",
@@ -13965,22 +14214,24 @@ var TabGE = function TabGE() {
           children: "Documentos"
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "tab-content",
       id: "nav-tabContent",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "tab-pane fade show active",
         id: "nav-home",
         role: "tabpanel",
         "aria-labelledby": "nav-home-tab",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_VistaGrupoEmpresa__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_VistaGrupoEmpresa__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "tab-pane fade",
         id: "nav-profile",
         role: "tabpanel",
         "aria-labelledby": "nav-profile-tab",
-        children: usuario == datos.duenio ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_DatosGrupoEmpresa_SociosAdmin__WEBPACK_IMPORTED_MODULE_4__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_DatosGrupoEmpresa_Socios__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: usuario == datos.duenio ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_DatosGrupoEmpresa_Invitaciones__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_DatosGrupoEmpresa_SociosAdmin__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_DatosGrupoEmpresa_Socios__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "tab-pane fade",
         id: "nav-contact",
         role: "tabpanel",
@@ -14337,17 +14588,25 @@ var PerfilUsuario = function PerfilUsuario() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ContenedorTab": () => (/* binding */ ContenedorTab)
+/* harmony export */   "ContenedorTab": () => (/* binding */ ContenedorTab),
+/* harmony export */   "BotonStyled": () => (/* binding */ BotonStyled),
+/* harmony export */   "InputBuscador": () => (/* binding */ InputBuscador),
+/* harmony export */   "Caja": () => (/* binding */ Caja),
+/* harmony export */   "ImagenPerfil": () => (/* binding */ ImagenPerfil)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
-var _templateObject;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 var ContenedorTab = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    margin-top: 100px;\n    width: 100%;\n    @media (max-width: 992px){\n        margin-top: 10px;\n    } \n\n    nav div a {\n        transition: .3s ease all;\n        color: black;\n        border-radius: 10px;\n        :hover{\n            border-color: rgb(", " , ", ", ", ");\n            background-color: rgb(", " , ", ", ", ");\n            color: rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var BotonStyled = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    height: 30px;\n"])));
+var InputBuscador = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 300px;\n"])));
+var Caja = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    text-align: left;\n    color: black;\n    transition: .3s ease all;\n    background-color: rgb(", ", ", ", ", ");\n    :hover{\n        background-color: rgb(", " , ", ", ", ");\n        color: rgb(", ", ", ", ", ");\n        border-color: rgb(", " , ", ", ", ");;\n        img {\n            border-color: rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var ImagenPerfil = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    border-radius: 50px;\n    height: 35px;\n    width: 35px;\n    margin: 5px;\n    object-fit: cover;\n    border-style: solid;\n    border-color: rgb(", " , ", ", ", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b);
 
 
 /***/ }),

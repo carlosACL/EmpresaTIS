@@ -41,3 +41,6 @@ Route::post('solicitarGE', [EditarGEController::class, 'solicitarGE']);
 
 Route::post('solicitarSocios', [RegistroGEController::class, 'obtenerSocios']);
 Route::post('expulsarUsuario', [RegistroGEController::class, 'expulsarSocio']);
+Route::post('obtenerUsuariosG', [RegistroGEController::class, 'obtenerUsuariosG']);
+
+Route::post('mandarInvitacion', [UserController::class, 'mandarInvitacion']);
