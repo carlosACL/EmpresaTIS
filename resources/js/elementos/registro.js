@@ -9,7 +9,7 @@ const ContenedorDatos = styled.div`
     gap : 20px;
     align-items: center;
 
-    @media (max-width: 800px){
+    @media (max-width: 992px){
         grid-template-columns: 1fr;
     }
 `;
@@ -19,7 +19,7 @@ const ContenedorBloque = styled.div`
     flex-direction: column;
     align-items: center;
     grid-column: span 2;
-    @media (max-width: 800px){
+    @media (max-width: 992px){
         text-align: center;
         display: grid;
         grid-template-columns: 1fr;

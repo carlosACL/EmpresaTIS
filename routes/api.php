@@ -43,3 +43,7 @@ Route::post('expulsarUsuario', [RegistroGEController::class, 'expulsarSocio']);
 Route::post('obtenerUsuariosG', [RegistroGEController::class, 'obtenerUsuariosG']);
 
 Route::post('mandarInvitacion', [UserController::class, 'mandarInvitacion']);
+Route::post('obtenerPendientes', [RegistroGEController::class, 'obtenerPendientes']);
+Route::post('eliminarInvitacion', [RegistroGEController::class, 'eliminarInvitacion']);
+
+Route::post('obtenerGrupoEmpresas', [RegistroGEController::class, 'obtenerGrupoEmpresas']);
