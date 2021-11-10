@@ -22,6 +22,7 @@ import {Fondo} from './elementos/card';
 import PerfilUsuario from './components/perfilUsuario';
 import Navegador from './components/Navegador';
 import Login from './components/Login';
+import FundaEmpresa from './components/tablaGE';
 //import Login from "./components/Login/Login"
 
 /*
@@ -62,4 +63,10 @@ if(document.getElementById('login')){
                         <Login />
                   </div>
         ,document.getElementById('login'));
+}
+if(document.getElementById('fundaempresa')){
+    ReactDOM.render(<div >
+                        <FundaEmpresa />
+                  </div>
+        ,document.getElementById('fundaempresa'));
 }

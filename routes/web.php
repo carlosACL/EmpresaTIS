@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FundaEmpresaController;
 use App\Http\Controllers\RegistroGEController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
@@ -27,3 +28,7 @@ Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE'])->name
 
 
 Route::get('/Login', [LoginController::class, 'vistaLogin']);
+
+
+Route::get('/FundaEmpresa', [FundaEmpresaController::class, 'vistaFundaEmpresa']);
+Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');

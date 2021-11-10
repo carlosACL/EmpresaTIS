@@ -25,3 +25,5 @@ Route::post('grupo',[PerfilUsuarioController::class ,'obtenerGrupo']);
 Route::post('nombreGE', [RegistroGEController::class, 'verificarNombre']);
 
 Route::post('registrarGrupoEmpresa', [RegistroGEController::class, 'RegistrarGrupoEmpresa'])->name('rgep');
+Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');
+Route::get('datosFundaEmpresa', [UserController::class,'obtenerDatos']);
