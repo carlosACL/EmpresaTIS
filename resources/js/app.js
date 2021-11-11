@@ -17,6 +17,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ReactDOM from 'react-dom';
 import RegistroGE from './components/RegistroGE';
 import EditarGE from './components/EditarGE';
+import Comentario from './components/Comentario';
+import VerSolicitudIngresoGE from './components/VerSolicitudIngresoGE';
+import SolicitarIngresoGE from './components/SolicitarIngresoGE';
 import PDF from './components/PDF';
 import React from 'react';
 import '../css/app.css';
@@ -60,6 +63,20 @@ if (document.getElementById('editGE')) {
         </div>, document.getElementById('editGE'));
 }
 
+if (document.getElementById('comentario')) {
+    ReactDOM.render(
+        <div >
+            {/* <SolicitarIngresoGE/> */}
+            {/* <VerSolicitudIngresoGE/> */}
+            <Comentario/>
+        </div>, document.getElementById('comentario'));
+}
+/* if (document.getElementById('comentario')) {
+    ReactDOM.render(
+        <div >
+            <Comentario/>
+        </div>, document.getElementById('comentario'));
+} */
 
 if(document.getElementById('perfil')){
     ReactDOM.render(<div >

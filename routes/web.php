@@ -5,6 +5,7 @@ use App\Http\Controllers\EditarGEController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ComentarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,4 @@ Route::get('/Login', [LoginController::class, 'vistaLogin']);
 
 /* Route::get('/GE-{nombre}', [RegistroGEController::class, 'vistaGE']);
 Route::get('/GrupoEmpresas', [RegistroGEController::class, 'viewGrupoEmpresas']); */
+Route::get('/Dudas', [ComentarioController::class, 'index_view']);
