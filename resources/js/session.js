@@ -53,7 +53,7 @@ const getNombre = async () => {
         method: 'POST',
         body:dat
     }).then((response) => response.json());
-    return data.nombre;
+    return data.nombreC;
 }
 
 export {isSessionActive, createSession, cerrarSession, getNombre};

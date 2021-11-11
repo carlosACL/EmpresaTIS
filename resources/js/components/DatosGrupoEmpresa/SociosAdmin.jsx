@@ -42,7 +42,7 @@ const SociosAdmin = () => {
                 <ContenedorDatos>
                     {(socios) && socios.map((dato) => {
                         return (<Socio id={dato.idUsuario} 
-                                       nombre={`${dato.nombre} ${dato.apellido}`} 
+                                       nombre={ dato.nombreC } 
                                        rol={(dato.idUsuario == lider) ? "Lider":"Socio"} 
                                        imagen={dato.foto_perfil}
                                        coleccion={socios}

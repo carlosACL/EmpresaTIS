@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use NunoMaduro\Collision\Adapters\Phpunit\State;
 use App\Models\Usuario;
+use App\Models\Invitacion;
 
 class RegistroGEController extends Controller
 {
@@ -75,7 +76,7 @@ class RegistroGEController extends Controller
 
     function obtenerSocios(Request $req){
         $datoGE = DB::table('Grupo_Empresa')->select('idGE', 'duenio')->where('nombre', '=',$req->nombre)->first();
-        $usuarios = DB::table('Usuario')->select('idUsuario','nombre', 'apellido', 'foto_perfil')->where('idGE','=',$datoGE->idGE)->get();
+        $usuarios = DB::table('Usuario')->select('idUsuario','nombreC', 'foto_perfil')->where('idGE','=',$datoGE->idGE)->get();
 
         $data = [
             'socios' => $usuarios,
@@ -95,12 +96,69 @@ class RegistroGEController extends Controller
     function obtenerUsuariosG(Request $req){
         $user = Usuario::find($req->id);
         $usuarios = DB::table('Usuario')
-                    ->select('nombre','apellido' ,'foto_perfil', 'idUsuario')
+                    ->select('nombreC','foto_perfil', 'idUsuario')
                     ->where('idGrupo', '=',$user->idGrupo)
                     ->where('idUsuario', '<>', $req->id)
                     ->get();
 
 
         return response()->json($usuarios);
+    }
+
+
+    /*
+        ge = nombre de la grupo empresa de lq cual se quiere buscar los datos pendiente;
+    */
+    function obtenerPendientes(Request $req){
+        $ge = DB::table('Grupo_Empresa')
+                    ->select('idGE')
+                    ->where('nombre', '=', $req->ge)
+                    ->first();
+        if(!empty($ge)){
+            $invitaciones = DB::table('Invitacion')
+                                    ->join('Usuario','Usuario.idUsuario','=','Invitacion.idUsuario')
+                                    ->where('Invitacion.idGE','=',$ge->idGE)
+                                    ->where('Invitacion.invitacion','=', true)
+                                    ->get();
+            return  response()->json($invitaciones);
+        } else {
+            return  response()->json(['mensaje'=>'La grupo empresa no existe']);
+        }
+    }
+
+    function eliminarInvitacion(Request $req){
+        $inv = Invitacion::findOrFail($req->id);
+        $inv->delete();
+        return response(200);
+    }
+
+    function viewGrupoEmpresas(){
+        return view('grupoEmpresas');
+    }
+
+    function obtenerGrupoEmpresas(Request $req){
+        $grupo = DB::table('Usuario')
+                        ->where('idUsuario','=',$req->id)
+                        ->first();
+
+        $dat = DB::table('Grupo_Empresa')
+                    ->join('Usuario', 'Usuario.idUsuario', '=','Grupo_Empresa.duenio')
+                    ->select('Grupo_Empresa.idGE',
+                                'Usuario.nombreC as creador', 
+                                'Grupo_Empresa.nombre as nombre')
+                    ->where('Usuario.idGrupo', '=', $grupo->idGrupo)
+                    ->get();
+        $res = [];
+        foreach ($dat as $value){
+            $integrantes = DB::table('Usuario')
+                                ->join('Grupo_Empresa', 'Usuario.idGE', '=', 'Grupo_Empresa.duenio')
+                                ->where('Usuario.idGE','=', $value->idGE)
+                                ->count();
+            $val2 = (array)$value;
+            $val2['integrantes'] = $integrantes;
+            array_push($res, $val2);
+        }
+
+        return response()->json($res);
     }
 }

@@ -17,8 +17,7 @@ class UsuarioTableSeeder extends Seeder
         return DB::table('Usuario')->insert([
             [
                 "idUsuario" => "1",
-                "nombre" => "Lionel",
-                "apellido" => "Perez Calvin",
+                "nombreC" => "Lionel",
                 "email" => "201400001@est.umss.edu",
                 "telefono" => "75845785",
                 "codSis" => "201400001",
@@ -27,12 +26,12 @@ class UsuarioTableSeeder extends Seeder
                 "contrasenia" => "calvo123",
                 "idCarrera" => "1",
                 "idGrupo" => "1",
-                "tipoUsuario" => "admin"
+                "administrador" => "true",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "2",
-                "nombre" => "Henry Jaruslav",
-                "apellido" => "Mamani Cespedes",
+                "nombreC" => "Henry Jaruslav",
                 "email" => "201400002@est.umss.edu",
                 "telefono" => "78451313",
                 "codSis" => "201400002",
@@ -41,12 +40,12 @@ class UsuarioTableSeeder extends Seeder
                 "contrasenia" => "elhenry",
                 "idCarrera" => "2",
                 "idGrupo" => "2",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "3",
-                "nombre" => "Margarita Villaroel Perez",
-                "apellido" => "Villaroel Perez",
+                "nombreC" => "Margarita Villaroel Perez",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
@@ -55,12 +54,12 @@ class UsuarioTableSeeder extends Seeder
                 "contrasenia" => "villaroel456",
                 "idCarrera" => "1",
                 "idGrupo" => "3",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "4",
-                "nombre" => "Perez",
-                "apellido" => "Villaroel",
+                "nombreC" => "Perez",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
@@ -69,12 +68,12 @@ class UsuarioTableSeeder extends Seeder
                 "contrasenia" => "villaroel456",
                 "idCarrera" => "1",
                 "idGrupo" => "1",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "5",
-                "nombre" => "Perez jorge",
-                "apellido" => "Villaroel rata",
+                "nombreC" => "Perez jorge",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
@@ -83,12 +82,12 @@ class UsuarioTableSeeder extends Seeder
                 "contrasenia" => "villaroel456",
                 "idCarrera" => "1",
                 "idGrupo" => "1",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "6",
-                "nombre" => "Perez  roca",
-                "apellido" => "Villaroel ramirez",
+                "nombreC" => "Perez  roca",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
@@ -97,7 +96,8 @@ class UsuarioTableSeeder extends Seeder
                 "contrasenia" => "villaroel456",
                 "idCarrera" => "1",
                 "idGrupo" => "3",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ]
         ]);
     }

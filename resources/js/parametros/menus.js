@@ -49,6 +49,9 @@ const iniciarSession = {
 
 const datosNavegador = [
     {
+        nombre:'Grupo Empresas',
+        link : "/GrupoEmpresas"
+    },{
         nombre:'FundaEmpresa',
         link : "#"
     },{

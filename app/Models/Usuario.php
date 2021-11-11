@@ -9,9 +9,9 @@ class Usuario extends Model
 {
     protected $table = 'Usuario';
     protected $primaryKey = 'idUsuario';
-    protected $fillable = ['idGE','nombre','email','telefono','codSis',
+    protected $fillable = ['idGE','nombreC','email','telefono','codSis',
                                 'foto_perfil','nombreUsuario','contrasenia', 
-                                        'idCarrera', 'tipoUsuario', 'idGrupo'];
+                                        'idCarrera', 'administrador', 'idGrupo','registrado'];
 
     public $timestamps = false;
 }
