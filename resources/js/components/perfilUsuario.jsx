@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
+import MensajeAlerta from "./RegistroGE/MensajeAlerta";
 import IconoAtras from "./Svg/IconoAtras";
-import Editar from "./Svg/IconoEditar";
+import IconoEditar from "./Svg/IconoEditar";
 import IconoGuardar from "./Svg/IconoGuardar";
 
 const PerfilUsuario = () => {
@@ -71,6 +72,7 @@ const PerfilUsuario = () => {
         document.getElementById('cmpCorreo').disabled = true;
         document.getElementById('cmpTelefono').disabled = true;
         document.getElementById('cmpCI').disabled = true;
+        location.reload();
     };
 
     const actualizarDatos = () => {
@@ -81,6 +83,7 @@ const PerfilUsuario = () => {
         formData.append('email',correo.current.value);
         formData.append('telefono',telefono.current.value);
         formData.append('codSis',codSis.current.value);
+        formData.append('imagen',imagenCarg.current.files[0])
         fetch('/api/actualizarPerfil', {
             method: 'POST',
             body: formData
@@ -95,6 +98,135 @@ const PerfilUsuario = () => {
         bloquearCampos();
     };
 
+    const imagenCarg = useRef(null);
+
+    const onButtonClick = () => {    
+        const img = document.getElementById('imagen')
+        const files = imagenCarg.current.files;
+
+        if(!files || !files.length){
+            img.src = logo;
+            return;
+        }
+        const image = files[0];
+        const url = URL.createObjectURL(image);
+        img.src = url;
+    }
+
+    const regexNombre = new RegExp('^[a-zA-Z\s]+$');
+    const regexNomUsuario = new RegExp('^[a-zA-Z]+$');
+    const regexCorreo = new RegExp('^[0-9]{9}@est+\.umss+\.edu+$');
+    const regexTelefono = new RegExp('^[0-9]{7,8}$');
+    const regexCodSis = new RegExp('^[0-9]{9}$');
+
+    const [valido, setValidaciones] = useState({
+        nombreValido: true,
+        nomUsuarioValido: true,
+        correoValido: true,
+        telefonoValido: true,
+        codSisValido: true, 
+    });
+
+    const verificarNombre = () => {
+        let cmpNombre = document.getElementById('cmpNombre');
+        const inputValue = nombre.current.value;
+        if (!regexNombre.test(inputValue)) {
+            setValidaciones({
+                ...valido,
+                nombreValido: false
+            })
+            cmpNombre.setCustomValidity("Solo debe contener caracteres alfabeticos");
+            cmpNombre.reportValidity();
+        } else {
+            setValidaciones({
+                ...valido,
+                nombreValido: true
+            })
+            cmpNombre.setCustomValidity("");
+        }
+    };
+
+    const verificarNomUsuario = () => {
+        let cmpNomUsuario = document.getElementById('cmpApellido');
+        const inputValue = apellido.current.value;
+        if (!regexNomUsuario.test(inputValue)) {
+            setValidaciones({
+                ...valido,
+                nomUsuarioValido: false
+            })
+            cmpNomUsuario.setCustomValidity("Solo debe contener caracteres alfabeticos");
+            cmpNomUsuario.reportValidity();
+        } else {
+            setValidaciones({
+                ...valido,
+                nomUsuarioValido: true
+            })
+            cmpNomUsuario.setCustomValidity("");
+        }
+    };
+
+    const verificarCorreo = () => {
+        let cmpCorreo = document.getElementById('cmpCorreo');
+        const inputValue = correo.current.value;
+        if (!regexCorreo.test(inputValue)) {
+            setValidaciones({
+                ...valido,
+                correoValido: false
+            })
+            cmpCorreo.setCustomValidity("Solo debe contener caracteres alfabeticos");
+            cmpCorreo.reportValidity();
+        } else {
+            setValidaciones({
+                ...valido,
+                correoValido: true
+            })
+            cmpCorreo.setCustomValidity("");
+        }
+    };
+
+    const verificarTelefono = () => {
+        let cmpTelefono = document.getElementById('cmpTelefono');
+        const inputValue = telefono.current.value;
+        if (!regexTelefono.test(inputValue)) {
+            setValidaciones({
+                ...valido,
+                telefonoValido: false
+            })
+            cmpTelefono.setCustomValidity("Solo numeros, minimo 7 maximo 8");
+            cmpTelefono.reportValidity();
+        } else {
+            setValidaciones({
+                ...valido,
+                telefonoValido: true
+            })
+            cmpTelefono.setCustomValidity("");
+        }
+    };
+
+    const verificarCodSis = () => {
+        let cmpCodSis = document.getElementById('cmpCI');
+        const inputValue = codSis.current.value;
+        if (!regexCodSis.test(inputValue)) {
+            cmpCodSis.setCustomValidity("Debe ingresar su codigo sis");
+            cmpCodSis.reportValidity();
+            setValidaciones({
+                ...valido,
+                codSisValido: false
+            })
+        } else {
+            setValidaciones({
+                ...valido,
+                codSisValido: true
+            })
+            cmpCodSis.setCustomValidity("");
+        }
+    };
+
+    const mensajesError = [
+        "Este es el error 1",
+        "Este es el error 2"
+    ]
+
     return(
         <div id="contenedor">
             <div id="tarjeta-datos">
@@ -104,9 +236,25 @@ const PerfilUsuario = () => {
                 {
                     edita && (
                         <div id="cont-icono-editar" onClick={ editarCampos }>
-                            <Editar />
+                            <IconoEditar />
                         </div>
                     ) 
+                }
+                {
+                    editando && (
+                        <div id="cont-input-imagen">
+                            <label htmlFor="input-file" className="btm-input-file">
+                                Cambiar Foto
+                            </label>
+                            <input
+                                id="input-file" 
+                                type="file" 
+                                accept="image/jpeg,image/jpg,image/png" 
+                                onChange={ onButtonClick }
+                                ref={ imagenCarg } 
+                            />
+                        </div>
+                    )
                 }
                 <div id="datos">
                         <div>
@@ -114,31 +262,85 @@ const PerfilUsuario = () => {
                     </div>
                     <div>
                         <label className="labels">Nombre:</label>
-                        <input id="cmpNombre" className="texto" type="text" ref={ nombre } disabled /> 
+                        <div>
+                           <input 
+                                id="cmpNombre" 
+                                className="texto" 
+                                type="text" 
+                                ref={ nombre } 
+                                onChange={ verificarNombre }
+                                maxLength="30"
+                                disabled  
+                            />
+                            {!valido.nombreValido && (<MensajeAlerta mensajeRep={mensajesError}></MensajeAlerta>)} 
+                        </div>
+                        
                     </div>
                     <div>
                         <label className="labels">Apellido:</label>
-                        <input id="cmpApellido" className="texto" type="text" ref={ apellido } disabled />
+                        <input 
+                            id="cmpApellido" 
+                            className="texto" 
+                            type="text" 
+                            ref={ apellido }
+                            onChange={ verificarNomUsuario }
+                            maxLength="30" 
+                            disabled
+                        />
                     </div>
                     <div>
                         <label className="labels">Carrera:</label>
-                        <input id="cmpCarrera" className="texto" type="text" ref={ carrera } disabled />
+                        <input 
+                            id="cmpCarrera" 
+                            className="texto" 
+                            type="text" 
+                            ref={ carrera } 
+                            disabled 
+                        />
                     </div>
                     <div>
                         <label className="labels">Grupo:</label>
-                        <input id="cmpGrupo" className="texto" type="text" ref={ grupo }  disabled /> 
+                        <input 
+                            id="cmpGrupo" 
+                            className="texto" 
+                            type="text" 
+                            ref={ grupo }  
+                            disabled
+                        /> 
                     </div>
                     <div>
                         <label className="labels">Correo Electrónico:</label>
-                        <input id="cmpCorreo" className="texto" type="text" ref={ correo } disabled />
+                        <input 
+                            id="cmpCorreo" 
+                            className="texto" 
+                            type="text" 
+                            ref={ correo }
+                            onChange={ verificarCorreo } 
+                            disabled
+                        />
                     </div> 
                     <div>
                         <label className="labels">Teléfono/Celular:</label>
-                        <input id="cmpTelefono" className="texto" type="text" ref={ telefono } disabled />
+                        <input 
+                            id="cmpTelefono" 
+                            className="texto" 
+                            type="text" 
+                            ref={ telefono }
+                            onChange={ verificarTelefono }
+                            maxLength="8" 
+                            disabled  
+                        />
                     </div>
                     <div>
                         <label className="labels">Codigo SIS:</label>
-                        <input id="cmpCI" className="texto" type="text" ref={ codSis } disabled />
+                        <input 
+                            id="cmpCI" 
+                            className="texto" 
+                            type="text" 
+                            ref={ codSis } 
+                            onChange={ verificarCodSis }
+                            maxLength="9"
+                            disabled />
                     </div> 
                 </div>
                 {
@@ -150,8 +352,7 @@ const PerfilUsuario = () => {
                             <div id="cont-icono-guardar" onClick={ actualizarDatos }>
                                 <IconoGuardar/>
                             </div>
-                        </div>
-                        
+                        </div>              
                     )
                 } 
             </div>

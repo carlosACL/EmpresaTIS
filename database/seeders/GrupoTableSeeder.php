@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class GrupoTableSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class GrupoTableSeeder extends Seeder
      */
     public function run()
     {
-        return \DB::table('Grupo')->insert([
+        return DB::table('Grupo')->insert([
             [
                 "idGrupo" => "1",
                 "nomGrupo" => "Flores Villarroel Corina Justina"
