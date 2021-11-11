@@ -41,43 +41,51 @@ class UserController extends Controller
 
     function getNombre(Request $req){
         $dat = Usuario::find($req->id);
-        return response()->json(['nombre' => $dat->nombre]);
+        return response()->json(['nombreC' => $dat->nombreC]);
     }
 
-    //destino = id del usuario
-    //sender = id del usuario que envio el mensaje
+    /* id = el usuario involucrado
+        nombre = grupo empresa involucada
+    invitacion =
+                => si es false entonces es un usuario solicitando entrar a la grupo empresa
+                => si es true entonces es una grupo empresa invitando a un usuario
+    
+    */
     function mandarInvitacion(Request $req){
-        $sender = DB::table('Usuario')
-                        ->where('idUsuario', '=', $req->sender)
-                        ->first();
-        $usuario = DB::table('Usuario')
-                        ->where('idUsuario', '=', $req->destino)
-                        ->first();
-        $ge = GrupoEmpresa::find($sender->idGE);
-        if($usuario->idGrupo == $sender->idGrupo){
-            if(!$usuario->idGE){
-                $inv = DB::table('Invitacion')
-                            ->where('sender', '=' , $sender->idUsuario)
-                            ->where('idUsuario','=', $usuario->idUsuario)
-                            ->first();
-                if(empty($inv)){
-                    $invitacion = new Invitacion;
-                    $invitacion->idGE = $ge->idGE;
-                    $invitacion->idUsuario = $usuario->idUsuario;
-                    $invitacion->sender = $sender->idUsuario;
-                    $invitacion->save();
-                    return response()->json(['respuesta'=>'exito']);
+        $ge = DB::table('Grupo_Empresa')->where('nombre','=',$req->nombre)->first();
+        if(isset($ge->idGE)){
+            $usuario = Usuario::find($req->id);
+            if(isset($usuario->idUsuario)){
+                if(empty($usuario->idGE)){
+                    $invitacion = DB::table('Invitacion')
+                                        ->where('idUsuario','=',$usuario->idUsuario)
+                                        ->where('idGE','=',$ge->idGE)
+                                        ->first();
+                    if(!isset($invitacion->idInvitacion)){
+                        $inv = new Invitacion;
+                        $inv->idGE = $ge->idGE;
+                        $inv->idUsuario = $usuario->idUsuario;
+                        $inv->invitacion = $req->invitacion;
+                        $inv->save();
+
+                        $invi =  DB::table('Invitacion')
+                                            ->join('Usuario','Usuario.idUsuario','=','Invitacion.idUsuario')
+                                            ->where('Invitacion.idUsuario','=',$usuario->idUsuario)
+                                            ->where('Invitacion.idGE','=',$ge->idGE)
+                                            ->first();
+
+                        return response()->json($invi); 
+                    } else {
+                        return response()->json(['mensaje'=>'Ya existe una invitacion o solicitud entre el usuario y la grupo empresa']);
+                    }                       
                 } else {
-                    return response()->json(['respuesta'=>'yaMandado']);
+                    return response()->json(['mensaje'=>'El usuario ya esta en una grupo empresa']);
                 }
             } else {
-                return response()->json(['respuesta' => 'tieneGE']);
+                return response()->json(['mensaje'=>'Usuario inexistente']);
             }
         } else {
-            return response()->json(['respuesta' => 'grupoDiferente']);
+            return response()->json(['mensaje'=>'Grupo Empresa Inexistente']);
         }
-        
-        //verificar que no haya mandado previamente ya invitacion
-        //Mandar Invitacion
     }
 }

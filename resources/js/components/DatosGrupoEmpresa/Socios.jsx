@@ -22,7 +22,7 @@ const Socios = () => {
             <h1 className= ' mb-5'>Socios</h1>
                 <ContenedorDatos>
                     {(socios) && socios.map((dato) => {
-                        return (<Socio nombre={`${dato.nombre} ${dato.apellido}`} rol={(dato.idUsuario == lider) ? "Lider":"Socio"} imagen={dato.foto_perfil}/>)
+                        return (<Socio nombre={dato.nombreC} rol={(dato.idUsuario == lider) ? "Lider":"Socio"} imagen={dato.foto_perfil}/>)
                     })}
                 </ContenedorDatos>
         </div>

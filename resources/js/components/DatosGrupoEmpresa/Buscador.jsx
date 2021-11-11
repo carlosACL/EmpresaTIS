@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
 import { BotonStyled, InputBuscador } from '../../elementos/TabGE';
 import CajaBuscador from './CajaBuscador';
+import { invitar } from '../../Invitacion';
 
-const Buscador = () => {
+
+const Buscador = ({pendientes, setPendientes}) => {
     const [input , setInput] = useState("");
     const [usuarios, setUsuarios] = useState(null);
     const [filtrados, setFiltrados]= useState(null);
@@ -11,23 +13,15 @@ const Buscador = () => {
     const result = useRef(null);
 
     const mandarInvitacion = () => {
-        const users = usuarios.filter((data) => (data.nombre+" "+data.apellido).toLowerCase() == input.toLowerCase());
-        console.log(users);
+        const users = usuarios.filter((data) => (data.nombreC).toLowerCase() == input.toLowerCase());
         if(users.length==1){
-            const data = new FormData();
-            data.append('destino', users[0].idUsuario);
-            data.append('sender',sessionStorage.getItem('id'));
-            fetch('api/mandarInvitacion', {
-                method : 'POST',
-                body: data
-            }).then((response) => response.json()).then((json) => {
-                const respuesta = json.respuesta;
-                if(respuesta == 'tieneGE'){
-                    alert("El usuario ya pertenece a una Grupo Empresa");
-                } else if (respuesta == "yaMandado"){
-                    alert("Ya mandaste una invitacion al usuario");
+            const usuario = users[0].idUsuario;
+            const ge = sessionStorage.getItem('ge');
+            invitar(ge, usuario).then((json) => {
+                if(json.mensaje){
+                    alert(json.mensaje);
                 } else {
-                    //acciones para mostrar pendientes
+                    (pendientes) ? setPendientes([... pendientes, json]):setPendientes([json]);
                     alert("Enviado con exito");
                 }
             });
@@ -41,7 +35,7 @@ const Buscador = () => {
             setInput(ref.current.value);
             if(ref.current.value.length > 0){
                 const filt = usuarios.filter((dato) => 
-                (dato.nombre.toLowerCase()+" "+dato.apellido.toLowerCase()).includes(ref.current.value.toLowerCase()));
+                (dato.nombreC.toLowerCase()).includes(ref.current.value.toLowerCase()));
                 setFiltrados(filt);
             } else {
                 setFiltrados(null);
@@ -87,7 +81,7 @@ const Buscador = () => {
                         {(<div  className=' position-absolute' 
                                 style = {{width: '300px'}}
                                 ref = { result }>
-                            {(filtrados) && (filtrados.map((data) => <CajaBuscador nombre = {data.nombre+" "+data.apellido} 
+                            {(filtrados) && (filtrados.map((data) => <CajaBuscador nombre = {data.nombreC} 
                                                                                    imagen = {data.foto_perfil}
                                                                                    evento = { autoCompletar }
                                                                                    setValor = { setInput }/>))}

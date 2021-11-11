@@ -20,8 +20,7 @@ class Invitacion extends Migration
             $table->integer("idGE");
             $table->foreign('idGE')->references('idGE')->on('Grupo_Empresa');
             $table->string("estado")->default("Pendiente");       
-            $table->integer("sender");
-            $table->foreign('sender')->references("idUsuario")->on("Usuario");
+            $table->boolean('invitacion');
         });
     }
 

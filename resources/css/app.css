@@ -34,7 +34,7 @@ main{
     gap: 20px;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 992px){
     .formStyle{
         grid-template-columns: 1fr;
     }

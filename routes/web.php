@@ -32,4 +32,6 @@ Route::get('/EditarGE-{nombre}',[EditarGEController::class, 'index_view']);
 
 
 Route::get('/Login', [LoginController::class, 'vistaLogin']);
-//Route::get('/GE-{nombre}', [RegistroGEController::class, 'vistaGE']);
+
+/* Route::get('/GE-{nombre}', [RegistroGEController::class, 'vistaGE']);
+Route::get('/GrupoEmpresas', [RegistroGEController::class, 'viewGrupoEmpresas']); */
