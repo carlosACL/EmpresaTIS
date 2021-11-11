@@ -34,7 +34,7 @@ main{
     gap: 20px;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 992px){
     .formStyle{
         grid-template-columns: 1fr;
     }
@@ -116,7 +116,7 @@ main{
 }
 
 .labels{
-    display: inline-block;
+    
     position: relative;
     padding: 15px;
     width: 180px;
@@ -195,10 +195,8 @@ main{
     }
 
     #tarjeta-datos{
-        left: 50px;
-        right: 10%;
         padding: 0%;
-        padding-bottom: 50px;
+        padding-bottom: 20px;
     }
 
     .labels{
@@ -359,10 +357,54 @@ main{
     height: 100%;
 }
 
+#input-file {
+    display: none;
+}
+
+#cont-input-imagen {
+    position: relative;
+    text-align: left;
+    top: 240px;
+}
+
+.btm-input-file {
+    position: relative;
+    background: #00DDAA;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 7%;
+}
+
+.texto:focus {
+    border-bottom: 4px solid rgb(0 , 221, 170);
+    outline: none;
+    box-shadow: 5px 5px 5px;
+}
+
+#tarjeta-datos input[type="text"]:invalid {
+    transition: 0.3s ease all;
+    border-bottom-color: red !important;
+}
+
+#tarjeta-datos input[type="text"]:valid{
+    transition: 0.3s ease all;
+    border-bottom-color: #6aff00 !important;
+}
+
 @media only screen and (max-width: 840px) {
     #cont-icono-editar {
         top: 65px;
         margin-left: 80%;
+    }
+
+    #cont-input-imagen {
+        text-align: center;
+        top: 270px;
+    }
+    
+    .btm-input-file {
+        margin-left: 0%;
     }
 }
 

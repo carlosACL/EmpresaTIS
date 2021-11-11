@@ -13,6 +13,6 @@ class Invitacion extends Model
     //el idGE es la grupo empresa implicada
     //el sender es la persona que mandó la invitacion
     //el estado es el estado xD, por defecto se pone como Pendiente
-    protected $fillable = ['idUsuario','idGE','estado','sender'];
+    protected $fillable = ['idUsuario','idGE','estado','invitacion'];
     public $timestamps = false;
 }

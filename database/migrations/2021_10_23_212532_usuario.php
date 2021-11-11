@@ -17,19 +17,19 @@ class Usuario extends Migration
             $table->id('idUsuario')->autoIncrement();
             $table->unsignedInteger('idGE')->nullable();
             $table->foreign('idGE')->references('idGE')->on('Grupo_Empresa');
-            $table->string('nombre');
-            $table->string('apellido');
+            $table->string('nombreC');
             $table->string('email');
-            $table->integer('telefono');
+            $table->integer('telefono')->nullable();
             $table->string('codSis');
-            $table->string('foto_perfil');
-            $table->string('nombreUsuario');
-            $table->string('contrasenia');
-            $table->string('tipoUsuario');
-            $table->unsignedInteger('idCarrera');
+            $table->string('foto_perfil')->nullable();
+            $table->string('nombreUsuario')->nullable();
+            $table->string('contrasenia')->nullable();
+            $table->boolean('administrador')->default(false);
+            $table->unsignedInteger('idCarrera')->nullable();
             $table->foreign('idCarrera')->references('idCarrera')->on('Carrera');
             $table->unsignedInteger('idGrupo');
             $table->foreign('idGrupo')->references('idGrupo')->on('Grupo');
+            $table->boolean('registrado')->default(false);
         });
     }
 

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CarreraTableSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class CarreraTableSeeder extends Seeder
      */
     public function run()
     {
-        return \DB::table('Carrera')->insert([
+        return DB::table('Carrera')->insert([
             [
                 "idCarrera" => "1",
                 "nomCarrera" => "Ing. Informatica"

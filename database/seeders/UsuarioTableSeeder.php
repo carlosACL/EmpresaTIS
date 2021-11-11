@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioTableSeeder extends Seeder
 {
@@ -13,90 +14,90 @@ class UsuarioTableSeeder extends Seeder
      */
     public function run()
     {
-        return \DB::table('Usuario')->insert([
+        return DB::table('Usuario')->insert([
             [
                 "idUsuario" => "1",
-                "nombre" => "Lionel",
-                "apellido" => "Perez Calvin",
+                "nombreC" => "Lionel",
                 "email" => "201400001@est.umss.edu",
                 "telefono" => "75845785",
                 "codSis" => "201400001",
-                "foto_perfil" => "juanperez.jpg",
+                "foto_perfil" => "1636248844_messiPelon.jpg",
                 "nombreUsuario" => "messientocalvo",
                 "contrasenia" => "calvo123",
                 "idCarrera" => "1",
                 "idGrupo" => "1",
-                "tipoUsuario" => "admin"
+                "administrador" => "true",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "2",
-                "nombre" => "Henry Jaruslav",
-                "apellido" => "Mamani Cespedes",
+                "nombreC" => "Henry Jaruslav",
                 "email" => "201400002@est.umss.edu",
                 "telefono" => "78451313",
                 "codSis" => "201400002",
-                "foto_perfil" => "henrymamani.jpg",
+                "foto_perfil" => "1636248902_gigachad.jpg",
                 "nombreUsuario" => "mamani123",
                 "contrasenia" => "elhenry",
                 "idCarrera" => "2",
                 "idGrupo" => "2",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "3",
-                "nombre" => "Margarita Villaroel Perez",
-                "apellido" => "Villaroel Perez",
+                "nombreC" => "Margarita Villaroel Perez",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
-                "foto_perfil" => "margaritavillaroel.jpg",
+                "foto_perfil" => "1636249064_woman.jpg",
                 "nombreUsuario" => "margarita456",
                 "contrasenia" => "villaroel456",
                 "idCarrera" => "1",
                 "idGrupo" => "3",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "4",
-                "nombre" => "Perez",
-                "apellido" => "Villaroel",
+                "nombreC" => "Perez",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
-                "foto_perfil" => "margaritavillaroel.jpg",
+                "foto_perfil" => "1636249064_woman.jpg",
                 "nombreUsuario" => "margarita456",
                 "contrasenia" => "villaroel456",
                 "idCarrera" => "1",
                 "idGrupo" => "1",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "5",
-                "nombre" => "Perez jorge",
-                "apellido" => "Villaroel rata",
+                "nombreC" => "Perez jorge",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
-                "foto_perfil" => "margaritavillaroel.jpg",
+                "foto_perfil" => "1636249064_woman.jpg",
                 "nombreUsuario" => "margarita456",
                 "contrasenia" => "villaroel456",
                 "idCarrera" => "1",
                 "idGrupo" => "1",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ],
             [
                 "idUsuario" => "6",
-                "nombre" => "Perez  roca",
-                "apellido" => "Villaroel ramirez",
+                "nombreC" => "Perez  roca",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
-                "foto_perfil" => "margaritavillaroel.jpg",
+                "foto_perfil" => "1636249064_woman.jpg",
                 "nombreUsuario" => "margarita456",
                 "contrasenia" => "villaroel456",
                 "idCarrera" => "1",
                 "idGrupo" => "3",
-                "tipoUsuario" => ""
+                "administrador" => "false",
+                "registrado" => "true"
             ]
         ]);
     }

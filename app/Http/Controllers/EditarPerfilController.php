@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class EditarPerfilController extends Controller
 {
@@ -16,8 +17,16 @@ class EditarPerfilController extends Controller
         $usuario->email = $request->email;
         $usuario->telefono = $request->telefono;
         $usuario->codSis = $request->codSis;
-        $usuario->save();
 
+        $file = $request->file('imagen');
+        if ($file != null){
+            $nombre = time()."_".$file->getClientOriginalName();
+            $file->move('resources/socios', $nombre);
+            File::delete('resources/socios/'.$usuario->foto_perfil);
+            $usuario->foto_perfil = $nombre;
+        }
+
+        $usuario->save();
         return response(20);
     }
 }

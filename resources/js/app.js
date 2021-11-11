@@ -26,6 +26,7 @@ import Login from './components/Login';
 import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
 import TabGE from './components/TabGE';
 import Footer from './components/Footer';
+import GrupoEmpresas from './components/GrupoEmpresas';
 //import Login from "./components/Login/Login"
 
 /*
@@ -85,4 +86,8 @@ if(document.getElementById('vistaGE')){
 
 if(document.getElementById('footer')){
     ReactDOM.render(<Footer/>,document.getElementById('footer'));
+}
+
+if(document.getElementById('ge')){
+    ReactDOM.render(<GrupoEmpresas/>,document.getElementById('ge'));
 }
