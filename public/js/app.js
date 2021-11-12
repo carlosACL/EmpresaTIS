@@ -10933,7 +10933,7 @@ var Buscador = function Buscador(_ref) {
       return data.nombreC.toLowerCase() == input.toLowerCase();
     });
 
-    if (users.length == 1) {
+    if (users.length > 0) {
       var usuario = users[0].idUsuario;
       var ge = sessionStorage.getItem('ge');
       (0,_Invitacion__WEBPACK_IMPORTED_MODULE_3__.invitar)(ge, usuario).then(function (json) {
@@ -11067,7 +11067,7 @@ var CajaBuscador = function CajaBuscador(_ref) {
         return evento(setValor, nombre);
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ImagenPerfil, {
-        src: imagen ? imagen : "./resources/perfilDefecto.png"
+        src: imagen ? "./resources/socios/" + imagen : "./resources/perfilDefecto.png"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
         className: " ml-3",
         children: nombre

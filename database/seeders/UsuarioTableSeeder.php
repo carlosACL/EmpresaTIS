@@ -86,7 +86,7 @@ class UsuarioTableSeeder extends Seeder
             ],
             [
                 "idUsuario" => "6",
-                "nombreC" => "Perez  roca",
+                "nombreC" => "Rodriguez benabides alvaro",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400006",
@@ -100,7 +100,7 @@ class UsuarioTableSeeder extends Seeder
             ],
             [
                 "idUsuario" => "7",
-                "nombreC" => "Perez  roca",
+                "nombreC" => "Perez roca",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => null,
                 "codSis" => "201400007",
@@ -114,7 +114,7 @@ class UsuarioTableSeeder extends Seeder
             ],
             [
                 "idUsuario" => "8",
-                "nombreC" => "Perez  roca",
+                "nombreC" => "Rocabado fernando",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => null,
                 "codSis" => "201400008",
@@ -128,7 +128,7 @@ class UsuarioTableSeeder extends Seeder
             ],
             [
                 "idUsuario" => "9",
-                "nombreC" => "Perez  roca",
+                "nombreC" => "Juan Perez soliz",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => null,
                 "codSis" => "201400009",
