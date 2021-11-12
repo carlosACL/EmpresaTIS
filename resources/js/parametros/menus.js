@@ -39,7 +39,7 @@ const opcionesUsuario = [{
 
 const registrarse = {
     nombre:'Registrarse',
-    link:'#'
+    link:'RegistroDeUsuario'
 }
 
 const iniciarSession = {

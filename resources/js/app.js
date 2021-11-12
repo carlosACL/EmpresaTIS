@@ -27,6 +27,7 @@ import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
 import TabGE from './components/TabGE';
 import Footer from './components/Footer';
 import GrupoEmpresas from './components/GrupoEmpresas';
+import RegistroUsuario from './components/RegistroUsuario';
 //import Login from "./components/Login/Login"
 
 /*
@@ -90,4 +91,8 @@ if(document.getElementById('footer')){
 
 if(document.getElementById('ge')){
     ReactDOM.render(<GrupoEmpresas/>,document.getElementById('ge'));
+}
+
+if(document.getElementById('registroU')){
+    ReactDOM.render(<RegistroUsuario/>,document.getElementById('registroU'));
 }

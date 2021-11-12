@@ -22,6 +22,7 @@ const Buscador = ({pendientes, setPendientes}) => {
                     alert(json.mensaje);
                 } else {
                     (pendientes) ? setPendientes([... pendientes, json]):setPendientes([json]);
+                    setInput("");
                     alert("Enviado con exito");
                 }
             });
