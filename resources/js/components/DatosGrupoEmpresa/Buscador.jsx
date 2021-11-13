@@ -14,7 +14,7 @@ const Buscador = ({pendientes, setPendientes}) => {
 
     const mandarInvitacion = () => {
         const users = usuarios.filter((data) => (data.nombreC).toLowerCase() == input.toLowerCase());
-        if(users.length==1){
+        if(users.length>0){
             const usuario = users[0].idUsuario;
             const ge = sessionStorage.getItem('ge');
             invitar(ge, usuario).then((json) => {
@@ -22,6 +22,7 @@ const Buscador = ({pendientes, setPendientes}) => {
                     alert(json.mensaje);
                 } else {
                     (pendientes) ? setPendientes([... pendientes, json]):setPendientes([json]);
+                    setInput("");
                     alert("Enviado con exito");
                 }
             });

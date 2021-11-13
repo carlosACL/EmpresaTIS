@@ -87,7 +87,7 @@ class UsuarioTableSeeder extends Seeder
             ],
             [
                 "idUsuario" => "6",
-                "nombreC" => "Perez  roca",
+                "nombreC" => "Rodriguez benabides alvaro",
                 "email" => "201400003@est.umss.edu",
                 "telefono" => "79868564",
                 "codSis" => "201400003",
@@ -98,6 +98,48 @@ class UsuarioTableSeeder extends Seeder
                 "idGrupo" => "3",
                 "administrador" => "false",
                 "registrado" => "true"
+            ],
+            [
+                "idUsuario" => "7",
+                "nombreC" => "Perez roca",
+                "email" => "201400003@est.umss.edu",
+                "telefono" => null,
+                "codSis" => "201400007",
+                "foto_perfil" => null,
+                "nombreUsuario" => null,
+                "contrasenia" => null,
+                "idCarrera" => "1",
+                "idGrupo" => "3",
+                "administrador" => "false",
+                "registrado" => "false"
+            ],
+            [
+                "idUsuario" => "8",
+                "nombreC" => "Rocabado fernando",
+                "email" => "201400003@est.umss.edu",
+                "telefono" => null,
+                "codSis" => "201400008",
+                "foto_perfil" => null,
+                "nombreUsuario" => null,
+                "contrasenia" => null,
+                "idCarrera" => "1",
+                "idGrupo" => "1",
+                "administrador" => "false",
+                "registrado" => "false"
+            ],
+            [
+                "idUsuario" => "9",
+                "nombreC" => "Juan Perez soliz",
+                "email" => "201400003@est.umss.edu",
+                "telefono" => null,
+                "codSis" => "201400009",
+                "foto_perfil" => null,
+                "nombreUsuario" => null,
+                "contrasenia" => null,
+                "idCarrera" => "1",
+                "idGrupo" => "1",
+                "administrador" => "false",
+                "registrado" => "false"
             ]
         ]);
     }

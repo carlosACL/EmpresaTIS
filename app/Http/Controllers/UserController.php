@@ -88,4 +88,53 @@ class UserController extends Controller
             return response()->json(['mensaje'=>'Grupo Empresa Inexistente']);
         }
     }
+
+    function crearUsuario(){
+        return view('registroUsuario');
+    }
+
+    /*
+        codSis => el codigo sis del estudiante que se esta registrando
+        telefono => el telefono del estudiante
+        nombreU => el nombre de usuario con el que podrá ingresar al sistema
+        contrasenia => la contraseña con la que el estudiante podrá ingresar al sistema
+        foto_perfil => imagen del usuario
+    */
+    function actualizarUsuario(Request $req){
+        $dat = DB::table('Usuario')
+                        ->where('codSis','=',$req->codsis)
+                        ->first();
+        if(isset($dat->idUsuario)){
+            $usuario = Usuario::find($dat->idUsuario);
+            if(!$usuario->registrado){
+                $otrosUsuarios = DB::table('Usuario')
+                                    ->where('nombreUsuario','=',$req->nombreU)
+                                    ->where('idUsuario','<>',$usuario->idUsuario)
+                                    ->get();
+                if(sizeof($otrosUsuarios)<=0){
+                    $usuario->nombreUsuario = $req->nombreU;
+                    $usuario->telefono = $req->telefono;
+                    $usuario->contrasenia = $req->contrasenia;
+                    $usuario->registrado = true;
+
+                    if($req->file('foto_perfil') != null){
+                        $file = $req->file('foto_perfil');
+                        $nombre =  time()."_".$file->getClientOriginalName();
+                        $file->move('resources/socios', $nombre);
+                        $usuario->foto_perfil = $nombre;
+                    }
+
+                    $usuario->save();
+                
+                    return response()->json($usuario);
+                } else {
+                    return response()->json(['mensaje' => "Ya existe otro usuario con el mismo nombre de usuario"]);
+                }
+            } else {
+                return response()->json(['mensaje' => "Esta Cuenta Ya Fue Registrada"]);
+            }
+        } else {
+            return response()->json(['mensaje' => "El usuario no existe"]);
+        }
+    }
 }

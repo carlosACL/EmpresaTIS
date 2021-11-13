@@ -48,3 +48,5 @@ Route::post('obtenerPendientes', [RegistroGEController::class, 'obtenerPendiente
 Route::post('eliminarInvitacion', [RegistroGEController::class, 'eliminarInvitacion']);
 
 Route::post('obtenerGrupoEmpresas', [RegistroGEController::class, 'obtenerGrupoEmpresas']);
+
+Route::post('actualizarUsuario', [UserController::class, 'actualizarUsuario']);

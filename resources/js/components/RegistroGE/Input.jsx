@@ -37,7 +37,7 @@ const Input = ({estado, cambiarEstado, tipo, nombre, placeholder, regex, funcVal
     };
 
     return (
-        <>
+        <div className='d-flex'>
             <InputStyle type={tipo} 
                         onChange = {onChange}
                         placeholder={placeholder} 
@@ -50,7 +50,7 @@ const Input = ({estado, cambiarEstado, tipo, nombre, placeholder, regex, funcVal
                         onSubmit = {validacion}
                         />
            {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado, regex)}/>)}
-        </>
+        </div>
     )
 }
 
