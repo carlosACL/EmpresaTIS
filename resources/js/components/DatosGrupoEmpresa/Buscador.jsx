@@ -49,7 +49,7 @@ const Buscador = ({pendientes, setPendientes}) => {
     }
 
     const buscadorOnBlur = () => {
-        setTimeout(() => result.current.style = "display:none",100);
+        setTimeout(() => result.current.style = "display:none", 300);
     }
 
     const autoCompletar = (setValor, nombre) => {
