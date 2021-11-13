@@ -10,8 +10,8 @@ const PerfilUsuario = () => {
         id: idUsuario
     }
 
-    const nombre = useRef(null);
-    const apellido = useRef(null); 
+    const nombreC = useRef(null);
+    const nomUsuario = useRef(null); 
     const carrera = useRef(null);
     const grupo = useRef(null);
     const correo = useRef(null); 
@@ -30,8 +30,8 @@ const PerfilUsuario = () => {
         })
         .then((response) => response.json())
         .then((datoUsuario) => {
-            nombre.current.value = datoUsuario[0].nombre;
-            apellido.current.value = datoUsuario[0].apellido;
+            nombreC.current.value = datoUsuario[0].nombreC;
+            nomUsuario.current.value = datoUsuario[0].nombreUsuario;
             correo.current.value = datoUsuario[0].email;
             telefono.current.value = datoUsuario[0].telefono;
             codSis.current.value = datoUsuario[0].codSis;
@@ -45,80 +45,6 @@ const PerfilUsuario = () => {
     const [edita, setEdita] = useState(false);
     const [editando, setEditando] = useState(false);
 
-    useEffect(() => {
-        setIdDelLogueado(sessionStorage.getItem('id'))
-    }, []);
-
-    useEffect(() => {
-        setEdita(idDelLogueado == datos.id)
-    }, [idDelLogueado]);
-    
-
-    const editarCampos = () => {
-        setEditando(!editando);
-        setEdita(false);
-        document.getElementById('cmpNombre').disabled = false;
-        document.getElementById('cmpApellido').disabled = false;
-        document.getElementById('cmpCorreo').disabled = false;
-        document.getElementById('cmpTelefono').disabled = false;
-        document.getElementById('cmpCI').disabled = false;
-    };
-
-    const bloquearCampos = () => {
-        setEditando(!editando);
-        setEdita(true);
-        document.getElementById('cmpNombre').disabled = true;
-        document.getElementById('cmpApellido').disabled = true;
-        document.getElementById('cmpCorreo').disabled = true;
-        document.getElementById('cmpTelefono').disabled = true;
-        document.getElementById('cmpCI').disabled = true;
-        location.reload();
-    };
-
-    const actualizarDatos = () => {
-        const formData = new FormData();
-        formData.append('token',sessionStorage.getItem('token'));
-        formData.append('nombre',nombre.current.value);
-        formData.append('apellido',apellido.current.value);
-        formData.append('email',correo.current.value);
-        formData.append('telefono',telefono.current.value);
-        formData.append('codSis',codSis.current.value);
-        formData.append('imagen',imagenCarg.current.files[0])
-        fetch('/api/actualizarPerfil', {
-            method: 'POST',
-            body: formData
-        })
-        .then((response) => {
-            if (response.ok) {
-                alert("Actualizado");
-            } else {
-                alert("Algo paso")
-            }
-        });
-        bloquearCampos();
-    };
-
-    const imagenCarg = useRef(null);
-
-    const onButtonClick = () => {    
-        const img = document.getElementById('imagen')
-        const files = imagenCarg.current.files;
-
-        if(!files || !files.length){
-            img.src = logo;
-            return;
-        }
-        const image = files[0];
-        const url = URL.createObjectURL(image);
-        img.src = url;
-    }
-
-    const regexNombre = new RegExp('^[a-zA-Z\s]+$');
-    const regexNomUsuario = new RegExp('^[a-zA-Z]+$');
-    const regexCorreo = new RegExp('^[0-9]{9}@est+\.umss+\.edu+$');
-    const regexTelefono = new RegExp('^[0-9]{7,8}$');
-    const regexCodSis = new RegExp('^[0-9]{9}$');
-
     const [valido, setValidaciones] = useState({
         nombreValido: true,
         nomUsuarioValido: true,
@@ -127,15 +53,21 @@ const PerfilUsuario = () => {
         codSisValido: true, 
     });
 
+    const regexNombre = new RegExp('^[a-zA-Z ]+$');
+    const regexNomUsuario = new RegExp('^[a-zA-Z0-9]+$');
+    const regexCorreo = new RegExp('^[0-9]{9}@est+\.umss+\.edu+$');
+    const regexTelefono = new RegExp('^[0-9]{7,8}$');
+    const regexCodSis = new RegExp('^[0-9]{9}$');
+
     const verificarNombre = () => {
         let cmpNombre = document.getElementById('cmpNombre');
-        const inputValue = nombre.current.value;
+        const inputValue = nombreC.current.value;
         if (!regexNombre.test(inputValue)) {
             setValidaciones({
                 ...valido,
                 nombreValido: false
             })
-            cmpNombre.setCustomValidity("Solo debe contener caracteres alfabeticos");
+            cmpNombre.setCustomValidity("Debe contener caracteres alfabeticos");
             cmpNombre.reportValidity();
         } else {
             setValidaciones({
@@ -148,13 +80,13 @@ const PerfilUsuario = () => {
 
     const verificarNomUsuario = () => {
         let cmpNomUsuario = document.getElementById('cmpApellido');
-        const inputValue = apellido.current.value;
+        const inputValue = nomUsuario.current.value;
         if (!regexNomUsuario.test(inputValue)) {
             setValidaciones({
                 ...valido,
                 nomUsuarioValido: false
             })
-            cmpNomUsuario.setCustomValidity("Solo debe contener caracteres alfabeticos");
+            cmpNomUsuario.setCustomValidity("Debe contener caracteres alfanumericos");
             cmpNomUsuario.reportValidity();
         } else {
             setValidaciones({
@@ -173,7 +105,7 @@ const PerfilUsuario = () => {
                 ...valido,
                 correoValido: false
             })
-            cmpCorreo.setCustomValidity("Solo debe contener caracteres alfabeticos");
+            cmpCorreo.setCustomValidity("Ingrese su correo institucional");
             cmpCorreo.reportValidity();
         } else {
             setValidaciones({
@@ -207,7 +139,7 @@ const PerfilUsuario = () => {
         let cmpCodSis = document.getElementById('cmpCI');
         const inputValue = codSis.current.value;
         if (!regexCodSis.test(inputValue)) {
-            cmpCodSis.setCustomValidity("Debe ingresar su codigo sis");
+            cmpCodSis.setCustomValidity("Ingrese su codigo sis");
             cmpCodSis.reportValidity();
             setValidaciones({
                 ...valido,
@@ -222,10 +154,85 @@ const PerfilUsuario = () => {
         }
     };
 
-    const mensajesError = [
-        "Este es el error 1",
-        "Este es el error 2"
-    ]
+    useEffect(() => {
+        setIdDelLogueado(sessionStorage.getItem('id'))
+    }, []);
+
+    useEffect(() => {
+        setEdita(idDelLogueado == datos.id)
+    }, [idDelLogueado]);
+    
+
+    const editarCampos = () => {
+        setEditando(!editando);
+        setEdita(false);
+        document.getElementById('cmpNombre').disabled = false;
+        document.getElementById('cmpApellido').disabled = false;
+        document.getElementById('cmpCorreo').disabled = false;
+        document.getElementById('cmpTelefono').disabled = false;
+        document.getElementById('cmpCI').disabled = false;
+    };
+
+    const bloquearCampos = () => {
+        setEditando(!editando);
+        setEdita(true);
+        document.getElementById('cmpNombre').disabled = true;
+        document.getElementById('cmpApellido').disabled = true;
+        document.getElementById('cmpCorreo').disabled = true;
+        document.getElementById('cmpTelefono').disabled = true;
+        document.getElementById('cmpCI').disabled = true;
+        location.reload();
+    };
+
+    const actualizarDatos = () => {
+        verificarNombre();
+        verificarNomUsuario();
+        verificarCorreo();
+        verificarTelefono();
+        verificarCodSis();
+        if (valido.nombreValido && valido.nomUsuarioValido &&
+            valido.correoValido && valido.telefonoValido &&
+            valido.codSisValido) 
+        {
+            const formData = new FormData();
+            formData.append('token',sessionStorage.getItem('token'));
+            formData.append('nombreC',nombreC.current.value.trim());
+            formData.append('nombreUsuario',nomUsuario.current.value);
+            formData.append('email',correo.current.value);
+            formData.append('telefono',telefono.current.value);
+            formData.append('codSis',codSis.current.value);
+            formData.append('imagen',imagenCarg.current.files[0])
+            fetch('/api/actualizarPerfil', {
+                method: 'POST',
+                body: formData
+            })
+            .then((response) => {
+                if (response.ok) {
+                    alert("Actualizado");
+                } else {
+                    alert("Algo paso")
+                }
+            });
+            bloquearCampos();
+        } else {
+            alert("Revise que los campos esten correctamente llenados!!");
+        }
+    };
+
+    const imagenCarg = useRef(null);
+
+    const onButtonClick = () => {    
+        const img = document.getElementById('imagen')
+        const files = imagenCarg.current.files;
+
+        if(!files || !files.length){
+            img.src = logo;
+            return;
+        }
+        const image = files[0];
+        const url = URL.createObjectURL(image);
+        img.src = url;
+    }
 
     return(
         <div id="contenedor">
@@ -257,33 +264,31 @@ const PerfilUsuario = () => {
                     )
                 }
                 <div id="datos">
-                        <div>
+                    <div>
                         <label id="lbDetalles">DETALLES DEL USUARIO:</label>
                     </div>
                     <div>
                         <label className="labels">Nombre:</label>
-                        <div>
-                           <input 
-                                id="cmpNombre" 
-                                className="texto" 
-                                type="text" 
-                                ref={ nombre } 
-                                onChange={ verificarNombre }
-                                maxLength="30"
-                                disabled  
-                            />
-                            {!valido.nombreValido && (<MensajeAlerta mensajeRep={mensajesError}></MensajeAlerta>)} 
-                        </div>
-                        
+                        <input 
+                            id="cmpNombre" 
+                            className="texto" 
+                            type="text" 
+                            ref={ nombreC } 
+                            onChange={ verificarNombre }
+                            onFocus={ verificarNombre }
+                            maxLength="30"
+                            disabled  
+                        /> 
                     </div>
                     <div>
-                        <label className="labels">Apellido:</label>
+                        <label className="labels">Nombre de Usuario:</label>
                         <input 
                             id="cmpApellido" 
                             className="texto" 
                             type="text" 
-                            ref={ apellido }
+                            ref={ nomUsuario }
                             onChange={ verificarNomUsuario }
+                            onFocus={ verificarNomUsuario }
                             maxLength="30" 
                             disabled
                         />
@@ -315,7 +320,8 @@ const PerfilUsuario = () => {
                             className="texto" 
                             type="text" 
                             ref={ correo }
-                            onChange={ verificarCorreo } 
+                            onChange={ verificarCorreo }
+                            onFocus={ verificarCorreo } 
                             disabled
                         />
                     </div> 
@@ -327,6 +333,7 @@ const PerfilUsuario = () => {
                             type="text" 
                             ref={ telefono }
                             onChange={ verificarTelefono }
+                            onFocus={ verificarTelefono }
                             maxLength="8" 
                             disabled  
                         />
@@ -339,6 +346,7 @@ const PerfilUsuario = () => {
                             type="text" 
                             ref={ codSis } 
                             onChange={ verificarCodSis }
+                            onFocus={ verificarCodSis }
                             maxLength="9"
                             disabled />
                     </div> 
