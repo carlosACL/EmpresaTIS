@@ -12,8 +12,8 @@ class EditarPerfilController extends Controller
     public function modificarDatos (Request $request) {
         $id = DB::table('Session')->select('idUser')->where('token', '=', $request->token)->first();
         $usuario = Usuario::find($id->idUser);
-        $usuario->nombre = $request->nombre;
-        $usuario->apellido = $request->apellido;
+        $usuario->nombreC = $request->nombreC;
+        $usuario->nombreUsuario = $request->nombreUsuario;
         $usuario->email = $request->email;
         $usuario->telefono = $request->telefono;
         $usuario->codSis = $request->codSis;

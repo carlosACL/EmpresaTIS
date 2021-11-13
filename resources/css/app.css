@@ -102,7 +102,7 @@ main{
 
 #contenedor {
     position: relative;
-    height: 700px;
+    height: 900px;
 }
 
 #lbDetalles{
@@ -183,7 +183,7 @@ main{
 
 @media only screen and (max-width: 840px) {
     #contenedor { 
-        height: 1080px;
+        height: 1180px;
     }
 
     #lbDetalles{
@@ -363,17 +363,25 @@ main{
 
 #cont-input-imagen {
     position: relative;
-    text-align: left;
+    text-align: center;
     top: 240px;
+    width: 30%;
 }
 
 .btm-input-file {
-    position: relative;
-    background: #00DDAA;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: 7%;
+    transition: .3s ease all;
+    border-radius: 5px;
+    color: white;
+    border-style: solid;
+    background-color: rgb(0, 221, 170);
+    border-color: rgb(0, 221, 170);
+    padding: 5px;
+}
+
+.btm-input-file:hover {
+    color: black;
+    border-color: rgb(240 , 255, 240);
+    background-color: rgb(240 , 255, 240);
 }
 
 .texto:focus {
@@ -382,12 +390,12 @@ main{
     box-shadow: 5px 5px 5px;
 }
 
-#tarjeta-datos input[type="text"]:invalid {
+#tarjeta-datos input[type="text"]:invalid, input[type="password"]:invalid {
     transition: 0.3s ease all;
     border-bottom-color: red !important;
 }
 
-#tarjeta-datos input[type="text"]:valid{
+#tarjeta-datos input[type="text"]:valid, input[type="password"]:valid{
     transition: 0.3s ease all;
     border-bottom-color: #6aff00 !important;
 }
@@ -401,6 +409,7 @@ main{
     #cont-input-imagen {
         text-align: center;
         top: 270px;
+        margin: 0 auto;
     }
     
     .btm-input-file {
