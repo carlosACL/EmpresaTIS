@@ -13,7 +13,7 @@ const Socio = ({id, nombre, imagen, rol, aceptar, quitar, coleccion, setColeccio
     return (
         <Bloque>
             <div className=' align-items-center d-flex'>
-                <ImagenPerfil src={(imagen) ? imagen:"./resources/perfilDefecto.png"}/>
+                <ImagenPerfil src={(imagen) ? "./resources/socios/"+imagen:"./resources/perfilDefecto.png"}/>
             </div>
             <div className=' d-block text-center m-3'>
                 <h4 style= {{color : colorR}}> { rol } </h4>

@@ -35,4 +35,17 @@ const Aceptar = styled(FontAwesomeIcon)`
     font-size:  50px;
     color: green;
 `;
-export {Bloque, ImagenPerfil, Corona, Quitar, Aceptar};
+
+const ContenedorItems = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap : 20px;
+    align-items: center;
+
+    @media (max-width: 992px){
+        grid-template-columns: 1fr;
+    }
+`;
+
+export {Bloque, ImagenPerfil, Corona, Quitar, Aceptar, ContenedorItems};

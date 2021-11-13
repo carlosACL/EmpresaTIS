@@ -38,9 +38,15 @@ const Titulo = styled.h1`
 `;
 
 const Boton = styled.button`
+    transition: .3s ease all;
+    border-radius: 5px;
+    color: white;
+    border-style: solid;
     background-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
     border-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
     :hover{
+        color: black;
+        border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
         background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
     }
 `;
@@ -50,7 +56,7 @@ const InputStyle = styled.input`
     color: black;
     border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.4);
     border-bottom-color: black;
-    width: 80%;
+    width: 100%;
     &:focus{
         border-bottom: 4px solid rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
         outline: none;
@@ -98,13 +104,16 @@ const MensajeRGE = styled.div`
 `;
 
 const MensajeGlobo = styled.div`
+    width: 280px;
+    margin-top: 32px;
     position:absolute;
     display: none;
-    width: 300px;
     color : white;
     background-color: red;
     border-style: solid;
-    border-radius: 10px;
+    border-top-left-radius : 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     justify-content: center;
     text-align: center;
     margin-bottom: 50px;
