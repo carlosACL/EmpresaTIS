@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from "react";
-import MensajeAlerta from "./RegistroGE/MensajeAlerta";
-import IconoAtras from "./Svg/IconoAtras";
-import IconoEditar from "./Svg/IconoEditar";
-import IconoGuardar from "./Svg/IconoGuardar";
+import MensajeAlerta from "../RegistroGE/MensajeAlerta";
+import IconoAtras from "../Svg/IconoAtras";
+import IconoEditar from "../Svg/IconoEditar";
+import IconoGuardar from "../Svg/IconoGuardar";
 
 const PerfilUsuario = () => {
 
