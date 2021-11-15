@@ -50,3 +50,6 @@ Route::post('eliminarInvitacion', [RegistroGEController::class, 'eliminarInvitac
 Route::post('obtenerGrupoEmpresas', [RegistroGEController::class, 'obtenerGrupoEmpresas']);
 
 Route::post('actualizarUsuario', [UserController::class, 'actualizarUsuario']);
+Route::post('obtenerInvitaciones',[PerfilUsuarioController::class, 'obtenerInvitaciones']);
+Route::post('aceptarInvitacion',[PerfilUsuarioController::class, 'aceptarInvitacion']);
+Route::post('rechazarInvitacion',[PerfilUsuarioController::class, 'rechazarInvitacion']);

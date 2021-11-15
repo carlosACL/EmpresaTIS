@@ -33,5 +33,6 @@
         
 <script>
     const idUsuario = '<?= $id?>';
+    const idGE = '<?= $idGE?>';
 </script>
 @endsection

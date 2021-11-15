@@ -20,7 +20,7 @@ import EditarGE from './components/EditarGE';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
-import PerfilUsuario from './components/perfilUsuario';
+import PerfilUsuario from './components/DatosPerfilUsuario/perfilUsuario';
 import Navegador from './components/Navegador';
 import Login from './components/Login';
 import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
@@ -28,6 +28,7 @@ import TabGE from './components/TabGE';
 import Footer from './components/Footer';
 import GrupoEmpresas from './components/GrupoEmpresas';
 import RegistroUsuario from './components/RegistroUsuario';
+import TabPerfil from './components/DatosPerfilUsuario/TabPerfil';
 //import Login from "./components/Login/Login"
 
 /*
@@ -63,7 +64,7 @@ if (document.getElementById('editGE')) {
 
 if(document.getElementById('perfil')){
     ReactDOM.render(<div >
-                        <PerfilUsuario />
+                        <TabPerfil />
                   </div>
         ,document.getElementById('perfil'));
 }
