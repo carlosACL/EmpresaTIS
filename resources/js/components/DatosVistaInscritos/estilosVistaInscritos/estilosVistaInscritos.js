@@ -12,6 +12,7 @@ const ContTabla = styled.div`
 const ContTabla2 = styled.div`
     width: 100%;
     height: 300px;
+    overflow-y: auto;
 `;
 
 const TBody = styled.tbody`
@@ -19,6 +20,7 @@ const TBody = styled.tbody`
 `;
 
 const TItem = styled.tr`
+    height: 55px;
     &:nth-child(even){
         background-color: rgb(${colorPrimary.r},${colorPrimary.g},${colorPrimary.b});
     }

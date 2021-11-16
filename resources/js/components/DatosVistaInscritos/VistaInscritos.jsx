@@ -24,9 +24,7 @@ const VistaInscritos = () => {
         .then((datosUsuarios) => {
            setUsuarios(datosUsuarios);
            const infoUsuario = datosUsuarios.filter(dato => dato.idUsuario == idUser);
-           console.log(infoUsuario)
-           const lider = infoUsuario[0].idUsuario === String(infoUsuario[0].duenio);
-           console.log(lider);
+           const lider = infoUsuario[0].idUsuario == infoUsuario[0].duenio;
            setDuenioEmp(lider);
         })
     }, [])
@@ -39,7 +37,7 @@ const VistaInscritos = () => {
             </div>
             
             <ContTabla2>
-                <Tabla style={{width: '100%', height: '100%'}}>
+                <Tabla style={{width: '100%', height: 'auto'}}>
                     <THead>
                         <tr>
                             <th>Id</th>
@@ -60,7 +58,9 @@ const VistaInscritos = () => {
                                         : (<td>Sin Grupo Empresa</td>)
                                     }
                                     {
-                                        (grupoEmp != null && grupoEmp != '' && duenioEmp == true)? (
+                                        (grupoEmp != null && grupoEmp != '' 
+                                        && duenioEmp == true && usuario.nombre == null
+                                        && usuario.idUsuario != sessionStorage.getItem('id'))? (
                                             <td style={{padding: '10px'}}>
                                                 <BotonInvitar 
                                                     usuario={ usuario.idUsuario }
