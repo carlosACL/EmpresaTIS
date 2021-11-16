@@ -23,12 +23,17 @@ import {Fondo} from './elementos/card';
 import PerfilUsuario from './components/DatosPerfilUsuario/perfilUsuario';
 import Navegador from './components/Navegador';
 import Login from './components/Login';
+<<<<<<< HEAD
 import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
 import TabGE from './components/TabGE';
 import Footer from './components/Footer';
 import GrupoEmpresas from './components/GrupoEmpresas';
 import RegistroUsuario from './components/RegistroUsuario';
 import TabPerfil from './components/DatosPerfilUsuario/TabPerfil';
+=======
+import FundaEmpresa from './components/tablaGE';
+import EspacioGeneral from './components/EspacioGeneral';
+>>>>>>> carlos
 //import Login from "./components/Login/Login"
 
 /*
@@ -79,6 +84,7 @@ if(document.getElementById('login')){
                   </div>
         ,document.getElementById('login'));
 }
+<<<<<<< HEAD
 
 if(document.getElementById('vistaGE')){
     ReactDOM.render(<>
@@ -96,4 +102,17 @@ if(document.getElementById('ge')){
 
 if(document.getElementById('registroU')){
     ReactDOM.render(<RegistroUsuario/>,document.getElementById('registroU'));
+=======
+if(document.getElementById('fundaempresa')){
+    ReactDOM.render(<div >
+                        <FundaEmpresa />
+                  </div>
+        ,document.getElementById('fundaempresa'));
+}
+if(document.getElementById('espaciogeneral')){
+    ReactDOM.render(<div >
+                        <EspacioGeneral />
+                  </div>
+        ,document.getElementById('espaciogeneral'));
+>>>>>>> carlos
 }

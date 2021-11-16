@@ -29,6 +29,7 @@ Route::post('actualizarPerfil',[EditarPerfilController::class ,'modificarDatos']
 
 Route::post('nombreGE', [RegistroGEController::class, 'verificarNombre']);
 Route::post('registrarGrupoEmpresa', [RegistroGEController::class, 'RegistrarGrupoEmpresa'])->name('rgep');
+<<<<<<< HEAD
 
 Route::post('crearSession', [UserController::class, 'createSession']);
 Route::post('eliminarSession', [UserController::class, 'dropSession']);
@@ -53,3 +54,7 @@ Route::post('actualizarUsuario', [UserController::class, 'actualizarUsuario']);
 Route::post('obtenerInvitaciones',[PerfilUsuarioController::class, 'obtenerInvitaciones']);
 Route::post('aceptarInvitacion',[PerfilUsuarioController::class, 'aceptarInvitacion']);
 Route::post('rechazarInvitacion',[PerfilUsuarioController::class, 'rechazarInvitacion']);
+=======
+Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');
+Route::get('datosFundaEmpresa', [UserController::class,'obtenerDatos']);
+>>>>>>> carlos
