@@ -390,12 +390,12 @@ main{
     box-shadow: 5px 5px 5px;
 }
 
-#tarjeta-datos input[type="text"]:invalid, input[type="password"]:invalid {
+#tarjeta-datos input[type="text"]:invalid, #tarjeta-datos input[type="password"]:invalid {
     transition: 0.3s ease all;
     border-bottom-color: red !important;
 }
 
-#tarjeta-datos input[type="text"]:valid, input[type="password"]:valid{
+#tarjeta-datos input[type="text"]:valid, #tarjeta-datos input[type="password"]:valid{
     transition: 0.3s ease all;
     border-bottom-color: #6aff00 !important;
 }
