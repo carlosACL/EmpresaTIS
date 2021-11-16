@@ -59,10 +59,31 @@ export default function Accordion() {
             
                 <p margin-left = '0px' aria-hidden={toggle ? "true" : "false"}>
                     <div border="1px solid #71caac"> 
-                        <p>ASASDSADASDASD</p>
+                        <p>Aqui se introduce los anuncios</p>
                         <button>Agregar</button>
                     </div>
                 </p>
+            </div>
+
+            <button 
+            onClick={toggleState}
+            className="accordion-visible">
+                <span>DOCUMENTACION</span>
+                <img 
+                className={toggle && "active"}
+                src={Chevron} />
+            </button>
+            
+            <div 
+            className={toggle ? "accordion-toggle animated" : "accordion-toggle"}
+            style={{height: toggle ? `${heightEl}` : "0px"}}
+            ref={refHeight}
+            >   
+                <div border="1px solid #71caac"> 
+                        <p>Aqui se introduce los Documentos</p>
+                        <button>Agregar</button>
+                    </div>
+                
             </div>
         </div>
     )
