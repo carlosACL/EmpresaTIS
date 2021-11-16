@@ -15,7 +15,6 @@ const VistaInscritos = () => {
         const idUser = sessionStorage.getItem('id');
         const datoID = new FormData();
         datoID.append('idUsuario',idUser);
-
         fetch('api/getUsuariosMismoGrupo',{
             method: 'POST',
             body: datoID
@@ -25,7 +24,7 @@ const VistaInscritos = () => {
            setUsuarios(datosUsuarios);
            const infoUsuario = datosUsuarios.filter(dato => dato.idUsuario == idUser);
            console.log(infoUsuario)
-           const lider = infoUsuario[0].idUsuario === String(infoUsuario[0].duenio);
+           const lider = infoUsuario[0].idUsuario == String(infoUsuario[0].duenio);
            console.log(lider);
            setDuenioEmp(lider);
         })
