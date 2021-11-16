@@ -4,7 +4,7 @@ import { ItemNavI, IconNav, LabelNav, IconNavI } from '../../elementos/navegador
 import { faUserCircle,faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import BotonSession from './botonSession';
 import { iniciarSession, registrarse, opcionesUsuario } from '../../parametros/menus';
-import { getNombre } from '../../session';
+import { getNombre } from '../../parametros/session';
 const Session = () => {
     
     const [sessionNombre, setSessionNombre] = useState(null);

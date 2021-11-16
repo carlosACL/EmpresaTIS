@@ -10,7 +10,7 @@ import InputImg from './RegistroGE/InputImg';
 import Fecha from './RegistroGE/Fecha';
 import OrganizacionJ from './RegistroGE/OrganizacionJ';
 import TextArea from './RegistroGE/TextArea';
-import { isSessionActive } from '../session';
+
 
 
 const RegistroGE = () => {

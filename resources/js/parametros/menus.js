@@ -4,7 +4,7 @@ faAddressCard,
 faBriefcase,
 faPowerOff,
 faClipboard} from '@fortawesome/free-solid-svg-icons'
-import { cerrarSession } from '../session';
+import { cerrarSession } from './session';
 
 const opcionesUsuario = [{
     link :'Socio-'+sessionStorage.getItem('id'), 
