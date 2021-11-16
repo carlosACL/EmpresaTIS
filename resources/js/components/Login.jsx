@@ -68,11 +68,7 @@ const Login = () => {
                             </div>
 
                             <div className="link-login">
-                                <a href="#">Registrarse</a>
-                            </div>
-
-                            <div className="link-login">
-                                <a href="#">¿No puedes iniciar sesión?</a>
+                                <a href="/RegistroDeUsuario">Registrarse</a>
                             </div>
                         </div>     
                     </form>  

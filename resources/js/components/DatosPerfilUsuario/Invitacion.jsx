@@ -14,7 +14,7 @@ const Invitacion = ({idInv, nombreGE, logo, descripcion, rechazar, aceptar, invi
                 <ImagenLogo src={ logoGE }/>
             </CajaImagen>
             <CajaTexto>
-                <p>{nombreGE}</p>
+                <h3>{nombreGE}</h3>
                 <p>{descripcion}</p>
             </CajaTexto>
             <CajaBotones>
