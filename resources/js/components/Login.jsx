@@ -9,19 +9,6 @@ const Login = () => {
     const refPass = useRef(null);
     const [datos, setDatos] = useState(null);
 
-    const createSession = (id) => {
-        const data = new FormData();
-        data.append('idUser', id);
-        fetch('api/crearSession', {
-            method: 'POST',
-            body:data
-        }).then((response) => response.json()).then( (json) => {
-            sessionStorage.setItem('token',json.token);
-            sessionStorage.setItem('id', id);
-            sessionStorage.setItem('ge', json.nombre);
-        });
-    }
-
     useEffect(() => {
         fetch('/api/usuarios',{
             method: 'POST',
@@ -49,7 +36,16 @@ const Login = () => {
         e.preventDefault();
         const id = obtenerID();
         if (id !== "-1") {
-            createSession(id);
+            const data = new FormData();
+            data.append('idUser', id);
+            fetch('api/crearSession', {
+                method: 'POST',
+                body:data
+            }).then((response) => response.json()).then( (json) => {
+                sessionStorage.setItem('token',json.token);
+                sessionStorage.setItem('id', id);
+                sessionStorage.setItem('ge', json.nombre);
+            });
             location.replace('/');
         } else {
             alert("Usuario o contrasenia erronea");
