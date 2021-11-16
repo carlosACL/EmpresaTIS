@@ -16641,6 +16641,12 @@ var opcionesUsuario = [{
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faAddressCard,
   onClick: null
 }, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
+  onClick: null
+}, {
   link: "#",
   name: 'espacioTrabajo',
   contenido: 'Mi Espacio de trabajo',
