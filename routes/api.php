@@ -54,7 +54,7 @@ Route::post('actualizarUsuario', [UserController::class, 'actualizarUsuario']);
 Route::post('obtenerInvitaciones',[PerfilUsuarioController::class, 'obtenerInvitaciones']);
 Route::post('aceptarInvitacion',[PerfilUsuarioController::class, 'aceptarInvitacion']);
 Route::post('rechazarInvitacion',[PerfilUsuarioController::class, 'rechazarInvitacion']);
-Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');
+Route::post('import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');
 Route::get('datosFundaEmpresa', [UserController::class,'obtenerDatos']);
 
 Route::post('getUsuariosMismoGrupo',[VistaInscritosController::class, 'getUsuariosMismoGrupo']);

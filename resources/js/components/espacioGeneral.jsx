@@ -9,13 +9,12 @@ const EspacioGeneral = () => {
 
     return(
         <main>
-            <div id='tarjeta-datos'>
+            <Card>
                     <div id="cont-label-logo">
                         <label id="label-login-logo">ESPACIO GENERAL</label>
                     </div>
-                    
-                    <Accordion />
-            </div>  
+                    <Accordion/>
+            </Card>  
             
         </main>
     );
