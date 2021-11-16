@@ -3,12 +3,24 @@ import { create, toInteger } from 'lodash';
 import React, { useRef, useEffect, useState } from 'react';
 import { Boton, InputStyle } from '../elementos/registro';
 import { iniciarSession } from '../parametros/menus';
-import { createSession } from '../parametros/session';
 
 const Login = () => {       
     const refUser = useRef(null);
     const refPass = useRef(null);
     const [datos, setDatos] = useState(null);
+
+    const createSession = async(id) => {
+        const data = new FormData();
+        data.append('idUser', id);
+        await fetch('api/crearSession', {
+            method: 'POST',
+            body:data
+        }).then((response) => response.json()).then( (json) => {
+            sessionStorage.setItem('token',json.token);
+            sessionStorage.setItem('id', id);
+            sessionStorage.setItem('ge', json.nombre);
+        });
+    }
 
     useEffect(() => {
         fetch('/api/usuarios',{
