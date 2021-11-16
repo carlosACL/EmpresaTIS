@@ -23,6 +23,7 @@ import PerfilUsuario from './components/perfilUsuario';
 import Navegador from './components/Navegador';
 import Login from './components/Login';
 import FundaEmpresa from './components/tablaGE';
+import EspacioGeneral from './components/EspacioGeneral';
 //import Login from "./components/Login/Login"
 
 /*
@@ -69,4 +70,10 @@ if(document.getElementById('fundaempresa')){
                         <FundaEmpresa />
                   </div>
         ,document.getElementById('fundaempresa'));
+}
+if(document.getElementById('espaciogeneral')){
+    ReactDOM.render(<div >
+                        <EspacioGeneral />
+                  </div>
+        ,document.getElementById('espaciogeneral'));
 }

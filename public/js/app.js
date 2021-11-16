@@ -10677,7 +10677,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Navegador__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Navegador */ "./resources/js/components/Navegador.jsx");
 /* harmony import */ var _components_Login__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Login */ "./resources/js/components/Login.jsx");
 /* harmony import */ var _components_tablaGE__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/tablaGE */ "./resources/js/components/tablaGE.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_EspacioGeneral__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/EspacioGeneral */ "./resources/js/components/EspacioGeneral.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -10700,6 +10701,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  //import Login from "./components/Login/Login"
 
 /*
@@ -10713,8 +10715,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 if (document.getElementById('fondo')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_5__.Fondo, {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_5__.Fondo, {
       src: "./resources/asesoria-cont-financ_001.png"
     })
   }), document.getElementById('fondo'));
@@ -10723,32 +10725,194 @@ if (document.getElementById('fondo')) {
 ;
 
 if (document.getElementById('regGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
   }), document.getElementById('regGE'));
 }
 
 if (document.getElementById('perfil')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_perfilUsuario__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_perfilUsuario__WEBPACK_IMPORTED_MODULE_6__["default"], {})
   }), document.getElementById('perfil'));
 }
 
 if (document.getElementById('navegador')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Navegador__WEBPACK_IMPORTED_MODULE_7__["default"], {}), document.getElementById('navegador'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Navegador__WEBPACK_IMPORTED_MODULE_7__["default"], {}), document.getElementById('navegador'));
 }
 
 if (document.getElementById('login')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Login__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Login__WEBPACK_IMPORTED_MODULE_8__["default"], {})
   }), document.getElementById('login'));
 }
 
 if (document.getElementById('fundaempresa')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_tablaGE__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_tablaGE__WEBPACK_IMPORTED_MODULE_9__["default"], {})
   }), document.getElementById('fundaempresa'));
 }
+
+if (document.getElementById('espaciogeneral')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_EspacioGeneral__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+  }), document.getElementById('espaciogeneral'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Acordeon/Accordion.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/Acordeon/Accordion.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Accordion)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Accordion_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Accordion.css */ "./resources/js/components/Acordeon/Accordion.css");
+/* harmony import */ var _chevron_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chevron.svg */ "./resources/js/components/Acordeon/chevron.svg");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+function Accordion() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      toggle = _useState2[0],
+      setToggle = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      heightEl = _useState4[0],
+      setHeightEl = _useState4[1];
+
+  var refHeight = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log(refHeight);
+    setHeightEl("".concat(refHeight.current.scrollHeight, "px"));
+  }, []);
+
+  var toggleState = function toggleState() {
+    setToggle(!toggle);
+  };
+
+  console.log(toggle);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "accordion",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+      onClick: toggleState,
+      className: "accordion-visible",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        children: "DESCRIPCION"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        className: toggle && "active",
+        src: _chevron_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: toggle ? "accordion-toggle animated" : "accordion-toggle",
+      style: {
+        height: toggle ? "".concat(heightEl) : "0px"
+      },
+      ref: refHeight,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        "aria-hidden": toggle ? "true" : "false",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+          name: "mensaje",
+          placeholder: "Ingresa una Descripcion de la empresa TIS",
+          maxlength: "140"
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+      onClick: toggleState,
+      className: "accordion-visible",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        children: "ANUNCIOS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        className: toggle && "active",
+        src: _chevron_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: toggle ? "accordion-toggle animated" : "accordion-toggle",
+      style: {
+        height: toggle ? "".concat(heightEl) : "0px"
+      },
+      ref: refHeight,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        "margin-left": "0px",
+        "aria-hidden": toggle ? "true" : "false",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          border: "1px solid #71caac",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            children: "ASASDSADASDASD"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            children: "Agregar"
+          })]
+        })
+      })
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/EspacioGeneral.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/EspacioGeneral.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../elementos/card */ "./resources/js/elementos/card.js");
+/* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../elementos/registro */ "./resources/js/elementos/registro.js");
+/* harmony import */ var _elementos_tabla__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../elementos/tabla */ "./resources/js/elementos/tabla.js");
+/* harmony import */ var _Acordeon_Accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Acordeon/Accordion */ "./resources/js/components/Acordeon/Accordion.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+var EspacioGeneral = function EspacioGeneral() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("main", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      id: "tarjeta-datos",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        id: "cont-label-logo",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+          id: "label-login-logo",
+          children: "ESPACIO GENERAL"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Acordeon_Accordion__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EspacioGeneral);
 
 /***/ }),
 
@@ -12433,7 +12597,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Nav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 0;\n    position: fixed;\n    display:flex;\n    min-width: 403px;\n    min-height: 60px;\n    max-height: 60px;\n    background-color: rgb(", ", ", ", ", ");\n<<<<<<< HEAD\n    z-index: 100;\n=======\n\n    @media (max-width: 991px){\n        max-height: 800px;\n        position: relative;\n    }\n>>>>>>> main\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var Nav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 0;\n    position: fixed;\n    display:flex;\n    min-width: 403px;\n    min-height: 60px;\n    max-height: 60px;\n    background-color: rgb(", ", ", ", ", ");\n\n    @media (max-width: 991px){\n        max-height: 800px;\n        position: relative;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 150px;\n    height: 25px;\n    object-fit: cover;\n"])));
 var ItemNav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    border-radius: 5px;\n    text-decoration: none;\n    transition: .3s ease all;\n\n    a{\n        color : rgb(", " , ", ", ", ");\n    }\n\n    &:hover{\n        background-color: rgb(", " , ", ", ", ");\n        a {\n            color: rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var ItemNavI = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    border-radius: 5px;\n    text-decoration: none;\n    transition: .3s ease all;\n    background-color: rgb(", " , ", ", ", ");\n    a {\n        color: rgb(", ", ", ", ", ");\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
@@ -12693,6 +12857,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "body{\r\n    background-color: rgb(0 ,
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Acordeon/Accordion.css":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Acordeon/Accordion.css ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".accordion {\r\n    max-width: 400px;\r\n    margin: 100px auto 0;\r\n    border-radius: 3px;\r\n    background: #f1f1f1;\r\n}\r\n\r\n.accordion-visible {\r\n    background: #71caac;\r\n    width: 100%;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    border: 1px solid #ffffff;;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 7px 15px;\r\n    border-top-left-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\n.accordion-visible span {\r\n    padding: 15px 0;\r\n    font-size: 20px;\r\n}\r\n.accordion-visible img {\r\n    width: 20px;\r\n    transform: rotate(-90deg);\r\n    transition: transform 0.2s ease-in-out;\r\n}\r\n.accordion-visible img.active {\r\n    transform: rotate(0deg)\r\n}\r\n\r\n.accordion-visible h2 {\r\n    font-size: 20px;\r\n}\r\n\r\n.accordion-toggle {\r\n    height: 0px;\r\n    font-size: 18px;\r\n    opacity: 0;\r\n    transition:  \r\n    opacity 0.3s ease-in-out,\r\n    height 0.3s 0.3s ease-in-out;\r\n    color: #333;\r\n    border-bottom-left-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\n\r\n.animated {\r\n    opacity: 1;\r\n    transition:  \r\n    height 0.3s ease-in-out,\r\n    opacity 0.3s 0.3s ease-in-out;\r\n}\r\n\r\n.accordion-toggle p {\r\n    margin: 0;\r\n    padding: 22px 15px;\r\n    pointer-events: none;\r\n    line-height: 1.3;\r\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -12766,6 +12954,21 @@ module.exports = function (cssWithMappingToString) {
 
   return list;
 };
+
+/***/ }),
+
+/***/ "./resources/js/components/Acordeon/chevron.svg":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Acordeon/chevron.svg ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/chevron.svg?247ef60abea78917149309110cf5adb5");
 
 /***/ }),
 
@@ -45703,6 +45906,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_app_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/Acordeon/Accordion.css":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Acordeon/Accordion.css ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Accordion_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./Accordion.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Acordeon/Accordion.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Accordion_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Accordion_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

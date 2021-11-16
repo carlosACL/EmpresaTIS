@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EspacioGeneralController;
 use App\Http\Controllers\FundaEmpresaController;
 use App\Http\Controllers\RegistroGEController;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,4 @@ Route::get('/Login', [LoginController::class, 'vistaLogin']);
 
 Route::get('/FundaEmpresa', [FundaEmpresaController::class, 'vistaFundaEmpresa']);
 Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');
+Route::get('/EspacioGeneral', [EspacioGeneralController::class, 'vistaEspacioGeneral']);

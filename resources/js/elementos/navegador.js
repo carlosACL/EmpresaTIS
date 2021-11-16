@@ -12,15 +12,11 @@ const Nav =  styled.nav`
     min-height: 60px;
     max-height: 60px;
     background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
-<<<<<<< HEAD
-    z-index: 100;
-=======
 
     @media (max-width: 991px){
         max-height: 800px;
         position: relative;
     }
->>>>>>> main
 `;
 
 const Img = styled.img`
