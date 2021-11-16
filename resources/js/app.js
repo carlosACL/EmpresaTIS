@@ -97,16 +97,16 @@ if(document.getElementById('ge')){
 }
 
 if(document.getElementById('registroU')){
-    ReactDOM.render(<RegistroUsuario/>,document.getElementById('registroU'));
+    ReactDOM.render(<RegistroUsuario/>,document.getElementById('registroU'));}
 if(document.getElementById('fundaempresa')){
     ReactDOM.render(<div >
                         <FundaEmpresa />
                   </div>
         ,document.getElementById('fundaempresa'));
 }
-if(document.getElementById('fundaempresa')){
+if(document.getElementById('espaciogeneral')){
     ReactDOM.render(<div >
-                        <FundaEmpresa />
+                        <EspacioGeneral />
                   </div>
-        ,document.getElementById('fundaempresa'));
+        ,document.getElementById('espaciogeneral'));
 }
