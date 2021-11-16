@@ -45,7 +45,7 @@ const Login = () => {
                 sessionStorage.setItem('token',json.token);
                 sessionStorage.setItem('id', id);
                 sessionStorage.setItem('ge', json.nombre);
-                location.replace('/');
+                //location.replace('/');
             });
         } else {
             alert("Usuario o contrasenia erronea");
