@@ -30,7 +30,6 @@ Route::get('/Socio-{id}', [PerfilUsuarioController::class, 'show']);
 Route::get('/RegistroGE',[RegistroGEController::class, 'vistaRegistroGE'])->name('registroGE');
 
 
-<<<<<<< HEAD
 Route::get('/EditarGE',[EditarGEController::class, 'index']);
 Route::get('/EditarGE-{nombre}',[EditarGEController::class, 'index_view']);
 
@@ -41,11 +40,9 @@ Route::get('/GrupoEmpresas', [RegistroGEController::class, 'viewGrupoEmpresas'])
 
 
 Route::get('/RegistroDeUsuario', [UserController::class, 'crearUsuario']);
-=======
 Route::get('/Login', [LoginController::class, 'vistaLogin']);
 
 
 Route::get('/FundaEmpresa', [FundaEmpresaController::class, 'vistaFundaEmpresa']);
 Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');
 Route::get('/EspacioGeneral', [EspacioGeneralController::class, 'vistaEspacioGeneral']);
->>>>>>> carlos
