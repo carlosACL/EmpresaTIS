@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VistaInscritosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,5 @@ Route::post('aceptarInvitacion',[PerfilUsuarioController::class, 'aceptarInvitac
 Route::post('rechazarInvitacion',[PerfilUsuarioController::class, 'rechazarInvitacion']);
 Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');
 Route::get('datosFundaEmpresa', [UserController::class,'obtenerDatos']);
+
+Route::post('getUsuariosMismoGrupo',[VistaInscritosController::class, 'getUsuariosMismoGrupo']);

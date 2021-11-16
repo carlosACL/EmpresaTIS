@@ -19,7 +19,7 @@ const Invitacion = ({idInv, nombreGE, logo, descripcion, rechazar, aceptar, invi
             </CajaTexto>
             <CajaBotones>
                 <Aceptar 
-                    onClick={() => {aceptar(idInv,invitaciones,setInvitaciones)}} 
+                    onClick={() => {aceptar(idInv,invitaciones,setInvitaciones,nombreGE)}} 
                     icon={faCheckCircle} />
                 <Quitar
                     onClick={() => {rechazar(idInv,invitaciones,setInvitaciones)}} 

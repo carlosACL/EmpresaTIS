@@ -41,7 +41,7 @@ const InvitacionesPerfil = () => {
         })
     }
 
-    const aceptar = (idInv, pend, setPend) => {
+    const aceptar = (idInv, pend, setPend, nombreGE) => {
         const data = new FormData();
         data.append('idInv', idInv);
         fetch('api/aceptarInvitacion', {
@@ -50,14 +50,15 @@ const InvitacionesPerfil = () => {
         }).then((response) => {
             if(response.ok){
                 const nuevo = pend.filter((dat) => dat.idInvitacion != idInv);
+                sessionStorage.setItem('ge',nombreGE);
                 if(nuevo.length>0){
                     setPend(nuevo);
                 } else {
                     setPend(null);
                 }
-              } else {    
+            } else {    
                 alert("error, vuelva a intentarlo luego");
-              }
+            }
         })
         location.reload();
     }
