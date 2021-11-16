@@ -13,8 +13,7 @@ const EspacioGeneral = () => {
                     <div id="cont-label-logo">
                         <label id="label-login-logo">ESPACIO GENERAL</label>
                     </div>
-                    
-                    <Accordion />
+                    <Accordion/>
             </Card>  
             
         </main>
