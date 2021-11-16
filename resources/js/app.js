@@ -29,6 +29,7 @@ import Footer from './components/Footer';
 import GrupoEmpresas from './components/GrupoEmpresas';
 import RegistroUsuario from './components/RegistroUsuario';
 import TabPerfil from './components/DatosPerfilUsuario/TabPerfil';
+import VistaInscritos from './components/DatosVistaInscritos/VistaInscritos';
 //import Login from "./components/Login/Login"
 
 /*
@@ -96,4 +97,8 @@ if(document.getElementById('ge')){
 
 if(document.getElementById('registroU')){
     ReactDOM.render(<RegistroUsuario/>,document.getElementById('registroU'));
+}
+
+if(document.getElementById('vistaInscritos')){
+    ReactDOM.render(<VistaInscritos/>,document.getElementById('vistaInscritos'));
 }

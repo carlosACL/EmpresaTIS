@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VistaInscritosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,5 @@ Route::post('actualizarUsuario', [UserController::class, 'actualizarUsuario']);
 Route::post('obtenerInvitaciones',[PerfilUsuarioController::class, 'obtenerInvitaciones']);
 Route::post('aceptarInvitacion',[PerfilUsuarioController::class, 'aceptarInvitacion']);
 Route::post('rechazarInvitacion',[PerfilUsuarioController::class, 'rechazarInvitacion']);
+
+Route::post('getUsuariosMismoGrupo',[VistaInscritosController::class, 'getUsuariosMismoGrupo']);

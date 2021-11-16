@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VistaInscritosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::get('/GrupoEmpresas', [RegistroGEController::class, 'viewGrupoEmpresas'])
 
 
 Route::get('/RegistroDeUsuario', [UserController::class, 'crearUsuario']);
+
+Route::get('/Inscritos', [VistaInscritosController::class, 'index']);
