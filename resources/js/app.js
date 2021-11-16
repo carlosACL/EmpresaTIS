@@ -113,7 +113,7 @@ if(document.getElementById('espaciogeneral')){
                         <EspacioGeneral />
                   </div>
         ,document.getElementById('espaciogeneral'));
-    ReactDOM.render(<RegistroUsuario/>,document.getElementById('registroU'));
+    
 }
 
 if(document.getElementById('vistaInscritos')){

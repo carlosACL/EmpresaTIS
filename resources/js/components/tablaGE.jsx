@@ -8,7 +8,7 @@ const FundaEmpresa = () => {
 
     return(
         <main>
-            <div id='tarjeta-datos'>
+            <Card>
                     <div id="cont-label-logo">
                         <label id="label-login-logo">GRUPO-EMPRESAS REGISTRADAS</label>
                     </div>
@@ -17,7 +17,7 @@ const FundaEmpresa = () => {
                             <Boton id='botonSub' type='submit'>Subir</Boton>
                         </form>
                     
-            </div>  
+            </Card>  
         </main>
     );
 
