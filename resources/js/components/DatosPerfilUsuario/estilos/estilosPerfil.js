@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { colorSecundary } from "../../../parametros/colores";
 
 const ContenedorInvi = styled.div`
-    background-color: snow;
     padding: 10px;
     margin: 20px;
     max-height: 500px;
@@ -11,11 +10,13 @@ const ContenedorInvi = styled.div`
 `;
 
 const CajaInvitacion = styled.div`
+    background-color: rgba(${colorSecundary.r},${colorSecundary.g},${colorSecundary.b}, 0.2);
     width: 100%;
-    margin: 10px auto;
+    margin: 0 auto 20px;
     display: grid;
     grid-template-columns: 0.5fr 2fr 1fr;
     border: 2px solid black;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
 `;
 
 const CajaTexto = styled.div`
@@ -41,8 +42,8 @@ const CajaImagen = styled.div`
 
 const CajaBotones = styled.div`
     width: 100%;
-    height: 50%;
-    padding: 10px;
+    height: 100%;
+    padding: 14px;
     margin: auto;
 `;
 
