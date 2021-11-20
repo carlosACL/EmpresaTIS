@@ -32,7 +32,7 @@ const InputImg = ({name, estado, cambiarEstado, funcValidar}) => {
                          onChange={onButtonClick} 
                          accept="image/jpeg,image/jpg,image/png" 
                          type='file'/>
-            {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado)}/>)}
+            {(estado) && (estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado)}/>)}
         </>);
 };
 

@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\EspacioGeneralController;
+use App\Http\Controllers\FundaEmpresaController;
 use App\Http\Controllers\RegistroGEController;
 use App\Http\Controllers\EditarGEController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VistaInscritosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +41,14 @@ Route::get('/Login', [LoginController::class, 'vistaLogin']);
 /* Route::get('/GE-{nombre}', [RegistroGEController::class, 'vistaGE']);
 Route::get('/GrupoEmpresas', [RegistroGEController::class, 'viewGrupoEmpresas']); */
 Route::get('/Dudas', [ComentarioController::class, 'index_view']);
+Route::get('/GE-{nombre}', [RegistroGEController::class, 'vistaGE']);
+Route::get('/GrupoEmpresas', [RegistroGEController::class, 'viewGrupoEmpresas']);
+
+
+Route::get('/RegistroDeUsuario', [UserController::class, 'crearUsuario']);
+
+Route::get('/FundaEmpresa', [FundaEmpresaController::class, 'vistaFundaEmpresa']);
+Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] )   ->name ('users.import.excel');
+Route::get('/EspacioGeneral', [EspacioGeneralController::class, 'vistaEspacioGeneral']);
+
+Route::get('/Inscritos', [VistaInscritosController::class, 'index']);

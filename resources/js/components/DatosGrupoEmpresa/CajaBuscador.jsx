@@ -5,7 +5,7 @@ const CajaBuscador = ({nombre, imagen, evento, setValor}) => {
     return (
         <>
             <Caja onClick = { () => evento(setValor, nombre) }>
-                <ImagenPerfil src={(imagen) ? imagen:"./resources/perfilDefecto.png"}/>
+                <ImagenPerfil src={(imagen) ? "./resources/socios/"+imagen:"./resources/perfilDefecto.png"}/>
                 <label className=' ml-3'>{nombre}</label>
             </Caja>
         </>

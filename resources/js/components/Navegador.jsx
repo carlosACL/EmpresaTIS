@@ -8,6 +8,8 @@ import { datosNavegador } from '../parametros/menus';
 
 const Navegador = () => {
 
+    const session = sessionStorage.getItem('id');
+  
     return (
         <>
             <Nav className = 'navbar navbar-expand-lg'>
@@ -21,6 +23,11 @@ const Navegador = () => {
                 <div id='navegadorResp' className = "collapse navbar-collapse">  
                     <ul className="navbar-nav">      
                         {datosNavegador.map((dato) => (<li className="nav-item"><ItemNavegador className='nav-item active' link={dato.link} nombre = {dato.nombre}/></li>))}
+                        {
+                            (session != null) && (
+                                <li className="nav-item"><ItemNavegador className='nav-item active' link='/Inscritos' nombre = 'Inscritos en la Materia' /></li>
+                            )
+                        }
                     </ul>
                 </div>
                 <Session className=' text-lg-right'></Session>   

@@ -2,7 +2,8 @@ import {faUser,
 faUsers,
 faAddressCard,
 faBriefcase,
-faPowerOff} from '@fortawesome/free-solid-svg-icons'
+faPowerOff,
+faClipboard} from '@fortawesome/free-solid-svg-icons'
 import { cerrarSession } from '../session';
 
 const opcionesUsuario = [{
@@ -24,6 +25,12 @@ const opcionesUsuario = [{
     img:faAddressCard,
     onClick: null
 },{
+    link : "FundaEmpresa", 
+    name:'', 
+    contenido:'Funda-Empresa', 
+    img:faClipboard,
+    onClick: null
+},{
     link : "#", 
     name:'espacioTrabajo', 
     contenido:'Mi Espacio de trabajo', 
@@ -39,7 +46,7 @@ const opcionesUsuario = [{
 
 const registrarse = {
     nombre:'Registrarse',
-    link:'#'
+    link:'RegistroDeUsuario'
 }
 
 const iniciarSession = {

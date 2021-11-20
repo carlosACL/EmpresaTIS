@@ -1,6 +1,6 @@
 import { useEffect} from 'react'
 import Socio from './socio'
-import { ContenedorDatos } from '../../elementos/registro'
+import { ContenedorItems } from '../../elementos/socios'
 
 const Pendientes = ({pendientes, setPendientes}) => {
 
@@ -45,7 +45,7 @@ const Pendientes = ({pendientes, setPendientes}) => {
         {(pendientes) && (
         <>
             <h1 className= ' mb-5'>Pendientes</h1>
-            <ContenedorDatos>
+            <ContenedorItems>
                 {pendientes.map((dato) => (<Socio id = { dato.idInvitacion }
                                             nombre = { dato.nombreC }
                                             imagen = { dato.foto_perfil }
@@ -53,7 +53,7 @@ const Pendientes = ({pendientes, setPendientes}) => {
                                             coleccion = { pendientes }
                                             quitar = { quitar }
                                             setColeccion = { setPendientes }/>))}  
-            </ContenedorDatos></>)}
+            </ContenedorItems></>)}
         </>
     )
 }

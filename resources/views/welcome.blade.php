@@ -1,7 +1,7 @@
 @extends('templates.plantillaprincipal')
 
 @section('titulo')
-    Inicio de Session
+    EspacioGeneral
 @endsection
 
 @section('script')
@@ -29,5 +29,5 @@
 @endsection
 
 @section('contenido')
-    <div id=''></div>
+    <div id='espaciogeneral'></div>
 @endsection

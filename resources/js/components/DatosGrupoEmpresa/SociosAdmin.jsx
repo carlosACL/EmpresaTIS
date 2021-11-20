@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Socio from './socio'
-import { ContenedorDatos } from '../../elementos/registro'
+import { ContenedorItems } from '../../elementos/socios';
 
 const SociosAdmin = () => {
     const [socios, setSocios] = useState(null);
@@ -39,7 +39,7 @@ const SociosAdmin = () => {
     return (
         <div className=' text-center mt-5 mb-5'>
             <h1 className= ' mb-5'>Socios</h1>
-                <ContenedorDatos>
+                <ContenedorItems>
                     {(socios) && socios.map((dato) => {
                         return (<Socio id={dato.idUsuario} 
                                        nombre={ dato.nombreC } 
@@ -50,7 +50,7 @@ const SociosAdmin = () => {
                                        quitar={quitar}
                                        />)
                     })}
-                </ContenedorDatos>
+                </ContenedorItems>
         </div>
     )
 }

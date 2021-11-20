@@ -11,7 +11,7 @@ const Login = () => {
     const [datos, setDatos] = useState(null);
 
     useEffect(() => {
-        fetch('/api/socio',{
+        fetch('/api/usuarios',{
             method: 'POST',
             body: datos,
         })
@@ -68,11 +68,7 @@ const Login = () => {
                             </div>
 
                             <div className="link-login">
-                                <a href="#">Registrarse</a>
-                            </div>
-
-                            <div className="link-login">
-                                <a href="#">¿No puedes iniciar sesión?</a>
+                                <a href="/RegistroDeUsuario">Registrarse</a>
                             </div>
                         </div>     
                     </form>  

@@ -24,13 +24,18 @@ import PDF from './components/PDF';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
-import PerfilUsuario from './components/perfilUsuario';
+import PerfilUsuario from './components/DatosPerfilUsuario/perfilUsuario';
 import Navegador from './components/Navegador';
 import Login from './components/Login';
 import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
 import TabGE from './components/TabGE';
 import Footer from './components/Footer';
 import GrupoEmpresas from './components/GrupoEmpresas';
+import RegistroUsuario from './components/RegistroUsuario';
+import TabPerfil from './components/DatosPerfilUsuario/TabPerfil';
+import FundaEmpresa from './components/tablaGE';
+import EspacioGeneral from './components/EspacioGeneral';
+import VistaInscritos from './components/DatosVistaInscritos/VistaInscritos';
 //import Login from "./components/Login/Login"
 
 /*
@@ -80,7 +85,7 @@ if (document.getElementById('comentario')) {
 
 if(document.getElementById('perfil')){
     ReactDOM.render(<div >
-                        <PerfilUsuario />
+                        <TabPerfil />
                   </div>
         ,document.getElementById('perfil'));
 }
@@ -108,4 +113,27 @@ if(document.getElementById('footer')){
 
 if(document.getElementById('ge')){
     ReactDOM.render(<GrupoEmpresas/>,document.getElementById('ge'));
+}
+
+if(document.getElementById('registroU')){
+    ReactDOM.render(<RegistroUsuario/>,document.getElementById('registroU'));
+}
+
+if(document.getElementById('fundaempresa')){
+    ReactDOM.render(<div >
+                        <FundaEmpresa />
+                  </div>
+        ,document.getElementById('fundaempresa'));
+}
+
+if(document.getElementById('espaciogeneral')){
+    ReactDOM.render(<div >
+                        <EspacioGeneral />
+                  </div>
+        ,document.getElementById('espaciogeneral'));
+
+}
+
+if(document.getElementById('vistaInscritos')){
+    ReactDOM.render(<VistaInscritos/>,document.getElementById('vistaInscritos'));
 }
