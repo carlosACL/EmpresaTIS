@@ -15,8 +15,8 @@ class Usuario extends Migration
     {
         Schema::create('Usuario', function(Blueprint $table){
             $table->id('idUsuario')->autoIncrement();
-            $table->unsignedInteger('idGE')->nullable();
-            $table->foreign('idGE')->references('idGE')->on('Grupo_Empresa');
+            $table->Integer('idGE')->nullable();
+            $table->foreign('idGE')->references('idGE')->on('grupo_empresa');
             $table->string('nombreC');
             $table->string('email');
             $table->integer('telefono')->nullable();
@@ -25,9 +25,9 @@ class Usuario extends Migration
             $table->string('nombreUsuario')->nullable();
             $table->string('contrasenia')->nullable();
             $table->boolean('administrador')->default(false);
-            $table->unsignedInteger('idCarrera')->nullable();
+            $table->Integer('idCarrera')->nullable();
             $table->foreign('idCarrera')->references('idCarrera')->on('Carrera');
-            $table->unsignedInteger('idGrupo');
+            $table->Integer('idGrupo');
             $table->foreign('idGrupo')->references('idGrupo')->on('Grupo');
             $table->boolean('registrado')->default(false);
         });
