@@ -9,8 +9,6 @@ const ScrollDiv = styled.div`
         grid-template-columns: 1fr;
     }
 `;
-
-
 const Boton = styled.button`
     background-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
     border-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});

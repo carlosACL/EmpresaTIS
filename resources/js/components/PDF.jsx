@@ -116,57 +116,50 @@ const PDF = (props) => {
 
         <main>
             <Card id='cardItem'>
-                <form ref={formulario}
-                    id='formulario'
-                    onSubmit={onSubmit}
-                    className='formStyle'
-                    method='POST'
-                    encType="multipart/form-data">
 
-                    <div className="container border">
-                        {Datos.map((dato) => (
-                            <>
-                                <div className="row" id={dato.nombre} >
-                                    <div className="col-2">icono</div>
-                                    <div className="col-4">pdf titulo</div>
-                                    <div className="container col-6">
-                                        <div className="row">
-                                            <div className="col-6 border">
-                                                <button>Subir</button>
-                                            </div>
-                                            <div className="col-6 border">
-                                                <button onClick={onClick}>Mostrar</button>
-                                            </div>
+                <div className="container border">
+                    {Datos.map((dato) => (
+                        <>
+                            <div className="row" id={dato.nombre} >
+                                <div className="col-2">icono</div>
+                                <div className="col-4">pdf titulo</div>
+                                <div className="container col-6">
+                                    <div className="row">
+                                        <div className="col-6 border">
+                                            <button>Subir</button>
+                                        </div>
+                                        <div className="col-6 border">
+                                            <button onClick={onClick}>Mostrar</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-12">
-                                        <iframe src={dato.link} style={{display:"none"}}></iframe>
-                                    </div>
-
+                            </div>
+                            <div className="row">
+                                <div className="col-12">
+                                    <iframe src={dato.link} style={{ display: "none" }}></iframe>
                                 </div>
 
-                            </>
-                        ))}
-                        <div className="row">
-                            <div className="col-6">
-                                icono
-                            </div>
-                            <div className="col-6">
-                                <input
-                                    id="pdf"
-                                    name="pdf"
-                                    onSubmit={onButtonClick}
-                                    onChange={onButtonClick}
-                                    accept="application/pdf"
-                                    type='file'
-                                />
                             </div>
 
+                        </>
+                    ))}
+                    <div className="row">
+                        <div className="col-6">
+                            icono
                         </div>
+                        <div className="col-6">
+                            <input
+                                id="pdf"
+                                name="pdf"
+                                onSubmit={onButtonClick}
+                                onChange={onButtonClick}
+                                accept="application/pdf"
+                                type='file'
+                            />
+                        </div>
+
                     </div>
-                </form>
+                </div>
 
             </Card>
         </main >

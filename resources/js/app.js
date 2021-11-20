@@ -16,11 +16,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import ReactDOM from 'react-dom';
 import RegistroGE from './components/RegistroGE';
-import EditarGE from './components/EditarGE';
-import Comentario from './components/Comentario';
-import VerSolicitudIngresoGE from './components/VerSolicitudIngresoGE';
-import SolicitarIngresoGE from './components/SolicitarIngresoGE';
-import PDF from './components/PDF';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
@@ -31,6 +26,12 @@ import VistaGrupoEmpresa from './components/VistaGrupoEmpresa';
 import TabGE from './components/TabGE';
 import Footer from './components/Footer';
 import GrupoEmpresas from './components/GrupoEmpresas';
+
+import EditarGE from './components/EditarGE';
+import PDF from './components/PDF';
+import Comentario from './components/Comentario';
+import VerSolicitudIngresoGE from './components/VerSolicitudIngresoGE';
+import SolicitarIngresoGE from './components/SolicitarIngresoGE';
 //import Login from "./components/Login/Login"
 
 /*
@@ -63,14 +64,35 @@ if (document.getElementById('editGE')) {
         </div>, document.getElementById('editGE'));
 }
 
+if (document.getElementById('subirPDF')) {
+    ReactDOM.render(
+        <div >
+            <PDF/>
+        </div>, document.getElementById('subirPDF'));
+}
+
 if (document.getElementById('comentario')) {
     ReactDOM.render(
         <div >
-            {/* <SolicitarIngresoGE/> */}
-            {/* <VerSolicitudIngresoGE/> */}
             <Comentario/>
         </div>, document.getElementById('comentario'));
 }
+
+if (document.getElementById('solicitarIngresoGE')) {
+    ReactDOM.render(
+        <div >
+            <SolicitarIngresoGE/>
+        </div>, document.getElementById('solicitarIngresoGE'));
+}
+
+if (document.getElementById('verSolicitudIngresoGE')) {
+    ReactDOM.render(
+        <div >
+            <VerSolicitudIngresoGE/>
+        </div>, document.getElementById('verSolicitudIngresoGE'));
+}
+
+
 /* if (document.getElementById('comentario')) {
     ReactDOM.render(
         <div >
