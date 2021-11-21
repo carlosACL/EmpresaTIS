@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { colorPrimary, colorSecundary } from "../parametros/colores";
 
 const GrupoTabla = styled.div`
@@ -25,10 +25,33 @@ const RowSecundary = styled.tr`
     background-color: rgb(${colorSecundary.r}, ${colorSecundary.g}, ${colorSecundary.b});
 `
 
+const BotonSolicitud = styled.button`
+    transition: .3s ease all;
+    border-radius: 5px;
+    color: white;
+    border-style: solid;
+    :hover{
+        color: black;
+        border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
+        background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
+    }
+
+    ${props => props.valido ==='true' && css`
+        border-bottom-color: red !important;
+        background-color: red !important;
+    `}
+
+    ${props => props.valido ==='false' && css`
+        background-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b}) !important;
+        border-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b}) !important;
+    `}
+`;
+
 export {
     Tabla,
     THead,
     RowPrimary,
     RowSecundary,
-    GrupoTabla
+    GrupoTabla,
+    BotonSolicitud
 }

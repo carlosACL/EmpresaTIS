@@ -9,28 +9,21 @@ import {
 import { Card } from '../elementos/card';
 import Input from './EditarGE/Input';
 import InputImg from './EditarGE/InputImg';
-import Fecha from './EditarGE/Fecha';
 import OrganizacionJ from './EditarGE/OrganizacionJ';
 import TextArea from './EditarGE/TextArea';
-import PDF from './EditarGE/Subir_PDF';
+import MensajeAlerta from './editarGE/MensajeAlerta';
 
 const EditarGE = (props) => {
 
-
-
-
-
-
     const [idGE, setID] = useState({ campo: '' });
-    const [orgJur, setOrgJur] = useState({ valido: null });
-    const [telefono, setTelefono] = useState({ campo: '', valido: null });
-    const [direccion, setDireccion] = useState({ campo: '', valido: null });
-    const [email, setEmail] = useState({ campo: '', valido: null, existe: 'false' });
-    const [logo, setLogo] = useState({ campo: '', eliminar: '' , valido: null });
-    const [nombre, setNombre] = useState({ campo: '', valido: null, existe: 'false' });
-    const [nombreAb, setNombreAb] = useState({ campo: '', valido: null });
-    const [descripcion, setDescripcion] = useState({ campo: '', valido: null });
-    const [pdf, setPDF] = useState({ campo: '', valido: null });
+    const [orgJur, setOrgJur] = useState({ valido: false });
+    const [telefono, setTelefono] = useState({ campo: '', valido: false });
+    const [direccion, setDireccion] = useState({ campo: '', valido: false });
+    const [email, setEmail] = useState({ campo: '', valido: false, existe: 'false' });
+    const [logo, setLogo] = useState({ campo: '', eliminar: '', valido: false });
+    const [nombre, setNombre] = useState({ campo: '', valido: false, existe: 'false' });
+    const [nombreAb, setNombreAb] = useState({ campo: '', valido: false });
+    const [descripcion, setDescripcion] = useState({ campo: '', valido: false });
 
 
 
@@ -49,23 +42,19 @@ const EditarGE = (props) => {
 
     const validarLogo = (estate) => {
         const validar = [];
-        if (estate.valido === 'false') {
+        if (estate.valido == false) {
             validar.push("Tienes que insertar un logo");
         }
-
         return validar;
     };
 
-    const validarTelefono = (estate, regex) => {
+    const validarTelefono = (estate) => {
         const validar = [];
         if (estate.campo.length < 1) {
             validar.push('Debe llenar este campo');
         }
         if (estate.campo.length < 7 || estate.campo.length > 8) {
             validar.push('el numero de telefono debe contener un minimo de 7 digitos y un maximo de 8 digitos');
-        }
-        if (!regex.test(estate.campo) && estate.campo.length > 7 && estate.campo.length < 9) {
-            validar.push('Hay caracteres invalidos en el campo');
         }
         return validar;
     };
@@ -90,7 +79,7 @@ const EditarGE = (props) => {
             validar.push("Debe llenar este campo");
         }
         if (estate.campo.length < 10 || estate.campo.length > 100) {
-            validar.push("el objetivo debe contener un minimo de 10 caracteres y un maximo de 100 caracteres");
+            validar.push("La descripcion debe contener un minimo de 10 caracteres y un maximo de 100 caracteres");
         }
         if (!regex.test(estate.campo) && estate.campo.length > 4) {
             validar.push("hay caracteres invalidos en el campo");
@@ -142,7 +131,7 @@ const EditarGE = (props) => {
 
     const validarOrgJur = (estate) => {
         const validar = [];
-        if (estate.valido === 'false') {
+        if (estate.valido == false) {
             validar.push("Seleccione una opcion valida en este campo");
         }
         return validar;
@@ -150,35 +139,35 @@ const EditarGE = (props) => {
 
     const verificarInputs = () => {
         if (!orgJur.valido) {
-            setOrgJur({ valido: 'false' });
+            setOrgJur({ valido: false });
         }
 
         if (!telefono.valido) {
-            setTelefono({ ...telefono, valido: 'false' });
+            setTelefono({ ...telefono, valido: false });
         }
 
         if (!direccion.valido) {
-            setDireccion({ ...direccion, valido: 'false' });
+            setDireccion({ ...direccion, valido: false });
         }
 
         if (!email.valido) {
-            setEmail({ ...email, valido: 'false' });
+            setEmail({ ...email, valido: false });
         }
 
         if (!logo.valido) {
-            setLogo({ ...logo, valido: 'false' });
+            setLogo({ ...logo, valido: false });
         }
 
         if (!nombre.valido) {
-            setNombre({ ...nombre, valido: 'false' });
+            setNombre({ ...nombre, valido: false });
         }
 
         if (!nombreAb.valido) {
-            setNombreAb({ ...nombreAb, valido: 'false' });
+            setNombreAb({ ...nombreAb, valido: false });
         }
 
         if (!descripcion.valido) {
-            setDescripcion({ ...descripcion, valido: 'false' });
+            setDescripcion({ ...descripcion, valido: false });
         }
     };
 
@@ -232,8 +221,9 @@ const EditarGE = (props) => {
     };
 
 
-    if (idGE.campo === "") {
+    if (idGE.campo == "") {
         start();
+        console.log("hola mundo");
     }
 
     function start() {
@@ -253,6 +243,15 @@ const EditarGE = (props) => {
                         setEmail({ ...email, campo: elemento.email });
                         setDescripcion({ ...descripcion, campo: elemento.descripcion });
                         setLogo({ ...logo, campo: "./resources/" + elemento.logo, eliminar: "./resources/" + elemento.logo });
+
+                        /* validarNombre(nombre, expresiones.nombre);
+                        validarNombreAb(nombreAb, expresiones.nombreAb);
+                        validarCorreo(email, expresiones.correo);
+                        validarTelefono(telefono, expresiones.telefono);
+                        validarDireccion(direccion, expresiones.direccion);
+                        validarDescripcion(descripcion, expresiones.objetivo);
+                        validarLogo(logo); */
+                        //verificarInputs();
                         break;
                         /*[idGE','fecha_creacion', 'fecha_registro',
                         'orgJur', 'nombre', 'nombreAb', 'telefono',
@@ -298,6 +297,7 @@ const EditarGE = (props) => {
                                         placeholder='Nombre Grupo-Empresa'
                                         tipo='text'
                                         funcValidar={validarNombre} />
+                                    {/* {(nombre.valido === 'false') && (<MensajeAlerta mensajeRep={validarNombre(nombre, expresiones.nombre)} />)} */}
                                 </div>
                                 <div className="form-group">
                                     <Input estado={nombreAb}
@@ -307,16 +307,17 @@ const EditarGE = (props) => {
                                         tipo='text'
                                         placeholder='Nombre Abreviado'
                                         funcValidar={validarNombreAb} />
+                                    {(nombreAb.valido === 'false') && (<MensajeAlerta mensajeRep={validarNombreAb(nombreAb, expresiones.nombreAb)} />)}
                                 </div>
                                 <div className="form-group">
                                     <Input estado={telefono}
                                         cambiarEstado={setTelefono}
-                                        regex={expresiones.telefono}
                                         nombre='telefono' tipo='number'
                                         placeholder='Telefono'
                                         maxlength={9}
                                         minlenght={7}
                                         funcValidar={validarTelefono} />
+                                    {(telefono.valido === 'false') && (<MensajeAlerta mensajeRep={validarTelefono(telefono)} />)}
                                 </div>
                                 <div className="form-group">
                                     <Input estado={direccion}
@@ -326,6 +327,7 @@ const EditarGE = (props) => {
                                         tipo='text'
                                         placeholder='Direccion'
                                         funcValidar={validarDireccion} />
+                                    {(direccion.valido === 'false') && (<MensajeAlerta mensajeRep={validarDireccion(direccion, expresiones.direccion)} />)}
                                 </div>
                                 <div className="form-group">
                                     <Input estado={email}
@@ -335,6 +337,7 @@ const EditarGE = (props) => {
                                         tipo='email'
                                         placeholder='Correo electronico'
                                         funcValidar={validarCorreo} />
+                                    {(email.valido === 'false') && (<MensajeAlerta mensajeRep={validarCorreo(email, expresiones.correo)} />)}
                                 </div>
                                 <div>
 
@@ -344,15 +347,19 @@ const EditarGE = (props) => {
                                         cambiarEstado={setOrgJur}
                                         funcValidar={validarOrgJur}
                                     ></OrganizacionJ>
+                                    {(orgJur.valido === 'false') && (<MensajeAlerta mensajeRep={validarOrgJur(orgJur)} />)}
+
 
                                 </div>
                                 <div className="form-group">
+                                    {(descripcion.valido === 'false') && (<MensajeAlerta mensajeRep={validarDescripcion(descripcion, expresiones.objetivo)} />)}
                                     <TextArea estado={descripcion}
                                         cambiarEstado={setDescripcion}
                                         regex={expresiones.objetivo}
                                         nombre='descripcion'
                                         placeholder='objetivo'
-                                        funcValidar={validarDescripcion} ></TextArea>
+                                        funcValidar={validarDescripcion} />
+
 
                                 </div>
                             </div>
@@ -362,15 +369,9 @@ const EditarGE = (props) => {
                                     <InputImg estado={logo}
                                         cambiarEstado={setLogo}
                                         name='logo'
-                                        funcValidar={validarLogo} />
-                                </div>
-                            </div>
-                            <div className="col-12 border">
-                                <div className="form-group">
-                                    <PDF name='pdf'
-                                        estado={pdf}
-                                        cambiarEstado={setPDF}
+                                        funcValidar={validarLogo}
                                     />
+                                    {(logo.valido === 'false') && (<MensajeAlerta mensajeRep={validarLogo(logo)} />)}
                                 </div>
                             </div>
                         </div>

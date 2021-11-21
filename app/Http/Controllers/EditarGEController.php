@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\GrupoEmpresa;
 use Illuminate\Support\Facades\DB;
 use Nette\Utils\Json;
+use File;
 
 class EditarGEController extends Controller
 {
@@ -22,14 +23,17 @@ class EditarGEController extends Controller
 
         $file = $req->file('logo');
         $nombre =  time() . "_" . $file->getClientOriginalName();
+        //$file::delete(public_path("/resources/"+ $req->eliminar));
+        //$file->delete('resources', $req->eliminar);
+        $file::delete($req->eliminar);
         $file->move('resources', $nombre);
         $grupoEmpresa->logo = $nombre;
 
         $file = $req->file('pdf');
         $nombre =  time() . "_" . $file->getClientOriginalName();
         $file->move('resources', $nombre);
-        $file->delete('resources', $req->eliminar);
-        /* File::delete(public_path("test.txt")); */
+        //$file->delete('resources', $req->eliminar);
+        //        $file::delete(public_path("/resources/"+$nombre));
 
         $grupoEmpresa->save();
 
@@ -43,10 +47,10 @@ class EditarGEController extends Controller
     }
 
 
-    function index()
+    /* function index()
     {
         return view('editarGE');
-    }
+    } */
 
     function index_view($nombre)
     {
@@ -58,5 +62,13 @@ class EditarGEController extends Controller
             return view('editarGE')->with($datos);
         }
         return view('login')->with(['msg' => $nombre]);
+    }
+    function registrar_pdf(Request $req)
+    {
+        $file = $req->file('pdf');
+        $nombre =  time() . "_" . $file->getClientOriginalName();
+        $file->move('resources', $nombre);
+
+        return response(200);
     }
 }

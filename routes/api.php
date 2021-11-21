@@ -58,3 +58,6 @@ Route::post('import-list-excel' ,[FundaEmpresaController::class, 'importExcel'] 
 Route::get('datosFundaEmpresa', [UserController::class,'obtenerDatos']);
 
 Route::post('getUsuariosMismoGrupo',[VistaInscritosController::class, 'getUsuariosMismoGrupo']);
+
+Route::post('puedeVerSolicitudes', [UserController::class, 'puedeVerSolicitudes']);
+Route::post('tieneSolicitudes', [UserController::class, 'tieneSolicitudes']);

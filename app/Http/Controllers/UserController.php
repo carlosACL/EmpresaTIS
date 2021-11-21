@@ -60,6 +60,7 @@ class UserController extends Controller
                     $invitacion = DB::table('Invitacion')
                                         ->where('idUsuario','=',$usuario->idUsuario)
                                         ->where('idGE','=',$ge->idGE)
+                                        ->where('invitacion', '=', $req->invitacion)
                                         ->first();
                     if(!isset($invitacion->idInvitacion)){
                         $inv = new Invitacion;
@@ -136,5 +137,51 @@ class UserController extends Controller
         } else {
             return response()->json(['mensaje' => "El usuario no existe"]);
         }
+    }
+
+    /**
+     * condiciones
+     * el usuario no debe tener grupo empresa
+     * la grupo empresa debe tener menos de 5 integrantes
+     * 
+     * id = usuario que quiere mandar la solicitud
+     * ge = grupo empresa que quiere ingresar
+     * 
+     */
+    function puedeVerSolicitudes(Request $req){
+        $usuario = Usuario::find($req->id);
+        if($usuario->idGE == null){
+            $db = DB::table('Grupo_Empresa')
+                            ->join('Usuario', 'Usuario.idGE', '=', 'Grupo_Empresa.idGE')
+                            ->where('Grupo_Empresa.nombre','=',$req->ge)
+                            ->get();
+            if(sizeof($db)<5){
+                return response()->json(["mensaje" => "true"]);
+            } else {
+                return response()->json(["mensaje" => "false"]);
+            }
+        } else {
+            return response()->json(["mensaje" => "false"]);
+        }   
+    }
+
+    /**
+     * id = el usuario en cuestion 
+     * ge= la grupo empresa 
+     * 
+     * devuelve una invitacion, o un mensaje, si recibe la invitacion es que existia una solicitud
+     * caso contrario es que no existe una invitacion
+     * 
+     */
+    function tieneSolicitudes(Request $req){
+        $ge = DB::table('Grupo_Empresa')
+                    ->where('nombre','=',$req->ge)
+                    ->first();
+        $inv = DB::table('Invitacion')
+                    ->where('idUsuario','=',$req->id)
+                    ->where('idGE', '=', $ge->idGE)
+                    ->where('invitacion', '=', false)
+                    ->first();
+        return response()->json($inv);
     }
 }
