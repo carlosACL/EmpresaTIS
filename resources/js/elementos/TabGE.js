@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { colorSecundary, colorPrimary } from "../parametros/colores";
 
 const ContenedorTab = styled.div`
-    margin-top: 100px;
+    margin-top: 50px;
+    
     width: 100%;
     @media (max-width: 992px){
         margin-top: 10px;
@@ -17,6 +18,10 @@ const ContenedorTab = styled.div`
             background-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
             color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
         }
+    }
+
+    nav, #contenido-GE {
+        min-width: 403px;
     }
 `;
 

@@ -184,4 +184,5 @@ class UserController extends Controller
                     ->first();
         return response()->json($inv);
     }
+
 }

@@ -61,3 +61,5 @@ Route::post('getUsuariosMismoGrupo',[VistaInscritosController::class, 'getUsuari
 
 Route::post('puedeVerSolicitudes', [UserController::class, 'puedeVerSolicitudes']);
 Route::post('tieneSolicitudes', [UserController::class, 'tieneSolicitudes']);
+
+Route::post('obtenerSolicitudes', [RegistroGEController::class, 'obtenerSolicitudes']);

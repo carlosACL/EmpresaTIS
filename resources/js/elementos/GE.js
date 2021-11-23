@@ -13,6 +13,11 @@ const Tabla = styled.table`
 
 `; 
 
+const Tbody = styled.tbody`
+    height: 300px;
+    overflow-y: scroll;
+`;
+
 const THead = styled.thead`
     background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
 `; 
@@ -53,5 +58,6 @@ export {
     RowPrimary,
     RowSecundary,
     GrupoTabla,
-    BotonSolicitud
+    BotonSolicitud,
+    Tbody
 }

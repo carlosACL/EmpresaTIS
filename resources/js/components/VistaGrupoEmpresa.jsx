@@ -5,7 +5,6 @@ import { ContenedorDatos } from '../elementos/registro';
 import BotonSolicitarIngreso from './DatosGrupoEmpresa/BotonSolicitarIngreso';
 const VistaGrupoEmpresa = () => {
     return (
-        <main>
             <Card>
                 <div className='formStyle'>
                     <Titulo>{datos.nombre} </Titulo>
@@ -25,7 +24,6 @@ const VistaGrupoEmpresa = () => {
                     </ContenedorDatos>
                 </div>
             </Card>
-        </main>
     )
 }
 

@@ -3,7 +3,6 @@ import { colorPrimary } from "../parametros/colores";
 
 const Card = styled.div`
     max-width: 700px;
-    min-width: 400px;
     margin-top: 5%;
     text-align: center;
     transition: .5s ease all;

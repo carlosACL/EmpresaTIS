@@ -11904,7 +11904,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/card */ "./resources/js/elementos/card.js");
 /* harmony import */ var _elementos_Solicitudes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/Solicitudes */ "./resources/js/elementos/Solicitudes.js");
 /* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../elementos/registro */ "./resources/js/elementos/registro.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _tarjetaSolicitud__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tarjetaSolicitud */ "./resources/js/components/DatosGrupoEmpresa/tarjetaSolicitud.jsx");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
 
 
 
@@ -11913,38 +11930,44 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Solicitudes = function Solicitudes() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_3__.Titulo, {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("cargando"),
+      _useState2 = _slicedToArray(_useState, 2),
+      solicitudes = _useState2[0],
+      setSolicitudes = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var datS = new FormData();
+    datS.append('ge', datos.nombre);
+    fetch('api/obtenerSolicitudes', {
+      method: 'POST',
+      body: datS
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      setSolicitudes(json);
+    });
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "formStyle",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_3__.Titulo, {
         className: " mt-3",
         children: "Solicitudes de Ingreso"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_Solicitudes__WEBPACK_IMPORTED_MODULE_2__.Cuadro, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_Solicitudes__WEBPACK_IMPORTED_MODULE_2__.Cuadro, {
         className: " mb-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-            children: "Lionel Perez Calvin"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            children: "Adminir"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            children: "Rechazar"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-            children: "Lionel Perez Calvin"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            children: "Adminir"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            children: "Rechazar"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-            children: "Lionel Perez Calvin"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            children: "Adminir"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            children: "Rechazar"
-          })]
-        })]
+        children: solicitudes == 'cargando' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+          children: "Cargando..."
+        }) : solicitudes.length > 0 ? solicitudes.map(function (dat) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_tarjetaSolicitud__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            nombre: dat.nombreC,
+            imagen: dat.foto_perfil,
+            idInvitacion: dat.idInvitacion,
+            setSolicitudes: setSolicitudes,
+            solicitudes: solicitudes
+          });
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+          children: "No Hay Solicitudes Pendientes"
+        })
       })]
     })
   });
@@ -12055,6 +12078,92 @@ Socio.propTypes = {
   quitar: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func)
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Socio);
+
+/***/ }),
+
+/***/ "./resources/js/components/DatosGrupoEmpresa/tarjetaSolicitud.jsx":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/DatosGrupoEmpresa/tarjetaSolicitud.jsx ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_Solicitudes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/Solicitudes */ "./resources/js/elementos/Solicitudes.js");
+/* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/registro */ "./resources/js/elementos/registro.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+var TarjetaSolicitud = function TarjetaSolicitud(_ref) {
+  var nombre = _ref.nombre,
+      imagen = _ref.imagen,
+      idInvitacion = _ref.idInvitacion,
+      solicitudes = _ref.solicitudes,
+      setSolicitudes = _ref.setSolicitudes;
+
+  var filtrar = function filtrar() {
+    var filtrados = solicitudes.filter(function (datos) {
+      return datos.idInvitacion != idInvitacion;
+    });
+    setSolicitudes(filtrados);
+  };
+
+  var aceptar = function aceptar() {
+    var dat = new FormData();
+    dat.append('idInv', idInvitacion);
+    fetch('api/aceptarInvitacion', {
+      method: 'POST',
+      body: dat
+    }).then(function (response) {
+      if (response.ok) {
+        filtrar();
+      }
+    });
+  };
+
+  var rechazar = function rechazar() {
+    var dat = new FormData();
+    dat.append('idInv', idInvitacion);
+    fetch('api/rechazarInvitacion', {
+      method: 'POST',
+      body: dat
+    }).then(function (response) {
+      if (response.ok) {
+        filtrar();
+      }
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_elementos_Solicitudes__WEBPACK_IMPORTED_MODULE_1__.TarjetaSolcitudStyle, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_Solicitudes__WEBPACK_IMPORTED_MODULE_1__.ImagenPerfilS, {
+      src: imagen ? "./resources/socios/" + imagen : "./resources/PerfilDefecto.png"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      children: nombre
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_elementos_Solicitudes__WEBPACK_IMPORTED_MODULE_1__.ContenedorButtonS, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
+        className: " bg-success",
+        onClick: aceptar,
+        children: "Admitir"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
+        className: " bg-danger",
+        onClick: rechazar,
+        children: "Rechazar"
+      })]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TarjetaSolicitud);
 
 /***/ }),
 
@@ -14148,7 +14257,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var GrupoEmpresas = function GrupoEmpresas() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
       ges = _useState2[0],
       setGe = _useState2[1];
@@ -14168,7 +14277,7 @@ var GrupoEmpresas = function GrupoEmpresas() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
       className: " text-center justify-content-center",
-      children: ges.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_GE__WEBPACK_IMPORTED_MODULE_2__.GrupoTabla, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_3__.Titulo, {
             children: "Grupo Empresas En Tu Grupo de Asesor\xEDa"
@@ -14186,8 +14295,8 @@ var GrupoEmpresas = function GrupoEmpresas() {
                   children: "Nro Integrantes"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
-              children: ges.map(function (data, index) {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_GE__WEBPACK_IMPORTED_MODULE_2__.Tbody, {
+              children: ges ? ges.length > 0 ? ges.map(function (data, index) {
                 return index % 2 == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_GE__WEBPACK_IMPORTED_MODULE_2__.RowSecundary, {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
@@ -14219,12 +14328,20 @@ var GrupoEmpresas = function GrupoEmpresas() {
                     })]
                   })
                 });
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  colSpan: "4",
+                  children: "No hay grupo Empresas Registradas"
+                })
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  colSpan: "4",
+                  children: "Cargando..."
+                })
               })
             })]
           })]
         })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_3__.Titulo, {
-        children: "No hay Grupo-Empresas Registradas En Tu Grupo"
       })
     })
   });
@@ -16641,6 +16758,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DatosGrupoEmpresa_Invitaciones__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DatosGrupoEmpresa/Invitaciones */ "./resources/js/components/DatosGrupoEmpresa/Invitaciones.jsx");
 /* harmony import */ var _DatosGrupoEmpresa_Solicitudes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DatosGrupoEmpresa/Solicitudes */ "./resources/js/components/DatosGrupoEmpresa/Solicitudes.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -16653,47 +16772,50 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TabGE = function TabGE() {
+  var _jsxs2;
+
   var usuario = sessionStorage.getItem('id');
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_2__.ContenedorTab, {
-    className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("nav", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "nav nav-tabs",
-        id: "nav-tab",
-        role: "tablist",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
-          className: "nav-item nav-link active",
-          id: "nav-home-tab",
-          "data-toggle": "tab",
-          href: "#nav-home",
-          role: "tab",
-          "aria-controls": "nav-home",
-          "aria-selected": "true",
-          children: "Grupo Empresa"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
-          className: "nav-item nav-link",
-          id: "nav-profile-tab",
-          "data-toggle": "tab",
-          href: "#nav-profile",
-          role: "tab",
-          "aria-controls": "nav-profile",
-          "aria-selected": "false",
-          children: "Socios"
-        }), usuario == datos.duenio && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
-          className: "nav-item nav-link",
-          id: "nav-contact-tab",
-          "data-toggle": "tab",
-          href: "#nav-contact",
-          role: "tab",
-          "aria-controls": "nav-contact",
-          "aria-selected": "false",
-          children: "Solicitudes"
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-      className: "tab-content",
-      id: "nav-tabContent",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("main", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_2__.ContenedorTab, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("nav", {
+        className: " w-100 d-flex justify-content-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          className: "nav nav-tabs",
+          id: "nav-tab",
+          role: "tablist",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
+            className: "nav-item nav-link active",
+            id: "nav-home-tab",
+            "data-toggle": "tab",
+            href: "#nav-home",
+            role: "tab",
+            "aria-controls": "nav-home",
+            "aria-selected": "true",
+            children: "Grupo Empresa"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
+            className: "nav-item nav-link",
+            id: "nav-profile-tab",
+            "data-toggle": "tab",
+            href: "#nav-profile",
+            role: "tab",
+            "aria-controls": "nav-profile",
+            "aria-selected": "false",
+            children: "Socios"
+          }), usuario == datos.duenio && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
+            className: "nav-item nav-link",
+            id: "nav-contact-tab",
+            "data-toggle": "tab",
+            href: "#nav-contact",
+            role: "tab",
+            "aria-controls": "nav-contact",
+            "aria-selected": "false",
+            children: "Solicitudes"
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", (_jsxs2 = {
+        id: "contenido-GE",
+        className: "tab-content  d-flex justify-content-center"
+      }, _defineProperty(_jsxs2, "id", "nav-tabContent"), _defineProperty(_jsxs2, "children", [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "tab-pane fade show active",
         id: "nav-home",
         role: "tabpanel",
@@ -16713,8 +16835,8 @@ var TabGE = function TabGE() {
         role: "tabpanel",
         "aria-labelledby": "nav-contact-tab",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_DatosGrupoEmpresa_Solicitudes__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-      })]
-    })]
+      })]), _jsxs2))]
+    })
   });
 };
 
@@ -16929,49 +17051,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var VistaGrupoEmpresa = function VistaGrupoEmpresa() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "formStyle",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Titulo, {
-          children: [datos.nombre, " "]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.ContenedorDatos, {
-          className: " mb-5",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: " d-block text-left",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-                children: "Nombre Abreviado: "
-              }), datos.nombreAb]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-                children: "Telefono: "
-              }), datos.telefono]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-                children: "Direccion: "
-              }), datos.direccion]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-                children: "Organizacion Juridica: "
-              }), datos.orgJur]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-                children: "Correo: "
-              }), datos.email]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-                children: "Descripcion: "
-              }), datos.descripcion]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-              id: "imagenGER",
-              src: 'resources/' + datos.logo
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DatosGrupoEmpresa_BotonSolicitarIngreso__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
-          })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "formStyle",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Titulo, {
+        children: [datos.nombre, " "]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.ContenedorDatos, {
+        className: " mb-5",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: " d-block text-left",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+              children: "Nombre Abreviado: "
+            }), datos.nombreAb]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+              children: "Telefono: "
+            }), datos.telefono]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+              children: "Direccion: "
+            }), datos.direccion]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+              children: "Organizacion Juridica: "
+            }), datos.orgJur]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+              children: "Correo: "
+            }), datos.email]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+              children: "Descripcion: "
+            }), datos.descripcion]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            id: "imagenGER",
+            src: 'resources/' + datos.logo
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DatosGrupoEmpresa_BotonSolicitarIngreso__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
         })]
-      })
+      })]
     })
   });
 };
@@ -17147,11 +17267,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RowPrimary": () => (/* binding */ RowPrimary),
 /* harmony export */   "RowSecundary": () => (/* binding */ RowSecundary),
 /* harmony export */   "GrupoTabla": () => (/* binding */ GrupoTabla),
-/* harmony export */   "BotonSolicitud": () => (/* binding */ BotonSolicitud)
+/* harmony export */   "BotonSolicitud": () => (/* binding */ BotonSolicitud),
+/* harmony export */   "Tbody": () => (/* binding */ Tbody)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -17159,13 +17280,14 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var GrupoTabla = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: grid;\n\n"])));
 var Tabla = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].table(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-style: solid;\n    border-color: black;\n    color: black;\n\n"])));
-var THead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].thead(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    background-color: rgb(", ", ", ", ", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
-var RowPrimary = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].tr(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    background-color: rgb(", ", ", ", ", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
-var RowSecundary = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].tr(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: rgb(", ", ", ", ", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b);
-var BotonSolicitud = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    transition: .3s ease all;\n    border-radius: 5px;\n    color: white;\n    border-style: solid;\n    :hover{\n        color: black;\n        border-color: rgb(", ", ", ", ", ");\n        background-color: rgb(", ", ", ", ", ");\n    }\n\n    ", "\n\n    ", "\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, function (props) {
-  return props.valido === 'true' && (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n        border-bottom-color: red !important;\n        background-color: red !important;\n    "])));
+var Tbody = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].tbody(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    height: 300px;\n    overflow-y: scroll;\n"])));
+var THead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].thead(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    background-color: rgb(", ", ", ", ", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var RowPrimary = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].tr(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: rgb(", ", ", ", ", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var RowSecundary = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].tr(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    background-color: rgb(", ", ", ", ", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b);
+var BotonSolicitud = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    transition: .3s ease all;\n    border-radius: 5px;\n    color: white;\n    border-style: solid;\n    :hover{\n        color: black;\n        border-color: rgb(", ", ", ", ", ");\n        background-color: rgb(", ", ", ", ", ");\n    }\n\n    ", "\n\n    ", "\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, function (props) {
+  return props.valido === 'true' && (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n        border-bottom-color: red !important;\n        background-color: red !important;\n    "])));
 }, function (props) {
-  return props.valido === 'false' && (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n        background-color: rgb(", " , ", ", ", ") !important;\n        border-color: rgb(", " , ", ", ", ") !important;\n    "])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b);
+  return props.valido === 'false' && (0,styled_components__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n        background-color: rgb(", " , ", ", ", ") !important;\n        border-color: rgb(", " , ", ", ", ") !important;\n    "])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b);
 });
 
 
@@ -17180,17 +17302,23 @@ var BotonSolicitud = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].b
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Cuadro": () => (/* binding */ Cuadro)
+/* harmony export */   "Cuadro": () => (/* binding */ Cuadro),
+/* harmony export */   "TarjetaSolcitudStyle": () => (/* binding */ TarjetaSolcitudStyle),
+/* harmony export */   "ImagenPerfilS": () => (/* binding */ ImagenPerfilS),
+/* harmony export */   "ContenedorButtonS": () => (/* binding */ ContenedorButtonS)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
-var _templateObject;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
-var Cuadro = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border-style: solid;\n    border-color: black;\n    background-color: rgb(", ", ", ", ", ");\n    overflow-y: scroll;\n    display: block;\n    margin: 30px;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var ImagenPerfilS = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border-radius: 50%;\n    width: 30px;\n    height: 30px;\n    object-fit: cover;\n    border-color: rgb(", ", ", ", ", ");\n    border-style: solid;\n    background-color: black;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b);
+var Cuadro = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-style: solid;\n    border-color: black;\n    background-color: rgb(", ", ", ", ", ");\n    overflow-y: scroll;\n    display: block;\n    height: 300px;\n    margin: 30px;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var TarjetaSolcitudStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["  \n    padding: 5px;\n    margin:10px;\n    display: grid;\n    grid-template-columns: 1fr 3fr 2fr;\n    gap: 20px;\n    border-style: solid;\n    border-color: black;\n    border-radius: 20px;\n"])));
+var ContenedorButtonS = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    @media (max-width:460px){\n        grid-template-columns: 1fr;\n    }\n"])));
 
 
 /***/ }),
@@ -17218,7 +17346,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var ContenedorTab = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    margin-top: 100px;\n    width: 100%;\n    @media (max-width: 992px){\n        margin-top: 10px;\n    } \n\n    nav div a {\n        transition: .3s ease all;\n        color: black;\n        border-radius: 10px;\n        :hover{\n            border-color: rgb(", " , ", ", ", ");\n            background-color: rgb(", " , ", ", ", ");\n            color: rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var ContenedorTab = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    margin-top: 50px;\n    \n    width: 100%;\n    @media (max-width: 992px){\n        margin-top: 10px;\n    } \n\n    nav div a {\n        transition: .3s ease all;\n        color: black;\n        border-radius: 10px;\n        :hover{\n            border-color: rgb(", " , ", ", ", ");\n            background-color: rgb(", " , ", ", ", ");\n            color: rgb(", ", ", ", ", ");\n        }\n    }\n\n    nav, #contenido-GE {\n        min-width: 403px;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var BotonStyled = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    height: 30px;\n"])));
 var InputBuscador = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 300px;\n"])));
 var Caja = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    text-align: left;\n    color: black;\n    transition: .3s ease all;\n    background-color: rgb(", ", ", ", ", ");\n    :hover{\n        background-color: rgb(", " , ", ", ", ");\n        color: rgb(", ", ", ", ", ");\n        border-color: rgb(", " , ", ", ", ");;\n        img {\n            border-color: rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
@@ -17247,7 +17375,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Card = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    min-width: 400px;\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(", ", ", ", ", ", 0.7);\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:700px){\n        width: 100%;\n        margin: auto;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var Card = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(", ", ", ", ", ", 0.7);\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:700px){\n        width: 100%;\n        margin: auto;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var Fondo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: block;\n    opacity: 0.3;\n    position: fixed;\n    z-index: -100;\n    height: 100%;\n    object-fit: cover;\n"])));
 
 
@@ -18021,7 +18149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body{\r\n    background-color: rgb(0 , 221, 170, 0.4)\r\n}\r\n\r\nmain{\r\n    max-width: 800px;\r\n    margin: auto;\r\n    padding: 40px;\r\n}\r\n\r\n.miTextArea textarea{\r\n    resize: none;\r\n    margin: 5%;\r\n    width: 90%;\r\n    height: 100px;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.formStyle{\r\n    margin-top: 50px;\r\n    margin: 30px;\r\n    display : grid;\r\n    gap: 20px;\r\n}\r\n\r\n@media screen and (max-width: 992px){\r\n    .formStyle{\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 700px){\r\n    main {\r\n        padding: 0;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 992px){\r\n    .mostrar{\r\n        display: flex;\r\n        margin-left: 10px;\r\n    }\r\n}\r\n\r\n/*aDrian*/\r\n\r\n#contenedor {\r\n    position: relative;\r\n    height: 900px;\r\n}\r\n\r\n#lbDetalles{\r\n    display: inline-block;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n    padding-top: 50px;\r\n    margin-right: 185px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.labels{\r\n    \r\n    position: relative;\r\n    padding: 15px;\r\n    width: 180px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.texto{\r\n    width: 250px;\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom: 2px solid;\r\n    border-bottom-color: black;\r\n    text-align: center;\r\n}\r\n\r\n#tarjeta-datos{\r\n    display: block;\r\n    transition: .5s ease all;\r\n    background-color: rgb( 240, 255, 240, 0.7);\r\n    border-color: rgb( 240, 255, 240, 0.4);\r\n    border-radius: 30px;\r\n    box-shadow: 10px 10px 10px;\r\n    position: absolute;\r\n    left: 20%;\r\n    right: 20%;\r\n    top: 15%;\r\n    padding: 30px;\r\n    text-align: right;\r\n    padding-top: 10px;\r\n    padding-right: 40px;\r\n    transition: 0.3s;\r\n}\r\n\r\n#img-usuario{\r\n    position: absolute;\r\n    background-color: white;\r\n    border-width: 2px;\r\n    border-color: #22ddaa;\r\n    width: 26%;\r\n    height: 200px;\r\n    top: 5%;\r\n    left: 5%;\r\n}\r\n\r\n#imagen{\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n@media only screen and (max-width: 1150px) {\r\n    #tarjeta-datos{\r\n        top: 100px;\r\n        left: 9%;\r\n        right: 9%;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 991px) {\r\n    #tarjeta-datos{\r\n        top: 50px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #contenedor { \r\n        height: 1180px;\r\n    }\r\n\r\n    #lbDetalles{\r\n        display: block;\r\n        text-align: center;\r\n        padding-top: 300px;\r\n        padding-right: 0px;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #tarjeta-datos{\r\n        padding: 0%;\r\n        padding-bottom: 20px;\r\n    }\r\n\r\n    .labels{\r\n        display: block;\r\n        position: relative;\r\n        text-align: center;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .texto{\r\n        display: block;\r\n        position: relative;\r\n        width: 80%;\r\n        height: 30px;\r\n        padding: 0%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #img-usuario{\r\n        position: absolute;\r\n        width: 200px;\r\n        height: 200px;\r\n        top: 5%;\r\n        left: 0%;\r\n        right: 0%;\r\n        margin: 0 auto;\r\n    }\r\n}\r\n\r\n/*LOGIN*/\r\n\r\n#main-login {\r\n    max-width: 100%;\r\n    padding: 0px;\r\n}\r\n\r\n#contenedor-login {\r\n    position: relative;\r\n    height: 700px;\r\n}\r\n\r\n#label-login-logo {\r\n    color: #22ddaa;\r\n    text-align: center;\r\n    transition: 0.6s;\r\n}\r\n\r\n#cont-label-logo {\r\n    text-align: center;\r\n    font-size: 40px;\r\n    margin-top: 20px;\r\n}\r\n\r\n#cont-logo {\r\n    width: 50%;\r\n    min-width: 200px;\r\n    margin: 0 auto;\r\n}\r\n\r\n#cont-datos-login {\r\n    width: 80%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.input-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 100%;\r\n}\r\n\r\n#boton-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 80%;\r\n}\r\n\r\n#cont-label-login {\r\n    text-align: center;\r\n    padding: 0 10%;\r\n    margin-top: 20px;\r\n}\r\n\r\n#label-login {\r\n    font-size: 20px;\r\n    text-align: center;\r\n}\r\n\r\n.link-login {\r\n    margin-top: 20px;\r\n    text-align: center;\r\n    text-decoration: underline;\r\n    font-size: 17px;\r\n    padding: 0 10%;\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #cont-label-logo {\r\n        font-size: 30px;\r\n    }\r\n\r\n    #contenedor-login {\r\n        height: 625px;\r\n    }\r\n}\r\n\r\n#fondo {\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n#cont-icono-editar {\r\n    position: relative;\r\n    width: 60px;\r\n    top: 35px;\r\n    margin-left: 90%;\r\n    border: 2px solid #22ddaa;\r\n    transition: 0.3s;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-editar {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#cont-iconos-edicion {\r\n    margin-top: 30px;\r\n}\r\n\r\n#cont-icono-atras {\r\n    position: relative;\r\n    width: 50px;\r\n    float: left;\r\n    margin-left: 20px;\r\n    border: 2px solid red;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-atras {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#cont-icono-guardar {\r\n    position: relative;\r\n    width: 50px;\r\n    margin-right: 20px;\r\n    float: right;\r\n    border: 2px solid #00f;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-guardar {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#input-file {\r\n    display: none;\r\n}\r\n\r\n#cont-input-imagen {\r\n    position: relative;\r\n    text-align: center;\r\n    top: 240px;\r\n    width: 30%;\r\n}\r\n\r\n.btm-input-file {\r\n    transition: .3s ease all;\r\n    border-radius: 5px;\r\n    color: white;\r\n    border-style: solid;\r\n    background-color: rgb(0, 221, 170);\r\n    border-color: rgb(0, 221, 170);\r\n    padding: 5px;\r\n}\r\n\r\n.btm-input-file:hover {\r\n    color: black;\r\n    border-color: rgb(240 , 255, 240);\r\n    background-color: rgb(240 , 255, 240);\r\n}\r\n\r\n.texto:focus {\r\n    border-bottom: 4px solid rgb(0 , 221, 170);\r\n    outline: none;\r\n    box-shadow: 5px 5px 5px;\r\n}\r\n\r\n#tarjeta-datos input[type=\"text\"]:invalid,#tarjeta-datos input[type=\"password\"]:invalid {\r\n    transition: 0.3s ease all;\r\n    border-bottom-color: red !important;\r\n}\r\n\r\n#tarjeta-datos input[type=\"text\"]:valid,#tarjeta-datos input[type=\"password\"]:valid{\r\n    transition: 0.3s ease all;\r\n    border-bottom-color: #6aff00 !important;\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #cont-icono-editar {\r\n        top: 65px;\r\n        margin-left: 80%;\r\n    }\r\n\r\n    #cont-input-imagen {\r\n        text-align: center;\r\n        top: 270px;\r\n        margin: 0 auto;\r\n    }\r\n    \r\n    .btm-input-file {\r\n        margin-left: 0%;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 480px) {\r\n    #cont-icono-editar {\r\n        transition: 0s;\r\n        top: 280px;\r\n        margin: 0 auto;\r\n    }\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body{\r\n    background-color: rgb(0 , 221, 170, 0.4);\r\n    min-width: 403px;\r\n}\r\n\r\nsection{\r\n    min-width: 403px;\r\n}\r\n\r\nmain{\r\n    margin: auto;\r\n    padding: 40px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.miTextArea textarea{\r\n    resize: none;\r\n    margin: 5%;\r\n    width: 90%;\r\n    height: 100px;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.formStyle{\r\n    margin-top: 50px;\r\n    margin: 30px;\r\n    display : grid;\r\n    gap: 20px;\r\n}\r\n\r\n@media screen and (max-width: 992px){\r\n    .formStyle{\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 700px){\r\n    main {\r\n        padding: 0;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 992px){\r\n    .mostrar{\r\n        display: flex;\r\n        margin-left: 10px;\r\n    }\r\n}\r\n\r\n/*aDrian*/\r\n\r\n#contenedor {\r\n    position: relative;\r\n    height: 900px;\r\n}\r\n\r\n#lbDetalles{\r\n    display: inline-block;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n    padding-top: 50px;\r\n    margin-right: 185px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.labels{\r\n    \r\n    position: relative;\r\n    padding: 15px;\r\n    width: 180px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.texto{\r\n    width: 250px;\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom: 2px solid;\r\n    border-bottom-color: black;\r\n    text-align: center;\r\n}\r\n\r\n#tarjeta-datos{\r\n    display: block;\r\n    transition: .5s ease all;\r\n    background-color: rgb( 240, 255, 240, 0.7);\r\n    border-color: rgb( 240, 255, 240, 0.4);\r\n    border-radius: 30px;\r\n    box-shadow: 10px 10px 10px;\r\n    position: absolute;\r\n    left: 20%;\r\n    right: 20%;\r\n    top: 15%;\r\n    padding: 30px;\r\n    text-align: right;\r\n    padding-top: 10px;\r\n    padding-right: 40px;\r\n    transition: 0.3s;\r\n}\r\n\r\n#img-usuario{\r\n    position: absolute;\r\n    background-color: white;\r\n    border-width: 2px;\r\n    border-color: #22ddaa;\r\n    width: 26%;\r\n    height: 200px;\r\n    top: 5%;\r\n    left: 5%;\r\n}\r\n\r\n#imagen{\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n@media only screen and (max-width: 1150px) {\r\n    #tarjeta-datos{\r\n        top: 100px;\r\n        left: 9%;\r\n        right: 9%;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 991px) {\r\n    #tarjeta-datos{\r\n        top: 50px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #contenedor { \r\n        height: 1180px;\r\n    }\r\n\r\n    #lbDetalles{\r\n        display: block;\r\n        text-align: center;\r\n        padding-top: 300px;\r\n        padding-right: 0px;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #tarjeta-datos{\r\n        padding: 0%;\r\n        padding-bottom: 20px;\r\n    }\r\n\r\n    .labels{\r\n        display: block;\r\n        position: relative;\r\n        text-align: center;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .texto{\r\n        display: block;\r\n        position: relative;\r\n        width: 80%;\r\n        height: 30px;\r\n        padding: 0%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #img-usuario{\r\n        position: absolute;\r\n        width: 200px;\r\n        height: 200px;\r\n        top: 5%;\r\n        left: 0%;\r\n        right: 0%;\r\n        margin: 0 auto;\r\n    }\r\n}\r\n\r\n/*LOGIN*/\r\n\r\n#main-login {\r\n    max-width: 100%;\r\n    padding: 0px;\r\n}\r\n\r\n#contenedor-login {\r\n    position: relative;\r\n    height: 700px;\r\n}\r\n\r\n#label-login-logo {\r\n    color: #22ddaa;\r\n    text-align: center;\r\n    transition: 0.6s;\r\n}\r\n\r\n#cont-label-logo {\r\n    text-align: center;\r\n    font-size: 40px;\r\n    margin-top: 20px;\r\n}\r\n\r\n#cont-logo {\r\n    width: 50%;\r\n    min-width: 200px;\r\n    margin: 0 auto;\r\n}\r\n\r\n#cont-datos-login {\r\n    width: 80%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.input-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 100%;\r\n}\r\n\r\n#boton-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 80%;\r\n}\r\n\r\n#cont-label-login {\r\n    text-align: center;\r\n    padding: 0 10%;\r\n    margin-top: 20px;\r\n}\r\n\r\n#label-login {\r\n    font-size: 20px;\r\n    text-align: center;\r\n}\r\n\r\n.link-login {\r\n    margin-top: 20px;\r\n    text-align: center;\r\n    text-decoration: underline;\r\n    font-size: 17px;\r\n    padding: 0 10%;\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #cont-label-logo {\r\n        font-size: 30px;\r\n    }\r\n\r\n    #contenedor-login {\r\n        height: 625px;\r\n    }\r\n}\r\n\r\n#fondo {\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n#cont-icono-editar {\r\n    position: relative;\r\n    width: 60px;\r\n    top: 35px;\r\n    margin-left: 90%;\r\n    border: 2px solid #22ddaa;\r\n    transition: 0.3s;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-editar {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#cont-iconos-edicion {\r\n    margin-top: 30px;\r\n}\r\n\r\n#cont-icono-atras {\r\n    position: relative;\r\n    width: 50px;\r\n    float: left;\r\n    margin-left: 20px;\r\n    border: 2px solid red;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-atras {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#cont-icono-guardar {\r\n    position: relative;\r\n    width: 50px;\r\n    margin-right: 20px;\r\n    float: right;\r\n    border: 2px solid #00f;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-guardar {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#input-file {\r\n    display: none;\r\n}\r\n\r\n#cont-input-imagen {\r\n    position: relative;\r\n    text-align: center;\r\n    top: 240px;\r\n    width: 30%;\r\n}\r\n\r\n.btm-input-file {\r\n    transition: .3s ease all;\r\n    border-radius: 5px;\r\n    color: white;\r\n    border-style: solid;\r\n    background-color: rgb(0, 221, 170);\r\n    border-color: rgb(0, 221, 170);\r\n    padding: 5px;\r\n}\r\n\r\n.btm-input-file:hover {\r\n    color: black;\r\n    border-color: rgb(240 , 255, 240);\r\n    background-color: rgb(240 , 255, 240);\r\n}\r\n\r\n.texto:focus {\r\n    border-bottom: 4px solid rgb(0 , 221, 170);\r\n    outline: none;\r\n    box-shadow: 5px 5px 5px;\r\n}\r\n\r\n#tarjeta-datos input[type=\"text\"]:invalid,#tarjeta-datos input[type=\"password\"]:invalid {\r\n    transition: 0.3s ease all;\r\n    border-bottom-color: red !important;\r\n}\r\n\r\n#tarjeta-datos input[type=\"text\"]:valid,#tarjeta-datos input[type=\"password\"]:valid{\r\n    transition: 0.3s ease all;\r\n    border-bottom-color: #6aff00 !important;\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #cont-icono-editar {\r\n        top: 65px;\r\n        margin-left: 80%;\r\n    }\r\n\r\n    #cont-input-imagen {\r\n        text-align: center;\r\n        top: 270px;\r\n        margin: 0 auto;\r\n    }\r\n    \r\n    .btm-input-file {\r\n        margin-left: 0%;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 480px) {\r\n    #cont-icono-editar {\r\n        transition: 0s;\r\n        top: 280px;\r\n        margin: 0 auto;\r\n    }\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
