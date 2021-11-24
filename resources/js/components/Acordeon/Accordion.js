@@ -40,6 +40,7 @@ export default function Accordion() {
 
                 <p aria-hidden={toggleD ? "true" : "false"}>
                 <textarea name="mensaje" placeholder="Ingresa una Descripcion de la empresa TIS" maxlength="140"></textarea>
+                <button>Enviar</button>
                 </p>
             </div>
 
