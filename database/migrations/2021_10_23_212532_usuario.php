@@ -16,7 +16,7 @@ class Usuario extends Migration
         Schema::create('Usuario', function(Blueprint $table){
             $table->id('idUsuario')->autoIncrement();
             $table->Integer('idGE')->nullable();
-            $table->foreign('idGE')->references('idGE')->on('grupo_empresa');
+            $table->foreign('idGE')->references('idGE')->on('Grupo_Empresa');
             $table->string('nombreC');
             $table->string('email');
             $table->integer('telefono')->nullable();

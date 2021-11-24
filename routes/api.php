@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\EditarPerfilController;
+use App\Http\Controllers\ForoDudasController;
 use App\Http\Controllers\RegistroGEController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -63,3 +64,10 @@ Route::post('puedeVerSolicitudes', [UserController::class, 'puedeVerSolicitudes'
 Route::post('tieneSolicitudes', [UserController::class, 'tieneSolicitudes']);
 
 Route::post('obtenerSolicitudes', [RegistroGEController::class, 'obtenerSolicitudes']);
+
+Route::post('registrarDebate', [ForoDudasController::class , 'registrarDebate']);
+Route::get('obtenerDebates', [ForoDudasController::class, 'obtenerDebates']);
+
+Route::post('obtenerMensajes', [ForoDudasController::class, 'obtenerMensajes']);
+Route::post('obtenerDebate', [ForoDudasController::class, 'obtenerDebate']);
+Route::post('registrarMensaje', [ForoDudasController::class, 'registrarMensaje']);
