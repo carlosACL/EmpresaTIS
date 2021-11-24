@@ -22,20 +22,20 @@ const EspacioGeneral = () => {
                     <div id="cont-label-logo">
                         <label id="label-login-logo">ESPACIO GENERAL</label>
                     </div>
-                    
+                    <div>
                         <Accordion atomic = {true}>
                             <AccordionItem title = "DESCRIPCION" >
-                            <h1>ReactAcordion</h1>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
                             </AccordionItem> 
                             <AccordionItem title = "ANUNCIOS" >
-                            <h1>ReactAcordion</h1>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
                             </AccordionItem>
                             <AccordionItem title = "DOCUMENTACION" >
-                            <h1>ReactAcordion</h1>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
                             </AccordionItem>
                     
                         </Accordion>
-
+                    </div>
 
             </Card>  
             
