@@ -1,11 +1,11 @@
 import { useState, useEffect, useLayoutEffect } from 'react'
 import { Card } from '../elementos/card'
-import { Tabla, THead, RowPrimary, RowSecundary, GrupoTabla } from '../elementos/GE'
+import { Tabla, THead, RowPrimary, RowSecundary, GrupoTabla, Tbody } from '../elementos/GE'
 import { Titulo } from '../elementos/registro'
 
 const GrupoEmpresas = () => {
 
-    const [ges, setGe] = useState([]);
+    const [ges, setGe] = useState(null);
     useEffect(() => {
         const dat = new FormData();
         dat.append('id', sessionStorage.getItem('id'));
@@ -20,7 +20,7 @@ const GrupoEmpresas = () => {
     return (
         <main>
             <Card className=' text-center justify-content-center'>
-                {(ges.length>0) ? (<><GrupoTabla>
+                <><GrupoTabla>
                     <Titulo>Grupo Empresas En Tu Grupo de Asesoría</Titulo>
                     <Tabla  className=' m-3'>
                         <THead>
@@ -31,8 +31,8 @@ const GrupoEmpresas = () => {
                                 <th>Nro Integrantes</th>
                             </tr>
                         </THead>
-                        <tbody>
-                        {ges.map((data, index) => {
+                        <Tbody>
+                        {(ges) ? ((ges.length>0) ? (ges.map((data, index) => {
                             
                             return (index%2==0) ? 
                                     (<><RowSecundary>
@@ -41,10 +41,11 @@ const GrupoEmpresas = () => {
                                     :
                                     (<><RowPrimary>
                                         <td>{index+1}</td><td><a href={`/GE-${data.nombre}`} >{data.nombre}</a></td><td>{data.creador}</td><td>{data.integrantes}</td>
-                                    </RowPrimary></>)})}
-                        </tbody>
+                                    </RowPrimary></>)})) : (<tr><td colSpan="4">No hay grupo Empresas Registradas</td></tr>)):
+                                    (<tr><td colSpan="4">Cargando...</td></tr>)}
+                        </Tbody>
                     </Tabla>
-                </GrupoTabla></>) : (<Titulo>No hay Grupo-Empresas Registradas En Tu Grupo</Titulo>)}
+                </GrupoTabla></>
             </Card>
         </main>
     )

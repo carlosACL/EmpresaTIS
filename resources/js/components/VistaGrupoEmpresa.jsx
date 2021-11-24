@@ -2,9 +2,9 @@ import React from 'react'
 import { Card } from '../elementos/card';
 import { Titulo } from '../elementos/registro';
 import { ContenedorDatos } from '../elementos/registro';
+import BotonSolicitarIngreso from './DatosGrupoEmpresa/BotonSolicitarIngreso';
 const VistaGrupoEmpresa = () => {
     return (
-        <main>
             <Card>
                 <div className='formStyle'>
                     <Titulo>{datos.nombre} </Titulo>
@@ -19,11 +19,11 @@ const VistaGrupoEmpresa = () => {
                         </div>
                         <div>
                             <img id='imagenGER' src = {'resources/'+datos.logo}/>
+                            <BotonSolicitarIngreso />
                         </div>
                     </ContenedorDatos>
                 </div>
             </Card>
-        </main>
     )
 }
 

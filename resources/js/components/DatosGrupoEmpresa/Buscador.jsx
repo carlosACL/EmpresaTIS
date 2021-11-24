@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { BotonStyled, InputBuscador } from '../../elementos/TabGE';
 import CajaBuscador from './CajaBuscador';
-import { invitar } from '../../Invitacion';
+import { invitar } from '../../parametros/Invitacion';
 
 
 const Buscador = ({pendientes, setPendientes}) => {

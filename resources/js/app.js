@@ -16,7 +16,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import ReactDOM from 'react-dom';
 import RegistroGE from './components/RegistroGE';
-import EditarGE from './components/EditarGE';
 import React from 'react';
 import '../css/app.css';
 import {Fondo} from './elementos/card';
@@ -32,6 +31,12 @@ import TabPerfil from './components/DatosPerfilUsuario/TabPerfil';
 import FundaEmpresa from './components/tablaGE';
 import EspacioGeneral from './components/EspacioGeneral';
 import VistaInscritos from './components/DatosVistaInscritos/VistaInscritos';
+
+import EditarGE from './components/EditarGE';
+import PDF from './components/PDF';
+import Comentario from './components/Comentario';
+import VerSolicitudIngresoGE from './components/VerSolicitudIngresoGE';
+import SolicitarIngresoGE from './components/SolicitarIngresoGE';
 //import Login from "./components/Login/Login"
 
 /*
@@ -60,10 +65,45 @@ if (document.getElementById('regGE')) {
 if (document.getElementById('editGE')) {
     ReactDOM.render(
         <div >
-            <EditarGE />
+            <EditarGE/>
         </div>, document.getElementById('editGE'));
 }
 
+if (document.getElementById('subirPDF')) {
+    ReactDOM.render(
+        <div >
+            <PDF/>
+        </div>, document.getElementById('subirPDF'));
+}
+
+if (document.getElementById('comentario')) {
+    ReactDOM.render(
+        <div >
+            <Comentario/>
+        </div>, document.getElementById('comentario'));
+}
+
+if (document.getElementById('solicitarIngresoGE')) {
+    ReactDOM.render(
+        <div >
+            <SolicitarIngresoGE/>
+        </div>, document.getElementById('solicitarIngresoGE'));
+}
+
+if (document.getElementById('verSolicitudIngresoGE')) {
+    ReactDOM.render(
+        <div >
+            <VerSolicitudIngresoGE/>
+        </div>, document.getElementById('verSolicitudIngresoGE'));
+}
+
+
+/* if (document.getElementById('comentario')) {
+    ReactDOM.render(
+        <div >
+            <Comentario/>
+        </div>, document.getElementById('comentario'));
+} */
 
 if(document.getElementById('perfil')){
     ReactDOM.render(<div >
@@ -113,7 +153,7 @@ if(document.getElementById('espaciogeneral')){
                         <EspacioGeneral />
                   </div>
         ,document.getElementById('espaciogeneral'));
-    
+
 }
 
 if(document.getElementById('vistaInscritos')){

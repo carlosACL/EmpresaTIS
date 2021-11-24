@@ -161,4 +161,20 @@ class RegistroGEController extends Controller
 
         return response()->json($res);
     }
+
+    /*
+        ge= grupo empresa, nada mas
+    */
+    function obtenerSolicitudes(Request $req){
+        $GE = DB::table('Grupo_Empresa')
+                    ->where('nombre','=', $req->ge)
+                    ->first();
+        $pendientes = DB::table('Invitacion')
+                            ->join('Usuario', 'Usuario.idUsuario','=','Invitacion.idUsuario')
+                            ->join('Grupo_Empresa', 'Grupo_Empresa.idGE', '=', 'Invitacion.idGE')
+                            ->where('invitacion', '=', false)
+                            ->where('estado', '=', 'Pendiente')
+                            ->get();
+        return response()->json($pendientes);
+    }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '../../elementos/card';
 import { Tabla, THead } from '../../elementos/GE';
-import { invitar } from '../../Invitacion';
+import { invitar } from '../../parametros/Invitacion';
 import BotonInvitar from './BotonInvitar';
 import { ContTabla, ContTabla2, TBody, TItem } from './estilosVistaInscritos/estilosVistaInscritos';
 
@@ -15,7 +15,6 @@ const VistaInscritos = () => {
         const idUser = sessionStorage.getItem('id');
         const datoID = new FormData();
         datoID.append('idUsuario',idUser);
-
         fetch('api/getUsuariosMismoGrupo',{
             method: 'POST',
             body: datoID

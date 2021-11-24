@@ -26,7 +26,6 @@ const OrganizacionJ = ({estado, cambiarEstado, funcValidar}) => {
                     return(<option value={dat}>{dat}</option>)
                 })}
             </select>
-            {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado)}/>)}
         </>
     )
 }

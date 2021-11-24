@@ -3,7 +3,7 @@ import { create, toInteger } from 'lodash';
 import React, { useRef, useEffect, useState } from 'react';
 import { Boton, InputStyle } from '../elementos/registro';
 import { iniciarSession } from '../parametros/menus';
-import { createSession, isSessionActive } from '../session';
+import { createSession } from '../parametros/session';
 
 const Login = () => {       
     const refUser = useRef(null);
