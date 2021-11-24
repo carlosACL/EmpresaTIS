@@ -10886,141 +10886,6 @@ if (document.getElementById('vistaInscritos')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Acordeon/Accordion.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/Acordeon/Accordion.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Accordion)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Accordion_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Accordion.css */ "./resources/js/components/Acordeon/Accordion.css");
-/* harmony import */ var _chevron_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chevron.svg */ "./resources/js/components/Acordeon/chevron.svg");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-function Accordion() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      toggle = _useState2[0],
-      setToggle = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-      _useState4 = _slicedToArray(_useState3, 2),
-      heightEl = _useState4[0],
-      setHeightEl = _useState4[1];
-
-  var refHeight = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(refHeight);
-    setHeightEl("".concat(refHeight.current.scrollHeight, "px"));
-  }, []);
-
-  var toggleState = function toggleState() {
-    setToggle(!toggle);
-  };
-
-  console.log(toggle);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "accordion",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
-      onClick: toggleState,
-      className: "accordion-visible",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        children: "DESCRIPCION"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        className: toggle && "active",
-        src: _chevron_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: toggle ? "accordion-toggle animated" : "accordion-toggle",
-      style: {
-        height: toggle ? "".concat(heightEl) : "0px"
-      },
-      ref: refHeight,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        "aria-hidden": toggle ? "true" : "false",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
-          name: "mensaje",
-          placeholder: "Ingresa una Descripcion de la empresa TIS",
-          maxlength: "140"
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
-      onClick: toggleState,
-      className: "accordion-visible",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        children: "ANUNCIOS"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        className: toggle && "active",
-        src: _chevron_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: toggle ? "accordion-toggle animated" : "accordion-toggle",
-      style: {
-        height: toggle ? "".concat(heightEl) : "0px"
-      },
-      ref: refHeight,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        "margin-left": "0px",
-        "aria-hidden": toggle ? "true" : "false",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          border: "1px solid #71caac",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-            children: "Aqui se introduce los anuncios"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            children: "Agregar"
-          })]
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
-      onClick: toggleState,
-      className: "accordion-visible",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-        children: "DOCUMENTACION"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        className: toggle && "active",
-        src: _chevron_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: toggle ? "accordion-toggle animated" : "accordion-toggle",
-      style: {
-        height: toggle ? "".concat(heightEl) : "0px"
-      },
-      ref: refHeight,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        border: "1px solid #71caac",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-          children: "Aqui se introduce los Documentos"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          children: "Agregar"
-        })]
-      })
-    })]
-  });
-}
-
-/***/ }),
-
 /***/ "./resources/js/components/DatosGrupoEmpresa/Buscador.jsx":
 /*!****************************************************************!*\
   !*** ./resources/js/components/DatosGrupoEmpresa/Buscador.jsx ***!
@@ -13817,26 +13682,90 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../elementos/card */ "./resources/js/elementos/card.js");
 /* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../elementos/registro */ "./resources/js/elementos/registro.js");
 /* harmony import */ var _elementos_tabla__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../elementos/tabla */ "./resources/js/elementos/tabla.js");
-/* harmony import */ var _Acordeon_Accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Acordeon/Accordion */ "./resources/js/components/Acordeon/Accordion.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _elementos_acordeon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../elementos/acordeon */ "./resources/js/elementos/acordeon.js");
+/* harmony import */ var _Acordeon_chevron_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Acordeon/chevron.svg */ "./resources/js/components/Acordeon/chevron.svg");
+/* harmony import */ var react_light_accordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-light-accordion */ "./node_modules/react-light-accordion/build/index.js");
+/* harmony import */ var react_light_accordion__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_light_accordion_demo_css_index_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-light-accordion/demo/css/index.css */ "./node_modules/react-light-accordion/demo/css/index.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+ //import Accordion from './Acordeon/Accordion';
 
 
 
 
+
+/*const [toggle, setToggle] = useState(false)
+    const [heightEl, setHeightEl] = useState();
+      const refHeight = useRef()
+      useEffect(() => {
+        console.log(refHeight);
+        setHeightEl(`${refHeight.current.scrollHeight}px`)
+    }, [])
+      const toggleState = () => {
+        setToggle(!toggle)
+    }
+      console.log(toggle);*/
+
+/* const Group = ({ group }) => {
+     const [hidden, setHidden] = useState(true);
+     const styles = { display: hidden ? "none" : "" };
+     return (
+       <div>
+         <CommandGroupHeader>
+           <img src={group.icon} alt="" />
+           <h3>{group.name} commands</h3>
+           <button onClick={() => setHidden(!hidden)}>
+             {hidden ? "Show" : "hide"}
+           </button>
+         </CommandGroupHeader>
+         <CommandGroupList style={styles}>
+           {group.commands.map((c, i) => (
+             <div key={i}>
+               <h4>{c.name}</h4>
+               <p>{c.description}</p>
+             </div>
+           ))}
+         </CommandGroupList>
+       </div>
+     );
+   };*/
 
 
 
 
 var EspacioGeneral = function EspacioGeneral() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("main", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         id: "cont-label-logo",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
           id: "label-login-logo",
           children: "ESPACIO GENERAL"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Acordeon_Accordion__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+        children: "ReactAcordion"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.Accordion, {
+        atomic: true,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
+          title: "DESCRIPCION",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+            children: "ReactAcordion"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
+          title: "ANUNCIOS",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+            children: "ReactAcordion"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
+          title: "DOCUMENTACION",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+            children: "ReactAcordion"
+          })
+        })]
+      })]
     })
   });
 };
@@ -16253,6 +16182,44 @@ var ImagenPerfil = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img
 
 /***/ }),
 
+/***/ "./resources/js/elementos/acordeon.js":
+/*!********************************************!*\
+  !*** ./resources/js/elementos/acordeon.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Acordeon": () => (/* binding */ Acordeon),
+/* harmony export */   "CommandGroupHeader": () => (/* binding */ CommandGroupHeader),
+/* harmony export */   "CommandGroupList": () => (/* binding */ CommandGroupList),
+/* harmony export */   "AccordionSection": () => (/* binding */ AccordionSection),
+/* harmony export */   "Container": () => (/* binding */ Container),
+/* harmony export */   "Wrap": () => (/* binding */ Wrap),
+/* harmony export */   "Dropdown": () => (/* binding */ Dropdown)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
+/* harmony import */ var _js_components_Acordeon_chevron_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../js/components/Acordeon/chevron.svg */ "./resources/js/components/Acordeon/chevron.svg");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var Acordeon = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 400px;\n    margin: 100px auto 0;\n    border-radius: 3px;\n    background: #f1f1f1;\n"])));
+var CommandGroupHeader = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  border: 1px solid blue;\n  border-radius: 1rem;\n  padding: 0.9rem;\n  margin-bottom: 0.5em;\n  display: flex;\n\n  img {\n    width: 2rem;\n    margin: 0 1em;\n  }\n  h3 {\n    margin: auto 0;\n    color: gray;\n    font-weight: 600;\n  }\n  button {\n    margin: auto 0 auto auto;\n    padding: 1em;\n    background: none;\n    color: blue;\n    text-transform: capitalize;\n    border: none;\n    outline: none;\n    font-size: 1rem;\n  }\n"])));
+var CommandGroupList = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  border: 1px solid blue;\n  border-radius: 1rem;\n  transition: 0.9s;\n  div {\n    display: flex;\n    align-items: center;\n    padding: 0.5em 1em;\n\n    h4 {\n      border: 1px solid cyan;\n      border-radius: 0.5em;\n      padding: 0.4em 0.5em;\n      background: lightcyan;\n      color: gray;\n      margin: 0 5px;\n    }\n    p {\n      color: gray;\n      margin: 1rem 5px;\n    }\n  }\n"])));
+var AccordionSection = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  height: 100vh;\n  background: #fff;\n"])));
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 30%;\n  box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);\n"])));
+var Wrap = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  background: #272727;\n  color: #fff;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n  text-align: center;\n  cursor: pointer;\n  h1 {\n    padding: 2rem;\n    font-size: 2rem;\n  }\n  span {\n    margin-right: 1.5rem;\n  }\n"])));
+var Dropdown = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  background: #1c1c1c;\n  color: #00ffb9;\n  width: 100%;\n  height: 100px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  border-bottom: 1px solid #00ffb9;\n  border-top: 1px solid #00ffb9;\n  p {\n    font-size: 2rem;\n  }\n"])));
+
+
+/***/ }),
+
 /***/ "./resources/js/elementos/card.js":
 /*!****************************************!*\
   !*** ./resources/js/elementos/card.js ***!
@@ -16884,6 +16851,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*!\n * Bootstrap v4.6.1 (https://getb
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/react-light-accordion/demo/css/index.css":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/react-light-accordion/demo/css/index.css ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".accordion {\n  border-radius: 5px;\n  border: 1px solid #d9d9d9;\n}\n.accordion .accordion-item:first-child .title {\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n}\n.accordion .accordion-item:last-child .title {\n  border-bottom-left-radius: 5px;\n  border-bottom-right-radius: 5px;\n}\n.accordion .accordion-item .title {\n  background-color: #f6f6f6;\n  color: #444;\n  cursor: pointer;\n  padding: 18px;\n  width: 100%;\n  text-align: left;\n  border: none;\n  outline: none;\n  transition: 0.4s;\n}\n.accordion .accordion-item .title:after {\n  content: '\\2795';\n  font-size: 13px;\n  color: #777;\n  float: right;\n  margin-left: 5px;\n}\n.accordion .accordion-item .panel {\n  max-height: 0;\n  transition: max-height 0.15s ease-out;\n  overflow: hidden;\n}\n.accordion .accordion-item.active .title {\n  background-color: #eee;\n}\n.accordion .accordion-item.active .title:after {\n  content: '\\2796';\n}\n.accordion .accordion-item.active .panel {\n  max-height: 500px;\n  transition: max-height 0.25s ease-in;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/app.css":
 /*!*****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/app.css ***!
@@ -16902,30 +16893,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "body{\r\n    background-color: rgb(0 , 221, 170, 0.4)\r\n}\r\n\r\nmain{\r\n    max-width: 800px;\r\n    margin: auto;\r\n    padding: 40px;\r\n}\r\n\r\n.miTextArea textarea{\r\n    resize: none;\r\n    margin: 5%;\r\n    width: 90%;\r\n    height: 100px;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n.formStyle{\r\n    margin-top: 50px;\r\n    margin: 30px;\r\n    display : grid;\r\n    gap: 20px;\r\n}\r\n\r\n@media screen and (max-width: 992px){\r\n    .formStyle{\r\n        grid-template-columns: 1fr;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 700px){\r\n    main {\r\n        padding: 0;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 992px){\r\n    .mostrar{\r\n        display: flex;\r\n        margin-left: 10px;\r\n    }\r\n}\r\n\r\n/*\r\n.tarjetaDisplayBlock{\r\n    display: flex;\r\n}\r\n\r\n.elementCenter{\r\n    align-items: center;\r\n}\r\n\r\n#imagenGER {\r\n    width: 100%;\r\n    height: 200px;\r\n    object-fit: cover;\r\n}\r\n\r\n.imagenGERC{\r\n    width: 100%;\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\n.imagenSinTexto{\r\n    color: transparent;\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 151.5px;\r\n}\r\n\r\n.tituloRGE{\r\n    margin-top: -20px;\r\n    margin-bottom: 50px;\r\n}\r\n\r\n.botonRGE{\r\n    background-color: rgb(0 , 221, 170);\r\n}\r\n\r\n.inputRGE{\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom-color: black;\r\n}\r\n\r\n.botonRGE:hover {\r\n    background-color: rgb(240, 255, 240);\r\n}*/\r\n\r\n#contenedor {\r\n    position: relative;\r\n    height: 900px;\r\n}\r\n\r\n#lbDetalles{\r\n    display: inline-block;\r\n    font-size: 20px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n    padding-top: 50px;\r\n    margin-right: 185px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.labels{\r\n    \r\n    position: relative;\r\n    padding: 15px;\r\n    width: 180px;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.texto{\r\n    width: 250px;\r\n    color: black;\r\n    border-color: rgb(240, 255, 240, 0.4);\r\n    border-bottom: 2px solid;\r\n    border-bottom-color: black;\r\n    text-align: center;\r\n}\r\n\r\n#tarjeta-datos{\r\n    display: block;\r\n    transition: .5s ease all;\r\n    background-color: rgb( 240, 255, 240, 0.7);\r\n    border-color: rgb( 240, 255, 240, 0.4);\r\n    border-radius: 30px;\r\n    box-shadow: 10px 10px 10px;\r\n    position: absolute;\r\n    left: 20%;\r\n    right: 20%;\r\n    top: 15%;\r\n    padding: 30px;\r\n    text-align: right;\r\n    padding-top: 10px;\r\n    padding-right: 40px;\r\n    transition: 0.3s;\r\n}\r\n\r\n#img-usuario{\r\n    position: absolute;\r\n    background-color: white;\r\n    border-width: 2px;\r\n    border-color: #22ddaa;\r\n    width: 26%;\r\n    height: 200px;\r\n    top: 5%;\r\n    left: 5%;\r\n}\r\n\r\n#imagen{\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n@media only screen and (max-width: 1150px) {\r\n    #tarjeta-datos{\r\n        top: 100px;\r\n        left: 9%;\r\n        right: 9%;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 991px) {\r\n    #tarjeta-datos{\r\n        top: 50px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #contenedor { \r\n        height: 1180px;\r\n    }\r\n\r\n    #lbDetalles{\r\n        display: block;\r\n        text-align: center;\r\n        padding-top: 300px;\r\n        padding-right: 0px;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #tarjeta-datos{\r\n        padding: 0%;\r\n        padding-bottom: 20px;\r\n    }\r\n\r\n    .labels{\r\n        display: block;\r\n        position: relative;\r\n        text-align: center;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .texto{\r\n        display: block;\r\n        position: relative;\r\n        width: 80%;\r\n        height: 30px;\r\n        padding: 0%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    #img-usuario{\r\n        position: absolute;\r\n        width: 200px;\r\n        height: 200px;\r\n        top: 5%;\r\n        left: 0%;\r\n        right: 0%;\r\n        margin: 0 auto;\r\n    }\r\n}\r\n\r\n/*LOGIN*/\r\n\r\n#main-login {\r\n    max-width: 100%;\r\n    padding: 0px;\r\n}\r\n\r\n#contenedor-login {\r\n    position: relative;\r\n    height: 700px;\r\n}\r\n\r\n#label-login-logo {\r\n    color: #22ddaa;\r\n    text-align: center;\r\n    transition: 0.6s;\r\n}\r\n\r\n#cont-label-logo {\r\n    text-align: center;\r\n    font-size: 40px;\r\n    margin-top: 20px;\r\n}\r\n\r\n#cont-logo {\r\n    width: 50%;\r\n    min-width: 200px;\r\n    margin: 0 auto;\r\n}\r\n\r\n#cont-datos-login {\r\n    width: 80%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.input-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 100%;\r\n}\r\n\r\n#boton-login {\r\n    margin-top: 20px;\r\n    margin-right: 10%;\r\n    width: 80%;\r\n}\r\n\r\n#cont-label-login {\r\n    text-align: center;\r\n    padding: 0 10%;\r\n    margin-top: 20px;\r\n}\r\n\r\n#label-login {\r\n    font-size: 20px;\r\n    text-align: center;\r\n}\r\n\r\n.link-login {\r\n    margin-top: 20px;\r\n    text-align: center;\r\n    text-decoration: underline;\r\n    font-size: 17px;\r\n    padding: 0 10%;\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #cont-label-logo {\r\n        font-size: 30px;\r\n    }\r\n\r\n    #contenedor-login {\r\n        height: 625px;\r\n    }\r\n}\r\n\r\n#fondo {\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n#cont-icono-editar {\r\n    position: relative;\r\n    width: 60px;\r\n    top: 35px;\r\n    margin-left: 90%;\r\n    border: 2px solid #22ddaa;\r\n    transition: 0.3s;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-editar {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#cont-iconos-edicion {\r\n    margin-top: 30px;\r\n}\r\n\r\n#cont-icono-atras {\r\n    position: relative;\r\n    width: 50px;\r\n    float: left;\r\n    margin-left: 20px;\r\n    border: 2px solid red;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-atras {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#cont-icono-guardar {\r\n    position: relative;\r\n    width: 50px;\r\n    margin-right: 20px;\r\n    float: right;\r\n    border: 2px solid #00f;\r\n    cursor: pointer;\r\n}\r\n\r\n#icono-guardar {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n#input-file {\r\n    display: none;\r\n}\r\n\r\n#cont-input-imagen {\r\n    position: relative;\r\n    text-align: center;\r\n    top: 240px;\r\n    width: 30%;\r\n}\r\n\r\n.btm-input-file {\r\n    transition: .3s ease all;\r\n    border-radius: 5px;\r\n    color: white;\r\n    border-style: solid;\r\n    background-color: rgb(0, 221, 170);\r\n    border-color: rgb(0, 221, 170);\r\n    padding: 5px;\r\n}\r\n\r\n.btm-input-file:hover {\r\n    color: black;\r\n    border-color: rgb(240 , 255, 240);\r\n    background-color: rgb(240 , 255, 240);\r\n}\r\n\r\n.texto:focus {\r\n    border-bottom: 4px solid rgb(0 , 221, 170);\r\n    outline: none;\r\n    box-shadow: 5px 5px 5px;\r\n}\r\n\r\n#tarjeta-datos input[type=\"text\"]:invalid, #tarjeta-datos input[type=\"password\"]:invalid {\r\n    transition: 0.3s ease all;\r\n    border-bottom-color: red !important;\r\n}\r\n\r\n#tarjeta-datos input[type=\"text\"]:valid, #tarjeta-datos input[type=\"password\"]:valid{\r\n    transition: 0.3s ease all;\r\n    border-bottom-color: #6aff00 !important;\r\n}\r\n\r\n@media only screen and (max-width: 840px) {\r\n    #cont-icono-editar {\r\n        top: 65px;\r\n        margin-left: 80%;\r\n    }\r\n\r\n    #cont-input-imagen {\r\n        text-align: center;\r\n        top: 270px;\r\n        margin: 0 auto;\r\n    }\r\n    \r\n    .btm-input-file {\r\n        margin-left: 0%;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 480px) {\r\n    #cont-icono-editar {\r\n        transition: 0s;\r\n        top: 280px;\r\n        margin: 0 auto;\r\n    }\r\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Acordeon/Accordion.css":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Acordeon/Accordion.css ***!
-  \******************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".accordion {\r\n    max-width: 400px;\r\n    margin: 100px auto 0;\r\n    border-radius: 3px;\r\n    background: #f1f1f1;\r\n}\r\n\r\n.accordion-visible {\r\n    background: #71caac;\r\n    width: 100%;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    border: 1px solid #ffffff;;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 7px 15px;\r\n    border-top-left-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\n.accordion-visible span {\r\n    padding: 15px 0;\r\n    font-size: 20px;\r\n}\r\n.accordion-visible img {\r\n    width: 20px;\r\n    transform: rotate(-90deg);\r\n    transition: transform 0.2s ease-in-out;\r\n}\r\n.accordion-visible img.active {\r\n    transform: rotate(0deg)\r\n}\r\n\r\n.accordion-visible h2 {\r\n    font-size: 20px;\r\n}\r\n\r\n.accordion-toggle {\r\n    height: 0px;\r\n    font-size: 18px;\r\n    opacity: 0;\r\n    transition:  \r\n    opacity 0.3s ease-in-out,\r\n    height 0.3s 0.3s ease-in-out;\r\n    color: #333;\r\n    border-bottom-left-radius: 3px;\r\n    border-bottom-right-radius: 3px;\r\n}\r\n\r\n.animated {\r\n    opacity: 1;\r\n    transition:  \r\n    height 0.3s ease-in-out,\r\n    opacity 0.3s 0.3s ease-in-out;\r\n}\r\n\r\n.accordion-toggle p {\r\n    margin: 0;\r\n    padding: 22px 15px;\r\n    pointer-events: none;\r\n    line-height: 1.3;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -73293,6 +73260,17 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-light-accordion/build/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-light-accordion/build/index.js ***!
+  \***********************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+!function(e,t){if(true)module.exports=t(__webpack_require__(/*! react */ "./node_modules/react/index.js"),__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));else { var r, n; }}(this,function(e,t){return function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var n={};return t.m=e,t.c=n,t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=1)}([function(t,n){t.exports=e},function(e,t,n){e.exports=n(2)},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(3),o=n(4);n.d(t,"Accordion",function(){return r.a}),n.d(t,"AccordionItem",function(){return o.a}),t.default=r.a},function(e,t,n){"use strict";function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!==typeof t&&"function"!==typeof t?e:t}function i(e,t){if("function"!==typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}var c=n(0),u=n.n(c),a=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),s=function(e){function t(e){r(this,t);var n=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.state={},n}return i(t,e),a(t,[{key:"renderChildren",value:function(){var e=this;return u.a.Children.map(this.props.children,function(t){return u.a.cloneElement(t,{atomic:e.props.atomic})})}},{key:"render",value:function(){return u.a.createElement("div",{className:"accordion"},this.renderChildren())}}]),t}(c.Component);t.a=s},function(e,t,n){"use strict";function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!==typeof t&&"function"!==typeof t?e:t}function i(e,t){if("function"!==typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}var c=n(0),u=n.n(c),a=n(5),s=n.n(a),f=n(6),p=n.n(f),l=n(11),d=n.n(l),h=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),m=function(e){function t(e){r(this,t);var n=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.handleDocumentClick=function(e){n.mounted&&!s.a.findDOMNode(n).contains(e.target)&&n.state.isOpen&&n.setState({isOpen:!1})},n.onClick=function(){n.setState({isOpen:!n.state.isOpen})},n.state={isOpen:!1},n.mounted=!0,n}return i(t,e),h(t,[{key:"componentDidMount",value:function(){this.props.atomic&&(document.addEventListener("click",this.handleDocumentClick,!1),document.addEventListener("touchend",this.handleDocumentClick,!1))}},{key:"componentWillUnmount",value:function(){this.mounted=!1,document.removeEventListener("click",this.handleDocumentClick,!1),document.removeEventListener("touchend",this.handleDocumentClick,!1)}},{key:"render",value:function(){var e=d()(["accordion-item",{active:this.state.isOpen}]);return u.a.createElement("div",{className:e},u.a.createElement("button",{className:"title",onClick:this.onClick},this.props.title),u.a.createElement("div",{className:"panel"},this.props.children))}}]),t}(c.Component);m.propTypes={title:p.a.string},m.defaultProps={title:"TITLE"},t.a=m},function(e,n){e.exports=t},function(e,t,n){e.exports=n(7)()},function(e,t,n){"use strict";var r=n(8),o=n(9),i=n(10);e.exports=function(){function e(e,t,n,r,c,u){u!==i&&o(!1,"Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types")}function t(){return e}e.isRequired=e;var n={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t};return n.checkPropTypes=r,n.PropTypes=n,n}},function(e,t,n){"use strict";function r(e){return function(){return e}}var o=function(){};o.thatReturns=r,o.thatReturnsFalse=r(!1),o.thatReturnsTrue=r(!0),o.thatReturnsNull=r(null),o.thatReturnsThis=function(){return this},o.thatReturnsArgument=function(e){return e},e.exports=o},function(e,t,n){"use strict";function r(e,t,n,r,i,c,u,a){if(o(t),!e){var s;if(void 0===t)s=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var f=[n,r,i,c,u,a],p=0;s=new Error(t.replace(/%s/g,function(){return f[p++]})),s.name="Invariant Violation"}throw s.framesToPop=1,s}}var o=function(e){};e.exports=r},function(e,t,n){"use strict";e.exports="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED"},function(e,t,n){var r,o;!function(){"use strict";function n(){for(var e=[],t=0;t<arguments.length;t++){var r=arguments[t];if(r){var o=typeof r;if("string"===o||"number"===o)e.push(r);else if(Array.isArray(r))e.push(n.apply(null,r));else if("object"===o)for(var c in r)i.call(r,c)&&r[c]&&e.push(c)}}return e.join(" ")}var i={}.hasOwnProperty;"undefined"!==typeof e&&e.exports?e.exports=n:(r=[],void 0!==(o=function(){return n}.apply(t,r))&&(e.exports=o))}()}])});
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
 /***/ "./node_modules/react/cjs/react-jsx-runtime.development.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/react/cjs/react-jsx-runtime.development.js ***!
@@ -78798,6 +78776,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 /***/ }),
 
+/***/ "./node_modules/react-light-accordion/demo/css/index.css":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-light-accordion/demo/css/index.css ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./index.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/react-light-accordion/demo/css/index.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -78825,36 +78833,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_app_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/components/Acordeon/Accordion.css":
-/*!********************************************************!*\
-  !*** ./resources/js/components/Acordeon/Accordion.css ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Accordion_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./Accordion.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Acordeon/Accordion.css");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Accordion_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Accordion_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
