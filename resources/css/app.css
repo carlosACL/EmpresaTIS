@@ -190,8 +190,7 @@ main{
 /*LOGIN*/
 
 #main-login {
-    max-width: 100%;
-    padding: 0px;
+    display: block;
 }
 
 #contenedor-login {

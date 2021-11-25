@@ -1,8 +1,7 @@
 import {useRef} from 'react'
-import MensajeAlerta from './MensajeAlerta';
 import PropTypes from 'prop-types'
 
-const OrganizacionJ = ({estado, cambiarEstado, funcValidar}) => {
+const OrganizacionJ = ({estado, cambiarEstado}) => {
 
     const orgJur = useRef(null);
     const options = ['Sociedad de Responsabilidad limitada',
@@ -21,9 +20,11 @@ const OrganizacionJ = ({estado, cambiarEstado, funcValidar}) => {
     return (
         <>
             <select ref = {orgJur} onChange={onChangeOption} id='orgJur' name='orgJur' onSubmit= {onChangeOption}>
-                <option value='false' defaultValue>--Seleccione una opcion--</option>
+                <option value={estado.campoOrig}>{estado.campoOrig}</option>
                 {options.map((dat) => {
-                    return(<option value={dat}>{dat}</option>)
+                    if(dat != estado.campoOrig){
+                        return(<option value={dat}>{dat}</option>)
+                    }
                 })}
             </select>
         </>

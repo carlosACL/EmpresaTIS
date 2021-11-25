@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
     ContenedorDatos,
     ContenedorBloque,
@@ -11,34 +11,59 @@ import Input from './EditarGE/Input';
 import InputImg from './EditarGE/InputImg';
 import OrganizacionJ from './EditarGE/OrganizacionJ';
 import TextArea from './EditarGE/TextArea';
-import MensajeAlerta from './editarGE/MensajeAlerta';
 
-const EditarGE = (props) => {
+const EditarGE = () => {
 
     const [idGE, setID] = useState({ campo: '' });
-    const [orgJur, setOrgJur] = useState({ valido: false });
-    const [telefono, setTelefono] = useState({ campo: '', valido: false });
-    const [direccion, setDireccion] = useState({ campo: '', valido: false });
-    const [email, setEmail] = useState({ campo: '', valido: false, existe: 'false' });
-    const [logo, setLogo] = useState({ campo: '', eliminar: '', valido: false });
-    const [nombre, setNombre] = useState({ campo: '', valido: false, existe: 'false' });
-    const [nombreAb, setNombreAb] = useState({ campo: '', valido: false });
-    const [descripcion, setDescripcion] = useState({ campo: '', valido: false });
+    const [orgJur, setOrgJur] = useState({campoOrig: '' ,valido: 'true' });
+    const [telefono, setTelefono] = useState({ campo: '', valido: 'true' });
+    const [direccion, setDireccion] = useState({ campo: '', valido: 'true' });
+    const [email, setEmail] = useState({ campo: '', valido: 'true', existe: 'false' });
+    const [logo, setLogo] = useState({ campo: './resources/cargando.png', eliminar: '', valido: 'true' });
+    const [nombre, setNombre] = useState({ campo: '', valido: 'true', existe: 'false' });
+    const [nombreAb, setNombreAb] = useState({ campo: '', valido: 'true' });
+    const [descripcion, setDescripcion] = useState({ campo: '', valido: 'true' });
 
+    const [nombreOrig, setNombreOrig] = useState('');
+    const [nombreAbOrig, setNombreAbOrig] = useState('');
+    const [emailOrig, setEmailOrig] = useState('');
 
+    useEffect(() => {
+        fetch('/api/solicitarGE', {
+            method: 'POST',
+            body: JSON.stringify(nombreGE),
+        }).then((response) => response.json())
+            .then((data) => {
+                for (let i = 0; i < data.length; i++) {
+                    let elemento = data[i];
+                    if (elemento.nombre == nombreGE.campo) {
+                        setID({ ...idGE, campo: elemento.idGE });
+                        setNombre({ ...nombre, campo: elemento.nombre });
+                        setNombreAb({ ...nombreAb, campo: elemento.nombreAb });
+                        setTelefono({ ...telefono, campo: elemento.telefono });
+                        setDireccion({ ...direccion, campo: elemento.direccion });
+                        setEmail({ ...email, campo: elemento.email });
+                        setDescripcion({ ...descripcion, campo: elemento.descripcion });
+                        setLogo({ ...logo, campo: "./resources/" + elemento.logo, eliminar: "./resources/" + elemento.logo });
 
-
+                        setNombreOrig(elemento.nombre);
+                        setNombreAbOrig(elemento.nombreAb);
+                        setEmailOrig(elemento.email);
+                        setOrgJur({...orgJur, campoOrig: elemento.orgJur})
+                        break;
+                    }
+                }
+            });
+    }, [])
 
     const expresiones = {
         nombre: /^[a-zA-Z\s]{3,30}$/,
         nombreAb: /^[a-zA-Z\s]{2,20}$/,
-        correo: /^[a-zA-Z0-9_.+-]+@est.umss.edu$/,
+        correo: /^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         telefono: /^\d{7,8}$/,
         direccion: /^[a-zA-ZÀ-ÿ0-9\,\.\#\-\_\s]{5,100}$/,
         objetivo: /^[a-zA-ZÀ-ÿ0-9\,\.\s]{10,100}$/,
     };
-
-
 
     const validarLogo = (estate) => {
         const validar = [];
@@ -48,13 +73,16 @@ const EditarGE = (props) => {
         return validar;
     };
 
-    const validarTelefono = (estate) => {
+    const validarTelefono = (estate, regex) => {
         const validar = [];
-        if (estate.campo.length < 1) {
+        if(estate.campo.length < 1){
             validar.push('Debe llenar este campo');
         }
-        if (estate.campo.length < 7 || estate.campo.length > 8) {
+        if(estate.campo.length < 7 || estate.campo.length>8){
             validar.push('el numero de telefono debe contener un minimo de 7 digitos y un maximo de 8 digitos');
+        }
+        if(!regex.test(estate.campo)){
+            validar.push('Hay caracteres invalidos en el campo');
         }
         return validar;
     };
@@ -139,7 +167,7 @@ const EditarGE = (props) => {
 
     const verificarInputs = () => {
         if (!orgJur.valido) {
-            setOrgJur({ valido: false });
+            setOrgJur({ ...orgJur, valido: false });
         }
 
         if (!telefono.valido) {
@@ -205,6 +233,7 @@ const EditarGE = (props) => {
                 if (response.ok) {
                     color = exito();
                     mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+                    sessionStorage.setItem('ge',nombre.campo);
                 } else {
                     color = 'red';
                     mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
@@ -218,48 +247,7 @@ const EditarGE = (props) => {
 
     const nombreGE = {
         campo: document.title
-    };
-
-
-    if (idGE.campo == "") {
-        start();
-        console.log("hola mundo");
-    }
-
-    function start() {
-        fetch('/api/solicitarGE', {
-            method: 'POST',
-            body: JSON.stringify(nombreGE),
-        }).then((response) => response.json())
-            .then((data) => {
-                for (let i = 0; i < data.length; i++) {
-                    let elemento = data[i];
-                    if (elemento.nombre == nombreGE.campo) {
-                        setID({ ...idGE, campo: elemento.idGE });
-                        setNombre({ ...nombre, campo: elemento.nombre });
-                        setNombreAb({ ...nombreAb, campo: elemento.nombreAb });
-                        setTelefono({ ...telefono, campo: elemento.telefono });
-                        setDireccion({ ...direccion, campo: elemento.direccion });
-                        setEmail({ ...email, campo: elemento.email });
-                        setDescripcion({ ...descripcion, campo: elemento.descripcion });
-                        setLogo({ ...logo, campo: "./resources/" + elemento.logo, eliminar: "./resources/" + elemento.logo });
-
-                        /* validarNombre(nombre, expresiones.nombre);
-                        validarNombreAb(nombreAb, expresiones.nombreAb);
-                        validarCorreo(email, expresiones.correo);
-                        validarTelefono(telefono, expresiones.telefono);
-                        validarDireccion(direccion, expresiones.direccion);
-                        validarDescripcion(descripcion, expresiones.objetivo);
-                        validarLogo(logo); */
-                        //verificarInputs();
-                        break;
-                        /*[idGE','fecha_creacion', 'fecha_registro',
-                        'orgJur', 'nombre', 'nombreAb', 'telefono',
-                        'direccion', 'email', 'descripcion', 'logo', 'orgJur'];*/
-                    }
-                }
-            });
-    }
+    };  
 
     const [item_back] = useState("./resources/back.png");
     const [item_save] = useState("./resources/save.png");
@@ -296,8 +284,8 @@ const EditarGE = (props) => {
                                         nombre='nombre'
                                         placeholder='Nombre Grupo-Empresa'
                                         tipo='text'
-                                        funcValidar={validarNombre} />
-                                    {/* {(nombre.valido === 'false') && (<MensajeAlerta mensajeRep={validarNombre(nombre, expresiones.nombre)} />)} */}
+                                        funcValidar={validarNombre}
+                                        estadoOrig={nombreOrig} />
                                 </div>
                                 <div className="form-group">
                                     <Input estado={nombreAb}
@@ -306,18 +294,18 @@ const EditarGE = (props) => {
                                         nombre='nombreAb'
                                         tipo='text'
                                         placeholder='Nombre Abreviado'
-                                        funcValidar={validarNombreAb} />
-                                    {(nombreAb.valido === 'false') && (<MensajeAlerta mensajeRep={validarNombreAb(nombreAb, expresiones.nombreAb)} />)}
+                                        funcValidar={validarNombreAb}
+                                        estadoOrig={nombreAbOrig} />
                                 </div>
                                 <div className="form-group">
-                                    <Input estado={telefono}
-                                        cambiarEstado={setTelefono}
-                                        nombre='telefono' tipo='number'
-                                        placeholder='Telefono'
-                                        maxlength={9}
-                                        minlenght={7}
-                                        funcValidar={validarTelefono} />
-                                    {(telefono.valido === 'false') && (<MensajeAlerta mensajeRep={validarTelefono(telefono)} />)}
+                                    <Input estado={telefono} 
+                                       cambiarEstado={setTelefono}  
+                                       regex = {expresiones.telefono} 
+                                       nombre='telefono' tipo='number' 
+                                       placeholder='Telefono' 
+                                       maxlength={9} 
+                                       minlenght={7}
+                                       funcValidar={validarTelefono}/>
                                 </div>
                                 <div className="form-group">
                                     <Input estado={direccion}
@@ -327,7 +315,6 @@ const EditarGE = (props) => {
                                         tipo='text'
                                         placeholder='Direccion'
                                         funcValidar={validarDireccion} />
-                                    {(direccion.valido === 'false') && (<MensajeAlerta mensajeRep={validarDireccion(direccion, expresiones.direccion)} />)}
                                 </div>
                                 <div className="form-group">
                                     <Input estado={email}
@@ -336,42 +323,39 @@ const EditarGE = (props) => {
                                         nombre='email'
                                         tipo='email'
                                         placeholder='Correo electronico'
-                                        funcValidar={validarCorreo} />
-                                    {(email.valido === 'false') && (<MensajeAlerta mensajeRep={validarCorreo(email, expresiones.correo)} />)}
+                                        funcValidar={validarCorreo}
+                                        estadoOrig={emailOrig} />
                                 </div>
                                 <div>
 
                                 </div>
                                 <div className="form-group">
-                                    <OrganizacionJ estado={orgJur}
+                                    <OrganizacionJ 
+                                        estado={orgJur}
                                         cambiarEstado={setOrgJur}
                                         funcValidar={validarOrgJur}
                                     ></OrganizacionJ>
-                                    {(orgJur.valido === 'false') && (<MensajeAlerta mensajeRep={validarOrgJur(orgJur)} />)}
 
 
                                 </div>
                                 <div className="form-group">
-                                    {(descripcion.valido === 'false') && (<MensajeAlerta mensajeRep={validarDescripcion(descripcion, expresiones.objetivo)} />)}
                                     <TextArea estado={descripcion}
                                         cambiarEstado={setDescripcion}
                                         regex={expresiones.objetivo}
                                         nombre='descripcion'
                                         placeholder='objetivo'
                                         funcValidar={validarDescripcion} />
-
-
                                 </div>
                             </div>
 
                             <div className='col-12 col-sm-4 border'>
                                 <div className="form-group">
-                                    <InputImg estado={logo}
+                                    <InputImg 
+                                        estado={logo}
                                         cambiarEstado={setLogo}
                                         name='logo'
                                         funcValidar={validarLogo}
                                     />
-                                    {(logo.valido === 'false') && (<MensajeAlerta mensajeRep={validarLogo(logo)} />)}
                                 </div>
                             </div>
                         </div>
@@ -391,9 +375,8 @@ const EditarGE = (props) => {
                         </div>
                     </div>
                 </form>
-
             </Card>
-        </main >
+        </main>
 
     )
 }
