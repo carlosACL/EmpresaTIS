@@ -232,17 +232,24 @@ const EditarGE = () => {
                 console.log(response);
                 if (response.ok) {
                     color = exito();
-                    mensaje.innerHTML = "Exito al Registrar Grupo empresa";
+                    mensaje.innerHTML = "Se ha guardado los cambios correctamente";
                     sessionStorage.setItem('ge',nombre.campo);
+                    location.replace('GE-'+nombre.campo)
                 } else {
                     color = 'red';
-                    mensaje.innerHTML = "Error al registrar Grupo empresa, intentelo de nuevo mas tarde";
+                    mensaje.innerHTML = "Error al guardar cambios, intentelo de nuevo mas tarde";
                 }
                 document.getElementById('cardItem').style = `border-style:solid;box-shadow: 10px 10px 10px ${color}; border-color: ${color}`;
                 mensaje.style = `transition: .5s ease all;border-color:  ${color}; background-color:${color};`;
                 window.scroll(0, 0);
             });
+        } else {
+            alert("Verifique que los campos esten llenados correctamente");
         }
+    };
+
+    const cancelEdit = () => {
+        location.replace('/GE-'+nombreOrig)
     };
 
     const nombreGE = {
@@ -363,12 +370,12 @@ const EditarGE = () => {
                     <div className="container border">
                         <div className="row p-3">
                             <div className="col-6">
-                                <Boton id='botonCan'>
+                                <Boton id='botonCan' type='button' onClick={cancelEdit}>
                                     <img src={item_back} alt="" />
                                 </Boton>
                             </div>
                             <div className="col-6">
-                                <Boton id='botonSub' type='submit'>
+                                <Boton id='botonSub' type='button' onClick={onSubmit}>
                                     <img src={item_save} alt="" />
                                 </Boton>
                             </div>

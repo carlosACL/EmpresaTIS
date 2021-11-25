@@ -53,15 +53,17 @@ class EditarGEController extends Controller
 
     function index_view($nombre)
     {
-        $ge = DB::table('Grupo_Empresa')->select('nombre')->where('nombre', '=', $nombre)->first();
+        $ge = DB::table('Grupo_Empresa')->select('nombre','duenio')->where('nombre', '=', $nombre)->first();
         if (!empty((array) $ge)) {
             $datos = [
-                'nombre' => $ge->nombre
+                'nombre' => $ge->nombre,
+                'duenio' => $ge->duenio
             ];
             return view('editarGE')->with($datos);
         }
         return view('login')->with(['msg' => $nombre]);
     }
+
     function registrar_pdf(Request $req)
     {
         $file = $req->file('pdf');
