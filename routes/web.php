@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\SubirPDFController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\ForoDudasController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VistaInscritosController;
 use App\Http\Controllers\IngresoGEController;
@@ -54,3 +55,6 @@ Route::post('/import-list-excel' ,[FundaEmpresaController::class, 'importExcel']
 Route::get('/EspacioGeneral', [EspacioGeneralController::class, 'vistaEspacioGeneral']);
 
 Route::get('/Inscritos', [VistaInscritosController::class, 'index']);
+
+Route::get('/ForoDudas', [ForoDudasController::class, 'VistaForo']);
+Route::get('/Debate-{id}', [ForoDudasController::class, 'VistaDebate']);

@@ -37,6 +37,8 @@ import PDF from './components/PDF';
 import Comentario from './components/Comentario';
 import VerSolicitudIngresoGE from './components/VerSolicitudIngresoGE';
 import SolicitarIngresoGE from './components/SolicitarIngresoGE';
+import SeccionDudas from './components/SeccionDudas';
+import Debate from './components/Debate';
 //import Login from "./components/Login/Login"
 
 /*
@@ -158,4 +160,12 @@ if(document.getElementById('espaciogeneral')){
 
 if(document.getElementById('vistaInscritos')){
     ReactDOM.render(<VistaInscritos/>,document.getElementById('vistaInscritos'));
+}
+
+if(document.getElementById('dudas')){
+    ReactDOM.render(<SeccionDudas/>,document.getElementById('dudas'));
+}
+
+if(document.getElementById('debate')){
+    ReactDOM.render(<Debate />,document.getElementById('debate'));
 }

@@ -10,7 +10,7 @@ const Tabla = styled.table`
     border-style: solid;
     border-color: black;
     color: black;
-
+    text-align: center;
 `; 
 
 const Tbody = styled.tbody`
@@ -20,13 +20,17 @@ const Tbody = styled.tbody`
 
 const THead = styled.thead`
     background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
+    border-style: solid;
+    border-color: black;
 `; 
 
 const RowPrimary= styled.tr`
+    height: 44px;
     background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
 `;
 
 const RowSecundary = styled.tr`
+    height: 44px;
     background-color: rgb(${colorSecundary.r}, ${colorSecundary.g}, ${colorSecundary.b});
 `
 
