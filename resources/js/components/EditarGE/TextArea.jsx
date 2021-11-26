@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import PropTypes from 'prop-types'
-import MensajeAlerta from './MensajeAlerta'
+import MensajeAlerta from './MensajeAlertaGE'
 import { TextA } from '../../elementos/editarGE';
 
 const TextArea = ({ estado, cambiarEstado, regex, funcValidar, nombre, placeholder }) => {

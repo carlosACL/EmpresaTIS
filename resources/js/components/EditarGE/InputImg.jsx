@@ -1,34 +1,37 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { InputImagen } from '../../elementos/editarGE';
 import PropTypes from 'prop-types';
-import MensajeAlerta from './MensajeAlerta';
-import { isNull } from 'lodash';
+import MensajeAlertaGE from './MensajeAlertaGE';
 
 const InputImg = ({ name, estado, cambiarEstado, funcValidar }) => {
     const imagenCarg = useRef(null);
-    if (estado.campo == '') {
-        cambiarEstado({ ...estado, campo: "./resources/logoDefecto.png" });
-    }
+    const [logoGE, setLogoGE] = useState("./resources/cargando.png");
+
+    useEffect(() => {
+        setLogoGE(estado.campo);
+    }, [estado.campo])
+    
+
     const onButtonClick = (e) => {
         const img = document.getElementById('imagenGER')
         const files = imagenCarg.current.files;
 
         if (!files || !files.length) {
-            img.src = estado.campo;
-            cambiarEstado({ valido: 'false' });
+            img.src = logoGE;
+            cambiarEstado({...estado, valido: 'false' });
             return;
         }
-        cambiarEstado({ valido: 'true' })
         const image = files[0];
         const url = URL.createObjectURL(image);
-        console.log(url);
         img.src = url;
+        cambiarEstado({...estado, valido: 'true' })
     }
 
     return (
         <>
-            <img id='imagenGER' className='mb-2' src={estado.campo} alt="" />
-            <InputImagen id={name}
+            <img id='imagenGER' className='mb-2' src={logoGE} alt="" />
+            <InputImagen
+                id={name}
                 name={name}
                 ref={imagenCarg}
                 onSubmit={onButtonClick}
@@ -36,7 +39,7 @@ const InputImg = ({ name, estado, cambiarEstado, funcValidar }) => {
                 accept="image/jpeg,image/jpg,image/png"
                 type='file'
             />
-
+            {(estado) && (estado.valido === 'false') && (<MensajeAlertaGE mensajeRep={funcValidar(estado)}/>)}
         </>);
 };
 

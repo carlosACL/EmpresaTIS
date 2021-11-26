@@ -7,10 +7,29 @@ import Chevron from './Acordeon/chevron.svg'
 import {Accordion, AccordionItem} from 'react-light-accordion'
 import 'react-light-accordion/demo/css/index.css';
 
+const expresiones = {
+    anuncio: /^[a-zA-Z0-9]{7,25}$/,
+    codsis:/^\d{9,9}$/,
+    telefono: /^\d{7,8}$/,
+    contrasenia: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,25}$/
+};
+const validarAnuncio = (estate, regex) => {
+    const validar = [];
+    if(estate.campo.length<1){
+        validar.push("Debes llenar este campo");
+    }
+    if(estate.campo.length>7 || estate.campo>25){
+        validar.push("El anuncio debe tener un maximo de 140 caracteres");
+    }
+    if(!regex.test(estate.campo) && (estate.campo.length>=7 && estate.campo.length<=25)){
+        validar.push("El nombre de usuario solo puede contener letras y numeros");
+    }
+    return validar;
+}
 
-  
-
-
+function clearContents(element) {
+    element.value = '';
+  }
 
           
 
@@ -25,13 +44,24 @@ const EspacioGeneral = () => {
                     <div>
                         <Accordion atomic = {true}>
                             <AccordionItem title = "DESCRIPCION" >
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
+                                <textarea name="" id="" cols="80" rows="8" placeholder="Insertar una Descripcion"></textarea>
+                                <div>
+                                    <Boton id='botonsub' >Guardar</Boton>
+                                    <Boton id='botonsub' >Cancelar</Boton>
+                                </div>
                             </AccordionItem> 
                             <AccordionItem title = "ANUNCIOS" >
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
+                                <textarea name="anuncio" id="anuncio" cols="80" rows="2" placeholder="Insertar un Anuncio" wrap="hard" maxLength="140" funcValidar={validarAnuncio}></textarea>
+                                <div>
+                                    <Boton id='botonsub' >Guardar</Boton>
+                                    <Boton id='botonsub' onClick="clearContents(anuncio)" >Cancelar</Boton>
+                                </div>
                             </AccordionItem>
                             <AccordionItem title = "DOCUMENTACION" >
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
+                                <input type="file" />
+                            </AccordionItem>
+                            <AccordionItem title = "CALENDARIO GENERAL" >
+                                
                             </AccordionItem>
                     
                         </Accordion>
