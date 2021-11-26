@@ -14540,6 +14540,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var expresiones = {
+  anuncio: /^[a-zA-Z0-9]{7,25}$/,
+  codsis: /^\d{9,9}$/,
+  telefono: /^\d{7,8}$/,
+  contrasenia: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,25}$/
+};
+
+var validarAnuncio = function validarAnuncio(estate, regex) {
+  var validar = [];
+
+  if (estate.campo.length < 1) {
+    validar.push("Debes llenar este campo");
+  }
+
+  if (estate.campo.length > 7 || estate.campo > 25) {
+    validar.push("El anuncio debe tener un maximo de 140 caracteres");
+  }
+
+  if (!regex.test(estate.campo) && estate.campo.length >= 7 && estate.campo.length <= 25) {
+    validar.push("El nombre de usuario solo puede contener letras y numeros");
+  }
+
+  return validar;
+};
+
+function clearContents(element) {
+  element.value = '';
+}
 
 var EspacioGeneral = function EspacioGeneral() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
@@ -14553,21 +14581,51 @@ var EspacioGeneral = function EspacioGeneral() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.Accordion, {
           atomic: true,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
             title: "DESCRIPCION",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-              children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("textarea", {
+              name: "",
+              id: "",
+              cols: "80",
+              rows: "8",
+              placeholder: "Insertar una Descripcion"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_tabla__WEBPACK_IMPORTED_MODULE_3__.Boton, {
+                id: "botonsub",
+                children: "Guardar"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_tabla__WEBPACK_IMPORTED_MODULE_3__.Boton, {
+                id: "botonsub",
+                children: "Cancelar"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
             title: "ANUNCIOS",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-              children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?"
-            })
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("textarea", {
+              name: "anuncio",
+              id: "anuncio",
+              cols: "80",
+              rows: "2",
+              placeholder: "Insertar un Anuncio",
+              wrap: "hard",
+              maxLength: "140",
+              funcValidar: validarAnuncio
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_tabla__WEBPACK_IMPORTED_MODULE_3__.Boton, {
+                id: "botonsub",
+                children: "Guardar"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_tabla__WEBPACK_IMPORTED_MODULE_3__.Boton, {
+                id: "botonsub",
+                onClick: "clearContents(anuncio)",
+                children: "Cancelar"
+              })]
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
             title: "DOCUMENTACION",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-              children: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?"
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+              type: "file"
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_light_accordion__WEBPACK_IMPORTED_MODULE_6__.AccordionItem, {
+            title: "CALENDARIO GENERAL"
           })]
         })
       })]
