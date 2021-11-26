@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { Icon, MensajeGlobo } from '../../elementos/editarGE';
 
-const MensajeAlerta = ({mensajeRep}) => {
+const MensajeAlertaGE = ({mensajeRep}) => {
     const mensaje = useRef(null);
 
     const onMouseOver = () => {
@@ -29,4 +29,4 @@ const MensajeAlerta = ({mensajeRep}) => {
     )
 }
 
-export default MensajeAlerta;
+export default MensajeAlertaGE;

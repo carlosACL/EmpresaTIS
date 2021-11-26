@@ -124,6 +124,14 @@ const Icon = styled(FontAwesomeIcon)`
     color:red;
 `;
 
+const BtmEdit = styled.div`
+    width: 55px;
+    margin: 0 auto;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
+`;
+
 export { ContenedorDatos, 
     ContenedorBloque, 
     InputImagen, 
@@ -133,4 +141,5 @@ export { ContenedorDatos,
     MensajeRGE,
     Icon,
     MensajeGlobo,
-    TextA};
+    TextA,
+    BtmEdit};
