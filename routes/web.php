@@ -58,3 +58,5 @@ Route::get('/Inscritos', [VistaInscritosController::class, 'index']);
 
 Route::get('/ForoDudas', [ForoDudasController::class, 'VistaForo']);
 Route::get('/Debate-{id}', [ForoDudasController::class, 'VistaDebate']);
+
+Route::get('/GEValidas', [GEController::class, 'view_GE_valida']);
