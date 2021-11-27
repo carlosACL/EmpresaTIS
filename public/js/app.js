@@ -10703,12 +10703,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SolicitarIngresoGE__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/SolicitarIngresoGE */ "./resources/js/components/SolicitarIngresoGE.jsx");
 /* harmony import */ var _components_SeccionDudas__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/SeccionDudas */ "./resources/js/components/SeccionDudas.jsx");
 /* harmony import */ var _components_Debate__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/Debate */ "./resources/js/components/Debate.jsx");
-<<<<<<< HEAD
 /* harmony import */ var _components_GEvalida__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/GEvalida */ "./resources/js/components/GEvalida.jsx");
-=======
-/* harmony import */ var _components_EspacioDeAsesoramiento__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/EspacioDeAsesoramiento */ "./resources/js/components/EspacioDeAsesoramiento.jsx");
->>>>>>> e91f45c4a4e9444873041816777b61bcde1c25be
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_EspacioDeAsesoramiento__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/EspacioDeAsesoramiento */ "./resources/js/components/EspacioDeAsesoramiento.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -10722,6 +10719,7 @@ __webpack_require__.r(__webpack_exports__);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 //require('./components/Example');
+
 
 
 
@@ -10761,16 +10759,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 if (document.getElementById('viewgevalida')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_GEvalida__WEBPACK_IMPORTED_MODULE_25__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_GEvalida__WEBPACK_IMPORTED_MODULE_25__["default"], {})
   }), document.getElementById('viewgevalida'));
 }
 
 ;
 
 if (document.getElementById('fondo')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_5__.Fondo, {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_5__.Fondo, {
       src: "./resources/asesoria-cont-financ_001.png"
     })
   }), document.getElementById('fondo'));
@@ -10779,38 +10777,38 @@ if (document.getElementById('fondo')) {
 ;
 
 if (document.getElementById('regGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_RegistroGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
   }), document.getElementById('regGE'));
 }
 
 if (document.getElementById('editGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_EditarGE__WEBPACK_IMPORTED_MODULE_18__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_EditarGE__WEBPACK_IMPORTED_MODULE_18__["default"], {})
   }), document.getElementById('editGE'));
 }
 
 if (document.getElementById('subirPDF')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_PDF__WEBPACK_IMPORTED_MODULE_19__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_PDF__WEBPACK_IMPORTED_MODULE_19__["default"], {})
   }), document.getElementById('subirPDF'));
 }
 
 if (document.getElementById('comentario')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_Comentario__WEBPACK_IMPORTED_MODULE_20__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_Comentario__WEBPACK_IMPORTED_MODULE_20__["default"], {})
   }), document.getElementById('comentario'));
 }
 
 if (document.getElementById('solicitarIngresoGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_SolicitarIngresoGE__WEBPACK_IMPORTED_MODULE_22__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_SolicitarIngresoGE__WEBPACK_IMPORTED_MODULE_22__["default"], {})
   }), document.getElementById('solicitarIngresoGE'));
 }
 
 if (document.getElementById('verSolicitudIngresoGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_VerSolicitudIngresoGE__WEBPACK_IMPORTED_MODULE_21__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_VerSolicitudIngresoGE__WEBPACK_IMPORTED_MODULE_21__["default"], {})
   }), document.getElementById('verSolicitudIngresoGE'));
 }
 /* if (document.getElementById('comentario')) {
@@ -10822,68 +10820,65 @@ if (document.getElementById('verSolicitudIngresoGE')) {
 
 
 if (document.getElementById('perfil')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_DatosPerfilUsuario_TabPerfil__WEBPACK_IMPORTED_MODULE_14__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_DatosPerfilUsuario_TabPerfil__WEBPACK_IMPORTED_MODULE_14__["default"], {})
   }), document.getElementById('perfil'));
 }
 
 if (document.getElementById('navegador')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_Navegador__WEBPACK_IMPORTED_MODULE_7__["default"], {}), document.getElementById('navegador'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_Navegador__WEBPACK_IMPORTED_MODULE_7__["default"], {}), document.getElementById('navegador'));
 }
 
 if (document.getElementById('login')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_Login__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_Login__WEBPACK_IMPORTED_MODULE_8__["default"], {})
   }), document.getElementById('login'));
 }
 
 if (document.getElementById('vistaGE')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_TabGE__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_TabGE__WEBPACK_IMPORTED_MODULE_10__["default"], {})
   }), document.getElementById('vistaGE'));
 }
 
 if (document.getElementById('footer')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_11__["default"], {}), document.getElementById('footer'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_11__["default"], {}), document.getElementById('footer'));
 }
 
 if (document.getElementById('ge')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_GrupoEmpresas__WEBPACK_IMPORTED_MODULE_12__["default"], {}), document.getElementById('ge'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_GrupoEmpresas__WEBPACK_IMPORTED_MODULE_12__["default"], {}), document.getElementById('ge'));
 }
 
 if (document.getElementById('registroU')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_RegistroUsuario__WEBPACK_IMPORTED_MODULE_13__["default"], {}), document.getElementById('registroU'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_RegistroUsuario__WEBPACK_IMPORTED_MODULE_13__["default"], {}), document.getElementById('registroU'));
 }
 
 if (document.getElementById('fundaempresa')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_tablaGE__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_tablaGE__WEBPACK_IMPORTED_MODULE_15__["default"], {})
   }), document.getElementById('fundaempresa'));
 }
 
 if (document.getElementById('espaciogeneral')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_EspacioGeneral__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_EspacioGeneral__WEBPACK_IMPORTED_MODULE_16__["default"], {})
   }), document.getElementById('espaciogeneral'));
 }
 
 if (document.getElementById('vistaInscritos')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_DatosVistaInscritos_VistaInscritos__WEBPACK_IMPORTED_MODULE_17__["default"], {}), document.getElementById('vistaInscritos'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_DatosVistaInscritos_VistaInscritos__WEBPACK_IMPORTED_MODULE_17__["default"], {}), document.getElementById('vistaInscritos'));
 }
 
 if (document.getElementById('dudas')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_SeccionDudas__WEBPACK_IMPORTED_MODULE_23__["default"], {}), document.getElementById('dudas'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_SeccionDudas__WEBPACK_IMPORTED_MODULE_23__["default"], {}), document.getElementById('dudas'));
 }
 
 if (document.getElementById('debate')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_Debate__WEBPACK_IMPORTED_MODULE_24__["default"], {}), document.getElementById('debate'));
-<<<<<<< HEAD
-=======
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_Debate__WEBPACK_IMPORTED_MODULE_24__["default"], {}), document.getElementById('debate'));
 }
 
 if (document.getElementById('espAse')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_26__.jsx)(_components_EspacioDeAsesoramiento__WEBPACK_IMPORTED_MODULE_25__["default"], {}), document.getElementById('espAse'));
->>>>>>> e91f45c4a4e9444873041816777b61bcde1c25be
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_components_EspacioDeAsesoramiento__WEBPACK_IMPORTED_MODULE_26__["default"], {}), document.getElementById('espAse'));
 }
 
 /***/ }),
@@ -14984,18 +14979,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../elementos/espacioGeneral */ "./resources/js/elementos/espacioGeneral.js");
 /* harmony import */ var _Acordeon_ItemAcord__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Acordeon/ItemAcord */ "./resources/js/components/Acordeon/ItemAcord.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -15011,28 +14994,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var EspacioGeneral = function EspacioGeneral() {
-  var refText = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      desplegado = _useState2[0],
-      setDesplegado = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      desplegadoDesc = _useState4[0],
-      setDesplegadoDesc = _useState4[1];
-
-  var desplegar = function desplegar(estado, setEstado, id) {
-    setEstado(!estado);
-    var contenido = document.getElementById(id);
-    contenido.classList.toggle('nuevoDebate--ocultar');
-
-    if (!estado) {
-      refText.current.value = "";
-    }
-  };
-
   var contenidoAnuncio = function contenidoAnuncio() {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__.TextArea, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -15180,8 +15141,7 @@ var GEvalida = function GEvalida(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "p-3 border border-dark bg-light",
-        children: "Hola mundo"
+        className: "p-3 border border-dark bg-light"
       })
     })
   });
