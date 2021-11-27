@@ -1,13 +1,29 @@
 import React from 'react'
 import { Card } from '../elementos/card';
-import { Titulo } from '../elementos/registro';
+import { BtmEdit, Titulo } from '../elementos/registro';
 import { ContenedorDatos } from '../elementos/registro';
 import BotonSolicitarIngreso from './DatosGrupoEmpresa/BotonSolicitarIngreso';
+import IconoEditar from './Svg/IconoEditar';
 const VistaGrupoEmpresa = () => {
+
+    const idUser = sessionStorage.getItem('id');
+
+    const redir = () => {
+        location.replace('EditarGE-'+datos.nombre);
+    };
+
     return (
             <Card>
                 <div className='formStyle'>
                     <Titulo>{datos.nombre} </Titulo>
+                    {
+                        (idUser == datos.duenio) && (
+                           <BtmEdit onClick={redir}>
+                                <IconoEditar/>
+                           </BtmEdit>
+                        )
+                    }
+                    
                     <ContenedorDatos className=' mb-5'>
                         <div className=' d-block text-left'>
                             <label><strong>Nombre Abreviado: </strong>{datos.nombreAb}</label><br/>

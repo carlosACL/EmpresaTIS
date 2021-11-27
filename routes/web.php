@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\SubirPDFController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\EspacioDeAsesoramientoController;
 use App\Http\Controllers\ForoDudasController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VistaInscritosController;
@@ -60,3 +61,4 @@ Route::get('/ForoDudas', [ForoDudasController::class, 'VistaForo']);
 Route::get('/Debate-{id}', [ForoDudasController::class, 'VistaDebate']);
 
 Route::get('/GEValidas', [GEController::class, 'view_GE_valida']);
+Route::get('/Esp-de-Asesoramiento-{id}', [EspacioDeAsesoramientoController::class, 'viewEspAsesoramiento']);

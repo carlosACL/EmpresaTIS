@@ -1,12 +1,12 @@
 @extends('templates.plantillaprincipal')
 
-@section('titulo')
-    {{$nombre}}
+@section('titulo') 
+    Esp-{{$id}}
 @endsection
 
 @section('script')
 <script>
-    const token = sessionStorage.getItem('token');
+    /*const token = sessionStorage.getItem('token');
     if(token){
         const data = new FormData();
         data.append('token', token);
@@ -23,18 +23,14 @@
         });
     } else {
         location.replace('Login');
-    }
-
-    if (token) {
-        const idUser = sessionStorage.getItem('id');
-        const duenio = {{$duenio}};
-        if (duenio != idUser) {
-            location.replace('/');
-        }
-    }
+    }*/
+    
 </script>
 @endsection
 
 @section('contenido')
-    <div id='editGE'></div>
+    <script>
+        const nombreGE = '<?=$id?>'
+    </script>
+    <div id="espAse"></div>
 @endsection

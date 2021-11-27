@@ -9,7 +9,7 @@ const GEvalida = (props) => {
         <main>
             <Card>
                 <div className="p-3 border border-dark bg-light">
-                    Hola mundo
+                    
                 </div>
             </Card>
         </main>

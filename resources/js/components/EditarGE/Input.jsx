@@ -1,33 +1,44 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { InputStyle } from '../../elementos/editarGE';
-import MensajeAlerta from './MensajeAlerta';
 import PropTypes from 'prop-types'
-import { constant } from 'lodash';
+import MensajeAlertaGE from './MensajeAlertaGE';
 
-const Input = ({ estado, cambiarEstado, tipo, nombre, placeholder, regex, funcValidar }) => {
+const Input = ({ estado, cambiarEstado, tipo, nombre, placeholder, regex, funcValidar, estadoOrig }) => {
 
     const ref = useRef(null);
     const onChange = () => {
         cambiarEstado({...estado, campo: (ref.current.value !== '') ? ref.current.value : ''});
     };
-/*
-    const validacion = () => {
-        if (regex) {
-            /* const elem = document.getElementById({ nombre });
-            var style = {
-                border-botton-color: "#6aff00 !important";
-        };
-            if (regex.test(estado.campo)) {
-                cambiarEstado({ ...estado, valido: 'true' });
-                /* elem.style.border-bottom-color = "#6aff00 !important";
 
+    const validacion = () => {
+        if(regex){
+            if(regex.test(estado.campo)){ 
+                if((nombre == 'nombre' || nombre == 'nombreAb' || nombre == 'email') 
+                    && estado.campo.length > 0){
+                        if (estado.campo != estadoOrig) {
+                            const nombreCampo = (nombre == 'nombre') ? 'nombre':
+                                        (nombre == 'nombreAb') ? 'nombreAb' : 'email'; 
+                            const datos = new FormData();
+                            datos.append('nombre', estado.campo);
+                            datos.append('campo', nombreCampo);
+                            fetch('api/nombreGE', {
+                                method: 'POST',
+                                body:datos
+                            }).then((response) => response.json()).then((dat) => {
+                                cambiarEstado({...estado, valido:dat.nombre, existe:dat.nombre });
+                            }); 
+                        } else {
+                            cambiarEstado({...estado, valido:'true'});
+                        }    
+                } else {
+                    cambiarEstado({...estado, valido:'true'});
+                }
             } else {
-                cambiarEstado({ ...estado, valido: 'false' });
-                /* elem.style.border-bottom-color = "red !important";
+                cambiarEstado({...estado, valido:'false'});
             }
         }
     };
-*/
+
     return (
         <>
             <InputStyle type={tipo}
@@ -40,13 +51,8 @@ const Input = ({ estado, cambiarEstado, tipo, nombre, placeholder, regex, funcVa
                 onBlur={validacion}
                 valido={estado.valido}
                 onSubmit={validacion}
-                onChange={validacion}
             />
-            {/* <div id='error'>
-
-            </div> */}
-            {/* {(estado.valido === 'false') && (<MensajeAlerta mensajeRep={funcValidar(estado, regex)} />)} */}
-
+             {(estado.valido === 'false') && (<MensajeAlertaGE mensajeRep={funcValidar(estado, regex)} />)}
         </>
     )
 }

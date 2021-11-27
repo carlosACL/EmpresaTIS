@@ -1,20 +1,56 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Card } from '../elementos/card';
 import {InputStyle } from '../elementos/registro';
-import { Boton} from '../elementos/tabla';
-import {Acordeon,AccordionSection,Container,Wrap,Dropdown } from '../elementos/acordeon'
 import Chevron from './Acordeon/chevron.svg'
 import {Accordion, AccordionItem} from 'react-light-accordion'
 import 'react-light-accordion/demo/css/index.css';
-
-
-  
+import { Acordeon, MarcoIcono, Panel, TextArea } from '../elementos/espacioGeneral';
+import {faPlus, 
+        faMinus } from '@fortawesome/free-solid-svg-icons';
+import { Boton } from '../elementos/registro';
+import ItemAcord from './Acordeon/ItemAcord';
 
 
 
           
 
 const EspacioGeneral = () => {
+
+    const contenidoAnuncio=() => {
+        return (<>
+            <TextArea></TextArea>
+            <div>
+                <Boton>Enviar</Boton>
+            </div>
+                
+        </>)
+    }
+
+    const contenidoDescripcion = () => {
+
+        const enviarAnuncio = () => {
+
+            const valor = document.getElementById('anuncioId1');
+
+            if(valor.value.length<140 && valor.value.length > 0){
+                alert("enviado con exito");
+                desplegarAnuncio();ñ
+            } else {
+                alert("error, contenido debe tener un tamaño inferior 140 caracteres y no debe estar vacio");
+            }
+        }
+
+        return (<>
+            <TextArea id='anuncioId1'></TextArea>
+            <div>
+                <Boton onClick= { enviarAnuncio } >Enviar</Boton>
+            </div>
+        </>)
+    }
+
+    const contenidoDocumentacion = () => {
+        return (<input type='file'/>)
+    }
     
     return(
         <main>
@@ -22,18 +58,13 @@ const EspacioGeneral = () => {
                     <div id="cont-label-logo">
                         <label id="label-login-logo">ESPACIO GENERAL</label>
                     </div>
-                    <div>
+                    <div className='p-5'>
                         <Accordion atomic = {true}>
-                            <AccordionItem title = "DESCRIPCION" >
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
-                            </AccordionItem> 
-                            <AccordionItem title = "ANUNCIOS" >
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
-                            </AccordionItem>
-                            <AccordionItem title = "DOCUMENTACION" >
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque magnam eum eligendi possimus. Quos assumenda totam quisquam dolor minima. Reiciendis eveniet explicabo odio earum, ratione amet atque necessitatibus sed nobis?</p>
-                            </AccordionItem>
-                    
+                            <ItemAcord titulo='Descripcion' contenido={ contenidoDescripcion } />
+                            <ItemAcord titulo='Anuncios' contenido={ contenidoAnuncio }/>
+                            <ItemAcord titulo='Documentacion' contenido={ contenidoDocumentacion }/>
+                            <ItemAcord titulo='Calendario' contenido={ () => {} }/>
+                            
                         </Accordion>
                     </div>
 

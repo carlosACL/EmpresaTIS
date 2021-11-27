@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\EditarPerfilController;
+use App\Http\Controllers\EspacioDeAsesoramientoController;
 use App\Http\Controllers\ForoDudasController;
 use App\Http\Controllers\RegistroGEController;
 use Illuminate\Http\Request;
@@ -71,3 +72,5 @@ Route::get('obtenerDebates', [ForoDudasController::class, 'obtenerDebates']);
 Route::post('obtenerMensajes', [ForoDudasController::class, 'obtenerMensajes']);
 Route::post('obtenerDebate', [ForoDudasController::class, 'obtenerDebate']);
 Route::post('registrarMensaje', [ForoDudasController::class, 'registrarMensaje']);
+
+Route::post('obtenerCarpetasBasicas', [EspacioDeAsesoramientoController::class, 'obtenerCarpetasBasicas']);

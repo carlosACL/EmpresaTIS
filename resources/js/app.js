@@ -40,7 +40,7 @@ import SolicitarIngresoGE from './components/SolicitarIngresoGE';
 import SeccionDudas from './components/SeccionDudas';
 import Debate from './components/Debate';
 import GEvalida from './components/GEvalida';
-
+import EspacioDeAsesoramiento from './components/EspacioDeAsesoramiento';
 //import Login from "./components/Login/Login"
 
 /*
@@ -178,4 +178,8 @@ if(document.getElementById('dudas')){
 
 if(document.getElementById('debate')){
     ReactDOM.render(<Debate />,document.getElementById('debate'));
+}
+
+if(document.getElementById('espAse')){
+    ReactDOM.render(<EspacioDeAsesoramiento />,document.getElementById('espAse'));
 }
