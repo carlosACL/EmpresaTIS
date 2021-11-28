@@ -39,6 +39,7 @@ import VerSolicitudIngresoGE from './components/VerSolicitudIngresoGE';
 import SolicitarIngresoGE from './components/SolicitarIngresoGE';
 import SeccionDudas from './components/SeccionDudas';
 import Debate from './components/Debate';
+import GEvalida from './components/GEvalida';
 import EspacioDeAsesoramiento from './components/EspacioDeAsesoramiento';
 //import Login from "./components/Login/Login"
 
@@ -49,6 +50,14 @@ import EspacioDeAsesoramiento from './components/EspacioDeAsesoramiento';
     }
 
 */
+
+if (document.getElementById('viewgevalida')) {
+    ReactDOM.render(
+        <>
+            <GEvalida/>
+        </>, document.getElementById('viewgevalida'));
+
+};
 
 if (document.getElementById('fondo')) {
     ReactDOM.render(
