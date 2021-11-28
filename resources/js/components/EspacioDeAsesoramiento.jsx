@@ -1,12 +1,30 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import { ContenedorTab } from '../elementos/TabGE'
 import Espacio from './EspacioDeAsesoramiento/Espacio'
 
 const EspacioDeAsesoramiento = () => {
+
+  const [datosGE, setDatosGE] = useState(null)
+    useEffect(() => {
+      const datosGE = new FormData();
+      datosGE.append('idUsuario', sessionStorage.getItem('id'));
+      datosGE.append('nombreGE', nombreGE);  
+      fetch('api/obtenerDatosGrupoEmpresa',{
+        method:'POST',
+        body:datosGE
+      })
+      .then((response) => response.json())
+      .then((json) => {
+        setDatosGE(json);
+      })
+    }, [])
+
     return (
         <main>
-        <ContenedorTab>
-            <nav className=' w-100 d-flex justify-content-center'>
+            {(datosGE) && ((datosGE.mensaje) ? (<h1 className=' mt-5'>{ datosGE.mensaje }</h1>)
+            :
+            (<ContenedorTab>
+              <nav className=' w-100 d-flex justify-content-center'>
               <div className="nav nav-tabs" id="nav-tab" role="tablist">
                 <a className="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Grupo Empresa</a>
                 <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Calendario</a>
@@ -21,10 +39,10 @@ const EspacioDeAsesoramiento = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at inventore quam quasi, minima odit nemo ex iusto officiis esse veritatis sit rerum repudiandae reiciendis voluptates dolorem cumque, quae harum?
               </div>
                 <div className="tab-pane fade w-100" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <Espacio />
+                    {(datosGE) && (<Espacio id={ datosGE.duenio } />)}
                 </div>
             </div>
-        </ContenedorTab>
+            </ContenedorTab>))}
       </main>
     )
 }

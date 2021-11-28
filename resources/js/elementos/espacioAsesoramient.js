@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colorPrimary } from "../parametros/colores";
+import { colorPrimary, colorSecundary } from "../parametros/colores";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MarcoIcono = styled(FontAwesomeIcon)`
@@ -15,10 +15,9 @@ const ContenedorElemento = styled.div`
     cursor: default;
     user-select: none;
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: start;
-    gap: 5px
+    gap: 5px;
 `;
 
 const Backgroundesp = styled.div`
@@ -29,6 +28,29 @@ const Backgroundesp = styled.div`
     background-color: rgb(${colorPrimary.r},${colorPrimary.g},${colorPrimary.b});
 `;
 
+const MarcoEliminar = styled(FontAwesomeIcon)`
+    font-size: 15px;
+    color: red;
+`;
+
+const Select = styled.select`
+    font-size: 30px;
+    text-align: center;
+    transition: .3s ease all;
+    font-size: 20px;
+    color: white;
+    border-style: solid;
+    background-color: rgb(${colorSecundary.r} , ${colorSecundary.g}, ${colorSecundary.b});
+    border-color: black;
+    :hover{
+        color: black;
+        border-color: black;
+        background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b});
+    }
+`;
+
 export { MarcoIcono,
          ContenedorElemento,
-         Backgroundesp };
+         Backgroundesp,
+         MarcoEliminar,
+         Select };

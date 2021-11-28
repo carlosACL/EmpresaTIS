@@ -74,3 +74,7 @@ Route::post('obtenerDebate', [ForoDudasController::class, 'obtenerDebate']);
 Route::post('registrarMensaje', [ForoDudasController::class, 'registrarMensaje']);
 
 Route::post('obtenerCarpetasBasicas', [EspacioDeAsesoramientoController::class, 'obtenerCarpetasBasicas']);
+Route::post('crearElemento', [EspacioDeAsesoramientoController::class, 'crearElemento']);
+Route::post('eliminarElemento',[EspacioDeAsesoramientoController::class, 'eliminarElemento']);
+
+Route::post('obtenerDatosGrupoEmpresa', [RegistroGEController::class, 'obtenerDatosGrupoEmpresa']);
