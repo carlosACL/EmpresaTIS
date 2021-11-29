@@ -14654,6 +14654,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -14663,8 +14675,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
   var _jsxs2;
 
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      datosGE = _useState2[0],
+      setDatosGE = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var datosGE = new FormData();
+    datosGE.append('idUsuario', sessionStorage.getItem('id'));
+    datosGE.append('nombreGE', nombreGE);
+    fetch('api/obtenerDatosGrupoEmpresa', {
+      method: 'POST',
+      body: datosGE
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      setDatosGE(json);
+    });
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("main", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ContenedorTab, {
+    children: datosGE && (datosGE.mensaje ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+      className: " mt-5",
+      children: datosGE.mensaje
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ContenedorTab, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("nav", {
         className: " w-100 d-flex justify-content-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -14720,9 +14753,11 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
         id: "nav-contact",
         role: "tabpanel",
         "aria-labelledby": "nav-contact-tab",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        children: datosGE && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          id: datosGE.duenio
+        })
       })]), _jsxs2))]
-    })
+    }))
   });
 };
 
@@ -14765,28 +14800,32 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Elemento = function Elemento(_ref) {
-  var contenido = _ref.contenido;
+  var contenido = _ref.contenido,
+      hijos = _ref.hijos,
+      setHijos = _ref.setHijos;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(contenido),
       _useState2 = _slicedToArray(_useState, 2),
-      desplegado = _useState2[0],
-      setDesplegado = _useState2[1];
+      contenidoInt = _useState2[0],
+      setContenidoInt = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(contenido.hijos),
       _useState4 = _slicedToArray(_useState3, 2),
-      desplegadoNE = _useState4[0],
-      setDesplegadoNE = _useState4[1];
+      hijosInt = _useState4[0],
+      setHijosInt = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      desplegado = _useState6[0],
+      setDesplegado = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      desplegadoNE = _useState8[0],
+      setDesplegadoNE = _useState8[1];
 
   var refSelect = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("Carpeta"),
-      _useState6 = _slicedToArray(_useState5, 2),
-      valorSelect = _useState6[0],
-      setValorSelect = _useState6[1];
-
-  var onChangeSelect = function onChangeSelect() {
-    setValorSelect(refSelect.current.value);
-  };
+  var refNombre = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   var desplegar = function desplegar() {
     setDesplegado(!desplegado);
@@ -14794,96 +14833,46 @@ var Elemento = function Elemento(_ref) {
     desp.classList.toggle("nuevoDebate--ocultar");
   };
 
-  var desplegarNE = function desplegarNE() {
-    setDesplegadoNE(!desplegadoNE);
-    var desp = document.getElementById('idNT' + contenido.idElemento);
-    desp.classList.toggle("nuevoDebate--ocultar");
-  };
-
   var construirHijo = function construirHijo(dato) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Elemento, {
-      contenido: dato
+      contenido: dato,
+      hijos: hijosInt,
+      setHijos: setHijosInt
     });
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "d-block ml-2 border-left border-dark pl-2",
-    children: [contenido.tipo == 'carpeta' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [contenidoInt.tipo == 'carpeta' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
         onClick: desplegar,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
           icon: !desplegado ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFolder : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFolderOpen
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          children: contenido.nombre
+          children: contenidoInt.nombre
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
           icon: !desplegado ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faMinus
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        id: 'id' + contenido.idElemento,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        id: 'id' + contenidoInt.idElemento,
         className: " nuevoDebate--ocultar",
-        children: [contenido.hijos.length > 0 && contenido.hijos.map(function (datos) {
+        children: hijosInt && hijosInt.length > 0 && hijosInt.map(function (datos) {
           return construirHijo(datos);
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
-          onClick: desplegarNE,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
-            icon: !desplegadoNE ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faMinus
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: " text-success",
-            children: "Crear Nuevo elemento"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: 'idNT' + contenido.idElemento,
-          className: "nuevoDebate--ocultar",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: " d-flex justify-content-md-start align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              ref: refSelect,
-              onChange: onChangeSelect,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                children: "Carpeta"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                children: "Link"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                children: "Pdf"
-              })]
-            }), valorSelect == 'Carpeta' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              placeholder: "nombre",
-              type: "text"
-            }), valorSelect == 'Pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                placeholder: "nombre",
-                type: "text"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                type: "file",
-                accept: "application/pdf"
-              })]
-            }), valorSelect == 'Link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                placeholder: "nombre",
-                type: "text"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                placeholder: "link",
-                type: "url"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-              children: "Crear"
-            })]
-          })
-        })]
+        })
       })]
-    }), contenido.tipo == 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+    }), contenidoInt.tipo == 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faExternalLinkAlt
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-        href: contenido.link,
+        href: contenidoInt.link,
         target: "blank",
-        children: contenido.nombre
+        children: contenidoInt.nombre
       })]
-    }), contenido.tipo == 'pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+    }), contenidoInt.tipo == 'pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFilePdf
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: contenido.nombre
+        children: contenidoInt.nombre
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus
       })]
@@ -14895,10 +14884,10 @@ var Elemento = function Elemento(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx ***!
-  \********************************************************************/
+/***/ "./resources/js/components/EspacioDeAsesoramiento/ElementoAdmin.jsx":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/EspacioDeAsesoramiento/ElementoAdmin.jsx ***!
+  \**************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14907,9 +14896,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Elemento__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Elemento */ "./resources/js/components/EspacioDeAsesoramiento/Elemento.jsx");
-/* harmony import */ var _elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/espacioAsesoramient */ "./resources/js/elementos/espacioAsesoramient.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/espacioAsesoramient */ "./resources/js/elementos/espacioAsesoramient.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -14927,12 +14930,290 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Espacio = function Espacio() {
+
+
+var ElementoAdmin = function ElementoAdmin(_ref) {
+  var contenido = _ref.contenido,
+      hijos = _ref.hijos,
+      setHijos = _ref.setHijos,
+      estado = _ref.estado;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(contenido),
+      _useState2 = _slicedToArray(_useState, 2),
+      contenidoInt = _useState2[0],
+      setContenidoInt = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(contenido.hijos),
+      _useState4 = _slicedToArray(_useState3, 2),
+      hijosInt = _useState4[0],
+      setHijosInt = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      desplegado = _useState6[0],
+      setDesplegado = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      desplegadoNE = _useState8[0],
+      setDesplegadoNE = _useState8[1];
+
+  var refSelect = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var refNombre = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("carpeta"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      valorSelect = _useState10[0],
+      setValorSelect = _useState10[1];
+
+  var onChangeSelect = function onChangeSelect() {
+    setValorSelect(refSelect.current.value);
+  };
+
+  var desplegar = function desplegar() {
+    setDesplegado(!desplegado);
+    var desp = document.getElementById('id' + contenido.idElemento);
+    desp.classList.toggle("nuevoDebate--ocultar");
+  };
+
+  var desplegarNE = function desplegarNE() {
+    setDesplegadoNE(!desplegadoNE);
+    var desp = document.getElementById('idNT' + contenido.idElemento);
+    desp.classList.toggle("nuevoDebate--ocultar");
+    refNombre.current.value = "";
+  };
+
+  var crearElemento = function crearElemento(e) {
+    e.preventDefault();
+    var post = new FormData(document.getElementById("formulario".concat(contenidoInt.idElemento)));
+    post.append('idPadre', contenidoInt.idElemento);
+    post.append('nombreGE', nombreGE);
+
+    if (refSelect.current.value == 'carpeta') {
+      post.append('link', null);
+    }
+
+    fetch('api/crearElemento', {
+      method: 'POST',
+      body: post
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      if (json.mensaje) {
+        alert(json.mensaje);
+      } else {
+        desplegarNE();
+
+        var hijo = _objectSpread(_objectSpread({}, json), {}, {
+          hijos: []
+        });
+
+        setHijosInt([].concat(_toConsumableArray(hijosInt), [hijo]));
+      }
+    });
+  };
+
+  var construirHijo = function construirHijo(dato) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ElementoAdmin, {
+      contenido: dato,
+      hijos: hijosInt,
+      setHijos: setHijosInt,
+      estado: estado
+    });
+  };
+
+  var eliminarElemento = function eliminarElemento() {
+    if (hijosInt.length <= 0) {
+      if (confirm("¿Está seguro de eliminar el elemento?")) {
+        var drop = new FormData();
+        drop.append('idElemento', contenidoInt.idElemento);
+        fetch('api/eliminarElemento', {
+          method: 'POST',
+          body: drop
+        }).then(function (response) {
+          if (response.ok) {
+            var nuevosHijos = hijos.filter(function (dato) {
+              return dato.idElemento != contenido.idElemento;
+            });
+            setHijos(nuevosHijos);
+            alert("Eliminado con exito");
+          } else {
+            alert("Ha ocurrido un error, vuelva a intentarlo mas tarde");
+          }
+        });
+      }
+    } else {
+      alert("el elemento no está vacío");
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "d-block ml-2 border-left border-dark pl-2",
+      children: [contenidoInt.tipo == 'carpeta' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+            onClick: desplegar,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+              icon: !desplegado ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFolder : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFolderOpen
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              children: contenidoInt.nombre
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+              icon: !desplegado ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faMinus
+            })]
+          }), contenidoInt.idPadre && estado == 'eliminar' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoEliminar, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faTimes,
+            onClick: eliminarElemento
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          id: 'id' + contenidoInt.idElemento,
+          className: " nuevoDebate--ocultar",
+          children: [hijosInt && hijosInt.length > 0 && hijosInt.map(function (datos) {
+            return construirHijo(datos);
+          }), estado == 'crear' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+              onClick: desplegarNE,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+                icon: !desplegadoNE ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faMinus
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: " text-success",
+                children: "Crear Nuevo elemento"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              id: 'idNT' + contenidoInt.idElemento,
+              className: "nuevoDebate--ocultar",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+                id: "formulario".concat(contenidoInt.idElemento),
+                method: "POST",
+                encType: "multipart/form-data",
+                onSubmit: crearElemento,
+                className: " d-flex justify-content-md-start align-items-center",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                  id: "tipo",
+                  name: "tipo",
+                  ref: refSelect,
+                  onChange: onChangeSelect,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    children: "carpeta"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    children: "link"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    children: "pdf"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  id: "nombre",
+                  ref: refNombre,
+                  name: "nombre",
+                  placeholder: "nombre",
+                  type: "text",
+                  required: true
+                }), valorSelect == 'pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  id: "link",
+                  name: "link",
+                  type: "file",
+                  accept: "application/pdf",
+                  required: true
+                }), valorSelect == 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  id: "link",
+                  name: "link",
+                  placeholder: "link",
+                  type: "url",
+                  required: true
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  type: "submit",
+                  children: "Crear"
+                })]
+              })
+            })]
+          })]
+        })]
+      }), contenidoInt.tipo == 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faExternalLinkAlt
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: contenidoInt.link,
+            target: "blank",
+            children: contenidoInt.nombre
+          })]
+        }), estado == 'eliminar' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoEliminar, {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faTimes,
+          onClick: eliminarElemento
+        })]
+      }), contenidoInt.tipo == 'pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFilePdf
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: "resources/documentos/".concat(contenidoInt.link),
+            target: "blank",
+            children: contenidoInt.nombre
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus
+          })]
+        }), estado == 'eliminar' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoEliminar, {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faTimes,
+          onClick: eliminarElemento
+        })]
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ElementoAdmin);
+
+/***/ }),
+
+/***/ "./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Elemento__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Elemento */ "./resources/js/components/EspacioDeAsesoramiento/Elemento.jsx");
+/* harmony import */ var _ElementoAdmin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ElementoAdmin */ "./resources/js/components/EspacioDeAsesoramiento/ElementoAdmin.jsx");
+/* harmony import */ var _elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../elementos/espacioAsesoramient */ "./resources/js/elementos/espacioAsesoramient.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+var Espacio = function Espacio(_ref) {
+  var id = _ref.id;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       elementos = _useState2[0],
       setElementos = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('vista'),
+      _useState4 = _slicedToArray(_useState3, 2),
+      estado = _useState4[0],
+      setEstado = _useState4[1];
+
+  var refEstado = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var post = new FormData();
     post.append('nombreGE', nombreGE);
@@ -14945,12 +15226,35 @@ var Espacio = function Espacio() {
       setElementos(json);
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_2__.Backgroundesp, {
-    children: elementos.map(function (datos) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Elemento__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        contenido: datos
-      });
-    })
+
+  var cambiarEstado = function cambiarEstado() {
+    setEstado(refEstado.current.value);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [id == sessionStorage.getItem('id') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: " d-flex justify-content-center p-3 mt-3",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_3__.Select, {
+        ref: refEstado,
+        onChange: cambiarEstado,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+          children: "vista"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+          children: "eliminar"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+          children: "crear"
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_3__.Backgroundesp, {
+      children: elementos.map(function (datos) {
+        return id == sessionStorage.getItem('id') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ElementoAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          contenido: datos,
+          estado: estado
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Elemento__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          contenido: datos
+        });
+      })
+    })]
   });
 };
 
@@ -18426,12 +18730,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MarcoIcono": () => (/* binding */ MarcoIcono),
 /* harmony export */   "ContenedorElemento": () => (/* binding */ ContenedorElemento),
-/* harmony export */   "Backgroundesp": () => (/* binding */ Backgroundesp)
+/* harmony export */   "Backgroundesp": () => (/* binding */ Backgroundesp),
+/* harmony export */   "MarcoEliminar": () => (/* binding */ MarcoEliminar),
+/* harmony export */   "Select": () => (/* binding */ Select)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-var _templateObject, _templateObject2, _templateObject3;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -18439,8 +18745,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var MarcoIcono = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    font-size: 15px;\n"])));
-var ContenedorElemento = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    -o-user-select: none;\n    cursor: default;\n    user-select: none;\n    display: flex;\n    width: 100%;\n    align-items: center;\n    justify-content: start;\n    gap: 5px\n"])));
+var ContenedorElemento = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    -o-user-select: none;\n    cursor: default;\n    user-select: none;\n    display: flex;\n    align-items: center;\n    justify-content: start;\n    gap: 5px;\n"])));
 var Backgroundesp = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    margin-top: 30px;\n    padding: 30px;\n    border-style: double;\n    width: 100%;\n    background-color: rgb(", ",", ",", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var MarcoEliminar = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    font-size: 15px;\n    color: red;\n"])));
+var Select = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].select(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    font-size: 30px;\n    text-align: center;\n    transition: .3s ease all;\n    font-size: 20px;\n    color: white;\n    border-style: solid;\n    background-color: rgb(", " , ", ", ", ");\n    border-color: black;\n    :hover{\n        color: black;\n        border-color: black;\n        background-color: rgb(", ", ", ", ", ");\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 
 
 /***/ }),
