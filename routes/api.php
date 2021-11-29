@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\EditarPerfilController;
 use App\Http\Controllers\EspacioDeAsesoramientoController;
@@ -74,3 +75,5 @@ Route::post('obtenerDebate', [ForoDudasController::class, 'obtenerDebate']);
 Route::post('registrarMensaje', [ForoDudasController::class, 'registrarMensaje']);
 
 Route::post('obtenerCarpetasBasicas', [EspacioDeAsesoramientoController::class, 'obtenerCarpetasBasicas']);
+
+Route::post('agregarEvento',[CalendarioController::class, 'agregarEvento']);
