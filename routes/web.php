@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EspacioGeneralController;
 use App\Http\Controllers\FundaEmpresaController;
 use App\Http\Controllers\RegistroGEController;
@@ -62,3 +63,5 @@ Route::get('/Debate-{id}', [ForoDudasController::class, 'VistaDebate']);
 
 Route::get('/GEValidas', [GEController::class, 'view_GE_valida']);
 Route::get('/Esp-de-Asesoramiento-{id}', [EspacioDeAsesoramientoController::class, 'viewEspAsesoramiento']);
+
+Route::get('/VentanaAdmin-{id}',[AdminController::class, 'getView']);

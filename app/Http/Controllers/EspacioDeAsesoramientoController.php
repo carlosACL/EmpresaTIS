@@ -110,7 +110,7 @@ class EspacioDeAsesoramientoController extends Controller
     public function eliminarElemento(Request $req){
         $elemento = Elemento::find($req->idElemento);
 
-        if($elemento->tipo = 'pdf'){
+        if($elemento->tipo == 'pdf'){
             $destinationPath = 'resources/documentos/';
             unlink($destinationPath.$elemento->link);
         }
