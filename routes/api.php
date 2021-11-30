@@ -5,6 +5,7 @@ use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\EditarPerfilController;
 use App\Http\Controllers\EspacioDeAsesoramientoController;
 use App\Http\Controllers\ForoDudasController;
+use App\Http\Controllers\NavegadorController;
 use App\Http\Controllers\RegistroGEController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -82,3 +83,5 @@ Route::post('crearElemento', [EspacioDeAsesoramientoController::class, 'crearEle
 Route::post('eliminarElemento',[EspacioDeAsesoramientoController::class, 'eliminarElemento']);
 
 Route::post('obtenerDatosGrupoEmpresa', [RegistroGEController::class, 'obtenerDatosGrupoEmpresa']);
+
+Route::post('elegirNavegador', [NavegadorController::class, 'elegirNavegador']);

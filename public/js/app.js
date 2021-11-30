@@ -14651,7 +14651,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../elementos/TabGE */ "./resources/js/elementos/TabGE.js");
 /* harmony import */ var _EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EspacioDeAsesoramiento/Espacio */ "./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _EspacioDeAsesoramiento_VistaGEEsp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EspacioDeAsesoramiento/VistaGEEsp */ "./resources/js/components/EspacioDeAsesoramiento/VistaGEEsp.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -14665,6 +14666,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -14693,18 +14695,18 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
       setDatosGE(json);
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("main", {
-    children: datosGE && (datosGE.mensaje ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
+    children: datosGE && (datosGE.mensaje ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
       className: " mt-5",
       children: datosGE.mensaje
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ContenedorTab, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("nav", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ContenedorTab, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
         className: " w-100 d-flex justify-content-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "nav nav-tabs",
           id: "nav-tab",
           role: "tablist",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             className: "nav-item nav-link active",
             id: "nav-home-tab",
             "data-toggle": "tab",
@@ -14713,7 +14715,7 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             "aria-controls": "nav-home",
             "aria-selected": "true",
             children: "Grupo Empresa"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             className: "nav-item nav-link",
             id: "nav-profile-tab",
             "data-toggle": "tab",
@@ -14722,7 +14724,7 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             "aria-controls": "nav-profile",
             "aria-selected": "false",
             children: "Calendario"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             className: "nav-item nav-link",
             id: "nav-contact-tab",
             "data-toggle": "tab",
@@ -14730,30 +14732,35 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             role: "tab",
             "aria-controls": "nav-contact",
             "aria-selected": "false",
-            children: "Espacio de Asesoramiento"
+            children: "WorkSpace"
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", (_jsxs2 = {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", (_jsxs2 = {
         id: "contenido-GE",
         className: "tab-content  d-flex justify-content-center"
-      }, _defineProperty(_jsxs2, "id", "nav-tabContent"), _defineProperty(_jsxs2, "children", [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "tab-pane fade show active",
+      }, _defineProperty(_jsxs2, "id", "nav-tabContent"), _defineProperty(_jsxs2, "children", [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "tab-pane fade show active w-100",
         id: "nav-home",
         role: "tabpanel",
         "aria-labelledby": "nav-home-tab",
-        children: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus corporis eaque dolorem ullam, quasi magni vel cumque facere animi maiores minima id similique accusantium iste, deleniti neque praesentium cum ratione?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "w-100 d-flex justify-content-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_EspacioDeAsesoramiento_VistaGEEsp__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            ge: datosGE
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "tab-pane fade",
         id: "nav-profile",
         role: "tabpanel",
         "aria-labelledby": "nav-profile-tab",
         children: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at inventore quam quasi, minima odit nemo ex iusto officiis esse veritatis sit rerum repudiandae reiciendis voluptates dolorem cumque, quae harum?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "tab-pane fade w-100",
         id: "nav-contact",
         role: "tabpanel",
         "aria-labelledby": "nav-contact-tab",
-        children: datosGE && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: datosGE && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__["default"], {
           id: datosGE.duenio
         })
       })]), _jsxs2))]
@@ -15259,6 +15266,104 @@ var Espacio = function Espacio(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Espacio);
+
+/***/ }),
+
+/***/ "./resources/js/components/EspacioDeAsesoramiento/VistaGEEsp.jsx":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/EspacioDeAsesoramiento/VistaGEEsp.jsx ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/espacioAsesoramient */ "./resources/js/elementos/espacioAsesoramient.js");
+/* harmony import */ var _elementos_socios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/socios */ "./resources/js/elementos/socios.js");
+/* harmony import */ var _DatosGrupoEmpresa_socio__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DatosGrupoEmpresa/socio */ "./resources/js/components/DatosGrupoEmpresa/socio.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+var VistaGEEsp = function VistaGEEsp(_ref) {
+  var ge = _ref.ge;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      socios = _useState2[0],
+      setSocios = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      lider = _useState4[0],
+      setLider = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var data = new FormData();
+    data.append('nombre', nombreGE);
+    fetch('api/solicitarSocios', {
+      method: 'POST',
+      body: data
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      setSocios(json.socios);
+      setLider(json.lider);
+    });
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.Card, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.PanelCentral, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+        children: ge.nombre
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.PanelDatos, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "contenedorDeP border border-dark bg-light p-2 text-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+            children: [" ", ge.descripcion]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.Img, {
+            src: "./resources/".concat(ge.logo)
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: " border border-dark bg-light p-4",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_socios__WEBPACK_IMPORTED_MODULE_2__.ContenedorItems, {
+          children: socios && socios.map(function (dato) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DatosGrupoEmpresa_socio__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              className: " border border-light",
+              nombre: dato.nombreC,
+              rol: dato.idUsuario == lider ? "Lider" : "Socio",
+              imagen: dato.foto_perfil
+            });
+          })
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VistaGEEsp);
 
 /***/ }),
 
@@ -15787,40 +15892,35 @@ var Navegador = function Navegador() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.IconNav, {
           icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUserCircle
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-        className: "navbar-toggler",
-        type: "button",
-        "data-toggle": "collapse",
-        "data-target": "#navegadorResp",
-        "aria-controls": "navegadorResp",
-        "aria-expanded": "false",
-        "aria-label": "Toggle navigation",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.IconNav, {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faBars
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        id: "navegadorResp",
-        className: "collapse navbar-collapse",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
-          className: "navbar-nav",
-          children: [_parametros_menus__WEBPACK_IMPORTED_MODULE_5__.datosNavegador.map(function (dato) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-              className: "nav-item",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Navegador_ItemNavegador__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                className: "nav-item active",
-                link: dato.link,
-                nombre: dato.nombre
-              })
-            });
-          }), session != null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-            className: "nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Navegador_ItemNavegador__WEBPACK_IMPORTED_MODULE_2__["default"], {
-              className: "nav-item active",
-              link: "/Inscritos",
-              nombre: "Inscritos en la Materia"
+      }), session != null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          className: "navbar-toggler",
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navegadorResp",
+          "aria-controls": "navegadorResp",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.IconNav, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faBars
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          id: "navegadorResp",
+          className: "collapse navbar-collapse",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
+            className: "navbar-nav",
+            children: _parametros_menus__WEBPACK_IMPORTED_MODULE_5__.datosNavegador.map(function (dato) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                className: "nav-item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Navegador_ItemNavegador__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  className: "nav-item active",
+                  link: dato.link,
+                  nombre: dato.nombre
+                })
+              });
             })
-          })]
-        })
+          })
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Navegador_Session__WEBPACK_IMPORTED_MODULE_4__["default"], {
         className: " text-lg-right"
       })]
@@ -15949,12 +16049,38 @@ var Session = function Session() {
       sessionNombre = _useState2[0],
       setSessionNombre = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      opcionesUsuario = _useState4[0],
+      setOpcionesUsuario = _useState4[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (sessionStorage.getItem('id')) {
       (0,_parametros_session__WEBPACK_IMPORTED_MODULE_5__.getNombre)().then(function (resp) {
         setSessionNombre(resp);
       });
     }
+
+    var post = new FormData();
+    post.append('id', sessionStorage.getItem('id'));
+    fetch('api/elegirNavegador', {
+      method: 'POST',
+      body: post
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      if (json.navegador == 'C') {
+        setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioC);
+      } else if (json.navegador == 'A') {
+        setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioA);
+      } else if (json.navegador == 'CGEV') {
+        setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioCGEV);
+      } else if (json.navegador == 'CGE') {
+        setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioCGE);
+      } else {
+        setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioSGE);
+      }
+    });
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     id: "sessionNav",
@@ -16003,13 +16129,10 @@ var Session = function Session() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.IconNav, {
             icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUserCircle
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.ContenedorNavC, {
           className: " dropdown-menu",
           "aria-labelledby": "navbarDropdown",
-          style: {
-            width: '165%'
-          },
-          children: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuario.map(function (dato) {
+          children: opcionesUsuario.map(function (dato) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_botonSession__WEBPACK_IMPORTED_MODULE_3__["default"], {
               className: "dropdown-item",
               action: dato.onClick,
@@ -17568,7 +17691,7 @@ var RegistroUsuario = function RegistroUsuario() {
         encType: "multipart/form-data",
         className: " m-5 d-flex text-center justify-content-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_registroUsuario__WEBPACK_IMPORTED_MODULE_3__.ContenedorPrincipal, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Titulo, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
             children: "Registrarse"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_registroUsuario__WEBPACK_IMPORTED_MODULE_3__.ContenedorElementos, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_registroUsuario__WEBPACK_IMPORTED_MODULE_3__.ContenedorInputs, {
@@ -18732,12 +18855,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ContenedorElemento": () => (/* binding */ ContenedorElemento),
 /* harmony export */   "Backgroundesp": () => (/* binding */ Backgroundesp),
 /* harmony export */   "MarcoEliminar": () => (/* binding */ MarcoEliminar),
-/* harmony export */   "Select": () => (/* binding */ Select)
+/* harmony export */   "Select": () => (/* binding */ Select),
+/* harmony export */   "PanelCentral": () => (/* binding */ PanelCentral),
+/* harmony export */   "PanelDatos": () => (/* binding */ PanelDatos),
+/* harmony export */   "Img": () => (/* binding */ Img),
+/* harmony export */   "Card": () => (/* binding */ Card)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -18749,6 +18876,10 @@ var ContenedorElemento = styled_components__WEBPACK_IMPORTED_MODULE_2__["default
 var Backgroundesp = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    margin-top: 30px;\n    padding: 30px;\n    border-style: double;\n    width: 100%;\n    background-color: rgb(", ",", ",", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var MarcoEliminar = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    font-size: 15px;\n    color: red;\n"])));
 var Select = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].select(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    font-size: 30px;\n    text-align: center;\n    transition: .3s ease all;\n    font-size: 20px;\n    color: white;\n    border-style: solid;\n    background-color: rgb(", " , ", ", ", ");\n    border-color: black;\n    :hover{\n        color: black;\n        border-color: black;\n        background-color: rgb(", ", ", ", ", ");\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var PanelCentral = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    min-width: 600px;\n    display: grid;\n    padding:40px;\n    gap: 20px;\n    @media(max-width:600px){\n        min-width: 0;\n    }\n"])));
+var PanelDatos = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    display: grid;\n    grid-template-columns: 2fr 1fr;\n    gap: 20px;\n    @media(max-width:600px){\n        grid-template-columns: 1fr;\n    }\n"])));
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    width: 200px;\n    height: 200px;\n    object-fit: cover;\n"])));
+var Card = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(", ", ", ", ", ", 0.7);\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:700px){\n        width: 100%;\n        margin: auto;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 
 
 /***/ }),
@@ -18878,12 +19009,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "IconNav": () => (/* binding */ IconNav),
 /* harmony export */   "GrupoElement": () => (/* binding */ GrupoElement),
 /* harmony export */   "LabelNav": () => (/* binding */ LabelNav),
-/* harmony export */   "IconNavI": () => (/* binding */ IconNavI)
+/* harmony export */   "IconNavI": () => (/* binding */ IconNavI),
+/* harmony export */   "ContenedorNavC": () => (/* binding */ ContenedorNavC)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -18899,6 +19031,7 @@ var IconNav = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_for
 var IconNavI = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["    \n    font-size: 40px;\n    color: black;\n    display: none;\n\n    @media (max-width: 992px){\n        display: block;\n        margin-left: 10px;\n    }\n"])));
 var GrupoElement = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    color: black;\n    justify-content: center;\n\n    a label {\n        color :black;\n        margin-bottom: -20px;\n    }\n\n    @media (max-width: 991px){\n        margin-left: 20px;\n    }\n\n    :hover {\n        background-color: rgb(", ", ", ", ", ");\n        a {\n            color : rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var LabelNav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].label(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    margin-left: 20px;\n"])));
+var ContenedorNavC = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    width: 165%;\n    @media(max-width:991px){\n        width: 100%;\n    }\n"])));
 
 
 /***/ }),
@@ -19062,7 +19195,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Bloque = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: space-around;\n    background-color: rgb(", ", ", ", ", ", 0.8);\n    min-width: 402px;\n    box-shadow: 5px 5px 5px;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var Bloque = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: space-around;\n    background-color: rgb(", ", ", ", ", ", 0.8);\n    min-width: 402px;\n    box-shadow: 5px 5px 5px;\n    @media(max-width:600px){\n        min-width: 0;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var ImagenPerfil = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-radius: 50%;\n    width: 80px;\n    height: 80px;\n    object-fit: cover;\n    border-color: rgb(", ", ", ", ", ");\n    border-style: solid;\n    background-color: black;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b);
 var Corona = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 80px;\n    height: 80px;\n"])));
 var Quitar = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    font-size: 50px;\n    color: red;\n"])));
@@ -19231,7 +19364,11 @@ var colorSecundary = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "opcionesUsuario": () => (/* binding */ opcionesUsuario),
+/* harmony export */   "opcionesUsuarioSGE": () => (/* binding */ opcionesUsuarioSGE),
+/* harmony export */   "opcionesUsuarioCGE": () => (/* binding */ opcionesUsuarioCGE),
+/* harmony export */   "opcionesUsuarioCGEV": () => (/* binding */ opcionesUsuarioCGEV),
+/* harmony export */   "opcionesUsuarioA": () => (/* binding */ opcionesUsuarioA),
+/* harmony export */   "opcionesUsuarioC": () => (/* binding */ opcionesUsuarioC),
 /* harmony export */   "registrarse": () => (/* binding */ registrarse),
 /* harmony export */   "iniciarSession": () => (/* binding */ iniciarSession),
 /* harmony export */   "datosNavegador": () => (/* binding */ datosNavegador)
@@ -19239,18 +19376,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _session__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./session */ "./resources/js/parametros/session.js");
 
+ //SinGrupoEmpresa SGE
+//ConGrupoEmpresa CGE
+//ConGrupoEmpresaValida CGEV
+//Administrador  A
+//Consultor  C
 
-var opcionesUsuario = [{
+var opcionesUsuarioSGE = [{
   link: 'Socio-' + sessionStorage.getItem('id'),
   name: 'perfil',
   contenido: 'Mi Perfil',
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
-  onClick: null
-}, {
-  link: sessionStorage.getItem('ge') ? 'GE-' + sessionStorage.getItem('ge') : '#',
-  name: 'grupoEmpresa',
-  contenido: 'Mi Grupo Empresa',
-  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
   onClick: null
 }, {
   link: "RegistroGE",
@@ -19266,9 +19402,103 @@ var opcionesUsuario = [{
   onClick: null
 }, {
   link: "#",
+  name: 'cerrarSession',
+  contenido: 'Cerrar Session',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPowerOff,
+  onClick: _session__WEBPACK_IMPORTED_MODULE_0__.cerrarSession
+}];
+var opcionesUsuarioCGE = [{
+  link: 'Socio-' + sessionStorage.getItem('id'),
+  name: 'perfil',
+  contenido: 'Mi Perfil',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
+  onClick: null
+}, {
+  link: sessionStorage.getItem('ge'),
+  name: 'grupoEmpresa',
+  contenido: 'Mi Grupo Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
+  onClick: null
+}, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
+  onClick: null
+}, {
+  link: "#",
+  name: 'cerrarSession',
+  contenido: 'Cerrar Session',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPowerOff,
+  onClick: _session__WEBPACK_IMPORTED_MODULE_0__.cerrarSession
+}];
+var opcionesUsuarioCGEV = [{
+  link: 'Socio-' + sessionStorage.getItem('id'),
+  name: 'perfil',
+  contenido: 'Mi Perfil',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
+  onClick: null
+}, {
+  link: sessionStorage.getItem('ge'),
+  name: 'grupoEmpresa',
+  contenido: 'Mi Grupo Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
+  onClick: null
+}, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
+  onClick: null
+}, {
+  link: "#",
   name: 'espacioTrabajo',
   contenido: 'Mi Espacio de trabajo',
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faBriefcase,
+  onClick: null
+}, {
+  link: "#",
+  name: 'cerrarSession',
+  contenido: 'Cerrar Session',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPowerOff,
+  onClick: _session__WEBPACK_IMPORTED_MODULE_0__.cerrarSession
+}];
+var opcionesUsuarioA = [{
+  link: 'Socio-' + sessionStorage.getItem('id'),
+  name: 'perfil',
+  contenido: 'Mi Perfil',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
+  onClick: null
+}, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
+  onClick: null
+}, {
+  link: "#",
+  name: 'cerrarSession',
+  contenido: 'Cerrar Session',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPowerOff,
+  onClick: _session__WEBPACK_IMPORTED_MODULE_0__.cerrarSession
+}];
+var opcionesUsuarioC = [{
+  link: 'Socio-' + sessionStorage.getItem('id'),
+  name: 'perfil',
+  contenido: 'Mi Perfil',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
+  onClick: null
+}, {
+  link: '#',
+  name: 'grupoEmpresa',
+  contenido: 'Grupo-Empresas',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
+  onClick: null
+}, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
   onClick: null
 }, {
   link: "#",
@@ -19290,10 +19520,10 @@ var datosNavegador = [{
   link: "/GrupoEmpresas"
 }, {
   nombre: 'FundaEmpresa',
-  link: "#"
+  link: "FundaEmpresa"
 }, {
-  nombre: 'Informacion',
-  link: "#"
+  nombre: 'Inscritos en la materia',
+  link: "Inscritos"
 }];
 
 
