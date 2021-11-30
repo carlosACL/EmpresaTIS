@@ -19451,7 +19451,7 @@ var opcionesUsuarioCGEV = [{
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
   onClick: null
 }, {
-  link: "#",
+  link: "Esp-de-Asesoramiento-" + sessionStorage.getItem('ge'),
   name: 'espacioTrabajo',
   contenido: 'Mi Espacio de trabajo',
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faBriefcase,

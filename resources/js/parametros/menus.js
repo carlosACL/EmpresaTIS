@@ -82,7 +82,7 @@ const opcionesUsuarioCGEV = [{
     img:faClipboard,
     onClick: null
 },{
-    link : "#", 
+    link : "Esp-de-Asesoramiento-"+sessionStorage.getItem('ge'), 
     name:'espacioTrabajo', 
     contenido:'Mi Espacio de trabajo', 
     img:faBriefcase,
