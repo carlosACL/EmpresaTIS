@@ -113,10 +113,16 @@ class UserController extends Controller
                                     ->where('idUsuario','<>',$usuario->idUsuario)
                                     ->get();
                 if(sizeof($otrosUsuarios)<=0){
+
+                    $rol = DB::table('Rol')
+                                    ->where('nombreRol', '=', 'Estudiante')
+                                    ->first();
+                    
                     $usuario->nombreUsuario = $req->nombreU;
                     $usuario->telefono = $req->telefono;
                     $usuario->contrasenia = $req->contrasenia;
                     $usuario->registrado = true;
+                    $usuario->idRol = $rol->idRol;
 
                     if($req->file('foto_perfil') != null){
                         $file = $req->file('foto_perfil');

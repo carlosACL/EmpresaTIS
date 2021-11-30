@@ -138,7 +138,7 @@ const RegistroUsuario = () => {
                       encType="multipart/form-data" 
                       className=' m-5 d-flex text-center justify-content-center'>
                     <ContenedorPrincipal>
-                        <Titulo>Registrarse</Titulo>
+                        <h1>Registrarse</h1>
                         <ContenedorElementos>
                             <ContenedorInputs>
                                 <Input estado={codSis} 

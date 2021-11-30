@@ -6,17 +6,16 @@ faPowerOff,
 faClipboard} from '@fortawesome/free-solid-svg-icons'
 import { cerrarSession } from './session';
 
-const opcionesUsuario = [{
+//SinGrupoEmpresa SGE
+//ConGrupoEmpresa CGE
+//ConGrupoEmpresaValida CGEV
+//Administrador  A
+//Consultor  C
+const opcionesUsuarioSGE = [{
     link :'Socio-'+sessionStorage.getItem('id'), 
     name:'perfil', 
     contenido:'Mi Perfil', 
     img:faUser,
-    onClick: null
-},{ 
-    link : (sessionStorage.getItem('ge')) ? 'GE-'+sessionStorage.getItem('ge'):'#', 
-    name:'grupoEmpresa', 
-    contenido:'Mi Grupo Empresa', 
-    img:faUsers,
     onClick: null
 },{
     link : "RegistroGE", 
@@ -32,9 +31,107 @@ const opcionesUsuario = [{
     onClick: null
 },{
     link : "#", 
+    name:'cerrarSession', 
+    contenido:'Cerrar Session', 
+    img:faPowerOff,
+    onClick: cerrarSession
+},];
+
+const opcionesUsuarioCGE = [{
+    link :'Socio-'+sessionStorage.getItem('id'), 
+    name:'perfil', 
+    contenido:'Mi Perfil', 
+    img:faUser,
+    onClick: null
+},{ 
+    link : sessionStorage.getItem('ge'), 
+    name:'grupoEmpresa', 
+    contenido:'Mi Grupo Empresa', 
+    img:faUsers,
+    onClick: null
+},{
+    link : "FundaEmpresa", 
+    name:'', 
+    contenido:'Funda-Empresa', 
+    img:faClipboard,
+    onClick: null
+},{
+    link : "#", 
+    name:'cerrarSession', 
+    contenido:'Cerrar Session', 
+    img:faPowerOff,
+    onClick: cerrarSession
+},];
+
+const opcionesUsuarioCGEV = [{
+    link :'Socio-'+sessionStorage.getItem('id'), 
+    name:'perfil', 
+    contenido:'Mi Perfil', 
+    img:faUser,
+    onClick: null
+},{ 
+    link : sessionStorage.getItem('ge'), 
+    name:'grupoEmpresa', 
+    contenido:'Mi Grupo Empresa', 
+    img:faUsers,
+    onClick: null
+},{
+    link : "FundaEmpresa", 
+    name:'', 
+    contenido:'Funda-Empresa', 
+    img:faClipboard,
+    onClick: null
+},{
+    link : "#", 
     name:'espacioTrabajo', 
     contenido:'Mi Espacio de trabajo', 
     img:faBriefcase,
+    onClick: null
+},{
+    link : "#", 
+    name:'cerrarSession', 
+    contenido:'Cerrar Session', 
+    img:faPowerOff,
+    onClick: cerrarSession
+},];
+
+const opcionesUsuarioA = [{
+    link :'Socio-'+sessionStorage.getItem('id'), 
+    name:'perfil', 
+    contenido:'Mi Perfil', 
+    img:faUser,
+    onClick: null
+},{
+    link : "FundaEmpresa", 
+    name:'', 
+    contenido:'Funda-Empresa', 
+    img:faClipboard,
+    onClick: null
+},{
+    link : "#", 
+    name:'cerrarSession', 
+    contenido:'Cerrar Session', 
+    img:faPowerOff,
+    onClick: cerrarSession
+},];
+
+const opcionesUsuarioC = [{
+    link :'Socio-'+sessionStorage.getItem('id'), 
+    name:'perfil', 
+    contenido:'Mi Perfil', 
+    img:faUser,
+    onClick: null
+},{ 
+    link : '#', 
+    name:'grupoEmpresa', 
+    contenido:'Grupo-Empresas', 
+    img:faUsers,
+    onClick: null
+},{
+    link : "FundaEmpresa", 
+    name:'', 
+    contenido:'Funda-Empresa', 
+    img:faClipboard,
     onClick: null
 },{
     link : "#", 
@@ -60,14 +157,18 @@ const datosNavegador = [
         link : "/GrupoEmpresas"
     },{
         nombre:'FundaEmpresa',
-        link : "#"
+        link : "FundaEmpresa"
     },{
-        nombre:'Informacion',
-        link : "#"
+        nombre:'Inscritos en la materia',
+        link : "Inscritos"
     }
 ];
 
-export {opcionesUsuario, 
+export {opcionesUsuarioSGE,
+        opcionesUsuarioCGE,
+        opcionesUsuarioCGEV,
+        opcionesUsuarioA,
+        opcionesUsuarioC,
         registrarse, 
         iniciarSession, 
         datosNavegador};

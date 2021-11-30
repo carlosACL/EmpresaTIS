@@ -99,6 +99,12 @@ const LabelNav = styled.label`
     margin-left: 20px;
 `;
 
+const ContenedorNavC = styled.div`
+    width: 165%;
+    @media(max-width:991px){
+        width: 100%;
+    }
+`;
 export {
         Nav,
         ItemNav,
@@ -108,4 +114,5 @@ export {
         IconNav,
         GrupoElement,
         LabelNav,
-        IconNavI    };
+        IconNavI,
+        ContenedorNavC    };
