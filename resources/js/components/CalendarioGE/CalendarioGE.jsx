@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Card } from '../../elementos/card';
 import { Tabla, THead } from '../../elementos/GE';
 import { InputStyle } from '../../elementos/registro';
-import { TBody } from '../DatosVistaInscritos/estilosVistaInscritos/estilosVistaInscritos';
+import { TBody, TItem } from '../DatosVistaInscritos/estilosVistaInscritos/estilosVistaInscritos';
 import Fecha from '../RegistroGE/Fecha';
 import IconoAtras from '../Svg/IconoAtras';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,7 @@ import { ContBtmDerecho, ContBtmIzquierdo, ContCalendar, ContCampos, ContIconos,
 const CalendarioGE = () => {
 
     const [agEvento, setAgEvento] = useState(false);
+    const [eventos, setEventos] = useState([]);
     const descEvt = useRef(null);
     const formulario = useRef(null);
 
@@ -40,8 +41,25 @@ const CalendarioGE = () => {
         })
     };
 
+    const obtenerEventos = () => {
+        const datos = new FormData();
+        datos.append('idCalendario', 0); //Probando solo para un calendario de id 0
+        fetch('api/obtenerEventos',{
+            method: 'POST',
+            body: datos
+        })
+        .then((response) => response.json())
+        .then((data)=>{
+            setEventos(data);
+        })
+    };
+
+    useEffect(() => {
+        obtenerEventos();
+    }, [agEvento])
+
     return(
-        <Card style={{margin: '100px auto', height: '600px', maxHeight: '750px'}}>
+        <Card style={{margin: '100px auto', height: 'auto', padding: '20px'}}>
             <ContCalendar>
                 {
                     (agEvento) && (
@@ -107,6 +125,18 @@ const CalendarioGE = () => {
                         </tr>
                     </THead>
                     <TBody>
+                    {
+                            (eventos != null)? eventos.map((evento) => (
+                                <TItem>
+                                    <td>{evento.fecha_inicio}</td>
+                                    <td>{evento.fecha_final}</td>
+                                    <td>{evento.nombre}</td>
+                                    <td>Editar</td>
+                                    <td>Borrar</td>
+                                </TItem>
+                            ))
+                            :(<></>)
+                        } 
                     </TBody>
                 </Tabla>
             </ContCalendar>

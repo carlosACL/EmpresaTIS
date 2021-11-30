@@ -77,6 +77,7 @@ Route::post('registrarMensaje', [ForoDudasController::class, 'registrarMensaje']
 Route::post('obtenerCarpetasBasicas', [EspacioDeAsesoramientoController::class, 'obtenerCarpetasBasicas']);
 
 Route::post('agregarEvento',[CalendarioController::class, 'agregarEvento']);
+Route::post('obtenerEventos',[CalendarioController::class, 'obtenerEventos']);
 Route::post('crearElemento', [EspacioDeAsesoramientoController::class, 'crearElemento']);
 Route::post('eliminarElemento',[EspacioDeAsesoramientoController::class, 'eliminarElemento']);
 

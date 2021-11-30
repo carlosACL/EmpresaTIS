@@ -44,17 +44,10 @@ const ContInputs = styled.div`
 `;
 
 const ContLabelInput = styled.div`
-    width: 50%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     transition: .3s ease all;
-    @media only screen and (max-width: 693px) {
-        width: 80%;
-    }
-    
-    @media only screen and (max-width: 440px) {
-        width: 90%;
-    }
 `;
 
 const IconPlus = styled(FontAwesomeIcon)`
