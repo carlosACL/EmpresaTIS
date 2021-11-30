@@ -9,6 +9,9 @@ const Bloque = styled.div`
     background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.8);
     min-width: 402px;
     box-shadow: 5px 5px 5px;
+    @media(max-width:600px){
+        min-width: 0;
+    }
 `;
 
 const ImagenPerfil = styled.img`

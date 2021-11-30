@@ -49,8 +49,52 @@ const Select = styled.select`
     }
 `;
 
+const PanelCentral = styled.div`
+    min-width: 600px;
+    display: grid;
+    padding:40px;
+    gap: 20px;
+    @media(max-width:600px){
+        min-width: 0;
+    }
+`;
+
+const PanelDatos = styled.div`
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    @media(max-width:600px){
+        grid-template-columns: 1fr;
+    }
+`;
+
+
+const Img = styled.img`
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+`;
+
+const Card = styled.div`
+    margin-top: 5%;
+    text-align: center;
+    transition: .5s ease all;
+    background-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.7);
+    border-color: rgb(${colorPrimary.r}, ${colorPrimary.g}, ${colorPrimary.b}, 0.4);
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px;
+    @media (max-width:700px){
+        width: 100%;
+        margin: auto;
+    }
+`;
+
 export { MarcoIcono,
          ContenedorElemento,
          Backgroundesp,
          MarcoEliminar,
-         Select };
+         Select,
+         PanelCentral,
+         PanelDatos,
+         Img,
+         Card };
