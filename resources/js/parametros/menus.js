@@ -44,7 +44,7 @@ const opcionesUsuarioCGE = [{
     img:faUser,
     onClick: null
 },{ 
-    link : sessionStorage.getItem('ge'), 
+    link : 'GE-'+sessionStorage.getItem('ge'), 
     name:'grupoEmpresa', 
     contenido:'Mi Grupo Empresa', 
     img:faUsers,
@@ -70,7 +70,7 @@ const opcionesUsuarioCGEV = [{
     img:faUser,
     onClick: null
 },{ 
-    link : sessionStorage.getItem('ge'), 
+    link : 'GE-'+sessionStorage.getItem('ge'), 
     name:'grupoEmpresa', 
     contenido:'Mi Grupo Empresa', 
     img:faUsers,

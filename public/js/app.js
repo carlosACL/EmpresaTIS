@@ -19414,7 +19414,7 @@ var opcionesUsuarioCGE = [{
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
   onClick: null
 }, {
-  link: sessionStorage.getItem('ge'),
+  link: 'GE-' + sessionStorage.getItem('ge'),
   name: 'grupoEmpresa',
   contenido: 'Mi Grupo Empresa',
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
@@ -19439,7 +19439,7 @@ var opcionesUsuarioCGEV = [{
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
   onClick: null
 }, {
-  link: sessionStorage.getItem('ge'),
+  link: 'GE-' + sessionStorage.getItem('ge'),
   name: 'grupoEmpresa',
   contenido: 'Mi Grupo Empresa',
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
