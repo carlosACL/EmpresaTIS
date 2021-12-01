@@ -1,7 +1,7 @@
 @extends('templates.plantillaprincipal')
 
 @section('titulo') 
-    Esp-{{$id}}
+    Administracion{{$id}}
 @endsection
 
 @section('script')
@@ -24,13 +24,9 @@
     } else {
         location.replace('Login');
     }
-    
 </script>
 @endsection
 
 @section('contenido')
-    <script>
-        const nombreGE = '<?=$id?>'
-    </script>
-    <div id="espAse"></div>
+    <div id="VenAd"></div>
 @endsection

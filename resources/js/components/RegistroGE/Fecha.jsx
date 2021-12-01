@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-const Fecha = ({estado, cambiarEstado}) => {
+const Fecha = ({name = 'fecha_registro' , estado, cambiarEstado}) => {
 
     const ref = useRef(null);
     const [date,setDate] = useState({campo:''});
@@ -25,7 +25,7 @@ const Fecha = ({estado, cambiarEstado}) => {
     
     return (
         <>
-            <input name='fecha_registro' 
+            <input name={name}
                     type='date' 
                     value= { date.campo }
                     max={validarCalendario()} 

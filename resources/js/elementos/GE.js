@@ -11,6 +11,10 @@ const Tabla = styled.table`
     border-color: black;
     color: black;
     text-align: center;
+    td{
+        word-break: break-word;
+    }
+
 `; 
 
 const Tbody = styled.tbody`

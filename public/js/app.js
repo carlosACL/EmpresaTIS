@@ -10704,8 +10704,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SeccionDudas__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/SeccionDudas */ "./resources/js/components/SeccionDudas.jsx");
 /* harmony import */ var _components_Debate__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/Debate */ "./resources/js/components/Debate.jsx");
 /* harmony import */ var _components_GEvalida__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/GEvalida */ "./resources/js/components/GEvalida.jsx");
+<<<<<<< HEAD
 /* harmony import */ var _components_GEPorValidar__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/GEPorValidar */ "./resources/js/components/GEPorValidar.jsx");
 /* harmony import */ var _components_EspacioDeAsesoramiento__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/EspacioDeAsesoramiento */ "./resources/js/components/EspacioDeAsesoramiento.jsx");
+=======
+/* harmony import */ var _components_EspacioDeAsesoramiento__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/EspacioDeAsesoramiento */ "./resources/js/components/EspacioDeAsesoramiento.jsx");
+/* harmony import */ var _components_VentanaAdmin__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/VentanaAdmin */ "./resources/js/components/VentanaAdmin.jsx");
+>>>>>>> 55468bd4a3a786f6e863daa8407cc7ccc51a8ebc
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -10888,7 +10893,15 @@ if (document.getElementById('debate')) {
 }
 
 if (document.getElementById('espAse')) {
+<<<<<<< HEAD
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_components_EspacioDeAsesoramiento__WEBPACK_IMPORTED_MODULE_27__["default"], {}), document.getElementById('espAse'));
+=======
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_components_EspacioDeAsesoramiento__WEBPACK_IMPORTED_MODULE_26__["default"], {}), document.getElementById('espAse'));
+}
+
+if (document.getElementById('VenAd')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_components_VentanaAdmin__WEBPACK_IMPORTED_MODULE_27__["default"], {}), document.getElementById('VenAd'));
+>>>>>>> 55468bd4a3a786f6e863daa8407cc7ccc51a8ebc
 }
 
 /***/ }),
@@ -10964,6 +10977,70 @@ var ItemAcord = function ItemAcord(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemAcord);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/SelectRol.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/Admin/SelectRol.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var SelectRol = function SelectRol(_ref) {
+  var rol = _ref.rol,
+      idUsuario = _ref.idUsuario;
+  var select = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var actualizarRol = function actualizarRol() {
+    var post = new FormData();
+    post.append('idUsuario', idUsuario);
+    post.append('nombreRol', select.current.value);
+    fetch('api/actualizarRol', {
+      method: 'POST',
+      body: post
+    }).then(function (response) {
+      if (!response.ok) {
+        alert("hubo un error en el servidor");
+      }
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: rol ? idUsuario != sessionStorage.getItem('id') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+      ref: select,
+      defaultValue: rol,
+      onChange: actualizarRol,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+        value: "Administrador",
+        children: "Administrador"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+        value: "Estudiante",
+        children: "Estudiante"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+        value: "Consultor",
+        children: "Consultor"
+      })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      children: rol
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      children: "No Registrado"
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SelectRol);
 
 /***/ }),
 
@@ -14661,8 +14738,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../elementos/TabGE */ "./resources/js/elementos/TabGE.js");
 /* harmony import */ var _EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EspacioDeAsesoramiento/Espacio */ "./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _EspacioDeAsesoramiento_VistaGEEsp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EspacioDeAsesoramiento/VistaGEEsp */ "./resources/js/components/EspacioDeAsesoramiento/VistaGEEsp.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -14673,15 +14764,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
   var _jsxs2;
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("main", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ContenedorTab, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("nav", {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      datosGE = _useState2[0],
+      setDatosGE = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var datosGE = new FormData();
+    datosGE.append('idUsuario', sessionStorage.getItem('id'));
+    datosGE.append('nombreGE', nombreGE);
+    fetch('api/obtenerDatosGrupoEmpresa', {
+      method: 'POST',
+      body: datosGE
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      setDatosGE(json);
+    });
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
+    children: datosGE && (datosGE.mensaje ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+      className: " mt-5",
+      children: datosGE.mensaje
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ContenedorTab, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
         className: " w-100 d-flex justify-content-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "nav nav-tabs",
           id: "nav-tab",
           role: "tablist",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             className: "nav-item nav-link active",
             id: "nav-home-tab",
             "data-toggle": "tab",
@@ -14690,7 +14802,7 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             "aria-controls": "nav-home",
             "aria-selected": "true",
             children: "Grupo Empresa"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             className: "nav-item nav-link",
             id: "nav-profile-tab",
             "data-toggle": "tab",
@@ -14699,7 +14811,7 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             "aria-controls": "nav-profile",
             "aria-selected": "false",
             children: "Calendario"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
             className: "nav-item nav-link",
             id: "nav-contact-tab",
             "data-toggle": "tab",
@@ -14707,32 +14819,39 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             role: "tab",
             "aria-controls": "nav-contact",
             "aria-selected": "false",
-            children: "Espacio de Asesoramiento"
+            children: "WorkSpace"
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", (_jsxs2 = {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", (_jsxs2 = {
         id: "contenido-GE",
         className: "tab-content  d-flex justify-content-center"
-      }, _defineProperty(_jsxs2, "id", "nav-tabContent"), _defineProperty(_jsxs2, "children", [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "tab-pane fade show active",
+      }, _defineProperty(_jsxs2, "id", "nav-tabContent"), _defineProperty(_jsxs2, "children", [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "tab-pane fade show active w-100",
         id: "nav-home",
         role: "tabpanel",
         "aria-labelledby": "nav-home-tab",
-        children: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus corporis eaque dolorem ullam, quasi magni vel cumque facere animi maiores minima id similique accusantium iste, deleniti neque praesentium cum ratione?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "w-100 d-flex justify-content-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_EspacioDeAsesoramiento_VistaGEEsp__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            ge: datosGE
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "tab-pane fade",
         id: "nav-profile",
         role: "tabpanel",
         "aria-labelledby": "nav-profile-tab",
         children: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at inventore quam quasi, minima odit nemo ex iusto officiis esse veritatis sit rerum repudiandae reiciendis voluptates dolorem cumque, quae harum?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "tab-pane fade w-100",
         id: "nav-contact",
         role: "tabpanel",
         "aria-labelledby": "nav-contact-tab",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        children: datosGE && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          id: datosGE.duenio
+        })
       })]), _jsxs2))]
-    })
+    }))
   });
 };
 
@@ -14775,28 +14894,32 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Elemento = function Elemento(_ref) {
-  var contenido = _ref.contenido;
+  var contenido = _ref.contenido,
+      hijos = _ref.hijos,
+      setHijos = _ref.setHijos;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(contenido),
       _useState2 = _slicedToArray(_useState, 2),
-      desplegado = _useState2[0],
-      setDesplegado = _useState2[1];
+      contenidoInt = _useState2[0],
+      setContenidoInt = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(contenido.hijos),
       _useState4 = _slicedToArray(_useState3, 2),
-      desplegadoNE = _useState4[0],
-      setDesplegadoNE = _useState4[1];
+      hijosInt = _useState4[0],
+      setHijosInt = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      desplegado = _useState6[0],
+      setDesplegado = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      desplegadoNE = _useState8[0],
+      setDesplegadoNE = _useState8[1];
 
   var refSelect = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("Carpeta"),
-      _useState6 = _slicedToArray(_useState5, 2),
-      valorSelect = _useState6[0],
-      setValorSelect = _useState6[1];
-
-  var onChangeSelect = function onChangeSelect() {
-    setValorSelect(refSelect.current.value);
-  };
+  var refNombre = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   var desplegar = function desplegar() {
     setDesplegado(!desplegado);
@@ -14804,96 +14927,46 @@ var Elemento = function Elemento(_ref) {
     desp.classList.toggle("nuevoDebate--ocultar");
   };
 
-  var desplegarNE = function desplegarNE() {
-    setDesplegadoNE(!desplegadoNE);
-    var desp = document.getElementById('idNT' + contenido.idElemento);
-    desp.classList.toggle("nuevoDebate--ocultar");
-  };
-
   var construirHijo = function construirHijo(dato) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Elemento, {
-      contenido: dato
+      contenido: dato,
+      hijos: hijosInt,
+      setHijos: setHijosInt
     });
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "d-block ml-2 border-left border-dark pl-2",
-    children: [contenido.tipo == 'carpeta' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [contenidoInt.tipo == 'carpeta' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
         onClick: desplegar,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
           icon: !desplegado ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFolder : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFolderOpen
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          children: contenido.nombre
+          children: contenidoInt.nombre
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
           icon: !desplegado ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faMinus
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        id: 'id' + contenido.idElemento,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        id: 'id' + contenidoInt.idElemento,
         className: " nuevoDebate--ocultar",
-        children: [contenido.hijos.length > 0 && contenido.hijos.map(function (datos) {
+        children: hijosInt && hijosInt.length > 0 && hijosInt.map(function (datos) {
           return construirHijo(datos);
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
-          onClick: desplegarNE,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
-            icon: !desplegadoNE ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faMinus
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: " text-success",
-            children: "Crear Nuevo elemento"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: 'idNT' + contenido.idElemento,
-          className: "nuevoDebate--ocultar",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: " d-flex justify-content-md-start align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              ref: refSelect,
-              onChange: onChangeSelect,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                children: "Carpeta"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                children: "Link"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                children: "Pdf"
-              })]
-            }), valorSelect == 'Carpeta' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              placeholder: "nombre",
-              type: "text"
-            }), valorSelect == 'Pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                placeholder: "nombre",
-                type: "text"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                type: "file",
-                accept: "application/pdf"
-              })]
-            }), valorSelect == 'Link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                placeholder: "nombre",
-                type: "text"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                placeholder: "link",
-                type: "url"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-              children: "Crear"
-            })]
-          })
-        })]
+        })
       })]
-    }), contenido.tipo == 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+    }), contenidoInt.tipo == 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faExternalLinkAlt
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-        href: contenido.link,
+        href: contenidoInt.link,
         target: "blank",
-        children: contenido.nombre
+        children: contenidoInt.nombre
       })]
-    }), contenido.tipo == 'pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+    }), contenidoInt.tipo == 'pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFilePdf
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: contenido.nombre
+        children: contenidoInt.nombre
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus
       })]
@@ -14905,10 +14978,10 @@ var Elemento = function Elemento(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx ***!
-  \********************************************************************/
+/***/ "./resources/js/components/EspacioDeAsesoramiento/ElementoAdmin.jsx":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/EspacioDeAsesoramiento/ElementoAdmin.jsx ***!
+  \**************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14917,9 +14990,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Elemento__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Elemento */ "./resources/js/components/EspacioDeAsesoramiento/Elemento.jsx");
-/* harmony import */ var _elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/espacioAsesoramient */ "./resources/js/elementos/espacioAsesoramient.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/espacioAsesoramient */ "./resources/js/elementos/espacioAsesoramient.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -14937,12 +15024,290 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Espacio = function Espacio() {
+
+
+var ElementoAdmin = function ElementoAdmin(_ref) {
+  var contenido = _ref.contenido,
+      hijos = _ref.hijos,
+      setHijos = _ref.setHijos,
+      estado = _ref.estado;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(contenido),
+      _useState2 = _slicedToArray(_useState, 2),
+      contenidoInt = _useState2[0],
+      setContenidoInt = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(contenido.hijos),
+      _useState4 = _slicedToArray(_useState3, 2),
+      hijosInt = _useState4[0],
+      setHijosInt = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      desplegado = _useState6[0],
+      setDesplegado = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      desplegadoNE = _useState8[0],
+      setDesplegadoNE = _useState8[1];
+
+  var refSelect = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var refNombre = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("carpeta"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      valorSelect = _useState10[0],
+      setValorSelect = _useState10[1];
+
+  var onChangeSelect = function onChangeSelect() {
+    setValorSelect(refSelect.current.value);
+  };
+
+  var desplegar = function desplegar() {
+    setDesplegado(!desplegado);
+    var desp = document.getElementById('id' + contenido.idElemento);
+    desp.classList.toggle("nuevoDebate--ocultar");
+  };
+
+  var desplegarNE = function desplegarNE() {
+    setDesplegadoNE(!desplegadoNE);
+    var desp = document.getElementById('idNT' + contenido.idElemento);
+    desp.classList.toggle("nuevoDebate--ocultar");
+    refNombre.current.value = "";
+  };
+
+  var crearElemento = function crearElemento(e) {
+    e.preventDefault();
+    var post = new FormData(document.getElementById("formulario".concat(contenidoInt.idElemento)));
+    post.append('idPadre', contenidoInt.idElemento);
+    post.append('nombreGE', nombreGE);
+
+    if (refSelect.current.value == 'carpeta') {
+      post.append('link', null);
+    }
+
+    fetch('api/crearElemento', {
+      method: 'POST',
+      body: post
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      if (json.mensaje) {
+        alert(json.mensaje);
+      } else {
+        desplegarNE();
+
+        var hijo = _objectSpread(_objectSpread({}, json), {}, {
+          hijos: []
+        });
+
+        setHijosInt([].concat(_toConsumableArray(hijosInt), [hijo]));
+      }
+    });
+  };
+
+  var construirHijo = function construirHijo(dato) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ElementoAdmin, {
+      contenido: dato,
+      hijos: hijosInt,
+      setHijos: setHijosInt,
+      estado: estado
+    });
+  };
+
+  var eliminarElemento = function eliminarElemento() {
+    if (hijosInt.length <= 0) {
+      if (confirm("¿Está seguro de eliminar el elemento?")) {
+        var drop = new FormData();
+        drop.append('idElemento', contenidoInt.idElemento);
+        fetch('api/eliminarElemento', {
+          method: 'POST',
+          body: drop
+        }).then(function (response) {
+          if (response.ok) {
+            var nuevosHijos = hijos.filter(function (dato) {
+              return dato.idElemento != contenido.idElemento;
+            });
+            setHijos(nuevosHijos);
+            alert("Eliminado con exito");
+          } else {
+            alert("Ha ocurrido un error, vuelva a intentarlo mas tarde");
+          }
+        });
+      }
+    } else {
+      alert("el elemento no está vacío");
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "d-block ml-2 border-left border-dark pl-2",
+      children: [contenidoInt.tipo == 'carpeta' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+            onClick: desplegar,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+              icon: !desplegado ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFolder : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFolderOpen
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              children: contenidoInt.nombre
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+              icon: !desplegado ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faMinus
+            })]
+          }), contenidoInt.idPadre && estado == 'eliminar' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoEliminar, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faTimes,
+            onClick: eliminarElemento
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          id: 'id' + contenidoInt.idElemento,
+          className: " nuevoDebate--ocultar",
+          children: [hijosInt && hijosInt.length > 0 && hijosInt.map(function (datos) {
+            return construirHijo(datos);
+          }), estado == 'crear' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+              onClick: desplegarNE,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+                icon: !desplegadoNE ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faMinus
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: " text-success",
+                children: "Crear Nuevo elemento"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              id: 'idNT' + contenidoInt.idElemento,
+              className: "nuevoDebate--ocultar",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+                id: "formulario".concat(contenidoInt.idElemento),
+                method: "POST",
+                encType: "multipart/form-data",
+                onSubmit: crearElemento,
+                className: " d-flex justify-content-md-start align-items-center",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+                  id: "tipo",
+                  name: "tipo",
+                  ref: refSelect,
+                  onChange: onChangeSelect,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    children: "carpeta"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    children: "link"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    children: "pdf"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  id: "nombre",
+                  ref: refNombre,
+                  name: "nombre",
+                  placeholder: "nombre",
+                  type: "text",
+                  required: true
+                }), valorSelect == 'pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  id: "link",
+                  name: "link",
+                  type: "file",
+                  accept: "application/pdf",
+                  required: true
+                }), valorSelect == 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  id: "link",
+                  name: "link",
+                  placeholder: "link",
+                  type: "url",
+                  required: true
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  type: "submit",
+                  children: "Crear"
+                })]
+              })
+            })]
+          })]
+        })]
+      }), contenidoInt.tipo == 'link' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faExternalLinkAlt
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: contenidoInt.link,
+            target: "blank",
+            children: contenidoInt.nombre
+          })]
+        }), estado == 'eliminar' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoEliminar, {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faTimes,
+          onClick: eliminarElemento
+        })]
+      }), contenidoInt.tipo == 'pdf' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.ContenedorElemento, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faFilePdf
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: "resources/documentos/".concat(contenidoInt.link),
+            target: "blank",
+            children: contenidoInt.nombre
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoIcono, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faPlus
+          })]
+        }), estado == 'eliminar' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.MarcoEliminar, {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faTimes,
+          onClick: eliminarElemento
+        })]
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ElementoAdmin);
+
+/***/ }),
+
+/***/ "./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Elemento__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Elemento */ "./resources/js/components/EspacioDeAsesoramiento/Elemento.jsx");
+/* harmony import */ var _ElementoAdmin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ElementoAdmin */ "./resources/js/components/EspacioDeAsesoramiento/ElementoAdmin.jsx");
+/* harmony import */ var _elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../elementos/espacioAsesoramient */ "./resources/js/elementos/espacioAsesoramient.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+var Espacio = function Espacio(_ref) {
+  var id = _ref.id;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       elementos = _useState2[0],
       setElementos = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('vista'),
+      _useState4 = _slicedToArray(_useState3, 2),
+      estado = _useState4[0],
+      setEstado = _useState4[1];
+
+  var refEstado = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var post = new FormData();
     post.append('nombreGE', nombreGE);
@@ -14955,16 +15320,137 @@ var Espacio = function Espacio() {
       setElementos(json);
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_2__.Backgroundesp, {
-    children: elementos.map(function (datos) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Elemento__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        contenido: datos
-      });
-    })
+
+  var cambiarEstado = function cambiarEstado() {
+    setEstado(refEstado.current.value);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [id == sessionStorage.getItem('id') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: " d-flex justify-content-center p-3 mt-3",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_3__.Select, {
+        ref: refEstado,
+        onChange: cambiarEstado,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+          children: "vista"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+          children: "eliminar"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+          children: "crear"
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_3__.Backgroundesp, {
+      children: elementos.map(function (datos) {
+        return id == sessionStorage.getItem('id') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ElementoAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          contenido: datos,
+          estado: estado
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Elemento__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          contenido: datos
+        });
+      })
+    })]
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Espacio);
+
+/***/ }),
+
+/***/ "./resources/js/components/EspacioDeAsesoramiento/VistaGEEsp.jsx":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/EspacioDeAsesoramiento/VistaGEEsp.jsx ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/espacioAsesoramient */ "./resources/js/elementos/espacioAsesoramient.js");
+/* harmony import */ var _elementos_socios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/socios */ "./resources/js/elementos/socios.js");
+/* harmony import */ var _DatosGrupoEmpresa_socio__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DatosGrupoEmpresa/socio */ "./resources/js/components/DatosGrupoEmpresa/socio.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+var VistaGEEsp = function VistaGEEsp(_ref) {
+  var ge = _ref.ge;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      socios = _useState2[0],
+      setSocios = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      lider = _useState4[0],
+      setLider = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var data = new FormData();
+    data.append('nombre', nombreGE);
+    fetch('api/solicitarSocios', {
+      method: 'POST',
+      body: data
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      setSocios(json.socios);
+      setLider(json.lider);
+    });
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.Card, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.PanelCentral, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+        children: ge.nombre
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.PanelDatos, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "contenedorDeP border border-dark bg-light p-2 text-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+            children: [" ", ge.descripcion]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_espacioAsesoramient__WEBPACK_IMPORTED_MODULE_1__.Img, {
+            src: "./resources/".concat(ge.logo)
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: " border border-dark bg-light p-4",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_elementos_socios__WEBPACK_IMPORTED_MODULE_2__.ContenedorItems, {
+          children: socios && socios.map(function (dato) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DatosGrupoEmpresa_socio__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              className: " border border-light",
+              nombre: dato.nombreC,
+              rol: dato.idUsuario == lider ? "Lider" : "Socio",
+              imagen: dato.foto_perfil
+            });
+          })
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VistaGEEsp);
 
 /***/ }),
 
@@ -15734,40 +16220,35 @@ var Navegador = function Navegador() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.IconNav, {
           icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUserCircle
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-        className: "navbar-toggler",
-        type: "button",
-        "data-toggle": "collapse",
-        "data-target": "#navegadorResp",
-        "aria-controls": "navegadorResp",
-        "aria-expanded": "false",
-        "aria-label": "Toggle navigation",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.IconNav, {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faBars
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        id: "navegadorResp",
-        className: "collapse navbar-collapse",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
-          className: "navbar-nav",
-          children: [_parametros_menus__WEBPACK_IMPORTED_MODULE_5__.datosNavegador.map(function (dato) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-              className: "nav-item",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Navegador_ItemNavegador__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                className: "nav-item active",
-                link: dato.link,
-                nombre: dato.nombre
-              })
-            });
-          }), session != null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-            className: "nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Navegador_ItemNavegador__WEBPACK_IMPORTED_MODULE_2__["default"], {
-              className: "nav-item active",
-              link: "/Inscritos",
-              nombre: "Inscritos en la Materia"
+      }), session != null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          className: "navbar-toggler",
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navegadorResp",
+          "aria-controls": "navegadorResp",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_1__.IconNav, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faBars
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          id: "navegadorResp",
+          className: "collapse navbar-collapse",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
+            className: "navbar-nav",
+            children: _parametros_menus__WEBPACK_IMPORTED_MODULE_5__.datosNavegador.map(function (dato) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                className: "nav-item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Navegador_ItemNavegador__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  className: "nav-item active",
+                  link: dato.link,
+                  nombre: dato.nombre
+                })
+              });
             })
-          })]
-        })
+          })
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Navegador_Session__WEBPACK_IMPORTED_MODULE_4__["default"], {
         className: " text-lg-right"
       })]
@@ -15896,10 +16377,35 @@ var Session = function Session() {
       sessionNombre = _useState2[0],
       setSessionNombre = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      opcionesUsuario = _useState4[0],
+      setOpcionesUsuario = _useState4[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (sessionStorage.getItem('id')) {
       (0,_parametros_session__WEBPACK_IMPORTED_MODULE_5__.getNombre)().then(function (resp) {
         setSessionNombre(resp);
+      });
+      var post = new FormData();
+      post.append('id', sessionStorage.getItem('id'));
+      fetch('api/elegirNavegador', {
+        method: 'POST',
+        body: post
+      }).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        if (json.navegador == 'C') {
+          setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioC);
+        } else if (json.navegador == 'A') {
+          setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioA);
+        } else if (json.navegador == 'CGEV') {
+          setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioCGEV);
+        } else if (json.navegador == 'CGE') {
+          setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioCGE);
+        } else {
+          setOpcionesUsuario(_parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuarioSGE);
+        }
       });
     }
   }, []);
@@ -15950,13 +16456,10 @@ var Session = function Session() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.IconNav, {
             icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faUserCircle
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_navegador__WEBPACK_IMPORTED_MODULE_2__.ContenedorNavC, {
           className: " dropdown-menu",
           "aria-labelledby": "navbarDropdown",
-          style: {
-            width: '165%'
-          },
-          children: _parametros_menus__WEBPACK_IMPORTED_MODULE_4__.opcionesUsuario.map(function (dato) {
+          children: opcionesUsuario.map(function (dato) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_botonSession__WEBPACK_IMPORTED_MODULE_3__["default"], {
               className: "dropdown-item",
               action: dato.onClick,
@@ -17515,7 +18018,7 @@ var RegistroUsuario = function RegistroUsuario() {
         encType: "multipart/form-data",
         className: " m-5 d-flex text-center justify-content-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_registroUsuario__WEBPACK_IMPORTED_MODULE_3__.ContenedorPrincipal, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_1__.Titulo, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
             children: "Registrarse"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_registroUsuario__WEBPACK_IMPORTED_MODULE_3__.ContenedorElementos, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_registroUsuario__WEBPACK_IMPORTED_MODULE_3__.ContenedorInputs, {
@@ -18096,6 +18599,194 @@ var TabGE = function TabGE() {
 
 /***/ }),
 
+/***/ "./resources/js/components/VentanaAdmin.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/components/VentanaAdmin.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../elementos/admin */ "./resources/js/elementos/admin.js");
+/* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../elementos/registro */ "./resources/js/elementos/registro.js");
+/* harmony import */ var _elementos_GE__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../elementos/GE */ "./resources/js/elementos/GE.js");
+/* harmony import */ var _Admin_SelectRol__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Admin/SelectRol */ "./resources/js/components/Admin/SelectRol.jsx");
+/* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../elementos/card */ "./resources/js/elementos/card.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+var VentanaAdmin = function VentanaAdmin() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      usuarios = _useState2[0],
+      setUsuarios = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      contenido = _useState4[0],
+      setContenido = _useState4[1];
+
+  var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetch('api/getUsuarios').then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      setUsuarios(json);
+      setContenido(json);
+    });
+  }, []);
+
+  var onChangeSearch = function onChangeSearch() {
+    var us = usuarios.filter(function (dato) {
+      return dato.nombreC.toLowerCase().includes(ref.current.value.toLowerCase());
+    });
+    setContenido(us);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("main", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_5__.Card, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_admin__WEBPACK_IMPORTED_MODULE_1__.PanelAdmin, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "d-flex justify-content-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+            children: "Administracion"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: " d-flex justify-content-center align-items-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "search",
+            placeholder: "Busqueda por nombre",
+            ref: ref
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
+            onClick: onChangeSearch,
+            children: "Buscar"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "w-100",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_GE__WEBPACK_IMPORTED_MODULE_3__.GrupoTabla, {
+            className: "w-100",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_GE__WEBPACK_IMPORTED_MODULE_3__.Tabla, {
+              className: "w-100",
+              cellPadding: "10",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_GE__WEBPACK_IMPORTED_MODULE_3__.THead, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
+                    children: "#"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
+                    children: "Nombre"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
+                    children: "Correo"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
+                    children: "Grupo"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("th", {
+                    children: "Rol"
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_elementos_GE__WEBPACK_IMPORTED_MODULE_3__.Tbody, {
+                children: contenido ? contenido.length > 0 ? contenido.map(function (data, index) {
+                  return index % 2 == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_GE__WEBPACK_IMPORTED_MODULE_3__.RowSecundary, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        width: "25",
+                        height: "10",
+                        children: index + 1
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        height: "10",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                          href: "Socio-".concat(data.nombreC),
+                          children: data.nombreC
+                        })
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        height: "10",
+                        children: data.email
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        width: "25",
+                        height: "10",
+                        children: data.idGrupo
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        height: "10",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Admin_SelectRol__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                          rol: data.nombreRol,
+                          idUsuario: data.idUsuario
+                        })
+                      })]
+                    })
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_elementos_GE__WEBPACK_IMPORTED_MODULE_3__.RowPrimary, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        width: "25",
+                        height: "10",
+                        children: index + 1
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        height: "10",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                          href: "Socio-".concat(data.nombreC),
+                          children: data.nombreC
+                        })
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        height: "10",
+                        children: data.email
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        width: "25",
+                        height: "10",
+                        children: data.idGrupo
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                        height: "10",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Admin_SelectRol__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                          rol: data.nombreRol,
+                          idUsuario: data.idUsuario
+                        })
+                      })]
+                    })
+                  });
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("tr", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                    colSpan: "5",
+                    children: "No hay Usuarios"
+                  })
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("tr", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                    colSpan: "5",
+                    children: "Cargando..."
+                  })
+                })
+              })]
+            })
+          })
+        })]
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VentanaAdmin);
+
+/***/ }),
+
 /***/ "./resources/js/components/VerSolicitudIngresoGE.jsx":
 /*!***********************************************************!*\
   !*** ./resources/js/components/VerSolicitudIngresoGE.jsx ***!
@@ -18486,7 +19177,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var GrupoTabla = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: grid;\n\n"])));
-var Tabla = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].table(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-style: solid;\n    border-color: black;\n    color: black;\n    text-align: center;\n"])));
+var Tabla = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].table(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-style: solid;\n    border-color: black;\n    color: black;\n    text-align: center;\n    td{\n        word-break: break-word;\n    }\n\n"])));
 var Tbody = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].tbody(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    height: 300px;\n    overflow-y: scroll;\n"])));
 var THead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].thead(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    background-color: rgb(", ", ", ", ", ");\n    border-style: solid;\n    border-color: black;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var RowPrimary = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].tr(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    height: 44px;\n    background-color: rgb(", ", ", ", ", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
@@ -18562,6 +19253,28 @@ var ImagenPerfil = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img
 
 /***/ }),
 
+/***/ "./resources/js/elementos/admin.js":
+/*!*****************************************!*\
+  !*** ./resources/js/elementos/admin.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PanelAdmin": () => (/* binding */ PanelAdmin)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var PanelAdmin = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 20px;\n    display: grid;\n    justify-content: center;\n    gap : 20px;\n"])));
+
+
+/***/ }),
+
 /***/ "./resources/js/elementos/card.js":
 /*!****************************************!*\
   !*** ./resources/js/elementos/card.js ***!
@@ -18582,7 +19295,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Card = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(", ", ", ", ", ", 0.7);\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:700px){\n        width: 100%;\n        margin: auto;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var Card = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    min-width: 700px;\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(", ", ", ", ", ", 0.7);\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:700px){\n        min-width: 0;\n        width: 100%;\n        margin: auto;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var Fondo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: block;\n    opacity: 0.3;\n    position: fixed;\n    z-index: -100;\n    height: 100%;\n    object-fit: cover;\n"])));
 
 
@@ -18677,12 +19390,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MarcoIcono": () => (/* binding */ MarcoIcono),
 /* harmony export */   "ContenedorElemento": () => (/* binding */ ContenedorElemento),
-/* harmony export */   "Backgroundesp": () => (/* binding */ Backgroundesp)
+/* harmony export */   "Backgroundesp": () => (/* binding */ Backgroundesp),
+/* harmony export */   "MarcoEliminar": () => (/* binding */ MarcoEliminar),
+/* harmony export */   "Select": () => (/* binding */ Select),
+/* harmony export */   "PanelCentral": () => (/* binding */ PanelCentral),
+/* harmony export */   "PanelDatos": () => (/* binding */ PanelDatos),
+/* harmony export */   "Img": () => (/* binding */ Img),
+/* harmony export */   "Card": () => (/* binding */ Card)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-var _templateObject, _templateObject2, _templateObject3;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -18690,8 +19409,14 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var MarcoIcono = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    font-size: 15px;\n"])));
-var ContenedorElemento = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    -o-user-select: none;\n    cursor: default;\n    user-select: none;\n    display: flex;\n    width: 100%;\n    align-items: center;\n    justify-content: start;\n    gap: 5px\n"])));
+var ContenedorElemento = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    -o-user-select: none;\n    cursor: default;\n    user-select: none;\n    display: flex;\n    align-items: center;\n    justify-content: start;\n    gap: 5px;\n"])));
 var Backgroundesp = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    margin-top: 30px;\n    padding: 30px;\n    border-style: double;\n    width: 100%;\n    background-color: rgb(", ",", ",", ");\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var MarcoEliminar = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    font-size: 15px;\n    color: red;\n"])));
+var Select = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].select(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    font-size: 30px;\n    text-align: center;\n    transition: .3s ease all;\n    font-size: 20px;\n    color: white;\n    border-style: solid;\n    background-color: rgb(", " , ", ", ", ");\n    border-color: black;\n    :hover{\n        color: black;\n        border-color: black;\n        background-color: rgb(", ", ", ", ", ");\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var PanelCentral = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    min-width: 600px;\n    display: grid;\n    padding:40px;\n    gap: 20px;\n    @media(max-width:600px){\n        min-width: 0;\n    }\n"])));
+var PanelDatos = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    display: grid;\n    grid-template-columns: 2fr 1fr;\n    gap: 20px;\n    @media(max-width:600px){\n        grid-template-columns: 1fr;\n    }\n"])));
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    width: 200px;\n    height: 200px;\n    object-fit: cover;\n"])));
+var Card = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    margin-top: 5%;\n    text-align: center;\n    transition: .5s ease all;\n    background-color: rgb(", ", ", ", ", ", 0.7);\n    border-color: rgb(", ", ", ", ", ", 0.4);\n    border-radius: 30px;\n    box-shadow: 10px 10px 10px;\n    @media (max-width:700px){\n        width: 100%;\n        margin: auto;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 
 
 /***/ }),
@@ -18821,12 +19546,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "IconNav": () => (/* binding */ IconNav),
 /* harmony export */   "GrupoElement": () => (/* binding */ GrupoElement),
 /* harmony export */   "LabelNav": () => (/* binding */ LabelNav),
-/* harmony export */   "IconNavI": () => (/* binding */ IconNavI)
+/* harmony export */   "IconNavI": () => (/* binding */ IconNavI),
+/* harmony export */   "ContenedorNavC": () => (/* binding */ ContenedorNavC)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parametros/colores */ "./resources/js/parametros/colores.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -18842,6 +19568,7 @@ var IconNav = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_for
 var IconNavI = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["    \n    font-size: 40px;\n    color: black;\n    display: none;\n\n    @media (max-width: 992px){\n        display: block;\n        margin-left: 10px;\n    }\n"])));
 var GrupoElement = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    color: black;\n    justify-content: center;\n\n    a label {\n        color :black;\n        margin-bottom: -20px;\n    }\n\n    @media (max-width: 991px){\n        margin-left: 20px;\n    }\n\n    :hover {\n        background-color: rgb(", ", ", ", ", ");\n        a {\n            color : rgb(", ", ", ", ", ");\n        }\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var LabelNav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].label(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    margin-left: 20px;\n"])));
+var ContenedorNavC = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    width: 165%;\n    @media(max-width:991px){\n        width: 100%;\n    }\n"])));
 
 
 /***/ }),
@@ -19005,7 +19732,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Bloque = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: space-around;\n    background-color: rgb(", ", ", ", ", ", 0.8);\n    min-width: 402px;\n    box-shadow: 5px 5px 5px;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
+var Bloque = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: space-around;\n    background-color: rgb(", ", ", ", ", ", 0.8);\n    min-width: 402px;\n    box-shadow: 5px 5px 5px;\n    @media(max-width:600px){\n        min-width: 0;\n    }\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorPrimary.b);
 var ImagenPerfil = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-radius: 50%;\n    width: 80px;\n    height: 80px;\n    object-fit: cover;\n    border-color: rgb(", ", ", ", ", ");\n    border-style: solid;\n    background-color: black;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_0__.colorSecundary.b);
 var Corona = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 80px;\n    height: 80px;\n"])));
 var Quitar = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    font-size: 50px;\n    color: red;\n"])));
@@ -19174,7 +19901,11 @@ var colorSecundary = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "opcionesUsuario": () => (/* binding */ opcionesUsuario),
+/* harmony export */   "opcionesUsuarioSGE": () => (/* binding */ opcionesUsuarioSGE),
+/* harmony export */   "opcionesUsuarioCGE": () => (/* binding */ opcionesUsuarioCGE),
+/* harmony export */   "opcionesUsuarioCGEV": () => (/* binding */ opcionesUsuarioCGEV),
+/* harmony export */   "opcionesUsuarioA": () => (/* binding */ opcionesUsuarioA),
+/* harmony export */   "opcionesUsuarioC": () => (/* binding */ opcionesUsuarioC),
 /* harmony export */   "registrarse": () => (/* binding */ registrarse),
 /* harmony export */   "iniciarSession": () => (/* binding */ iniciarSession),
 /* harmony export */   "datosNavegador": () => (/* binding */ datosNavegador)
@@ -19182,18 +19913,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _session__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./session */ "./resources/js/parametros/session.js");
 
+ //SinGrupoEmpresa SGE
+//ConGrupoEmpresa CGE
+//ConGrupoEmpresaValida CGEV
+//Administrador  A
+//Consultor  C
 
-var opcionesUsuario = [{
+var opcionesUsuarioSGE = [{
   link: 'Socio-' + sessionStorage.getItem('id'),
   name: 'perfil',
   contenido: 'Mi Perfil',
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
-  onClick: null
-}, {
-  link: sessionStorage.getItem('ge') ? 'GE-' + sessionStorage.getItem('ge') : '#',
-  name: 'grupoEmpresa',
-  contenido: 'Mi Grupo Empresa',
-  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
   onClick: null
 }, {
   link: "RegistroGE",
@@ -19209,9 +19939,109 @@ var opcionesUsuario = [{
   onClick: null
 }, {
   link: "#",
+  name: 'cerrarSession',
+  contenido: 'Cerrar Session',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPowerOff,
+  onClick: _session__WEBPACK_IMPORTED_MODULE_0__.cerrarSession
+}];
+var opcionesUsuarioCGE = [{
+  link: 'Socio-' + sessionStorage.getItem('id'),
+  name: 'perfil',
+  contenido: 'Mi Perfil',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
+  onClick: null
+}, {
+  link: 'GE-' + sessionStorage.getItem('ge'),
+  name: 'grupoEmpresa',
+  contenido: 'Mi Grupo Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
+  onClick: null
+}, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
+  onClick: null
+}, {
+  link: "#",
+  name: 'cerrarSession',
+  contenido: 'Cerrar Session',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPowerOff,
+  onClick: _session__WEBPACK_IMPORTED_MODULE_0__.cerrarSession
+}];
+var opcionesUsuarioCGEV = [{
+  link: 'Socio-' + sessionStorage.getItem('id'),
+  name: 'perfil',
+  contenido: 'Mi Perfil',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
+  onClick: null
+}, {
+  link: 'GE-' + sessionStorage.getItem('ge'),
+  name: 'grupoEmpresa',
+  contenido: 'Mi Grupo Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
+  onClick: null
+}, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
+  onClick: null
+}, {
+  link: "Esp-de-Asesoramiento-" + sessionStorage.getItem('ge'),
   name: 'espacioTrabajo',
   contenido: 'Mi Espacio de trabajo',
   img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faBriefcase,
+  onClick: null
+}, {
+  link: "#",
+  name: 'cerrarSession',
+  contenido: 'Cerrar Session',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPowerOff,
+  onClick: _session__WEBPACK_IMPORTED_MODULE_0__.cerrarSession
+}];
+var opcionesUsuarioA = [{
+  link: 'Socio-' + sessionStorage.getItem('id'),
+  name: 'perfil',
+  contenido: 'Mi Perfil',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
+  onClick: null
+}, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
+  onClick: null
+}, {
+  link: "VentanaAdmin-" + sessionStorage.getItem('id'),
+  name: '',
+  contenido: 'Administrar Usuarios',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsersCog,
+  onClick: null
+}, {
+  link: "#",
+  name: 'cerrarSession',
+  contenido: 'Cerrar Session',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPowerOff,
+  onClick: _session__WEBPACK_IMPORTED_MODULE_0__.cerrarSession
+}];
+var opcionesUsuarioC = [{
+  link: 'Socio-' + sessionStorage.getItem('id'),
+  name: 'perfil',
+  contenido: 'Mi Perfil',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser,
+  onClick: null
+}, {
+  link: '#',
+  name: 'grupoEmpresa',
+  contenido: 'Grupo-Empresas',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUsers,
+  onClick: null
+}, {
+  link: "FundaEmpresa",
+  name: '',
+  contenido: 'Funda-Empresa',
+  img: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faClipboard,
   onClick: null
 }, {
   link: "#",
@@ -19233,10 +20063,10 @@ var datosNavegador = [{
   link: "/GrupoEmpresas"
 }, {
   nombre: 'FundaEmpresa',
-  link: "#"
+  link: "FundaEmpresa"
 }, {
-  nombre: 'Informacion',
-  link: "#"
+  nombre: 'Inscritos en la materia',
+  link: "Inscritos"
 }];
 
 

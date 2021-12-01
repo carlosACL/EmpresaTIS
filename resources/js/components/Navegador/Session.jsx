@@ -1,18 +1,46 @@
 import {useEffect, useState} from 'react'
 import ItemNavegador from './ItemNavegador'
-import { ItemNavI, IconNav, LabelNav, IconNavI } from '../../elementos/navegador'
+import { ItemNavI, IconNav, LabelNav, IconNavI, ContenedorNavC } from '../../elementos/navegador'
 import { faUserCircle,faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import BotonSession from './botonSession';
-import { iniciarSession, registrarse, opcionesUsuario } from '../../parametros/menus';
+import { iniciarSession, 
+         registrarse, 
+         opcionesUsuarioSGE, 
+         opcionesUsuarioCGE,
+         opcionesUsuarioCGEV,
+         opcionesUsuarioA,
+         opcionesUsuarioC } from '../../parametros/menus';
 import { getNombre } from '../../parametros/session';
 const Session = () => {
     
     const [sessionNombre, setSessionNombre] = useState(null);
+    const [opcionesUsuario, setOpcionesUsuario] = useState([]);
     useEffect(() => {
         if(sessionStorage.getItem('id')){
             getNombre().then((resp) => {
                 setSessionNombre(resp);
             });
+
+            const post = new FormData();
+        post.append('id', sessionStorage.getItem('id'));
+        fetch('api/elegirNavegador',{
+            method:'POST',
+            body:post
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            if(json.navegador == 'C'){
+                setOpcionesUsuario(opcionesUsuarioC);
+            }else if(json.navegador == 'A'){
+                setOpcionesUsuario(opcionesUsuarioA);
+            } else if(json.navegador == 'CGEV'){
+                setOpcionesUsuario(opcionesUsuarioCGEV);
+            } else if(json.navegador == 'CGE'){
+                setOpcionesUsuario(opcionesUsuarioCGE);
+            } else {
+                setOpcionesUsuario(opcionesUsuarioSGE);
+            }
+        });
         }
     }, [])
 
@@ -39,9 +67,9 @@ const Session = () => {
                         </div>
                         <IconNav  icon={faUserCircle}/>
                     </a>
-                    <div className=" dropdown-menu" aria-labelledby="navbarDropdown" style = {{width:'165%'}}>
+                    <ContenedorNavC className=" dropdown-menu" aria-labelledby="navbarDropdown" >
                         {opcionesUsuario.map((dato) => (<BotonSession className="dropdown-item" action={ dato.onClick } img = {dato.img} name= {dato.name} link={dato.link} contenido={dato.contenido}/>))}
-                    </div>
+                    </ContenedorNavC>
                 </li>)}
             </ul>
         </div>

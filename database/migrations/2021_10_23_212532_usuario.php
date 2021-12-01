@@ -30,6 +30,8 @@ class Usuario extends Migration
             $table->Integer('idGrupo');
             $table->foreign('idGrupo')->references('idGrupo')->on('Grupo');
             $table->boolean('registrado')->default(false);
+            $table->integer('idRol')->nullable();
+            $table->foreign('idRol')->references('idRol')->on('Rol');
         });
     }
 

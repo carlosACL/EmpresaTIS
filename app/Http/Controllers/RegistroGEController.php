@@ -177,4 +177,28 @@ class RegistroGEController extends Controller
                             ->get();
         return response()->json($pendientes);
     }
+
+    /*
+        nombreGE = nombre de la grupo empresa
+        idUsuario = iddel usuario solicitante
+    */
+    function obtenerDatosGrupoEmpresa(Request $req){
+        $ge = DB::table('Grupo_Empresa')
+                    ->where('nombre' , '=', $req->nombreGE)
+                    ->first();
+        if(isset($ge->idGE)){
+            $usuario = Usuario::find($req->idUsuario);
+            if(isset($usuario->idUsuario)){ 
+                if($ge->idGE == $usuario->idGE){
+                    return response()->json($ge);
+                } else {
+                    return response()->json(['mensaje' => 'No tienes permisos para ingresar a esta sala']);
+                }
+            } else {
+                return response()->json(['mensaje' => 'Usuario no existe']);
+            }
+        } else {
+            return response()->json(['mensaje' => 'no existe la grupo empresa solicitada']);
+        }
+    }
 }

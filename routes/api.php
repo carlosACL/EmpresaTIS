@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\CalendarioController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\EditarPerfilController;
 use App\Http\Controllers\EspacioDeAsesoramientoController;
 use App\Http\Controllers\ForoDudasController;
+use App\Http\Controllers\NavegadorController;
 use App\Http\Controllers\RegistroGEController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -78,3 +81,14 @@ Route::post('obtenerCarpetasBasicas', [EspacioDeAsesoramientoController::class, 
 
 Route::post('obtenerGrupoEmpresasValidas', [GEController::class, 'obtenerGrupoEmpresasValidas']);
 Route::post('obtenerTodasGrupoEmpresas', [GEController::class, 'obtenerTodasGrupoEmpresas']);
+Route::post('agregarEvento',[CalendarioController::class, 'agregarEvento']);
+Route::post('obtenerEventos',[CalendarioController::class, 'obtenerEventos']);
+Route::post('crearElemento', [EspacioDeAsesoramientoController::class, 'crearElemento']);
+Route::post('eliminarElemento',[EspacioDeAsesoramientoController::class, 'eliminarElemento']);
+
+Route::post('obtenerDatosGrupoEmpresa', [RegistroGEController::class, 'obtenerDatosGrupoEmpresa']);
+
+Route::post('elegirNavegador', [NavegadorController::class, 'elegirNavegador']);
+
+Route::post('actualizarRol', [AdminController::class, 'actualizarRol']);
+Route::get('getUsuarios', [AdminController::class, 'getUsuarios']);

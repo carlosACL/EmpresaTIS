@@ -3,6 +3,7 @@ import { colorPrimary } from "../parametros/colores";
 
 const Card = styled.div`
     max-width: 700px;
+    min-width: 700px;
     margin-top: 5%;
     text-align: center;
     transition: .5s ease all;
@@ -11,6 +12,7 @@ const Card = styled.div`
     border-radius: 30px;
     box-shadow: 10px 10px 10px;
     @media (max-width:700px){
+        min-width: 0;
         width: 100%;
         margin: auto;
     }

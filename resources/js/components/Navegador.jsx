@@ -17,19 +17,15 @@ const Navegador = () => {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#sessionNav" aria-controls="sessionNav" aria-expanded="false" aria-label="Toggle navigation">
                     <IconNav icon={faUserCircle} ></IconNav>
                 </button>
+                {(session != null) && (<>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegadorResp" aria-controls="navegadorResp" aria-expanded="false" aria-label="Toggle navigation">
                     <IconNav icon={faBars} ></IconNav>
                 </button>
-                <div id='navegadorResp' className = "collapse navbar-collapse">  
+                <div id='navegadorResp' className = "collapse navbar-collapse">    
                     <ul className="navbar-nav">      
                         {datosNavegador.map((dato) => (<li className="nav-item"><ItemNavegador className='nav-item active' link={dato.link} nombre = {dato.nombre}/></li>))}
-                        {
-                            (session != null) && (
-                                <li className="nav-item"><ItemNavegador className='nav-item active' link='/Inscritos' nombre = 'Inscritos en la Materia' /></li>
-                            )
-                        }
                     </ul>
-                </div>
+                </div></>)}
                 <Session className=' text-lg-right'></Session>   
             </Nav>
         </>
