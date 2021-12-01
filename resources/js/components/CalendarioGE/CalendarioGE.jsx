@@ -7,14 +7,30 @@ import Fecha from '../RegistroGE/Fecha';
 import IconoAtras from '../Svg/IconoAtras';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import IconoGuardar from '../Svg/IconoGuardar';
-import { ContBtmDerecho, ContBtmIzquierdo, ContCalendar, ContCampos, ContIconos, ContInputs, ContLabelInput, IconPlus } from './estilos/calendarioGE';
+import { ContBtmDerecho, ContBtmIzquierdo, ContCalendar, 
+        ContCampos, ContIconos, ContInputs, 
+        ContLabelInput, IconPlus } from './estilos/calendarioGE';
 
 const CalendarioGE = () => {
-
+    const [datosGE, setDatosGE] = useState(null);
     const [agEvento, setAgEvento] = useState(false);
     const [eventos, setEventos] = useState([]);
     const descEvt = useRef(null);
     const formulario = useRef(null);
+
+    useEffect(() => {
+        const datos = new FormData();
+        datos.append('nombreGE', nombreGE);
+        datos.append('idUsuario', sessionStorage.getItem('id'));
+        fetch('api/obtenerDatosGrupoEmpresa',{
+            method: 'POST',
+            body: datos
+        })
+        .then((response)=>response.json())
+        .then((data) => {
+            setDatosGE(data);
+        });
+    },[])
 
     const agregarEvt = () => {
         setAgEvento(true);
@@ -26,7 +42,7 @@ const CalendarioGE = () => {
 
     const agregarUnEvento = () => {
         const datos = new FormData(document.getElementById('formulario'));
-        datos.append('idCalendario', 0); //Probando solo para un calendario de id 0
+        datos.append('idGE', datosGE.idGE);
         fetch('api/agregarEvento',{
             method: 'POST',
             body: datos
@@ -36,30 +52,35 @@ const CalendarioGE = () => {
                 alert('Evento agregado al calendario');
                 setAgEvento(false);
             } else {
-                alert('Error al agregar');
+                alert('Ocurrio un error al agregar evento');
             }
         })
     };
 
     const obtenerEventos = () => {
-        const datos = new FormData();
-        datos.append('idCalendario', 0); //Probando solo para un calendario de id 0
-        fetch('api/obtenerEventos',{
-            method: 'POST',
-            body: datos
-        })
-        .then((response) => response.json())
-        .then((data)=>{
-            setEventos(data);
-        })
+        if (datosGE != null) {
+            const datos = new FormData();
+            datos.append('idGE', datosGE.idGE);
+            fetch('api/obtenerEventos',{
+                method: 'POST',
+                body: datos
+            })
+            .then((response) => response.json())
+            .then((data)=>{
+                setEventos(data);
+            })
+        }
     };
 
     useEffect(() => {
         obtenerEventos();
-    }, [agEvento])
+    }, [datosGE, agEvento])
 
     return(
-        <Card style={{margin: '100px auto', height: 'auto', padding: '20px'}}>
+        <Card style={{margin: '100px auto',
+                      height: 'auto',
+                      padding: '20px',
+                      minWidth: '0'}}>
             <ContCalendar>
                 {
                     (agEvento) && (
@@ -71,7 +92,7 @@ const CalendarioGE = () => {
                             encType="multipart/form-data"
                         >
                             <ContCampos>
-                                <h2>Evento</h2>
+                                <h2 style={{marginBottom: '40px'}}>Evento</h2>
                                 <ContInputs>
                                     <ContLabelInput>
                                         <h6 className="text-left">Fecha:</h6>
@@ -113,8 +134,8 @@ const CalendarioGE = () => {
                         )
                     }
                 </div>
-                
-                <Tabla style={{width: '100%', height: 'auto'}}>
+                <div style={{maxHeight: '400px',minHeight: '400px', overflow: 'auto'}}>
+                    <Tabla style={{width: '100%', height: 'auto'}}>
                     <THead>
                         <tr>
                             <th>Fecha</th>
@@ -139,6 +160,8 @@ const CalendarioGE = () => {
                         } 
                     </TBody>
                 </Tabla>
+                </div>
+                
             </ContCalendar>
         </Card>
     );

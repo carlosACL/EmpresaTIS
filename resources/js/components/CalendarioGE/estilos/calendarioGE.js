@@ -41,6 +41,7 @@ const ContInputs = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 25px;
 `;
 
 const ContLabelInput = styled.div`

@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\DB;
 class CalendarioController extends Controller
 {
     public function agregarEvento(Request $request){
-        $calendario = Calendario::findOrFail($request->idCalendario);
+        $calendario = DB::table('Calendario')
+                        ->where('idGE','=',$request->idGE)
+                        ->first();
         $evento = new Evento();
-        $evento->idCalendario = $request->idCalendario;
+        $evento->idCalendario = $calendario->idCalendario;
         $evento->nombre = $request->nombre;
         $evento->fecha_creacion = date("Y-m-d");
         $evento->fecha_inicio = $request->fecha_inicio;
@@ -24,10 +26,13 @@ class CalendarioController extends Controller
     }
 
     public function obtenerEventos(Request $request){
-        $calendario = Calendario::findOrFail($request->idCalendario);
+        $calendario = DB::table('Calendario')
+                        ->where('idGE','=',$request->idGE)
+                        ->first();
+        error_log("p1");
         $eventos = DB::table('Evento')
                         ->select('*')
-                        ->join('Calendario','Calendario.idCalendario','=','Evento.idCalendario')
+                        ->where('idCalendario','=',$calendario->idCalendario)
                         ->orderBy('fecha_inicio', 'ASC')
                         ->get();
         return response()->json($eventos);
