@@ -20,9 +20,8 @@ const Session = () => {
             getNombre().then((resp) => {
                 setSessionNombre(resp);
             });
-        }
 
-        const post = new FormData();
+            const post = new FormData();
         post.append('id', sessionStorage.getItem('id'));
         fetch('api/elegirNavegador',{
             method:'POST',
@@ -42,7 +41,7 @@ const Session = () => {
                 setOpcionesUsuario(opcionesUsuarioSGE);
             }
         });
-
+        }
     }, [])
 
 

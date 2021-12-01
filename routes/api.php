@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalendarioController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\EditarPerfilController;
 use App\Http\Controllers\EspacioDeAsesoramientoController;
@@ -85,3 +86,6 @@ Route::post('eliminarElemento',[EspacioDeAsesoramientoController::class, 'elimin
 Route::post('obtenerDatosGrupoEmpresa', [RegistroGEController::class, 'obtenerDatosGrupoEmpresa']);
 
 Route::post('elegirNavegador', [NavegadorController::class, 'elegirNavegador']);
+
+Route::post('actualizarRol', [AdminController::class, 'actualizarRol']);
+Route::get('getUsuarios', [AdminController::class, 'getUsuarios']);

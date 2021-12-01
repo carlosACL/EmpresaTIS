@@ -41,6 +41,7 @@ import SeccionDudas from './components/SeccionDudas';
 import Debate from './components/Debate';
 import GEvalida from './components/GEvalida';
 import EspacioDeAsesoramiento from './components/EspacioDeAsesoramiento';
+import VentanaAdmin from './components/VentanaAdmin';
 //import Login from "./components/Login/Login"
 
 /*
@@ -182,4 +183,8 @@ if(document.getElementById('debate')){
 
 if(document.getElementById('espAse')){
     ReactDOM.render(<EspacioDeAsesoramiento />,document.getElementById('espAse'));
+}
+
+if(document.getElementById('VenAd')){
+    ReactDOM.render(<VentanaAdmin />,document.getElementById('VenAd'));
 }

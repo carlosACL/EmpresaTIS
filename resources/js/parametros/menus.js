@@ -3,7 +3,8 @@ faUsers,
 faAddressCard,
 faBriefcase,
 faPowerOff,
-faClipboard} from '@fortawesome/free-solid-svg-icons'
+faClipboard,
+faUsersCog} from '@fortawesome/free-solid-svg-icons'
 import { cerrarSession } from './session';
 
 //SinGrupoEmpresa SGE
@@ -83,7 +84,7 @@ const opcionesUsuarioCGEV = [{
     onClick: null
 },{
     link : "Esp-de-Asesoramiento-"+sessionStorage.getItem('ge'), 
-    name:'espacioTrabajo', 
+    name:'espacioTrabajo',
     contenido:'Mi Espacio de trabajo', 
     img:faBriefcase,
     onClick: null
@@ -106,6 +107,12 @@ const opcionesUsuarioA = [{
     name:'', 
     contenido:'Funda-Empresa', 
     img:faClipboard,
+    onClick: null
+},{
+    link : "VentanaAdmin-"+sessionStorage.getItem('id'), 
+    name:'', 
+    contenido:'Administrar Usuarios', 
+    img:faUsersCog,
     onClick: null
 },{
     link : "#", 
