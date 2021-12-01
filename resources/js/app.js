@@ -40,6 +40,7 @@ import SolicitarIngresoGE from './components/SolicitarIngresoGE';
 import SeccionDudas from './components/SeccionDudas';
 import Debate from './components/Debate';
 import GEvalida from './components/GEvalida';
+import GEPorValidar from './components/GEPorValidar';
 import EspacioDeAsesoramiento from './components/EspacioDeAsesoramiento';
 //import Login from "./components/Login/Login"
 
@@ -56,6 +57,14 @@ if (document.getElementById('viewgevalida')) {
         <>
             <GEvalida/>
         </>, document.getElementById('viewgevalida'));
+
+};
+
+if (document.getElementById('viewvalidarge')) {
+    ReactDOM.render(
+        <>
+            <GEPorValidar/>
+        </>, document.getElementById('viewvalidarge'));
 
 };
 
