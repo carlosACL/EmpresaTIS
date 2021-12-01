@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import { ContenedorTab } from '../elementos/TabGE'
+import CalendarioGE from './CalendarioGE/CalendarioGE'
 import Espacio from './EspacioDeAsesoramiento/Espacio'
 import VistaGEEsp from './EspacioDeAsesoramiento/VistaGEEsp'
 
@@ -38,8 +39,8 @@ const EspacioDeAsesoramiento = () => {
                     <VistaGEEsp ge = { datosGE }/>
                   </div>
               </div>
-              <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at inventore quam quasi, minima odit nemo ex iusto officiis esse veritatis sit rerum repudiandae reiciendis voluptates dolorem cumque, quae harum?
+              <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style={{width: '90%', maxWidth: '620px'}}>
+                <CalendarioGE></CalendarioGE>
               </div>
                 <div className="tab-pane fade w-100" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     {(datosGE) && (<Espacio id={ datosGE.duenio } />)}

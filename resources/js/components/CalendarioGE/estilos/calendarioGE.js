@@ -5,7 +5,7 @@ import { colorSecundary } from '../../../parametros/colores';
 
 const ContCalendar = styled.div`
     display: grid;
-    grid-template-rows: auto 0.2fr 1fr;
+    grid-template-rows: auto 0.2fr auto;
     width: 100%;
     height: 100%;
 `;
