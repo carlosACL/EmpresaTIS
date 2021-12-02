@@ -1,21 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Card } from '../../elementos/card';
 import { Tabla, THead } from '../../elementos/GE';
-import { InputStyle } from '../../elementos/registro';
+import { Icon, InputStyle } from '../../elementos/registro';
 import { TBody, TItem } from '../DatosVistaInscritos/estilosVistaInscritos/estilosVistaInscritos';
 import Fecha from '../RegistroGE/Fecha';
 import IconoAtras from '../Svg/IconoAtras';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import IconoGuardar from '../Svg/IconoGuardar';
 import { ContBtmDerecho, ContBtmIzquierdo, ContCalendar, 
         ContCampos, ContIconos, ContInputs, 
         ContLabelInput, IconPlus } from './estilos/calendarioGE';
+import BotonEditarEvt from './BotonEditar';
 
 const CalendarioGE = () => {
     const [datosGE, setDatosGE] = useState(null);
     const [agEvento, setAgEvento] = useState(false);
     const [eventos, setEventos] = useState([]);
     const descEvt = useRef(null);
+    const [descEvtAux, setDescEvtAux] = useState('');
     const formulario = useRef(null);
 
     useEffect(() => {
@@ -71,10 +73,15 @@ const CalendarioGE = () => {
             })
         }
     };
+    
+    const editarEvento = (nombre) => {
+        fetch()
+    };
 
     useEffect(() => {
         obtenerEventos();
     }, [datosGE, agEvento])
+
 
     return(
         <Card style={{margin: '100px auto',
@@ -152,8 +159,19 @@ const CalendarioGE = () => {
                                     <td>{evento.fecha_inicio}</td>
                                     <td>{evento.fecha_final}</td>
                                     <td>{evento.nombre}</td>
-                                    <td>Editar</td>
-                                    <td>Borrar</td>
+                                    <td>
+                                        <BotonEditarEvt 
+                                            evento={evento}
+                                            onClickBtm={() => editarEvento(evento.nombre)}    
+                                        />
+                                    </td>
+                                    <td>
+                                        <Icon 
+                                            style={{fontSize: '30px',
+                                                    cursor: 'pointer'}} 
+                                            icon={faMinusCircle}
+                                        />
+                                    </td>
                                 </TItem>
                             ))
                             :(<></>)

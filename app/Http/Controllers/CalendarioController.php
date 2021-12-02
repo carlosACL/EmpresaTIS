@@ -29,7 +29,6 @@ class CalendarioController extends Controller
         $calendario = DB::table('Calendario')
                         ->where('idGE','=',$request->idGE)
                         ->first();
-        error_log("p1");
         $eventos = DB::table('Evento')
                         ->select('*')
                         ->where('idCalendario','=',$calendario->idCalendario)
