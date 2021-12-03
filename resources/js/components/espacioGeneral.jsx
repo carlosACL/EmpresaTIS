@@ -12,10 +12,12 @@ import ItemAcord from './Acordeon/ItemAcord';
 
 
 
+
           
 
 const EspacioGeneral = () => {
-
+    
+    const formulario = useRef(null);
     const contenidoAnuncio=() => {
         return (<>
             <TextArea></TextArea>
@@ -27,24 +29,43 @@ const EspacioGeneral = () => {
     }
 
     const contenidoDescripcion = () => {
+        const Submit = () =>{
+            const data = new FormData (document.getElementById('anuncioId1'));
+            fetch ('api/registrarDescrip',{
+                method: 'POST',
+                body:data
+            }).then (()=>{
+        
+        
+            });
+        
+        }
 
-        const enviarAnuncio = () => {
+        const enviarDescripcion = () => {
+            
 
             const valor = document.getElementById('anuncioId1');
 
             if(valor.value.length<140 && valor.value.length > 0){
                 alert("enviado con exito");
-                desplegarAnuncio();ñ
+                desplegarAnuncio();
             } else {
                 alert("error, contenido debe tener un tamaño inferior 140 caracteres y no debe estar vacio");
             }
         }
 
         return (<>
+        <form   ref={formulario}
+                id='formulario'
+                onSubmit={Submit}
+                method='POST'
+                >
             <TextArea id='anuncioId1'></TextArea>
+
             <div>
-                <Boton onClick= { enviarAnuncio } >Enviar</Boton>
+                <Boton id='botonSub' type = 'submit'onClick= { enviarDescripcion } >Enviar</Boton>
             </div>
+        </form>    
         </>)
     }
 

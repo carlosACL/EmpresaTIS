@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EditarGEController;
 use App\Http\Controllers\EditarPerfilController;
 use App\Http\Controllers\EspacioDeAsesoramientoController;
+use App\Http\Controllers\EspacioGeneralController;
 use App\Http\Controllers\ForoDudasController;
 use App\Http\Controllers\NavegadorController;
 use App\Http\Controllers\RegistroGEController;
@@ -89,3 +90,4 @@ Route::post('elegirNavegador', [NavegadorController::class, 'elegirNavegador']);
 
 Route::post('actualizarRol', [AdminController::class, 'actualizarRol']);
 Route::get('getUsuarios', [AdminController::class, 'getUsuarios']);
+Route::post('registrarDescrip', [EspacioGeneralController::class, 'RegistroDescripcion']);

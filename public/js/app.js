@@ -11027,6 +11027,284 @@ var SelectRol = function SelectRol(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/CalendarioGE/CalendarioGE.jsx":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/CalendarioGE/CalendarioGE.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/card */ "./resources/js/elementos/card.js");
+/* harmony import */ var _elementos_GE__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../elementos/GE */ "./resources/js/elementos/GE.js");
+/* harmony import */ var _elementos_registro__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../elementos/registro */ "./resources/js/elementos/registro.js");
+/* harmony import */ var _DatosVistaInscritos_estilosVistaInscritos_estilosVistaInscritos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DatosVistaInscritos/estilosVistaInscritos/estilosVistaInscritos */ "./resources/js/components/DatosVistaInscritos/estilosVistaInscritos/estilosVistaInscritos.js");
+/* harmony import */ var _RegistroGE_Fecha__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../RegistroGE/Fecha */ "./resources/js/components/RegistroGE/Fecha.jsx");
+/* harmony import */ var _Svg_IconoAtras__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Svg/IconoAtras */ "./resources/js/components/Svg/IconoAtras.jsx");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _Svg_IconoGuardar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Svg/IconoGuardar */ "./resources/js/components/Svg/IconoGuardar.jsx");
+/* harmony import */ var _estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./estilos/calendarioGE */ "./resources/js/components/CalendarioGE/estilos/calendarioGE.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var CalendarioGE = function CalendarioGE() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      datosGE = _useState2[0],
+      setDatosGE = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      agEvento = _useState4[0],
+      setAgEvento = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      eventos = _useState6[0],
+      setEventos = _useState6[1];
+
+  var descEvt = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var formulario = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var datos = new FormData();
+    datos.append('nombreGE', nombreGE);
+    datos.append('idUsuario', sessionStorage.getItem('id'));
+    fetch('api/obtenerDatosGrupoEmpresa', {
+      method: 'POST',
+      body: datos
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      setDatosGE(data);
+    });
+  }, []);
+
+  var agregarEvt = function agregarEvt() {
+    setAgEvento(true);
+  };
+
+  var cancEvt = function cancEvt() {
+    setAgEvento(false);
+  };
+
+  var agregarUnEvento = function agregarUnEvento() {
+    var datos = new FormData(document.getElementById('formulario'));
+    datos.append('idGE', datosGE.idGE);
+    fetch('api/agregarEvento', {
+      method: 'POST',
+      body: datos
+    }).then(function (res) {
+      if (res.ok) {
+        alert('Evento agregado al calendario');
+        setAgEvento(false);
+      } else {
+        alert('Ocurrio un error al agregar evento');
+      }
+    });
+  };
+
+  var obtenerEventos = function obtenerEventos() {
+    if (datosGE != null) {
+      var datos = new FormData();
+      datos.append('idGE', datosGE.idGE);
+      fetch('api/obtenerEventos', {
+        method: 'POST',
+        body: datos
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        setEventos(data);
+      });
+    }
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    obtenerEventos();
+  }, [datosGE, agEvento]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
+    style: {
+      margin: '100px auto',
+      height: 'auto',
+      padding: '20px',
+      minWidth: '0'
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContCalendar, {
+      children: [agEvento && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("form", {
+        ref: formulario,
+        id: "formulario",
+        className: "formStyle",
+        method: "POST",
+        encType: "multipart/form-data",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContCampos, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+            style: {
+              marginBottom: '40px'
+            },
+            children: "Evento"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContInputs, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContLabelInput, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
+                className: "text-left",
+                children: "Fecha:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_RegistroGE_Fecha__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                name: "fecha_inicio"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContLabelInput, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
+                className: "text-left",
+                children: "Fecha Limite:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_RegistroGE_Fecha__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                name: "fecha_final"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContLabelInput, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
+                className: "text-left",
+                children: "Descripci\xF3n del Evento:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_3__.InputStyle, {
+                name: "nombre",
+                ref: descEvt,
+                type: "text"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContIconos, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContBtmDerecho, {
+              onClick: cancEvt,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Svg_IconoAtras__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContBtmIzquierdo, {
+              onClick: agregarUnEvento,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Svg_IconoGuardar__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+            })]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+          children: "Calendario"
+        }), !agEvento && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.IconPlus, {
+            onClick: agregarEvt,
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faPlusCircle
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        style: {
+          maxHeight: '400px',
+          minHeight: '400px',
+          overflow: 'auto'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_elementos_GE__WEBPACK_IMPORTED_MODULE_2__.Tabla, {
+          style: {
+            width: '100%',
+            height: 'auto'
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_GE__WEBPACK_IMPORTED_MODULE_2__.THead, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("tr", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                children: "Fecha"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                children: "Fecha Limite"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                children: "Evento"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                children: "Editar"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("th", {
+                children: "Quitar"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_DatosVistaInscritos_estilosVistaInscritos_estilosVistaInscritos__WEBPACK_IMPORTED_MODULE_4__.TBody, {
+            children: eventos != null ? eventos.map(function (evento) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_DatosVistaInscritos_estilosVistaInscritos_estilosVistaInscritos__WEBPACK_IMPORTED_MODULE_4__.TItem, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                  children: evento.fecha_inicio
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                  children: evento.fecha_final
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                  children: evento.nombre
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                  children: "Editar"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                  children: "Borrar"
+                })]
+              });
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {})
+          })]
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CalendarioGE);
+
+/***/ }),
+
+/***/ "./resources/js/components/CalendarioGE/estilos/calendarioGE.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/CalendarioGE/estilos/calendarioGE.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ContCalendar": () => (/* binding */ ContCalendar),
+/* harmony export */   "ContCampos": () => (/* binding */ ContCampos),
+/* harmony export */   "ContIconos": () => (/* binding */ ContIconos),
+/* harmony export */   "ContBtmDerecho": () => (/* binding */ ContBtmDerecho),
+/* harmony export */   "ContBtmIzquierdo": () => (/* binding */ ContBtmIzquierdo),
+/* harmony export */   "ContInputs": () => (/* binding */ ContInputs),
+/* harmony export */   "ContLabelInput": () => (/* binding */ ContLabelInput),
+/* harmony export */   "IconPlus": () => (/* binding */ IconPlus)
+/* harmony export */ });
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _parametros_colores__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../parametros/colores */ "./resources/js/parametros/colores.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var ContCalendar = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: grid;\n    grid-template-rows: auto 0.2fr auto;\n    width: 100%;\n    height: 100%;\n"])));
+var ContCampos = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: grid;\n    grid-template-rows: 1fr auto 0.3fr;\n"])));
+var ContIconos = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: grid;\n    grid-template-columns: 0.5fr 0.5fr;\n"])));
+var ContBtmIzquierdo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 50px;\n    height: 50px;\n    margin: 0 auto;\n    margin-right: 10px;\n    cursor: pointer;\n"])));
+var ContBtmDerecho = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 50px;\n    height: 50px;\n    margin: 0 auto;\n    margin-left: 10px;\n    cursor: pointer;\n"])));
+var ContInputs = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    margin-bottom: 25px;\n"])));
+var ContLabelInput = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    width: 100%;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    transition: .3s ease all;\n"])));
+var IconPlus = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    font-size: 40px;\n    color: rgb(", ",", ",", ");\n    cursor: pointer;\n"])), _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.r, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.g, _parametros_colores__WEBPACK_IMPORTED_MODULE_1__.colorSecundary.b);
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Comentario.jsx":
 /*!************************************************!*\
   !*** ./resources/js/components/Comentario.jsx ***!
@@ -14720,9 +14998,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../elementos/TabGE */ "./resources/js/elementos/TabGE.js");
-/* harmony import */ var _EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EspacioDeAsesoramiento/Espacio */ "./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx");
-/* harmony import */ var _EspacioDeAsesoramiento_VistaGEEsp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EspacioDeAsesoramiento/VistaGEEsp */ "./resources/js/components/EspacioDeAsesoramiento/VistaGEEsp.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _CalendarioGE_CalendarioGE__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CalendarioGE/CalendarioGE */ "./resources/js/components/CalendarioGE/CalendarioGE.jsx");
+/* harmony import */ var _EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EspacioDeAsesoramiento/Espacio */ "./resources/js/components/EspacioDeAsesoramiento/Espacio.jsx");
+/* harmony import */ var _EspacioDeAsesoramiento_VistaGEEsp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EspacioDeAsesoramiento/VistaGEEsp */ "./resources/js/components/EspacioDeAsesoramiento/VistaGEEsp.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -14736,6 +15015,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -14765,18 +15045,18 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
       setDatosGE(json);
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
-    children: datosGE && (datosGE.mensaje ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("main", {
+    children: datosGE && (datosGE.mensaje ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
       className: " mt-5",
       children: datosGE.mensaje
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ContenedorTab, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_elementos_TabGE__WEBPACK_IMPORTED_MODULE_1__.ContenedorTab, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("nav", {
         className: " w-100 d-flex justify-content-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "nav nav-tabs",
           id: "nav-tab",
           role: "tablist",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
             className: "nav-item nav-link active",
             id: "nav-home-tab",
             "data-toggle": "tab",
@@ -14785,7 +15065,7 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             "aria-controls": "nav-home",
             "aria-selected": "true",
             children: "Grupo Empresa"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
             className: "nav-item nav-link",
             id: "nav-profile-tab",
             "data-toggle": "tab",
@@ -14794,7 +15074,7 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             "aria-controls": "nav-profile",
             "aria-selected": "false",
             children: "Calendario"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
             className: "nav-item nav-link",
             id: "nav-contact-tab",
             "data-toggle": "tab",
@@ -14805,32 +15085,36 @@ var EspacioDeAsesoramiento = function EspacioDeAsesoramiento() {
             children: "WorkSpace"
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", (_jsxs2 = {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", (_jsxs2 = {
         id: "contenido-GE",
         className: "tab-content  d-flex justify-content-center"
-      }, _defineProperty(_jsxs2, "id", "nav-tabContent"), _defineProperty(_jsxs2, "children", [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }, _defineProperty(_jsxs2, "id", "nav-tabContent"), _defineProperty(_jsxs2, "children", [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "tab-pane fade show active w-100",
         id: "nav-home",
         role: "tabpanel",
         "aria-labelledby": "nav-home-tab",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "w-100 d-flex justify-content-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_EspacioDeAsesoramiento_VistaGEEsp__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_EspacioDeAsesoramiento_VistaGEEsp__WEBPACK_IMPORTED_MODULE_4__["default"], {
             ge: datosGE
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "tab-pane fade",
         id: "nav-profile",
         role: "tabpanel",
         "aria-labelledby": "nav-profile-tab",
-        children: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at inventore quam quasi, minima odit nemo ex iusto officiis esse veritatis sit rerum repudiandae reiciendis voluptates dolorem cumque, quae harum?"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        style: {
+          width: '90%',
+          maxWidth: '620px'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CalendarioGE_CalendarioGE__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "tab-pane fade w-100",
         id: "nav-contact",
         role: "tabpanel",
         "aria-labelledby": "nav-contact-tab",
-        children: datosGE && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: datosGE && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_EspacioDeAsesoramiento_Espacio__WEBPACK_IMPORTED_MODULE_3__["default"], {
           id: datosGE.duenio
         })
       })]), _jsxs2))]
@@ -15473,6 +15757,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var EspacioGeneral = function EspacioGeneral() {
+  var formulario = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
   var contenidoAnuncio = function contenidoAnuncio() {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__.TextArea, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -15484,27 +15770,42 @@ var EspacioGeneral = function EspacioGeneral() {
   };
 
   var contenidoDescripcion = function contenidoDescripcion() {
-    var enviarAnuncio = function enviarAnuncio() {
+    var Submit = function Submit() {
+      var data = new FormData(document.getElementById('anuncioId1'));
+      fetch('api/registrarDescrip', {
+        method: 'POST',
+        body: data
+      }).then(function () {});
+    };
+
+    var enviarDescripcion = function enviarDescripcion() {
       var valor = document.getElementById('anuncioId1');
 
       if (valor.value.length < 140 && valor.value.length > 0) {
         alert("enviado con exito");
         desplegarAnuncio();
-        ñ;
       } else {
         alert("error, contenido debe tener un tamaño inferior 140 caracteres y no debe estar vacio");
       }
     };
 
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__.TextArea, {
-        id: "anuncioId1"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
-          onClick: enviarAnuncio,
-          children: "Enviar"
-        })
-      })]
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
+        ref: formulario,
+        id: "formulario",
+        onSubmit: Submit,
+        method: "POST",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__.TextArea, {
+          id: "anuncioId1"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
+            id: "botonSub",
+            type: "submit",
+            onClick: enviarDescripcion,
+            children: "Enviar"
+          })
+        })]
+      })
     });
   };
 
@@ -17037,7 +17338,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Fecha = function Fecha(_ref) {
-  var estado = _ref.estado,
+  var _ref$name = _ref.name,
+      name = _ref$name === void 0 ? 'fecha_registro' : _ref$name,
+      estado = _ref.estado,
       cambiarEstado = _ref.cambiarEstado;
   var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
@@ -17075,7 +17378,7 @@ var Fecha = function Fecha(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-      name: "fecha_registro",
+      name: name,
       type: "date",
       value: date.campo,
       max: validarCalendario(),
