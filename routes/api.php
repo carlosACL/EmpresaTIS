@@ -83,6 +83,7 @@ Route::post('obtenerGrupoEmpresasValidas', [GEController::class, 'obtenerGrupoEm
 Route::post('obtenerTodasGrupoEmpresas', [GEController::class, 'obtenerTodasGrupoEmpresas']);
 Route::post('agregarEvento',[CalendarioController::class, 'agregarEvento']);
 Route::post('obtenerEventos',[CalendarioController::class, 'obtenerEventos']);
+Route::post('editarEvento', [CalendarioController::class, 'editarEvento']);
 Route::post('crearElemento', [EspacioDeAsesoramientoController::class, 'crearElemento']);
 Route::post('eliminarElemento',[EspacioDeAsesoramientoController::class, 'eliminarElemento']);
 

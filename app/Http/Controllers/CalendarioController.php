@@ -36,4 +36,14 @@ class CalendarioController extends Controller
                         ->get();
         return response()->json($eventos);
     }
+
+    public function editarEvento(Request $request){
+        $evento = Evento::find($request->idEvento);
+        $evento->fecha_inicio = $request->fecha_inicio;
+        $evento->fecha_final = $request->fecha_final;
+        $evento->nombre = $request->nombre;
+        $evento->save();
+
+        return response(200);
+    }
 }

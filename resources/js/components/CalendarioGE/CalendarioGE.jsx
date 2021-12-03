@@ -15,10 +15,14 @@ import BotonEditarEvt from './BotonEditar';
 const CalendarioGE = () => {
     const [datosGE, setDatosGE] = useState(null);
     const [agEvento, setAgEvento] = useState(false);
+    const [edEvento, setEdEvento] = useState(false);
     const [eventos, setEventos] = useState([]);
-    const descEvt = useRef(null);
-    const [descEvtAux, setDescEvtAux] = useState('');
+    const [idEventoEdit, setIdEventoEdit] = useState(null);
     const formulario = useRef(null);
+
+    const [nombreEvt, setNombreEvt] = useState('');
+    const [fechaIniEvt, setFechaIniEvt] = useState(null);
+    const [fechaFinEvt, setFechaFinEvt] = useState(null);
 
     useEffect(() => {
         const datos = new FormData();
@@ -36,10 +40,15 @@ const CalendarioGE = () => {
 
     const agregarEvt = () => {
         setAgEvento(true);
+        setEdEvento(false);
     };
 
     const cancEvt = () => {
         setAgEvento(false);
+        setEdEvento(false);
+        setNombreEvt('');
+        setFechaIniEvt(null);
+        setFechaFinEvt(null);
     };
 
     const agregarUnEvento = () => {
@@ -53,6 +62,9 @@ const CalendarioGE = () => {
             if (res.ok) {
                 alert('Evento agregado al calendario');
                 setAgEvento(false);
+                setNombreEvt('');
+                setFechaIniEvt(null);
+                setFechaFinEvt(null);
             } else {
                 alert('Ocurrio un error al agregar evento');
             }
@@ -74,14 +86,36 @@ const CalendarioGE = () => {
         }
     };
     
-    const editarEvento = (nombre) => {
-        fetch()
+    const editarEvento = () => {
+        const datos = new FormData(document.getElementById('formulario'));
+        datos.append('idEvento', idEventoEdit);
+        fetch('api/editarEvento',{
+            method: 'POST',
+            body: datos
+        })
+        .then((res) => {
+            if (res.ok) {
+                alert('Evento Editado Correctamente');
+                setEdEvento(false);
+                setIdEventoEdit(null);
+            } else {
+                alert('No se pudo actualizar el evento');
+            }
+        })
+    };
+
+    const activarEdicion = (evento) => {
+        setIdEventoEdit(evento.idEvento),
+        setEdEvento(true),
+        setAgEvento(false),
+        setNombreEvt(evento.nombre);
+        setFechaIniEvt(evento.fecha_inicio);
+        setFechaFinEvt(evento.fecha_final);
     };
 
     useEffect(() => {
         obtenerEventos();
-    }, [datosGE, agEvento])
-
+    }, [datosGE, agEvento, edEvento])
 
     return(
         <Card style={{margin: '100px auto',
@@ -90,7 +124,7 @@ const CalendarioGE = () => {
                       minWidth: '0'}}>
             <ContCalendar>
                 {
-                    (agEvento) && (
+                    (agEvento || edEvento) && (
                         <form
                             ref={formulario}
                             id='formulario'
@@ -103,18 +137,26 @@ const CalendarioGE = () => {
                                 <ContInputs>
                                     <ContLabelInput>
                                         <h6 className="text-left">Fecha:</h6>
-                                        <Fecha name='fecha_inicio'/>
+                                        <Fecha 
+                                            name='fecha_inicio'
+                                            cargarFecha={fechaIniEvt}
+                                            />
                                     </ContLabelInput>
                                     <ContLabelInput>
                                         <h6 className="text-left">Fecha Limite:</h6>
-                                        <Fecha name='fecha_final' />
+                                        <Fecha 
+                                            name='fecha_final'
+                                            cargarFecha={fechaFinEvt}    
+                                        />
                                     </ContLabelInput>
                                     <ContLabelInput>
                                         <h6 className="text-left">Descripción del Evento:</h6> 
                                         <InputStyle
+                                            id='evt-desc'
                                             name='nombre'
-                                            ref={descEvt}
                                             type="text"
+                                            value={ nombreEvt }
+                                            onChange={e => setNombreEvt(e.target.value)}
                                         />
                                     </ContLabelInput>                      
                                 </ContInputs>                 
@@ -122,7 +164,7 @@ const CalendarioGE = () => {
                                     <ContBtmDerecho onClick={cancEvt}>
                                         <IconoAtras/>
                                     </ContBtmDerecho>
-                                    <ContBtmIzquierdo onClick={agregarUnEvento}>
+                                    <ContBtmIzquierdo onClick={agEvento? agregarUnEvento: editarEvento}>
                                         <IconoGuardar/>
                                     </ContBtmIzquierdo>
                                 </ContIconos>
@@ -136,7 +178,10 @@ const CalendarioGE = () => {
                     {
                         (!agEvento) && (
                            <div>
-                                <IconPlus onClick={agregarEvt} icon={faPlusCircle}/>
+                                <IconPlus 
+                                    onClick={agregarEvt} 
+                                    icon={faPlusCircle}    
+                                />
                             </div>  
                         )
                     }
@@ -162,7 +207,9 @@ const CalendarioGE = () => {
                                     <td>
                                         <BotonEditarEvt 
                                             evento={evento}
-                                            onClickBtm={() => editarEvento(evento.nombre)}    
+                                            onClickBtm={() => {
+                                                activarEdicion(evento)
+                                            }}    
                                         />
                                     </td>
                                     <td>
