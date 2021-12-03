@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerfilUsuarioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VistaInscritosController;
+use App\Http\Controllers\GEController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,8 @@ Route::post('registrarMensaje', [ForoDudasController::class, 'registrarMensaje']
 
 Route::post('obtenerCarpetasBasicas', [EspacioDeAsesoramientoController::class, 'obtenerCarpetasBasicas']);
 
+Route::post('obtenerGrupoEmpresasValidas', [GEController::class, 'obtenerGrupoEmpresasValidas']);
+Route::post('obtenerTodasGrupoEmpresas', [GEController::class, 'obtenerTodasGrupoEmpresas']);
 Route::post('agregarEvento',[CalendarioController::class, 'agregarEvento']);
 Route::post('obtenerEventos',[CalendarioController::class, 'obtenerEventos']);
 Route::post('crearElemento', [EspacioDeAsesoramientoController::class, 'crearElemento']);

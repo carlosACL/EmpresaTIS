@@ -29,5 +29,5 @@
 @endsection
 
 @section('contenido')
-    <div id='viewgevalida'></div>
+    <div id='viewvalidarge'></div>
 @endsection
