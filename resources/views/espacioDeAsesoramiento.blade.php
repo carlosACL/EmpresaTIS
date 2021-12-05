@@ -30,7 +30,7 @@
 
 @section('contenido')
     <script>
-        const nombreGE = '<?=$id?>'
+        const nombreGE = '<?=$id?>';
     </script>
     <div id="espAse"></div>
 @endsection

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Calendario;
 use App\Models\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -43,6 +42,13 @@ class CalendarioController extends Controller
         $evento->fecha_final = $request->fecha_final;
         $evento->nombre = $request->nombre;
         $evento->save();
+
+        return response(200);
+    }
+
+    public function quitarEvento(Request $request){
+        $evento = Evento::find($request->idEvento);
+        $evento->delete();
 
         return response(200);
     }
