@@ -16,31 +16,50 @@ import ItemAcord from './Acordeon/ItemAcord';
           
 
 const EspacioGeneral = () => {
-    
-    const formulario = useRef(null);
-    const contenidoAnuncio=() => {
-        return (<>
-            <TextArea></TextArea>
-            <div>
-                <Boton>Enviar</Boton>
-            </div>
-                
-        </>)
+    const [usuario,setUsuario] = useState (null)
+        const formulario = useRef(null);
+        const form = new FormData();
+            useEffect(()=>{
+            
+            form.append('idUsuario', sessionStorage.getItem('id'));
+            fetch('api/getFullUser', {
+                method: 'POST',
+                body: form
+            })
+            .then((response)=> response.json())
+            .then((json) => {
+                setUsuario(json);
+            })
+        },[]) 
+        const contenidoAnuncio=() => {
+            return (<>
+                {
+                    (usuario) && ((usuario.nombreRol == 'Consultor')?(
+                        <div>
+                            <TextArea></TextArea>
+                            <div>
+                                <Boton>Enviar</Boton>
+                            </div>
+                        </div>
+                    ):(<p>AQUI ESTAN LOS ANUNCIOS</p>))  
+                        
+                        
+                        
+                }
+            </>)
     }
 
-    const contenidoDescripcion = () => {
-        const Submit = () =>{
-            const data = new FormData (document.getElementById('anuncioId1'));
-            fetch ('api/registrarDescrip',{
-                method: 'POST',
-                body:data
-            }).then (()=>{
-        
-        
-            });
+        const contenidoDescripcion = () => {
+            const Submit = () =>{
+                const data = new FormData (document.getElementById('anuncioId1'));
+                fetch ('api/registrarDescrip',{
+                   method: 'POST',
+                    body:data
+                }).then (()=>{ 
+                });
         
         }
-
+        
         const enviarDescripcion = () => {
             
 
@@ -55,22 +74,32 @@ const EspacioGeneral = () => {
         }
 
         return (<>
-        <form   ref={formulario}
-                id='formulario'
-                onSubmit={Submit}
-                method='POST'
-                >
-            <TextArea id='anuncioId1'></TextArea>
+        
+            { (usuario) && ((usuario.nombreRol == 'Consultor') ? 
+                (<form   
+                    ref={formulario}
+                    id='formulario'
+                    onSubmit={Submit}
+                    method='POST'
+                    >
+                <TextArea id='anuncioId1'></TextArea>
 
-            <div>
-                <Boton id='botonSub' type = 'submit'onClick= { enviarDescripcion } >Enviar</Boton>
-            </div>
-        </form>    
+                <div>
+                    <Boton id='botonSub' type = 'submit'onClick= { enviarDescripcion } >Enviar</Boton>
+                </div>
+            </form>):(<p>DESCRIPCION</p>))}    
         </>)
     }
 
     const contenidoDocumentacion = () => {
-        return (<input type='file'/>)
+        return (<>
+        {
+            (usuario) && ((usuario.nombreRol == 'Consultor') ?
+            (<input type='file'/>):
+            (<p>AQUI ESTAN LOS DOCUMENTOS PARA DESCARGAR</p>))
+        }
+        
+        </>)
     }
     
     return(
@@ -88,7 +117,9 @@ const EspacioGeneral = () => {
                             
                         </Accordion>
                     </div>
-
+                    <div padding-top = '200px'>
+                    <a href="/ForoDudas">Seccion de Dudas</a>
+                    </div>
             </Card>  
             
         </main>

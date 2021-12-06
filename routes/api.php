@@ -94,3 +94,4 @@ Route::post('elegirNavegador', [NavegadorController::class, 'elegirNavegador']);
 Route::post('actualizarRol', [AdminController::class, 'actualizarRol']);
 Route::get('getUsuarios', [AdminController::class, 'getUsuarios']);
 Route::post('registrarDescrip', [EspacioGeneralController::class, 'RegistroDescripcion']);
+Route::post('getFullUser', [AdminController::class, 'getFullUser']);
