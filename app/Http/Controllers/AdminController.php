@@ -41,4 +41,14 @@ class AdminController extends Controller
         $usuario->save();
         return response(200);
     }
+
+    public function getFullUser(Request $req){
+        $usuario = DB::table('Usuario')
+                        ->leftJoin('Rol','Rol.idRol','=','Usuario.idRol')
+                        ->where('idUsuario','=',$req-> idUsuario)
+                        ->first();
+        return response()-> json($usuario);
+    }
 }
+
+

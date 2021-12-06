@@ -15752,6 +15752,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../elementos/espacioGeneral */ "./resources/js/elementos/espacioGeneral.js");
 /* harmony import */ var _Acordeon_ItemAcord__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Acordeon/ItemAcord */ "./resources/js/components/Acordeon/ItemAcord.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -15767,44 +15779,88 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var EspacioGeneral = function EspacioGeneral() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      usuario = _useState2[0],
+      setUsuario = _useState2[1];
+
+  var formulario = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var form = new FormData();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    form.append('idUsuario', sessionStorage.getItem('id'));
+    fetch('api/getFullUser', {
+      method: 'POST',
+      body: form
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      setUsuario(json);
+    });
+  }, []);
+
   var contenidoAnuncio = function contenidoAnuncio() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__.TextArea, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
-          children: "Enviar"
-        })
-      })]
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+      children: usuario && (usuario.nombreRol == 'Consultor' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__.TextArea, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
+            children: "Enviar"
+          })
+        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+        children: "AQUI ESTAN LOS ANUNCIOS"
+      }))
     });
   };
 
   var contenidoDescripcion = function contenidoDescripcion() {
-    var enviarAnuncio = function enviarAnuncio() {
+    var Submit = function Submit() {
+      var data = new FormData(document.getElementById('anuncioId1'));
+      fetch('api/registrarDescrip', {
+        method: 'POST',
+        body: data
+      }).then(function () {});
+    };
+
+    var enviarDescripcion = function enviarDescripcion() {
       var valor = document.getElementById('anuncioId1');
 
       if (valor.value.length < 140 && valor.value.length > 0) {
         alert("enviado con exito");
         desplegarAnuncio();
-        ñ;
       } else {
         alert("error, contenido debe tener un tamaño inferior 140 caracteres y no debe estar vacio");
       }
     };
 
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__.TextArea, {
-        id: "anuncioId1"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
-          onClick: enviarAnuncio,
-          children: "Enviar"
-        })
-      })]
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+      children: usuario && (usuario.nombreRol == 'Consultor' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
+        ref: formulario,
+        id: "formulario",
+        onSubmit: Submit,
+        method: "POST",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_espacioGeneral__WEBPACK_IMPORTED_MODULE_6__.TextArea, {
+          id: "anuncioId1"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_2__.Boton, {
+            id: "botonSub",
+            type: "submit",
+            onClick: enviarDescripcion,
+            children: "Enviar"
+          })
+        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+        children: "DESCRIPCION"
+      }))
     });
   };
 
   var contenidoDocumentacion = function contenidoDocumentacion() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-      type: "file"
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+      children: usuario && (usuario.nombreRol == 'Consultor' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+        type: "file"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+        children: "AQUI ESTAN LOS DOCUMENTOS PARA DESCARGAR"
+      }))
     });
   };
 
@@ -15833,6 +15889,12 @@ var EspacioGeneral = function EspacioGeneral() {
             titulo: "Calendario",
             contenido: function contenido() {}
           })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        "padding-top": "200px",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+          href: "/ForoDudas",
+          children: "Seccion de Dudas"
         })
       })]
     })
