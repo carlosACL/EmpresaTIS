@@ -16302,7 +16302,12 @@ var GEPorValidar = function GEPorValidar(props) {
   }, []);
 
   var onClick = function onClick() {
-    console.log(grupo_empresa);
+    var dat = new FormData();
+    dat.append('id', sessionStorage.getItem('id'));
+    fetch('api/validarGrupoEmpresas', {
+      method: 'POST',
+      body: dat
+    });
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {

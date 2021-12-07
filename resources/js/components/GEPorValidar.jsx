@@ -21,7 +21,12 @@ const GEPorValidar = (props) => {
             });
     }, [])
     const onClick = () => {
-        console.log(grupo_empresa);
+        const dat = new FormData();
+        dat.append('id', sessionStorage.getItem('id'));
+        fetch('api/validarGrupoEmpresas', {
+            method: 'POST',
+            body: dat
+        })
     }
 
     return (
