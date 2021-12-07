@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 import { useState, useEffect } from 'react';
 
 
@@ -21,7 +21,7 @@ const GEvalida = (props) => {
         dat.append('id', sessionStorage.getItem('id'));
         fetch('api/obtenerGrupoEmpresasValidas', {
             method: 'POST',
-            body:dat
+            body: dat
         })
             .then((response) => response.json())
             .then((json) => {
@@ -49,7 +49,9 @@ const GEvalida = (props) => {
                             <><tr>
                                 <td>
                                     <div className="col-12 text-left">
-                                        {empresa.nombre}
+                                        <a href={'https://tis1.herokuapp.com/Esp-de-Asesoramiento-' + empresa.idGE}>
+                                            {empresa.nombre}
+                                        </a>
                                     </div>
                                 </td>
                                 <td>
@@ -69,7 +71,7 @@ const GEvalida = (props) => {
                                 </td>
                                 <td>
                                     <div className="col-12 text-left">
-                                        {(empresa.valido) ? <>Sin Espacio</> : <>Sin espacio</>}
+                                        {(empresa.valido) ? <>Con Espacio</> : <>Sin espacio</>}
                                     </div>
                                 </td>
                             </tr></>

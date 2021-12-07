@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Boton } from './../elementos/registro';
 
@@ -26,7 +26,7 @@ const GEPorValidar = (props) => {
         fetch('api/validarGrupoEmpresas', {
             method: 'POST',
             body: dat
-        })
+        });
     }
 
     return (
@@ -70,7 +70,7 @@ const GEPorValidar = (props) => {
                                     </td>
                                     <td>
                                         <div className="col-12 text-left">
-                                            {(empresa.valido) ? <>Sin Espacio</> : <>Sin espacio</>}
+                                            {(empresa.valido) ? <>Con espacio</> : <>Sin espacio</>}
                                         </div>
                                     </td>
                                 </tr></>
