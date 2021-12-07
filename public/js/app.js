@@ -11096,13 +11096,53 @@ var CalendarioGE = function CalendarioGE() {
       agEvento = _useState4[0],
       setAgEvento = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState6 = _slicedToArray(_useState5, 2),
-      eventos = _useState6[0],
-      setEventos = _useState6[1];
+      edEvento = _useState6[0],
+      setEdEvento = _useState6[1];
 
-  var descEvt = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      actualizar = _useState8[0],
+      setActualizar = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      eventos = _useState10[0],
+      setEventos = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState12 = _slicedToArray(_useState11, 2),
+      idEventoEdit = _useState12[0],
+      setIdEventoEdit = _useState12[1];
+
   var formulario = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState14 = _slicedToArray(_useState13, 2),
+      nombreEvt = _useState14[0],
+      setNombreEvt = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState16 = _slicedToArray(_useState15, 2),
+      fechaIniEvt = _useState16[0],
+      setFechaIniEvt = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState18 = _slicedToArray(_useState17, 2),
+      fechaFinEvt = _useState18[0],
+      setFechaFinEvt = _useState18[1];
+
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState20 = _slicedToArray(_useState19, 2),
+      cmpValido = _useState20[0],
+      setCmpValido = _useState20[1];
+
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState22 = _slicedToArray(_useState21, 2),
+      fechaAct = _useState22[0],
+      setFechaAct = _useState22[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var datos = new FormData();
     datos.append('nombreGE', nombreGE);
@@ -11117,28 +11157,66 @@ var CalendarioGE = function CalendarioGE() {
     });
   }, []);
 
+  var convertirDig = function convertirDig(n) {
+    return n < 10 ? '0' + n : n;
+  };
+
+  var fechaIgual = function fechaIgual(fecha) {
+    var igual = false;
+
+    if (fecha == fechaAct) {
+      igual = true;
+    }
+
+    return igual;
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var date = new Date();
+    var _ref = [convertirDig(date.getDate()), convertirDig(date.getMonth() + 1), convertirDig(date.getFullYear())],
+        dia = _ref[0],
+        mes = _ref[1],
+        anio = _ref[2];
+    setFechaAct("".concat(anio, "-").concat(mes, "-").concat(dia));
+  }, []);
+
   var agregarEvt = function agregarEvt() {
     setAgEvento(true);
+    setEdEvento(false);
   };
 
   var cancEvt = function cancEvt() {
     setAgEvento(false);
+    setEdEvento(false);
+    setNombreEvt('');
+    setFechaIniEvt(null);
+    setFechaFinEvt(null);
   };
 
   var agregarUnEvento = function agregarUnEvento() {
-    var datos = new FormData(document.getElementById('formulario'));
-    datos.append('idGE', datosGE.idGE);
-    fetch('api/agregarEvento', {
-      method: 'POST',
-      body: datos
-    }).then(function (res) {
-      if (res.ok) {
-        alert('Evento agregado al calendario');
-        setAgEvento(false);
-      } else {
-        alert('Ocurrio un error al agregar evento');
-      }
-    });
+    validarEvento();
+
+    if (cmpValido) {
+      setNombreEvt(nombreEvt.trim().replace(/\s\s+/g, ' '));
+      document.getElementById('evt-desc').value = nombreEvt.trim().replace(/\s\s+/g, ' ');
+      var datos = new FormData(document.getElementById('formulario'));
+      datos.append('idGE', datosGE.idGE);
+      fetch('api/agregarEvento', {
+        method: 'POST',
+        body: datos
+      }).then(function (res) {
+        if (res.ok) {
+          alert('Evento agregado al calendario');
+          setAgEvento(false);
+          setNombreEvt('');
+          setFechaIniEvt(null);
+          setFechaFinEvt(null);
+          setCmpValido(false);
+        } else {
+          alert('Ocurrio un error al agregar evento');
+        }
+      });
+    }
   };
 
   var obtenerEventos = function obtenerEventos() {
@@ -11156,9 +11234,79 @@ var CalendarioGE = function CalendarioGE() {
     }
   };
 
+  var editarEvento = function editarEvento() {
+    validarEvento();
+
+    if (cmpValido) {
+      setNombreEvt(nombreEvt.trim().replace(/\s\s+/g, ' '));
+      document.getElementById('evt-desc').value = nombreEvt.trim().replace(/\s\s+/g, ' ');
+      var datos = new FormData(document.getElementById('formulario'));
+      datos.append('idEvento', idEventoEdit);
+      fetch('api/editarEvento', {
+        method: 'POST',
+        body: datos
+      }).then(function (res) {
+        if (res.ok) {
+          alert('Evento Editado Correctamente');
+          setEdEvento(false);
+          setIdEventoEdit(null);
+          setAgEvento(false);
+          setNombreEvt('');
+          setFechaIniEvt(null);
+          setFechaFinEvt(null);
+          setCmpValido(false);
+        } else {
+          alert('No se pudo actualizar el evento');
+        }
+      });
+    }
+  };
+
+  var activarEdicion = function activarEdicion(evento) {
+    setIdEventoEdit(evento.idEvento), setEdEvento(true), setAgEvento(false), setNombreEvt(evento.nombre);
+    setFechaIniEvt(evento.fecha_inicio);
+    setFechaFinEvt(evento.fecha_final);
+  };
+
+  var quitarEvento = function quitarEvento(idEvento) {
+    var conf = confirm("Se quitará el evento del calendario");
+
+    if (conf) {
+      var datos = new FormData();
+      datos.append('idEvento', idEvento);
+      fetch('api/quitarEvento', {
+        method: 'POST',
+        body: datos
+      }).then(function (res) {
+        if (res.ok) {} else {
+          alert('No se pudo quitar el evento del calendario');
+        }
+      });
+    }
+  };
+
+  var cmpRegex = new RegExp('^[a-zA-Z0-9_ ]+$');
+
+  var validarEvento = function validarEvento() {
+    var cmpDesc = document.getElementById('evt-desc');
+
+    if (cmpDesc.value.length === 0) {
+      cmpDesc.setCustomValidity("Debe llenar este campo");
+      cmpDesc.reportValidity();
+      setCmpValido(false);
+    } else if (!cmpRegex.test(cmpDesc.value)) {
+      cmpDesc.setCustomValidity("Solo se admite caracteres alfanumericos.");
+      cmpDesc.reportValidity();
+      setCmpValido(false);
+    } else {
+      cmpDesc.setCustomValidity("");
+      setCmpValido(true);
+    }
+  };
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     obtenerEventos();
-  }, [datosGE, agEvento]);
+  }, [datosGE, agEvento, edEvento, actualizar]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
     style: {
       margin: '100px auto',
@@ -11167,7 +11315,7 @@ var CalendarioGE = function CalendarioGE() {
       minWidth: '0'
     },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContCalendar, {
-      children: [agEvento && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("form", {
+      children: [(agEvento || edEvento) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("form", {
         ref: formulario,
         id: "formulario",
         className: "formStyle",
@@ -11185,23 +11333,33 @@ var CalendarioGE = function CalendarioGE() {
                 className: "text-left",
                 children: "Fecha:"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_RegistroGE_Fecha__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                name: "fecha_inicio"
+                name: "fecha_inicio",
+                max: "",
+                cargarFecha: fechaIniEvt
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContLabelInput, {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
                 className: "text-left",
                 children: "Fecha Limite:"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_RegistroGE_Fecha__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                name: "fecha_final"
+                name: "fecha_final",
+                max: "",
+                cargarFecha: fechaFinEvt
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContLabelInput, {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h6", {
                 className: "text-left",
                 children: "Descripci\xF3n del Evento:"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_3__.InputStyle, {
+                id: "evt-desc",
                 name: "nombre",
-                ref: descEvt,
-                type: "text"
+                type: "text",
+                value: nombreEvt,
+                onChange: function onChange(e) {
+                  setNombreEvt(e.target.value), validarEvento();
+                },
+                maxLength: "30",
+                onBlur: validarEvento
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContIconos, {
@@ -11209,7 +11367,7 @@ var CalendarioGE = function CalendarioGE() {
               onClick: cancEvt,
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Svg_IconoAtras__WEBPACK_IMPORTED_MODULE_6__["default"], {})
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.ContBtmIzquierdo, {
-              onClick: agregarUnEvento,
+              onClick: agEvento ? agregarUnEvento : editarEvento,
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Svg_IconoGuardar__WEBPACK_IMPORTED_MODULE_7__["default"], {})
             })]
           })]
@@ -11217,7 +11375,7 @@ var CalendarioGE = function CalendarioGE() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
           children: "Calendario"
-        }), !agEvento && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), datosGE && datosGE.duenio == sessionStorage.getItem('id') && !agEvento && !edEvento && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_estilos_calendarioGE__WEBPACK_IMPORTED_MODULE_8__.IconPlus, {
             onClick: agregarEvt,
             icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faPlusCircle
@@ -11249,21 +11407,58 @@ var CalendarioGE = function CalendarioGE() {
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_DatosVistaInscritos_estilosVistaInscritos_estilosVistaInscritos__WEBPACK_IMPORTED_MODULE_4__.TBody, {
-            children: eventos != null ? eventos.map(function (evento) {
+            children: eventos != null && eventos != [] ? eventos.map(function (evento) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_DatosVistaInscritos_estilosVistaInscritos_estilosVistaInscritos__WEBPACK_IMPORTED_MODULE_4__.TItem, {
+                style: fechaIgual(evento.fecha_final) ? {
+                  border: '3px solid #6aff00',
+                  color: 'red',
+                  fontWeight: 'bold'
+                } : {
+                  height: '55px'
+                },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
                   children: evento.fecha_inicio
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
                   children: evento.fecha_final
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
+                  style: {
+                    maxWidth: '120px'
+                  },
                   children: evento.nombre
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
-                  children: "Editar"
+                  children: datosGE && datosGE.duenio == sessionStorage.getItem('id') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+                    style: {
+                      fontSize: '30px',
+                      cursor: 'pointer',
+                      color: 'midnightblue'
+                    },
+                    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faEdit,
+                    onClick: function onClick() {
+                      activarEdicion(evento);
+                    }
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                    children: "*******"
+                  })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("td", {
-                  children: "Borrar"
+                  children: datosGE && datosGE.duenio == sessionStorage.getItem('id') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_elementos_registro__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+                    style: {
+                      fontSize: '30px',
+                      cursor: 'pointer'
+                    },
+                    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faMinusCircle,
+                    onClick: function onClick() {
+                      quitarEvento(evento.idEvento), setActualizar(!actualizar);
+                    }
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                    children: "*******"
+                  })
                 })]
               });
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {})
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+                children: "SIN EVENTOS"
+              })
+            })
           })]
         })
       })]
@@ -12895,7 +13090,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elementos_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/card */ "./resources/js/elementos/card.js");
 /* harmony import */ var _estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./estilos/estilosPerfil */ "./resources/js/components/DatosPerfilUsuario/estilos/estilosPerfil.js");
 /* harmony import */ var _Invitacion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Invitacion */ "./resources/js/components/DatosPerfilUsuario/Invitacion.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _SolicitudRechazada__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SolicitudRechazada */ "./resources/js/components/DatosPerfilUsuario/SolicitudRechazada.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -12907,6 +13103,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -12983,19 +13180,49 @@ var InvitacionesPerfil = function InvitacionesPerfil() {
     location.reload();
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
+  var eliminar = function eliminar(id, pend, setPend) {
+    var data = new FormData();
+    data.append('id', id);
+    fetch('api/eliminarInvitacion', {
+      method: 'POST',
+      body: data
+    }).then(function (response) {
+      if (response.ok) {
+        var nuevo = pend.filter(function (dat) {
+          return dat.idInvitacion != id;
+        });
+
+        if (nuevo.length > 0) {
+          setPend(nuevo);
+        } else {
+          setPend(null);
+        }
+      } else {
+        alert("error, vuelva a intentarlo luego");
+      }
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_elementos_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
     style: {
       margin: "100px auto",
       height: "600px"
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
       style: {
         fontSize: "35px"
       },
       children: "INVITACIONES"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__.ContenedorInvi, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__.ContenedorInvi, {
       children: invitaciones != null && invitaciones.length != 0 ? invitaciones.map(function (inv) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Invitacion__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        return inv.invitacion == false && inv.estado == 'Rechazado' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SolicitudRechazada__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          idInv: inv.idInvitacion,
+          nombreGE: inv.nombre,
+          logo: inv.logo,
+          eliminar: eliminar,
+          invitaciones: invitaciones,
+          setInvitaciones: setInvitaciones
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Invitacion__WEBPACK_IMPORTED_MODULE_3__["default"], {
           idInv: inv.idInvitacion,
           nombreGE: inv.nombre,
           logo: inv.logo,
@@ -13005,11 +13232,11 @@ var InvitacionesPerfil = function InvitacionesPerfil() {
           invitaciones: invitaciones,
           setInvitaciones: setInvitaciones
         });
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         style: {
           margin: '34% auto'
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
           style: {
             fontSize: '25px'
           },
@@ -13021,6 +13248,73 @@ var InvitacionesPerfil = function InvitacionesPerfil() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InvitacionesPerfil);
+
+/***/ }),
+
+/***/ "./resources/js/components/DatosPerfilUsuario/SolicitudRechazada.jsx":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/DatosPerfilUsuario/SolicitudRechazada.jsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _elementos_socios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../elementos/socios */ "./resources/js/elementos/socios.js");
+/* harmony import */ var _estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./estilos/estilosPerfil */ "./resources/js/components/DatosPerfilUsuario/estilos/estilosPerfil.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var SolicitudRechazada = function SolicitudRechazada(_ref) {
+  var idInv = _ref.idInv,
+      nombreGE = _ref.nombreGE,
+      logo = _ref.logo,
+      eliminar = _ref.eliminar,
+      invitaciones = _ref.invitaciones,
+      setInvitaciones = _ref.setInvitaciones;
+  var ruta = "../resources/";
+  var logoGE = ruta + logo;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__.CajaInvitacion, {
+    style: {
+      backgroundColor: 'rgba(255,0,0,0.2)'
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__.CajaImagen, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__.ImagenLogo, {
+        src: logoGE,
+        style: {
+          border: '2px solid red'
+        }
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__.CajaTexto, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+        children: nombreGE
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+        style: {
+          color: 'red'
+        },
+        children: "Rechazado"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_estilos_estilosPerfil__WEBPACK_IMPORTED_MODULE_2__.CajaBotones, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_elementos_socios__WEBPACK_IMPORTED_MODULE_1__.Quitar, {
+        onClick: function onClick() {
+          eliminar(idInv, invitaciones, setInvitaciones);
+        },
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faMinusCircle
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SolicitudRechazada);
 
 /***/ }),
 
@@ -17636,8 +17930,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Fecha = function Fecha(_ref) {
   var _ref$name = _ref.name,
       name = _ref$name === void 0 ? 'fecha_registro' : _ref$name,
-      estado = _ref.estado,
-      cambiarEstado = _ref.cambiarEstado;
+      _ref$cargarFecha = _ref.cargarFecha,
+      cargarFecha = _ref$cargarFecha === void 0 ? null : _ref$cargarFecha,
+      _ref$max = _ref.max,
+      max = _ref$max === void 0 ? null : _ref$max,
+      _ref$min = _ref.min,
+      min = _ref$min === void 0 ? '1999-01-01' : _ref$min;
   var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
@@ -17654,10 +17952,23 @@ var Fecha = function Fecha(_ref) {
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setDate({
-      campo: validarCalendario()
-    });
+    if (cargarFecha != null) {
+      setDate({
+        campo: cargarFecha
+      });
+    } else {
+      setDate({
+        campo: validarCalendario()
+      });
+    }
   }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (cargarFecha != null) {
+      setDate({
+        campo: cargarFecha
+      });
+    }
+  }, [cargarFecha]);
 
   var validarCalendario = function validarCalendario() {
     var convertirDig = function convertirDig(n) {
@@ -17677,8 +17988,8 @@ var Fecha = function Fecha(_ref) {
       name: name,
       type: "date",
       value: date.campo,
-      max: validarCalendario(),
-      min: "1999-01-01",
+      max: max == null ? validarCalendario() : max,
+      min: min,
       ref: ref,
       onChange: onChange
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
