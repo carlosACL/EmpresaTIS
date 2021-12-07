@@ -63,7 +63,7 @@ class GEController extends Controller
                     'Grupo_Empresa.nombreAb',
                     'Grupo_Empresa.valido')
                     ->where('Usuario.idGrupo', '=', $grupo->idGrupo)
-                    /* ->where('Usuario.idGrupo', '=', $grupo->idGrupo) */
+                    ->where('Grupo_Empresa.valido', '=', 'true')
                     ->get();
         $res = [];
         foreach ($dat as $value){
