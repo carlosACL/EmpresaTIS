@@ -49,7 +49,7 @@ const GEvalida = (props) => {
                             <><tr>
                                 <td>
                                     <div className="col-12 text-left">
-                                        <a href={'https://tis1.herokuapp.com/Esp-de-Asesoramiento-' + empresa.idGE}>
+                                        <a href={'Esp-de-Asesoramiento-' + empresa.idGE}>
                                             {empresa.nombre}
                                         </a>
                                     </div>

@@ -96,7 +96,7 @@ class GEController extends Controller
             $ge->valido = true;
             $ge->save();
         }
-        return response(200);
+        return view('VistaGEValida');
     }
 
 }

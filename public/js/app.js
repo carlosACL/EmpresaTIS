@@ -16495,7 +16495,7 @@ var GEvalida = function GEvalida(props) {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
                     className: "col-12 text-left",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                      href: 'https://tis1.herokuapp.com/Esp-de-Asesoramiento-' + empresa.idGE,
+                      href: 'Esp-de-Asesoramiento-' + empresa.idGE,
                       children: empresa.nombre
                     })
                   })
